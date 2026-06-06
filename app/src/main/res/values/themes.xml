@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.CropSurvey" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/primary</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">#1A1A1A</item>
+        <item name="android:editTextColor">#1A1A1A</item>
+    </style>
+
+    <style name="Theme.CropSurvey.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#F0FDF4</item>
+        <item name="postSplashScreenTheme">@style/Theme.CropSurvey</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+</resources>

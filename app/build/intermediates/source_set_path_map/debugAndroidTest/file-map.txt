@@ -1,0 +1,6 @@
+com.cropsurvey.app.test.app-jetified-annotation-experimental-1.3.1-0 C:\Users\akshay\.gradle\caches\transforms-3\6449466fc55687dc42b2067cb21182ee\transformed\jetified-annotation-experimental-1.3.1\res
+com.cropsurvey.app.test.app-jetified-core-1.5.0-1 C:\Users\akshay\.gradle\caches\transforms-3\9d4f8d1cc878ec399a4edc9048b94424\transformed\jetified-core-1.5.0\res
+com.cropsurvey.app.test.app-androidTest-2 C:\Users\akshay\AndroidStudioProjects\CropSurvey\app\build\generated\res\resValues\androidTest\debug
+com.cropsurvey.app.test.app-mergeDebugAndroidTestResources-3 C:\Users\akshay\AndroidStudioProjects\CropSurvey\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.cropsurvey.app.test.app-mergeDebugAndroidTestResources-4 C:\Users\akshay\AndroidStudioProjects\CropSurvey\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.cropsurvey.app.test.app-merged_res-5 C:\Users\akshay\AndroidStudioProjects\CropSurvey\app\build\intermediates\merged_res\debugAndroidTest

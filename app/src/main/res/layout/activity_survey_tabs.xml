@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F7F9FB">
+
+    <!-- ── Header ── -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:paddingTop="40dp"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical"
+        android:elevation="4dp">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_revert"
+            android:contentDescription="Back"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="8dp">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Survey Form"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="#0F172A"/>
+
+            <TextView
+                android:id="@+id/tv_case_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:textColor="#64748B"/>
+        </LinearLayout>
+
+        <!-- Sync status chip -->
+        <LinearLayout
+            android:id="@+id/sync_status_chip"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:background="@drawable/bg_type_pill"
+            android:layout_marginEnd="4dp">
+            <TextView
+                android:id="@+id/tv_sync_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="● Synced"
+                android:textSize="11sp"
+                android:textColor="#16A34A"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ── Info banners (resubmit / farmer verified) ── -->
+    <LinearLayout
+        android:id="@+id/banner_resubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFBEB"
+        android:padding="10dp"
+        android:gravity="center_vertical"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/tv_banner_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="#92400E"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/banner_farmer_verified"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F0FDF4"
+        android:padding="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/tv_farmer_verified_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="#16A34A"
+            android:textStyle="bold"
+            android:text="✅ Farmer Verified"/>
+    </LinearLayout>
+
+    <!-- ── TAB STRIP ── -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:orientation="horizontal"
+        android:background="#FFFFFF"
+        android:elevation="2dp">
+
+        <!-- Form Tab -->
+        <LinearLayout
+            android:id="@+id/tab_form"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground">
+
+            <TextView
+                android:id="@+id/tv_tab_form"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📋 Form"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#2563EB"/>
+
+            <TextView
+                android:id="@+id/tv_tab_form_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hint_enter"
+                android:textSize="10sp"
+                android:textColor="#64748B"/>
+
+            <!-- Active indicator bar -->
+            <View
+                android:id="@+id/tab_form_indicator"
+                android:layout_width="40dp"
+                android:layout_height="3dp"
+                android:layout_marginTop="2dp"
+                android:background="#2563EB"/>
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#E4EAF0"/>
+
+        <!-- Photos Tab -->
+        <LinearLayout
+            android:id="@+id/tab_photos"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground">
+
+            <TextView
+                android:id="@+id/tv_tab_photos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📷 Photos"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#64748B"/>
+
+            <TextView
+                android:id="@+id/tv_tab_photos_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 / 0 captured"
+                android:textSize="10sp"
+                android:textColor="#64748B"/>
+
+            <View
+                android:id="@+id/tab_photos_indicator"
+                android:layout_width="40dp"
+                android:layout_height="3dp"
+                android:layout_marginTop="2dp"
+                android:background="#2563EB"
+                android:visibility="invisible"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ── ViewPager (holds form + photos fragments) ── -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/survey_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <!-- ── Bottom action bar ── -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:paddingBottom="24dp"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical"
+        android:elevation="8dp">
+
+        <Button
+            android:id="@+id/btn_save_draft"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="@string/btn_save_draft"
+            android:backgroundTint="#F1F5F9"
+            android:textColor="#2563EB"
+            android:textSize="13sp"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/btn_proceed_submit"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1.5"
+            android:text="Submit →"
+            android:backgroundTint="#16A34A"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+</LinearLayout>

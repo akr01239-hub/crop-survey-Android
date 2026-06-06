@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#F0FDF4"
+    android:padding="32dp">
+
+    <ImageView
+        android:id="@+id/iv_splash_logo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/logo"
+        android:scaleType="fitCenter"/>
+
+    <TextView
+        android:id="@+id/tv_splash_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Krishi Sarvekshan"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="#052E16"
+        android:layout_marginTop="20dp"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/tv_splash_tagline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="सटीक सर्वेक्षण • सशक्त कृषि • समृद्ध भविष्य"
+        android:textSize="13sp"
+        android:textColor="#4B7A5A"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:visibility="invisible"/>
+
+</LinearLayout>

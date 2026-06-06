@@ -1,0 +1,3 @@
+com.cropsurvey.app.test
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="true" />
+
+    <application
+        android:name=".CropSurveyApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CropSurvey"
+        android:usesCleartextTraffic="true"
+        android:fullBackupContent="@xml/backup_rules"
+        android:dataExtractionRules="@xml/backup_rules">
+
+        <!-- Google Maps API Key -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${mapsApiKey}" />
+
+        <!-- Splash — app entry point -->
+        <activity
+            android:name=".auth.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.CropSurvey.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Language Selection — shown before login on first launch -->
+        <activity
+            android:name=".auth.LanguageSelectionActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- Language Settings — accessible from Settings screen -->
+        <activity
+            android:name=".settings.LanguageSettingsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- Login -->
+        <activity
+            android:name=".auth.LoginActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".auth.SignupActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".auth.ForgotPasswordActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".dashboard.DashboardActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".map.PolygonMapActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".map.ChmBufferCheckActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".survey.FarmerVerificationActivity" />
+        <activity android:name=".survey.SurveyTabsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity android:name=".survey.SurveyFormActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity android:name=".camera.PhotoSelectionActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".camera.PhotoCaptureActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".survey.SubmitSurveyActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".survey.chm.ChmVisitActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".survey.chm.ChmVisitReadOnlyActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".queue.QueueActivity"
+            android:screenOrientation="portrait" />
+
+    </application>
+
+</manifest>

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F5F9">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Crop Health Monitoring"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#1E293B"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Up to 5 visits per case"
+            android:textSize="14sp"
+            android:textColor="#64748B"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- ── New CHM Card ── -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Start New CHM Case"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#1E293B"
+                    android:layout_marginBottom="6dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="This will create a new case with Visit 1."
+                    android:textSize="13sp"
+                    android:textColor="#64748B"
+                    android:layout_marginBottom="12dp"/>
+
+                <Button
+                    android:id="@+id/btn_new_chm"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="+ New CHM (Visit 1)"
+                    android:backgroundTint="#1565C0"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ── Continue Existing Case Card ── -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Continue Existing Case"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#1E293B"
+                    android:layout_marginBottom="6dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Enter the Case ID to load all visits."
+                    android:textSize="13sp"
+                    android:textColor="#64748B"
+                    android:layout_marginBottom="12dp"/>
+
+                <EditText
+                    android:id="@+id/et_case_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:hint="Enter Case ID (e.g. XX1ZX68ZUX)"
+                    android:inputType="textCapCharacters"
+                    android:textSize="14sp"
+                    android:padding="12dp"
+                    android:background="@drawable/input_background"
+                    android:layout_marginBottom="12dp"/>
+
+                <Button
+                    android:id="@+id/btn_load"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Load Visits"
+                    android:backgroundTint="#0F766E"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/tv_error"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#DC2626"
+                    android:textSize="13sp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone"/>
+
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone"/>
+
+                <!-- Visit tabs rendered here -->
+                <LinearLayout
+                    android:id="@+id/layout_visit_tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ── Find Case ID by Farmer / Location ── -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Toggle button -->
+                <TextView
+                    android:id="@+id/btn_toggle_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🔍 Find Case ID by Farmer / Location"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#1565C0"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:background="?attr/selectableItemBackground"/>
+
+                <!-- Search fields (collapsed by default) -->
+                <LinearLayout
+                    android:id="@+id/layout_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Search across all CHM cases. Fill one or more fields:"
+                        android:textSize="12sp"
+                        android:textColor="#64748B"
+                        android:layout_marginBottom="10dp"/>
+
+                    <EditText
+                        android:id="@+id/et_search_state"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:hint="State (e.g. MAHARASHTRA)"
+                        android:inputType="textCapWords"
+                        android:textSize="13sp"
+                        android:padding="10dp"
+                        android:background="@drawable/input_background"
+                        android:layout_marginBottom="8dp"/>
+
+                    <EditText
+                        android:id="@+id/et_search_district"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:hint="District"
+                        android:inputType="textCapWords"
+                        android:textSize="13sp"
+                        android:padding="10dp"
+                        android:background="@drawable/input_background"
+                        android:layout_marginBottom="8dp"/>
+
+                    <EditText
+                        android:id="@+id/et_search_subdistrict"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:hint="Sub-District / Tehsil"
+                        android:inputType="textCapWords"
+                        android:textSize="13sp"
+                        android:padding="10dp"
+                        android:background="@drawable/input_background"
+                        android:layout_marginBottom="8dp"/>
+
+                    <EditText
+                        android:id="@+id/et_search_farmer_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:hint="Farmer Name"
+                        android:inputType="textPersonName"
+                        android:textSize="13sp"
+                        android:padding="10dp"
+                        android:background="@drawable/input_background"
+                        android:layout_marginBottom="8dp"/>
+
+                    <EditText
+                        android:id="@+id/et_search_mobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:hint="Farmer Mobile No."
+                        android:inputType="phone"
+                        android:textSize="13sp"
+                        android:padding="10dp"
+                        android:background="@drawable/input_background"
+                        android:layout_marginBottom="12dp"/>
+
+                    <Button
+                        android:id="@+id/btn_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:text="@string/btn_search"
+                        android:backgroundTint="#7C3AED"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"/>
+
+                    <ProgressBar
+                        android:id="@+id/progress_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="8dp"
+                        android:visibility="gone"/>
+
+                    <!-- Search results rendered here dynamically -->
+                    <LinearLayout
+                        android:id="@+id/layout_search_results"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="12dp"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>

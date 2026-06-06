@@ -1,0 +1,318 @@
+[
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_step_dot_active.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/step_dot_active.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_logo.png.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/logo.png"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_item_survey.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/item_survey.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_bg_icon_glass.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/bg_icon_glass.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_input_background.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/input_background.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_item_photo_slot.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/item_photo_slot.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_activity_polygon_map.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/activity_polygon_map.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_circle_primary.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/circle_primary.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "com.cropsurvey.app-main-60:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_section_header_collapsed.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/section_header_collapsed.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_activity_splash.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_bg_badge_red.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/bg_badge_red.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_ic_check_white.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/ic_check_white.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.cropsurvey.app-main-60:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_item_language.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/item_language.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_activity_language_selection.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/activity_language_selection.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_bg_body_sheet.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/bg_body_sheet.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_ic_language.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/ic_language.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_activity_photo_capture.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/activity_photo_capture.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_bg_tab_strip.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/bg_tab_strip.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_fragment_chm_form.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/fragment_chm_form.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "com.cropsurvey.app-main-60:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_ic_logout.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/ic_logout.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_activity_farmer_verification.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/activity_farmer_verification.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_step_dot_inactive.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/step_dot_inactive.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.cropsurvey.app-main-60:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_activity_dashboard.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/activity_dashboard.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/anim_splash_text_in.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/anim/splash_text_in.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_tab_active.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/tab_active.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_activity_chm_buffer_check.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/activity_chm_buffer_check.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "com.cropsurvey.app-main-60:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/anim_splash_logo_in.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/anim/splash_logo_in.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_card_bg.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/card_bg.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_activity_login.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_activity_language_settings.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/activity_language_settings.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/xml_backup_rules.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_activity_forgot_password.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/activity_forgot_password.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/menu_menu_language.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/menu/menu_language.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_input_bg_filled.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/input_bg_filled.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_activity_photo_selection.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/activity_photo_selection.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_tab_inactive.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/tab_inactive.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_section_card_bg.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/section_card_bg.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_input_bg.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/input_bg.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_bg_survey_icon_bubble.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/bg_survey_icon_bubble.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_ic_close_white.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/ic_close_white.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_fragment_cce_form.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/fragment_cce_form.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_fragment_photo_tab.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/fragment_photo_tab.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_ic_bell.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/ic_bell.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_section_header_error.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/section_header_error.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_activity_queue.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/activity_queue.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_bg_lang_fab.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/bg_lang_fab.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_section_header_error_collapsed.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/section_header_error_collapsed.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_bg_stat_card.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/bg_stat_card.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_bg_type_pill.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/bg_type_pill.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_circle_red.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/circle_red.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_activity_signup.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/activity_signup.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_bg_rejection_strip.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/bg_rejection_strip.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_activity_submit_survey.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/activity_submit_survey.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_bg_language_selected.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/bg_language_selected.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_activity_chm_visit_readonly.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/activity_chm_visit_readonly.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "com.cropsurvey.app-main-60:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_activity_survey_form.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/activity_survey_form.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_ic_chevron.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/ic_chevron.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_section_header_default.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/section_header_default.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_section_header_done_collapsed.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/section_header_done_collapsed.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_ic_filter.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/ic_filter.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.cropsurvey.app-main-60:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_bg_language_normal.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/bg_language_normal.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.cropsurvey.app-main-60:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_item_queue.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/item_queue.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_fragment_cls_form.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/fragment_cls_form.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_circle_green.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/circle_green.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_section_header_done.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/section_header_done.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "com.cropsurvey.app-main-60:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_activity_survey_tabs.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/activity_survey_tabs.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_bg_hero.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/bg_hero.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/drawable_splash_background.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/drawable/splash_background.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/layout_activity_chm_visit.xml.flat",
+        "source": "com.cropsurvey.app-main-60:/layout/activity_chm_visit.xml"
+    },
+    {
+        "merged": "com.cropsurvey.app-merged_res-58:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.cropsurvey.app-main-60:/mipmap-xhdpi/ic_launcher.png"
+    }
+]

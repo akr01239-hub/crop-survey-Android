@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="#F7F9FB">
+
+    <!-- Header -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:padding="16dp" android:paddingTop="40dp"
+        android:background="#FFFFFF" android:gravity="center_vertical">
+        <ImageButton android:id="@+id/btn_back" android:layout_width="40dp" android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_revert"/>
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="8dp">
+            <TextView android:id="@+id/tv_title" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Survey Form"
+                android:textSize="17sp" android:textStyle="bold" android:textColor="#0F172A"/>
+            <TextView android:id="@+id/tv_case_id" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="12sp" android:textColor="#64748B"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Edit/Resubmit banner (hidden by default, shown in edit/resubmit mode) -->
+    <LinearLayout android:id="@+id/banner_resubmit"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="#FFFBEB" android:padding="12dp" android:gravity="center_vertical"
+        android:visibility="gone">
+        <TextView android:id="@+id/tv_banner_msg"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textSize="13sp" android:textColor="#92400E"
+            android:text="Editing survey — make your changes below."/>
+    </LinearLayout>
+
+
+    <!-- Farmer Verified Banner — visible only when farmer OTP was verified -->
+    <LinearLayout
+        android:id="@+id/banner_farmer_verified"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F0FDF4"
+        android:padding="12dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/tv_farmer_verified_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="#16A34A"
+            android:textStyle="bold"
+            android:text="✅ Farmer Verified"/>
+    </LinearLayout>
+
+    <ProgressBar android:id="@+id/progress_bar" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_gravity="center" android:visibility="gone"/>
+
+    <!-- Form Fragment Container -->
+    <ScrollView android:id="@+id/form_scroll_view" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <FrameLayout android:id="@+id/form_container"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </ScrollView>
+
+    <!-- Bottom bar -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:padding="16dp" android:paddingBottom="24dp"
+        android:background="#FFFFFF" android:gravity="center_vertical">
+        <Button android:id="@+id/btn_save_draft" android:layout_width="0dp" android:layout_height="48dp"
+            android:layout_weight="1" android:text="Save Draft" android:layout_marginEnd="10dp"
+            android:backgroundTint="#F1F5F9" android:textColor="#2563EB"/>
+        <Button android:id="@+id/btn_next" android:layout_width="0dp" android:layout_height="48dp"
+            android:layout_weight="1.5" android:text="Next: Photos →"
+            android:backgroundTint="#2563EB" android:textColor="#FFFFFF"/>
+    </LinearLayout>
+</LinearLayout>

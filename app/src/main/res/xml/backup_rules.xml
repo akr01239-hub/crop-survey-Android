@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    res/xml/backup_rules.xml
+    Prevents Android Auto Backup from restoring auth tokens on reinstall.
+    This fixes the "auto-login after fresh install" bug.
+-->
+<full-backup-content>
+    <!-- Exclude session tokens — should never survive a reinstall -->
+    <exclude domain="sharedpref" path="crop_survey_session.xml"/>
+</full-backup-content>
