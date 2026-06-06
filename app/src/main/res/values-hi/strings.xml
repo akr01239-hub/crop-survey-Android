@@ -88,7 +88,7 @@
     <string name="section_location">स्थान</string>
     <string name="section_crop_survey">फसल और सर्वेक्षण विवरण</string>
     <string name="section_farmer_info">किसान की जानकारी</string>
-    <string name="section_key_dates">मुख्य तिथियां</string>
+    <string name="section_key_dates">महत्वपूर्ण तिथियां</string>
     <string name="section_loss_details">नुकसान का विवरण</string>
     <string name="section_bank_details">बैंक विवरण</string>
     <string name="section_govt_officer">सरकारी अधिकारी</string>
@@ -96,8 +96,8 @@
     <string name="section_crop_details">फसल विवरण</string>
     <string name="section_cce_plot">CCE प्लॉट विवरण</string>
     <string name="section_yield">उपज गणना</string>
-    <string name="section_witness">साक्षी विवरण</string>
-    <string name="section_chm_visit">CHM दौरा विवरण</string>
+    <string name="section_witness">गवाह विवरण</string>
+    <string name="section_chm_visit">CHM विजिट विवरण</string>
     <string name="section_observations">अवलोकन</string>
     <string name="field_year">वर्ष</string>
     <string name="field_season">मौसम</string>
