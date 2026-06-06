@@ -30,6 +30,11 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="${mapsApiKey}" />
 
+        <activity
+            android:name=".guide.OnboardingGuideActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
         <!-- Splash — app entry point -->
         <activity
             android:name=".auth.SplashActivity"
