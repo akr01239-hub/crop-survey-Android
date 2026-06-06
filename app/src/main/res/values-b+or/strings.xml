@@ -476,4 +476,15 @@
     <string name="otp_section_hint">ଚାଷୀ ପରିଚୟ ନିଶ୍ଚିତ କରିବାକୁ 6-ଅଙ୍କ OTP ଦିଅନ୍ତୁ।</string>
     <string name="language_gujarati">ଗୁଜରାଟି</string>
     <string name="language_punjabi">ପଞ୍ଜାବୀ</string>
+
+    <!-- AI Guide -->
+    <string name="guide_btn_label">AI ଗାଇଡ୍</string>
+    <string name="guide_got_it">ବୁଝିଲି →</string>
+    <string name="guide_turn_off">ଗାଇଡ୍ ବନ୍ଦ କରନ୍ତୁ</string>
+    <string name="guide_menu_title">🤖 AI ସର୍ଭେ ଗାଇଡ୍</string>
+    <string name="guide_option_rules">📖 ଆପ ନିୟମ ଏବଂ ଦିଗଦର୍ଶନ ଦେଖାନ୍ତୁ</string>
+    <string name="guide_option_restart">🔄 ସର୍ଭେ ଗାଇଡ୍ ପୁନଃଆରମ୍ଭ କରନ୍ତୁ</string>
+    <string name="guide_option_resume">🤖 ଗାଇଡ୍ ଜାରି ରଖନ୍ତୁ</string>
+    <string name="guide_option_turnoff">❌ AI ଗାଇଡ୍ ବନ୍ଦ କରନ୍ତୁ</string>
+    <string name="guide_disabled_toast">ଗାଇଡ୍ ବନ୍ଦ ହୋଇଗଲା। ପୁଣି ଚାଲୁ କରିବାକୁ 🤖 ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
 </resources>

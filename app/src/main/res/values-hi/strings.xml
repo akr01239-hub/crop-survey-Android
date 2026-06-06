@@ -476,4 +476,15 @@
     <string name="otp_section_hint">किसान की पहचान की पुष्टि के लिए 6-अंकीय OTP दर्ज करें।</string>
     <string name="language_gujarati">ગુજરાતી</string>
     <string name="language_punjabi">ਪੰਜਾਬੀ</string>
+
+    <!-- AI Guide -->
+    <string name="guide_btn_label">AI गाइड</string>
+    <string name="guide_got_it">समझ गया →</string>
+    <string name="guide_turn_off">गाइड बंद करें</string>
+    <string name="guide_menu_title">🤖 AI सर्वे गाइड</string>
+    <string name="guide_option_rules">📖 ऐप नियम और दिशानिर्देश दिखाएं</string>
+    <string name="guide_option_restart">🔄 सर्वे गाइड पुनः शुरू करें</string>
+    <string name="guide_option_resume">🤖 गाइड जारी रखें</string>
+    <string name="guide_option_turnoff">❌ AI गाइड बंद करें</string>
+    <string name="guide_disabled_toast">गाइड बंद हो गई। वापस चालू करने के लिए 🤖 टैप करें।</string>
 </resources>

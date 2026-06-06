@@ -476,4 +476,15 @@
     <string name="otp_section_hint">کسان کی شناخت کی تصدیق کے لیے 6 ہندسوں کا OTP درج کریں۔</string>
     <string name="language_gujarati">گجراتی</string>
     <string name="language_punjabi">پنجابی</string>
+
+    <!-- AI Guide -->
+    <string name="guide_btn_label">AI رہنما</string>
+    <string name="guide_got_it">سمجھ گیا →</string>
+    <string name="guide_turn_off">رہنما بند کریں</string>
+    <string name="guide_menu_title">🤖 AI سروے رہنما</string>
+    <string name="guide_option_rules">📖 ایپ کے قواعد اور ہدایات دکھائیں</string>
+    <string name="guide_option_restart">🔄 سروے رہنما دوبارہ شروع کریں</string>
+    <string name="guide_option_resume">🤖 رہنما جاری رکھیں</string>
+    <string name="guide_option_turnoff">❌ AI رہنما بند کریں</string>
+    <string name="guide_disabled_toast">رہنما بند ہو گیا۔ دوبارہ چالو کرنے کے لیے 🤖 ٹیپ کریں۔</string>
 </resources>

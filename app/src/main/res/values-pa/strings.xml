@@ -476,4 +476,15 @@
     <string name="otp_section_hint">ਕਿਸਾਨ ਪਛਾਣ ਦੀ ਪੁਸ਼ਟੀ ਲਈ 6-ਅੰਕ OTP ਦਰਜ ਕਰੋ।</string>
     <string name="language_gujarati">ਗੁਜਰਾਤੀ</string>
     <string name="language_punjabi">ਪੰਜਾਬੀ</string>
+
+    <!-- AI Guide -->
+    <string name="guide_btn_label">AI ਗਾਈਡ</string>
+    <string name="guide_got_it">ਸਮਝ ਗਿਆ →</string>
+    <string name="guide_turn_off">ਗਾਈਡ ਬੰਦ ਕਰੋ</string>
+    <string name="guide_menu_title">🤖 AI ਸਰਵੇ ਗਾਈਡ</string>
+    <string name="guide_option_rules">📖 ਐਪ ਨਿਯਮ ਅਤੇ ਦਿਸ਼ਾ-ਨਿਰਦੇਸ਼ ਦਿਖਾਓ</string>
+    <string name="guide_option_restart">🔄 ਸਰਵੇ ਗਾਈਡ ਮੁੜ ਸ਼ੁਰੂ ਕਰੋ</string>
+    <string name="guide_option_resume">🤖 ਗਾਈਡ ਜਾਰੀ ਰੱਖੋ</string>
+    <string name="guide_option_turnoff">❌ AI ਗਾਈਡ ਬੰਦ ਕਰੋ</string>
+    <string name="guide_disabled_toast">ਗਾਈਡ ਬੰਦ ਹੋ ਗਈ। ਵਾਪਸ ਚਾਲੂ ਕਰਨ ਲਈ 🤖 ਟੈਪ ਕਰੋ।</string>
 </resources>

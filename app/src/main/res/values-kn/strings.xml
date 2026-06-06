@@ -476,4 +476,15 @@
     <string name="otp_section_hint">ರೈತರ ಗುರುತು ದೃಢಪಡಿಸಲು 6-ಅಂಕಿ OTP ನಮೂದಿಸಿ।</string>
     <string name="language_gujarati">ಗುಜರಾತಿ</string>
     <string name="language_punjabi">ಪಂಜಾಬಿ</string>
+
+    <!-- AI Guide -->
+    <string name="guide_btn_label">AI ಮಾರ್ಗದರ್ಶಿ</string>
+    <string name="guide_got_it">ಅರ್ಥವಾಯಿತು →</string>
+    <string name="guide_turn_off">ಮಾರ್ಗದರ್ಶಿ ಆಫ್ ಮಾಡಿ</string>
+    <string name="guide_menu_title">🤖 AI ಸರ್ವೆ ಮಾರ್ಗದರ್ಶಿ</string>
+    <string name="guide_option_rules">📖 ಅಪ್ಲಿಕೇಶನ್ ನಿಯಮಗಳು ಮತ್ತು ಮಾರ್ಗಸೂಚಿಗಳನ್ನು ತೋರಿಸಿ</string>
+    <string name="guide_option_restart">🔄 ಸರ್ವೆ ಮಾರ್ಗದರ್ಶಿ ಮರುಪ್ರಾರಂಭಿಸಿ</string>
+    <string name="guide_option_resume">🤖 ಮಾರ್ಗದರ್ಶಿ ಮುಂದುವರಿಸಿ</string>
+    <string name="guide_option_turnoff">❌ AI ಮಾರ್ಗದರ್ಶಿ ಆಫ್ ಮಾಡಿ</string>
+    <string name="guide_disabled_toast">ಮಾರ್ಗದರ್ಶಿ ಆಫ್ ಆಯಿತು. ಮತ್ತೆ ಆನ್ ಮಾಡಲು 🤖 ಟ್ಯಾಪ್ ಮಾಡಿ।</string>
 </resources>

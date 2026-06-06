@@ -476,4 +476,15 @@
     <string name="otp_section_hint">ખેડૂત ઓળખ પુષ્ટિ માટે 6-આંકડો OTP દાખલ કરો।</string>
     <string name="language_gujarati">ગુજરાતી</string>
     <string name="language_punjabi">ਪੰਜਾਬੀ</string>
+
+    <!-- AI Guide -->
+    <string name="guide_btn_label">AI માર્ગદર્શક</string>
+    <string name="guide_got_it">સમજ્યો →</string>
+    <string name="guide_turn_off">માર્ગદર્શક બંધ કરો</string>
+    <string name="guide_menu_title">🤖 AI સર્વે માર્ગદર્શક</string>
+    <string name="guide_option_rules">📖 એપ નિયમો અને માર્ગદર્શિકા બતાવો</string>
+    <string name="guide_option_restart">🔄 સર્વે માર્ગદર્શક ફરી શરૂ કરો</string>
+    <string name="guide_option_resume">🤖 માર્ગદર્શક ચાલુ રાખો</string>
+    <string name="guide_option_turnoff">❌ AI માર્ગદર્શક બંધ કરો</string>
+    <string name="guide_disabled_toast">માર્ગદર્શક બંધ થઈ ગયો. ફરીથી ચાલુ કરવા 🤖 ટૅપ કરો।</string>
 </resources>

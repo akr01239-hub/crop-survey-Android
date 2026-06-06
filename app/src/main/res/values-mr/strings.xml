@@ -476,4 +476,15 @@
     <string name="otp_section_hint">शेतकऱ्याची ओळख पुष्टी करण्यासाठी 6-अंकी OTP प्रविष्ट करा।</string>
     <string name="language_gujarati">ગુજરાતી</string>
     <string name="language_punjabi">ਪੰਜਾਬੀ</string>
+
+    <!-- AI Guide -->
+    <string name="guide_btn_label">AI मार्गदर्शक</string>
+    <string name="guide_got_it">समजले →</string>
+    <string name="guide_turn_off">मार्गदर्शक बंद करा</string>
+    <string name="guide_menu_title">🤖 AI सर्वे मार्गदर्शक</string>
+    <string name="guide_option_rules">📖 अ‍ॅप नियम आणि मार्गदर्शक तत्त्वे दाखवा</string>
+    <string name="guide_option_restart">🔄 सर्वे मार्गदर्शक पुन्हा सुरू करा</string>
+    <string name="guide_option_resume">🤖 मार्गदर्शक सुरू ठेवा</string>
+    <string name="guide_option_turnoff">❌ AI मार्गदर्शक बंद करा</string>
+    <string name="guide_disabled_toast">मार्गदर्शक बंद झाला. पुन्हा चालू करण्यासाठी 🤖 टॅप करा।</string>
 </resources>

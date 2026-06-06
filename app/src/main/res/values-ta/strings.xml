@@ -476,4 +476,15 @@
     <string name="otp_section_hint">விவசாயியின் அடையாளத்தை உறுதிப்படுத்த 6-இலக்க OTP உள்ளிடவும்।</string>
     <string name="language_gujarati">குஜராத்தி</string>
     <string name="language_punjabi">பஞ்சாபி</string>
+
+    <!-- AI Guide -->
+    <string name="guide_btn_label">AI வழிகாட்டி</string>
+    <string name="guide_got_it">புரிந்தது →</string>
+    <string name="guide_turn_off">வழிகாட்டியை அணை</string>
+    <string name="guide_menu_title">🤖 AI கணக்கெடுப்பு வழிகாட்டி</string>
+    <string name="guide_option_rules">📖 ஆப் விதிகள் மற்றும் வழிகாட்டுதல்களைக் காட்டு</string>
+    <string name="guide_option_restart">🔄 கணக்கெடுப்பு வழிகாட்டியை மறுதொடக்கம் செய்</string>
+    <string name="guide_option_resume">🤖 வழிகாட்டியை தொடர்</string>
+    <string name="guide_option_turnoff">❌ AI வழிகாட்டியை அணை</string>
+    <string name="guide_disabled_toast">வழிகாட்டி அணைக்கப்பட்டது. மீண்டும் இயக்க 🤖 தட்டவும்।</string>
 </resources>

@@ -476,4 +476,15 @@
     <string name="otp_section_hint">কৃষকের পরিচয় নিশ্চিত করতে 6-সংখ্যার OTP লিখুন।</string>
     <string name="language_gujarati">ગুজরাটি</string>
     <string name="language_punjabi">পাঞ্জাবি</string>
+
+    <!-- AI Guide -->
+    <string name="guide_btn_label">AI গাইড</string>
+    <string name="guide_got_it">বুঝেছি →</string>
+    <string name="guide_turn_off">গাইড বন্ধ করুন</string>
+    <string name="guide_menu_title">🤖 AI সার্ভে গাইড</string>
+    <string name="guide_option_rules">📖 অ্যাপের নিয়ম ও নির্দেশিকা দেখুন</string>
+    <string name="guide_option_restart">🔄 সার্ভে গাইড পুনরায় শুরু করুন</string>
+    <string name="guide_option_resume">🤖 গাইড চালিয়ে যান</string>
+    <string name="guide_option_turnoff">❌ AI গাইড বন্ধ করুন</string>
+    <string name="guide_disabled_toast">গাইড বন্ধ হয়েছে। পুনরায় চালু করতে 🤖 ট্যাপ করুন।</string>
 </resources>

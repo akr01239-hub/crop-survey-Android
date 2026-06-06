@@ -476,4 +476,15 @@
     <string name="otp_section_hint">రైతు గుర్తింపు నిర్ధారించడానికి 6-అంకెల OTP నమోదు చేయండి।</string>
     <string name="language_gujarati">గుజరాతీ</string>
     <string name="language_punjabi">పంజాబీ</string>
+
+    <!-- AI Guide -->
+    <string name="guide_btn_label">AI గైడ్</string>
+    <string name="guide_got_it">అర్థమైంది →</string>
+    <string name="guide_turn_off">గైడ్ ఆపు</string>
+    <string name="guide_menu_title">🤖 AI సర్వే గైడ్</string>
+    <string name="guide_option_rules">📖 యాప్ నియమాలు మరియు మార్గదర్శకాలు చూపించు</string>
+    <string name="guide_option_restart">🔄 సర్వే గైడ్ పునఃప్రారంభించు</string>
+    <string name="guide_option_resume">🤖 గైడ్ కొనసాగించు</string>
+    <string name="guide_option_turnoff">❌ AI గైడ్ ఆపు</string>
+    <string name="guide_disabled_toast">గైడ్ ఆపబడింది. తిరిగి ఆన్ చేయడానికి 🤖 నొక్కండి।</string>
 </resources>
