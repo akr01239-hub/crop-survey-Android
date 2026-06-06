@@ -192,8 +192,8 @@ class SurveyTabsActivity : BaseActivity() {
     }
 
     // ── ViewPager + adapter ───────────────────────────────────────────────────
-    private fun setupViewPager()
-        AiGuideOverlay.show(this, AiGuideOverlay.Step.FORM_OPEN) {
+    private fun setupViewPager() {
+        AiGuideOverlay.show(this, AiGuideOverlay.Step.FORM_OPEN)
         viewPager.adapter = SurveyPagerAdapter()
         viewPager.isUserInputEnabled = false   // only switch via tab taps (prevents accidental swipe mid-form)
 
