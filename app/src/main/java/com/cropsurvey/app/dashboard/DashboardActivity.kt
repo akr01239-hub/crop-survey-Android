@@ -25,6 +25,8 @@ import com.cropsurvey.app.survey.SubmitSurveyActivity
 import com.cropsurvey.app.utils.SessionManager
 import com.cropsurvey.app.utils.MockLocationDetector
 import com.cropsurvey.app.utils.SurveySession
+import com.cropsurvey.app.guide.AiGuideOverlay
+import com.cropsurvey.app.guide.OnboardingGuideActivity
 import android.animation.ObjectAnimator
 import android.animation.AnimatorSet
 import android.animation.ValueAnimator
@@ -50,6 +52,7 @@ class DashboardActivity : BaseActivity() {
     private lateinit var btnLogout: ImageButton
     private lateinit var btnQueue: ImageButton
     private lateinit var tvQueueBadge: TextView
+    private lateinit var btnAiGuide: ImageButton
 
     // FIX 3: Stat cards — all-time totals (not month-filtered)
     private lateinit var tvStatDraft: TextView
@@ -77,6 +80,12 @@ class DashboardActivity : BaseActivity() {
         setupTabs()
         loadRecentSurveys()
         updateQueueBadge()
+
+        // Show onboarding guide once on first login
+        OnboardingGuideActivity.showIfNeeded(this)
+
+        // Show AI guide step for dashboard
+        AiGuideOverlay.show(this, AiGuideOverlay.Step.DASHBOARD)
     }
 
     override fun onResume() {
@@ -132,6 +141,7 @@ class DashboardActivity : BaseActivity() {
         btnLogout       = findViewById(R.id.btn_logout)
         btnQueue        = findViewById(R.id.btn_queue)
         tvQueueBadge    = findViewById(R.id.tv_queue_badge)
+        btnAiGuide      = findViewById(R.id.btn_ai_guide)
         tvStatDraft     = findViewById(R.id.tv_stat_draft)
         tvStatSubmitted = findViewById(R.id.tv_stat_submitted)
         tvStatApproved  = findViewById(R.id.tv_stat_approved)
@@ -151,6 +161,10 @@ class DashboardActivity : BaseActivity() {
             SurveySession.userId = user.id
             // Always try to get fresh employee ID from API — don't rely on stale cache
             refreshEmployeeId(user)
+        }
+
+        btnAiGuide.setOnClickListener {
+            AiGuideOverlay.showGuideMenu(this)
         }
 
         btnLogout.setOnClickListener {

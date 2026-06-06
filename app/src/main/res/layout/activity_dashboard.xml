@@ -76,6 +76,17 @@
             </RelativeLayout>
 
             <ImageButton
+                android:id="@+id/btn_ai_guide"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:background="@drawable/bg_icon_glass"
+                android:src="@drawable/ic_language"
+                android:tint="#FCD34D"
+                android:contentDescription="AI Guide"
+                android:padding="10dp"
+                android:layout_marginEnd="8dp"/>
+
+            <ImageButton
                 android:id="@+id/btn_logout"
                 android:layout_width="42dp"
                 android:layout_height="42dp"

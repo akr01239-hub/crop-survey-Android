@@ -21,6 +21,7 @@ import com.cropsurvey.app.survey.cce.CCEFormFragment
 import com.cropsurvey.app.survey.chm.CHMFormFragment
 import com.cropsurvey.app.survey.cls.CLSFormFragment
 import com.cropsurvey.app.utils.SurveySession
+import com.cropsurvey.app.guide.AiGuideOverlay
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
@@ -95,6 +96,7 @@ class SurveyTabsActivity : BaseActivity() {
         setupHeader()
         setupBanners()
         setupViewPager()
+        AiGuideOverlay.show(this, AiGuideOverlay.Step.FORM_OPEN)
         setupTabs()
         setupBottomBar()
         startAutoSync()
@@ -190,7 +192,8 @@ class SurveyTabsActivity : BaseActivity() {
     }
 
     // ── ViewPager + adapter ───────────────────────────────────────────────────
-    private fun setupViewPager() {
+    private fun setupViewPager()
+        AiGuideOverlay.show(this, AiGuideOverlay.Step.FORM_OPEN) {
         viewPager.adapter = SurveyPagerAdapter()
         viewPager.isUserInputEnabled = false   // only switch via tab taps (prevents accidental swipe mid-form)
 

@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import com.cropsurvey.app.BaseActivity
 import com.cropsurvey.app.utils.SurveySession
 import com.cropsurvey.app.R
+import com.cropsurvey.app.guide.AiGuideOverlay
 import com.cropsurvey.app.map.PolygonMapActivity
 import com.cropsurvey.app.network.ApiClient
 import com.cropsurvey.app.survey.chm.ChmVisitActivity
@@ -45,6 +46,7 @@ class FarmerVerificationActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_farmer_verification)
+        AiGuideOverlay.show(this, AiGuideOverlay.Step.FARMER_VERIFICATION)
 
         surveyType = intent.getStringExtra("survey_type") ?: "CLS"
 

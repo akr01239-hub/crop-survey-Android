@@ -18,6 +18,7 @@ import com.cropsurvey.app.BaseActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.cropsurvey.app.R
+import com.cropsurvey.app.guide.AiGuideOverlay
 import com.cropsurvey.app.config.AppConfig
 import com.cropsurvey.app.models.CreateSurveyRequest
 import com.cropsurvey.app.network.ApiClient
@@ -88,6 +89,7 @@ class PolygonMapActivity : BaseActivity(), OnMapReadyCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_polygon_map)
+        AiGuideOverlay.show(this, AiGuideOverlay.Step.MAP_DRAW)
 
         surveyType      = intent.getStringExtra("survey_type") ?: "CLS"
         farmerVerified  = intent.getBooleanExtra("farmer_verified", false)

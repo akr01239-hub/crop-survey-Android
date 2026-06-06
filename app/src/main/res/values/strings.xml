@@ -556,4 +556,15 @@
     <string name="otp_section_title">OTP sent to +91-%s</string>
     <string name="otp_section_hint">Enter the 6-digit OTP to confirm farmer\'s identity.</string>
 
+
+    <!-- AI Guide -->
+    <string name="guide_btn_label">AI Guide</string>
+    <string name="guide_got_it">Got it →</string>
+    <string name="guide_turn_off">Turn off guide</string>
+    <string name="guide_menu_title">🤖 AI Survey Guide</string>
+    <string name="guide_option_rules">📖 Show App Rules and Guidelines</string>
+    <string name="guide_option_restart">🔄 Restart Survey Guide</string>
+    <string name="guide_option_resume">🤖 Resume Guide</string>
+    <string name="guide_option_turnoff">❌ Turn Off AI Guide</string>
+    <string name="guide_disabled_toast">Guide turned off. Tap 🤖 to turn it back on.</string>
 </resources>
