@@ -2,16 +2,9 @@ package com.cropsurvey.app
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
-import android.view.Gravity
-import android.view.View
-import android.view.ViewGroup
-import android.widget.FrameLayout
-import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import com.cropsurvey.app.i18n.LanguageManager
-import com.cropsurvey.app.settings.LanguageSettingsActivity
 
 open class BaseActivity : AppCompatActivity() {
 
@@ -51,53 +44,7 @@ open class BaseActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: android.content.Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_LANGUAGE_CHANGE && resultCode == RESULT_OK) {
-            // Language changed — recreate this activity so strings update in place
             recreate()
         }
-    }
-
-    override fun onPostCreate(savedInstanceState: Bundle?) {
-        super.onPostCreate(savedInstanceState)
-        injectLanguageButton()
-    }
-
-    /**
-     * Injects a floating 🌐 language button into the top-right corner of every screen.
-     * Uses the root decorView so it overlays on top of any layout without modifying XMLs.
-     */
-    private fun injectLanguageButton() {
-        // Skip screens where language button would be redundant or disruptive
-        // Globe button ONLY on LoginActivity — user picks language before login,
-        // and can change it from Login screen. Everywhere else it's not needed.
-        val allowClasses = listOf("LoginActivity")
-        if (!allowClasses.any { this.javaClass.simpleName == it }) return
-
-        val decorView = window.decorView as? FrameLayout ?: return
-
-        // Remove any existing injected button to avoid duplicates on recreate
-        decorView.findViewWithTag<View>("lang_fab")?.let { decorView.removeView(it) }
-
-        val btn = ImageButton(this).apply {
-            tag = "lang_fab"
-            setImageResource(R.drawable.ic_language)
-            setColorFilter(Color.WHITE)
-            setBackgroundResource(R.drawable.bg_lang_fab)
-            val size = (48 * resources.displayMetrics.density).toInt()
-            val params = FrameLayout.LayoutParams(size, size).apply {
-                gravity = Gravity.TOP or Gravity.END
-                val margin = (12 * resources.displayMetrics.density).toInt()
-                val topMargin = (44 * resources.displayMetrics.density).toInt()
-                setMargins(margin, topMargin, margin, margin)
-            }
-            layoutParams = params
-            contentDescription = getString(R.string.change_language)
-            setOnClickListener {
-                startActivityForResult(
-                    Intent(this@BaseActivity, LanguageSettingsActivity::class.java),
-                    REQUEST_LANGUAGE_CHANGE
-                )
-            }
-        }
-        decorView.addView(btn)
     }
 }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground">
+
+    <!-- Native name (big) -->
+    <TextView
+        android:id="@+id/tv_lang_native"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#0F172A"/>
+
+    <!-- English name (small, below native) -->
+    <TextView
+        android:id="@+id/tv_lang_english"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_lang_native"
+        android:layout_alignStart="@id/tv_lang_native"
+        android:textSize="12sp"
+        android:textColor="#64748B"/>
+
+    <!-- Checkmark for selected -->
+    <TextView
+        android:id="@+id/iv_lang_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:text="✓"
+        android:textSize="18sp"
+        android:textColor="#16A34A"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+
+</RelativeLayout>

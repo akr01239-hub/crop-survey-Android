@@ -5,23 +5,19 @@
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
         android:orientation="vertical" android:padding="24dp" android:gravity="center_horizontal">
 
-        <!-- Language Button (top right) -->
+        <!-- 3-dot menu (top right) -->
         <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginBottom="4dp">
             <TextView
                 android:id="@+id/btn_change_language"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_gravity="end"
-                android:text="🌐 Language"
+                android:text="⋮"
                 android:textColor="#16A34A"
-                android:textSize="13sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
-                android:background="#E8F5E9"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:paddingTop="6dp"
-                android:paddingBottom="6dp"
+                android:gravity="center"
                 android:clickable="true"
                 android:focusable="true"/>
         </FrameLayout>

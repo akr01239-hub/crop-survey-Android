@@ -14,7 +14,6 @@ import com.cropsurvey.app.R
 import com.cropsurvey.app.dashboard.DashboardActivity
 import com.cropsurvey.app.models.User
 import com.cropsurvey.app.network.ApiClient
-import com.cropsurvey.app.settings.LanguageSettingsActivity
 import com.cropsurvey.app.utils.GpsHelper
 import com.cropsurvey.app.utils.MockLocationDetector
 import com.cropsurvey.app.utils.SessionManager
@@ -22,6 +21,10 @@ import kotlinx.coroutines.launch
 import org.json.JSONObject
 import retrofit2.http.Body
 import retrofit2.http.POST
+import android.view.LayoutInflater
+import android.widget.LinearLayout
+import com.cropsurvey.app.i18n.LanguageManager
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class LoginActivity : BaseActivity() {
 
@@ -77,9 +80,9 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun setupUI() {
-        // ── Language button ────────────────────────────────────────────────────
+        // ── 3-dot menu → language picker bottom sheet ─────────────────────────
         btnChangeLanguage.setOnClickListener {
-            startActivity(Intent(this, LanguageSettingsActivity::class.java))
+            showLanguageBottomSheet()
         }
 
         btnShowPassword.setOnClickListener {
@@ -220,6 +223,49 @@ class LoginActivity : BaseActivity() {
     private fun goToDashboard() {
         startActivity(Intent(this, DashboardActivity::class.java))
         finish()
+    }
+
+    private fun showLanguageBottomSheet() {
+        val dialog = BottomSheetDialog(this, R.style.BottomSheetDialogTheme)
+        val view = LayoutInflater.from(this).inflate(R.layout.bottom_sheet_language, null)
+        dialog.setContentView(view)
+
+        val container = view.findViewById<LinearLayout>(R.id.ll_language_list)
+        val languages = LanguageManager.SUPPORTED_LANGUAGES
+        val currentCode = LanguageManager.getSelectedLanguageCode()
+
+        for (lang in languages) {
+            val item = LayoutInflater.from(this).inflate(R.layout.item_language_sheet, container, false)
+            val tvNative  = item.findViewById<android.widget.TextView>(R.id.tv_lang_native)
+            val tvEnglish = item.findViewById<android.widget.TextView>(R.id.tv_lang_english)
+            val ivCheck   = item.findViewById<android.view.View>(R.id.iv_lang_check)
+
+            tvNative.text  = lang.nativeName
+            tvEnglish.text = lang.englishName
+            ivCheck.visibility = if (lang.code == currentCode) android.view.View.VISIBLE else android.view.View.GONE
+
+            // Highlight selected
+            item.setBackgroundColor(
+                if (lang.code == currentCode)
+                    android.graphics.Color.parseColor("#F0FDF4")
+                else
+                    android.graphics.Color.TRANSPARENT
+            )
+
+            item.setOnClickListener {
+                if (lang.code != currentCode) {
+                    LanguageManager.setLanguage(this, lang.code)
+                    dialog.dismiss()
+                    // Recreate login screen in new language
+                    recreate()
+                } else {
+                    dialog.dismiss()
+                }
+            }
+            container.addView(item)
+        }
+
+        dialog.show()
     }
 }
 
