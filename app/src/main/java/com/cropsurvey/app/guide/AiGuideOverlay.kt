@@ -1,7 +1,6 @@
 package com.cropsurvey.app.guide
 
 import android.content.Context
-import android.graphics.Color
 import android.view.*
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
@@ -10,12 +9,11 @@ import com.cropsurvey.app.R
 /**
  * AiGuideOverlay
  *
- * Lightweight, fully offline AI guide system.
- * Displays contextual tips as a persistent "coach card" at the bottom of the screen.
- * The guide tracks which step the user is on via SharedPreferences and advances
- * automatically when the user performs the right action.
+ * Step-by-step overlay guide shown during the survey workflow.
+ * All message content now loaded from strings.xml → automatically shown in
+ * whichever language the user selected before login (Hindi, Marathi, etc.).
  *
- * Guide journey (12 steps):
+ * Guide journey (13 steps, 0-based):
  *   0  Dashboard intro
  *   1  Highlight CLS/CHM/CCE cards
  *   2  Farmer verification screen
@@ -34,7 +32,7 @@ import com.cropsurvey.app.R
  *   In each Activity/Fragment's onResume():
  *     AiGuideOverlay.show(activity, AiGuideOverlay.Step.DASHBOARD)
  *
- *   When the user completes a step:
+ *   When user completes a step action:
  *     AiGuideOverlay.advance(context)
  */
 object AiGuideOverlay {
@@ -44,7 +42,7 @@ object AiGuideOverlay {
     private const val KEY_ENABLED = "ai_guide_enabled"
     private const val KEY_DONE    = "ai_guide_done"
 
-    // ── Step definitions ───────────────────────────────────────────────────────
+    // ── Step definitions ──────────────────────────────────────────────────────
     enum class Step(val index: Int) {
         DASHBOARD(0),
         SURVEY_CARD_SELECT(1),
@@ -69,80 +67,95 @@ object AiGuideOverlay {
         val title: String,
         val message: String,
         val tip: String? = null,
-        val actionLabel: String = "Got it →"
+        val actionLabel: String = ""
     )
 
-    private val MESSAGES = mapOf(
+    /**
+     * Build all messages from strings.xml for the current locale.
+     * Called fresh every time show() is invoked so language changes are picked up.
+     */
+    private fun buildMessages(ctx: Context): Map<Step, GuideMessage> = mapOf(
         Step.DASHBOARD to GuideMessage(
-            "👋 Welcome! I'm your AI Survey Guide",
-            "I'll walk you through completing your first survey from start to finish.\n\nYou can see 3 survey types on this screen: CLS, CHM, and CCE.",
-            "💡 Tip: CLS = Crop Loss Survey. Start with CLS if this is your first time.",
-            "Start with CLS →"
+            ctx.getString(R.string.guide_step0_title),
+            ctx.getString(R.string.guide_step0_msg),
+            ctx.getString(R.string.guide_step0_tip),
+            ctx.getString(R.string.guide_step0_action)
         ),
         Step.SURVEY_CARD_SELECT to GuideMessage(
-            "📋 Choose a Survey Type",
-            "Tap the CLS card to start a Crop Loss Survey.\n\n• CLS: For documenting crop damage\n• CHM: For monitoring crop health (up to 5 visits)\n• CCE: For crop cutting experiments",
-            "💡 Tip: All 3 types follow the same flow — form + photos + submit."
+            ctx.getString(R.string.guide_step1_title),
+            ctx.getString(R.string.guide_step1_msg),
+            ctx.getString(R.string.guide_step1_tip),
+            ctx.getString(R.string.guide_step1_action)
         ),
         Step.FARMER_VERIFICATION to GuideMessage(
-            "👨‍🌾 Farmer Verification",
-            "You can verify the farmer's identity using their mobile number and OTP.\n\nThis is optional — tap SKIP if the farmer is not present right now.",
-            "💡 Tip: Verified surveys are processed faster and have higher approval rates."
+            ctx.getString(R.string.guide_step2_title),
+            ctx.getString(R.string.guide_step2_msg),
+            ctx.getString(R.string.guide_step2_tip),
+            ctx.getString(R.string.guide_step2_action)
         ),
         Step.FARMER_VERIFIED to GuideMessage(
-            "✅ Great! Farmer Verified",
-            "The farmer's phone is confirmed. This will appear as a green banner inside the survey form.",
-            "💡 Tip: Even if skipped now, you can always verify before submitting."
+            ctx.getString(R.string.guide_step3_title),
+            ctx.getString(R.string.guide_step3_msg),
+            ctx.getString(R.string.guide_step3_tip),
+            ctx.getString(R.string.guide_step3_action)
         ),
         Step.MAP_DRAW to GuideMessage(
-            "🗺️ Draw the Field Boundary",
-            "Tap on the map to add at least 3 points around the field boundary. The app will calculate the field area automatically.\n\nBe at the actual field location — GPS accuracy matters!",
-            "💡 Tip: Tap DELETE to start over if you make a mistake."
+            ctx.getString(R.string.guide_step4_title),
+            ctx.getString(R.string.guide_step4_msg),
+            ctx.getString(R.string.guide_step4_tip),
+            ctx.getString(R.string.guide_step4_action)
         ),
         Step.FORM_OPEN to GuideMessage(
-            "📝 Fill the Survey Form",
-            "The form has multiple sections — tap any section header to expand it. You must fill all required fields (marked with *).\n\nYour progress is auto-saved every 15 seconds.",
-            "💡 Tip: Tap 'Save Draft' anytime to manually save and come back later."
+            ctx.getString(R.string.guide_step5_title),
+            ctx.getString(R.string.guide_step5_msg),
+            ctx.getString(R.string.guide_step5_tip),
+            ctx.getString(R.string.guide_step5_action)
         ),
         Step.FORM_BASIC_INFO to GuideMessage(
-            "📅 Basic Information Section",
-            "Fill in:\n• Year (e.g. 2025-2026)\n• Season (Kharif / Rabi / Zaid)\n• Scheme (PMFBY, RWBCIS, etc.)\n\nAll dropdowns are translated to your chosen language.",
-            "💡 Tip: The year auto-fills based on the current date."
+            ctx.getString(R.string.guide_step6_title),
+            ctx.getString(R.string.guide_step6_msg),
+            ctx.getString(R.string.guide_step6_tip),
+            ctx.getString(R.string.guide_step6_action)
         ),
         Step.FORM_LOCATION to GuideMessage(
-            "📍 Location Section",
-            "Select your State → District → Tehsil → Village.\n\nEach dropdown loads based on the previous selection. Enter the Khasra number from the land records.",
-            "💡 Tip: If your village is missing, enter it manually in the Gram Panchayat field."
+            ctx.getString(R.string.guide_step7_title),
+            ctx.getString(R.string.guide_step7_msg),
+            ctx.getString(R.string.guide_step7_tip),
+            ctx.getString(R.string.guide_step7_action)
         ),
         Step.FORM_CROP_DETAILS to GuideMessage(
-            "🌾 Crop Details Section",
-            "Select the crop type, variety, stage, and irrigation type.\n\nFor CLS: also fill Loss %, Cause of Event, and Intimation Date.",
-            "💡 Tip: Crop stage matters for verification — select the stage the crop is CURRENTLY in."
+            ctx.getString(R.string.guide_step8_title),
+            ctx.getString(R.string.guide_step8_msg),
+            ctx.getString(R.string.guide_step8_tip),
+            ctx.getString(R.string.guide_step8_action)
         ),
         Step.PHOTOS_TAB to GuideMessage(
-            "📸 Now for the Photos",
-            "Tap the PHOTOS tab at the top. You'll see a list of photo slots — some are Required ✦ and some are Optional.\n\nYou must capture ALL required photos before you can submit.",
-            "💡 Tip: Photos are geo-tagged automatically. No need to add location manually."
+            ctx.getString(R.string.guide_step9_title),
+            ctx.getString(R.string.guide_step9_msg),
+            ctx.getString(R.string.guide_step9_tip),
+            ctx.getString(R.string.guide_step9_action)
         ),
         Step.PHOTOS_CAPTURE to GuideMessage(
-            "📷 Capture Required Photos",
-            "Tap CAPTURE next to each photo slot. Hold the phone steady and ensure good lighting.\n\nFollow the label — e.g. 'Field North', 'Nadir View' (phone directly above crop).",
-            "💡 Tip: If a photo is blurry, tap RETAKE immediately."
+            ctx.getString(R.string.guide_step10_title),
+            ctx.getString(R.string.guide_step10_msg),
+            ctx.getString(R.string.guide_step10_tip),
+            ctx.getString(R.string.guide_step10_action)
         ),
         Step.SAVE_DRAFT to GuideMessage(
-            "💾 Save Your Draft",
-            "Tap SAVE DRAFT at the bottom to sync your work to the server. This lets you:\n• Continue later\n• Switch devices (after admin unlock)\n• Prevent data loss\n\nYour draft will appear on the Dashboard under the Draft tab.",
-            "💡 Tip: The app auto-saves every 15 seconds, but manual save is more reliable on poor networks."
+            ctx.getString(R.string.guide_step11_title),
+            ctx.getString(R.string.guide_step11_msg),
+            ctx.getString(R.string.guide_step11_tip),
+            ctx.getString(R.string.guide_step11_action)
         ),
         Step.SUBMIT to GuideMessage(
-            "🎉 Ready to Submit!",
-            "Everything is filled. Tap SUBMIT → to send your survey for QC review.\n\nAfter submission:\n• Status changes to 'Submitted'\n• QC team reviews within 24-48 hours\n• You'll see Approved ✅ or Rejected ❌ on the dashboard\n\nIf rejected, you can edit and resubmit. You've completed your first survey!",
-            "💡 You can always tap the 🤖 Guide button on the dashboard to re-read these tips.",
-            "Submit & Finish Guide 🎉"
+            ctx.getString(R.string.guide_step12_title),
+            ctx.getString(R.string.guide_step12_msg),
+            ctx.getString(R.string.guide_step12_tip),
+            ctx.getString(R.string.guide_step12_action)
         )
     )
 
-    // ── Public API ─────────────────────────────────────────────────────────────
+    // ── Public API ────────────────────────────────────────────────────────────
 
     fun isEnabled(ctx: Context): Boolean =
         prefs(ctx).getBoolean(KEY_ENABLED, true)
@@ -176,11 +189,8 @@ object AiGuideOverlay {
 
     /**
      * Show the guide card for the given screen step.
-     * Only shows if the guide is enabled AND the user hasn't passed this step yet.
-     *
-     * @param activity the current activity (used to inflate and attach the overlay)
-     * @param screenStep which screen the user is on right now
-     * @param onAction optional callback fired when user taps the action button
+     * Only shows if guide is enabled AND user hasn't passed this step yet.
+     * All text is loaded from strings.xml in the current user language.
      */
     fun show(
         activity: android.app.Activity,
@@ -191,84 +201,84 @@ object AiGuideOverlay {
         if (!isEnabled(ctx) || isDone(ctx)) return
 
         val curStep = currentStep(ctx)
-        // Only show the tip for the CURRENT step — not old ones
         if (curStep != screenStep) return
 
-        val msg = MESSAGES[screenStep] ?: return
+        val messages = buildMessages(ctx)
+        val msg = messages[screenStep] ?: return
 
-        // Remove any previous overlay
         dismiss(activity)
 
-        val root = activity.window.decorView as? FrameLayout ?: return
+        val root = activity.window.decorView as? android.widget.FrameLayout ?: return
         val overlay = activity.layoutInflater
             .inflate(R.layout.overlay_ai_guide, root, false)
 
         overlay.tag = "ai_guide_overlay"
 
-        overlay.findViewById<TextView>(R.id.tv_guide_title).text  = msg.title
-        overlay.findViewById<TextView>(R.id.tv_guide_message).text = msg.message
+        overlay.findViewById<android.widget.TextView>(R.id.tv_guide_title).text  = msg.title
+        overlay.findViewById<android.widget.TextView>(R.id.tv_guide_message).text = msg.message
 
-        val tvTip = overlay.findViewById<TextView>(R.id.tv_guide_tip)
-        if (msg.tip != null) {
-            tvTip.visibility = View.VISIBLE
+        val tvTip = overlay.findViewById<android.widget.TextView>(R.id.tv_guide_tip)
+        if (!msg.tip.isNullOrEmpty()) {
+            tvTip.visibility = android.view.View.VISIBLE
             tvTip.text = msg.tip
         } else {
-            tvTip.visibility = View.GONE
+            tvTip.visibility = android.view.View.GONE
         }
 
-        val btnAction = overlay.findViewById<Button>(R.id.btn_guide_action)
-        btnAction.text = msg.actionLabel
+        val btnAction = overlay.findViewById<android.widget.Button>(R.id.btn_guide_action)
+        btnAction.text = msg.actionLabel.ifEmpty { ctx.getString(R.string.guide_got_it) }
         btnAction.setOnClickListener {
             advance(ctx)
             root.removeView(overlay)
             onAction?.invoke()
         }
 
-        val btnClose = overlay.findViewById<ImageButton>(R.id.btn_guide_close)
+        val btnClose = overlay.findViewById<android.widget.ImageButton>(R.id.btn_guide_close)
         btnClose.setOnClickListener {
             root.removeView(overlay)
-            // Don't advance — user just dismissed without acting
         }
 
-        val btnDisable = overlay.findViewById<TextView>(R.id.tv_guide_disable)
+        val btnDisable = overlay.findViewById<android.widget.TextView>(R.id.tv_guide_disable)
+        btnDisable.text = ctx.getString(R.string.guide_turn_off)
         btnDisable.setOnClickListener {
             AlertDialog.Builder(ctx)
-                .setTitle("Turn off AI Guide?")
-                .setMessage("The guide will stop showing. You can re-enable it from Dashboard → Guide button.")
-                .setPositiveButton("Turn Off") { _, _ ->
+                .setTitle(ctx.getString(R.string.guide_turn_off_title))
+                .setMessage(ctx.getString(R.string.guide_turn_off_msg))
+                .setPositiveButton(ctx.getString(R.string.guide_turn_off_confirm)) { _, _ ->
                     disable(ctx)
                     root.removeView(overlay)
                 }
-                .setNegativeButton("Keep On", null)
+                .setNegativeButton(ctx.getString(R.string.guide_keep_on), null)
                 .show()
         }
 
-        // Progress text e.g. "Step 3 / 12"
-        overlay.findViewById<TextView>(R.id.tv_guide_progress).text =
-            "Step ${screenStep.index + 1} / ${Step.values().size}"
+        // Progress text — translated: "Step 3 / 13" or "चरण 3 / 13"
+        overlay.findViewById<android.widget.TextView>(R.id.tv_guide_progress).text =
+            ctx.getString(R.string.guide_step_progress, screenStep.index + 1, Step.values().size)
 
         root.addView(overlay)
     }
 
     fun dismiss(activity: android.app.Activity) {
-        val root = activity.window.decorView as? FrameLayout ?: return
-        root.findViewWithTag<View>("ai_guide_overlay")?.let { root.removeView(it) }
+        val root = activity.window.decorView as? android.widget.FrameLayout ?: return
+        root.findViewWithTag<android.view.View>("ai_guide_overlay")?.let { root.removeView(it) }
     }
 
-    /** Called from Dashboard to show the full guide chooser dialog */
+    /** Called from Dashboard to show the guide chooser dialog */
     fun showGuideMenu(activity: android.app.Activity) {
         val ctx = activity
         val isDone = isDone(ctx)
         val step = currentStep(ctx)
 
         val options = arrayOf(
-            "📖 Show App Rules & Guidelines",
-            if (isDone) "🔄 Restart Survey Guide" else "🤖 Resume Guide (Step ${step.index + 1}/${Step.values().size})",
-            "❌ Turn Off AI Guide"
+            ctx.getString(R.string.guide_option_rules),
+            if (isDone) ctx.getString(R.string.guide_option_restart)
+            else ctx.getString(R.string.guide_option_resume),
+            ctx.getString(R.string.guide_option_turnoff)
         )
 
         AlertDialog.Builder(ctx)
-            .setTitle("🤖 AI Survey Guide")
+            .setTitle(ctx.getString(R.string.guide_menu_title))
             .setItems(options) { _, which ->
                 when (which) {
                     0 -> OnboardingGuideActivity.resetAndShow(activity)
@@ -278,7 +288,7 @@ object AiGuideOverlay {
                     }
                     2 -> {
                         disable(ctx)
-                        Toast.makeText(ctx, "Guide turned off. Tap 🤖 to turn it back on.", Toast.LENGTH_LONG).show()
+                        Toast.makeText(ctx, ctx.getString(R.string.guide_disabled_toast), Toast.LENGTH_LONG).show()
                     }
                 }
             }

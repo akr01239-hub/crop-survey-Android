@@ -487,4 +487,105 @@
     <string name="guide_option_resume">🤖 गाइड जारी रखें</string>
     <string name="guide_option_turnoff">❌ AI गाइड बंद करें</string>
     <string name="guide_disabled_toast">गाइड बंद हो गई। वापस चालू करने के लिए 🤖 टैप करें।</string>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════ -->
+    <!-- AI GUIDE — ONBOARDING SLIDES — HINDI                                  -->
+    <!-- ═══════════════════════════════════════════════════════════════════════ -->
+
+    <string name="guide_slide1_title">कृषि सर्वेक्षण में आपका स्वागत है</string>
+    <string name="guide_slide1_body">यह त्वरित गाइड आपको बताएगी कि ऐप कैसे काम करता है, क्या अनुमत है, और अपना पहला सर्वेक्षण सही तरीके से कैसे पूरा करें।\n\nहर पेज ध्यान से पढ़ें — इसमें 2 मिनट से कम समय लगेगा।</string>
+
+    <string name="guide_slide2_title">एक खाता — एक डिवाइस</string>
+    <string name="guide_slide2_body">⚠️ आपका खाता पहले डिवाइस से लॉक हो जाता है जिससे आप लॉगिन करते हैं।\n\n• दूसरे डिवाइस से लॉगिन करने पर पहले डिवाइस से तुरंत लॉगआउट हो जाएगा।\n• एक साथ 2 डिवाइस पर काम नहीं कर सकते।\n• फोन बदलने पर Admin से खाता अनलॉक कराएं।\n\nयह डेटा की सुरक्षा और डुप्लीकेट सर्वेक्षण रोकने के लिए है।</string>
+
+    <string name="guide_slide3_title">नकली GPS का उपयोग न करें</string>
+    <string name="guide_slide3_body">ऐप नकली लोकेशन ऐप्स (GPS स्पूफर) को पकड़ लेता है।\n\n• नकली लोकेशन मिलने पर ऐप तुरंत बंद हो जाएगा।\n• नकली GPS वाले सर्वेक्षण रिजेक्ट हो जाएंगे।\n• नकली GPS का उपयोग उल्लंघन है और खाता निलंबित हो सकता है।\n\nहमेशा असली खेत की जगह जाकर सर्वेक्षण शुरू करें।</string>
+
+    <string name="guide_slide4_title">सर्वेक्षण के प्रकार</string>
+    <string name="guide_slide4_body">ऐप में 3 सर्वेक्षण प्रकार हैं:\n\n🟢  CLS — फसल हानि सर्वेक्षण\nफसल नुकसान, हानि %, घटना का कारण, बैंक विवरण दर्ज करें।\n\n🔵  CHM — फसल स्वास्थ्य निगरानी\nप्रति मामला 5 विजिट तक फसल स्वास्थ्य की निगरानी करें।\n\n🟠  CCE — फसल कटाई प्रयोग\nअनाज का वजन, प्लॉट आकार और उपज की गणना दर्ज करें।</string>
+
+    <string name="guide_slide5_title">फोटो महत्वपूर्ण हैं</string>
+    <string name="guide_slide5_body">हर सर्वेक्षण में आवश्यक और वैकल्पिक फोटो होती हैं।\n\n• सबमिट करने से पहले सभी आवश्यक फोटो लेनी जरूरी हैं।\n• फोटो स्वचालित रूप से GPS और समय के साथ टैग होती हैं।\n• ऐप के कैमरे से फोटो लें — गैलरी से आयात न करें।\n• लेबल के अनुसार सही कोण से स्पष्ट फोटो लें।\n\nफोटो सबूत हैं — धुंधली या गलत फोटो से सर्वेक्षण रिजेक्ट होगा।</string>
+
+    <string name="guide_slide6_title">ड्राफ्ट → सबमिट → स्वीकृति</string>
+    <string name="guide_slide6_body">सर्वेक्षण इस तरह पूरा होता है:\n\n1️⃣  फॉर्म भरें + फोटो लें\n2️⃣  Save Draft दबाएं — कभी भी\n3️⃣  तैयार होने पर Submit दबाएं\n4️⃣  QC समीक्षा के लिए जाता है\n5️⃣  Approved ✅ या Rejected ❌\n\nरिजेक्ट होने पर सुधार कर दोबारा सबमिट करें।\n\nआप अपना पहला सर्वेक्षण शुरू करने के लिए तैयार हैं!</string>
+    <string name="guide_slide6_btn">समझ गया! शुरू करें</string>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════ -->
+    <!-- AI GUIDE — STEP OVERLAY MESSAGES — HINDI                              -->
+    <!-- ═══════════════════════════════════════════════════════════════════════ -->
+
+    <string name="guide_step0_title">👋 नमस्ते! मैं आपका AI सर्वेक्षण गाइड हूं</string>
+    <string name="guide_step0_msg">मैं आपको शुरू से अंत तक पहला सर्वेक्षण पूरा करने में मदद करूंगा।\n\nइस स्क्रीन पर 3 सर्वेक्षण प्रकार हैं: CLS, CHM और CCE।</string>
+    <string name="guide_step0_tip">💡 सुझाव: CLS = फसल हानि सर्वेक्षण। पहली बार CLS से शुरू करें।</string>
+    <string name="guide_step0_action">CLS से शुरू करें →</string>
+
+    <string name="guide_step1_title">📋 सर्वेक्षण प्रकार चुनें</string>
+    <string name="guide_step1_msg">फसल हानि सर्वेक्षण शुरू करने के लिए CLS कार्ड पर टैप करें।\n\n• CLS: फसल नुकसान दर्ज करने के लिए\n• CHM: फसल स्वास्थ्य निगरानी (5 विजिट तक)\n• CCE: फसल कटाई प्रयोग</string>
+    <string name="guide_step1_tip">💡 सुझाव: तीनों प्रकारों का एक ही क्रम है — फॉर्म + फोटो + सबमिट।</string>
+    <string name="guide_step1_action">समझ गया →</string>
+
+    <string name="guide_step2_title">👨‍🌾 किसान सत्यापन</string>
+    <string name="guide_step2_msg">मोबाइल नंबर और OTP से किसान की पहचान सत्यापित करें।\n\nयह वैकल्पिक है — यदि किसान अभी उपस्थित नहीं है तो SKIP दबाएं।</string>
+    <string name="guide_step2_tip">💡 सुझाव: सत्यापित सर्वेक्षण तेजी से प्रसंस्कृत होते हैं और स्वीकृति दर अधिक होती है।</string>
+    <string name="guide_step2_action">समझ गया →</string>
+
+    <string name="guide_step3_title">✅ बढ़िया! किसान सत्यापित हो गया</string>
+    <string name="guide_step3_msg">किसान का फोन सत्यापित हो गया। यह सर्वेक्षण फॉर्म में हरे बैनर के रूप में दिखेगा।</string>
+    <string name="guide_step3_tip">💡 सुझाव: अभी छोड़ा तो भी सबमिट करने से पहले सत्यापित कर सकते हैं।</string>
+    <string name="guide_step3_action">समझ गया →</string>
+
+    <string name="guide_step4_title">🗺️ खेत की सीमा बनाएं</string>
+    <string name="guide_step4_msg">खेत की सीमा के चारों ओर कम से कम 3 बिंदु जोड़ने के लिए नक्शे पर टैप करें। ऐप स्वचालित रूप से खेत का क्षेत्र गणना करेगा।\n\nवास्तविक खेत की जगह पर रहें — GPS सटीकता महत्वपूर्ण है!</string>
+    <string name="guide_step4_tip">💡 सुझाव: गलती होने पर DELETE दबाकर फिर से शुरू करें।</string>
+    <string name="guide_step4_action">समझ गया →</string>
+
+    <string name="guide_step5_title">📝 सर्वेक्षण फॉर्म भरें</string>
+    <string name="guide_step5_msg">फॉर्म में कई भाग हैं — किसी भी भाग के शीर्षक पर टैप करके उसे खोलें। * से चिह्नित सभी अनिवार्य फ़ील्ड भरें।\n\nहर 15 सेकंड में आपकी प्रगति स्वचालित रूप से सहेजी जाती है।</string>
+    <string name="guide_step5_tip">💡 सुझाव: कभी भी \'Save Draft\' दबाएं और बाद में वापस आएं।</string>
+    <string name="guide_step5_action">समझ गया →</string>
+
+    <string name="guide_step6_title">📅 मूल जानकारी अनुभाग</string>
+    <string name="guide_step6_msg">भरें:\n• वर्ष (जैसे 2025-2026)\n• मौसम (खरीफ / रबी / जायद)\n• योजना (PMFBY, RWBCIS, आदि)\n\nसभी ड्रॉपडाउन आपकी चुनी भाषा में हैं।</string>
+    <string name="guide_step6_tip">💡 सुझाव: वर्ष वर्तमान तिथि के आधार पर स्वतः भर जाता है।</string>
+    <string name="guide_step6_action">समझ गया →</string>
+
+    <string name="guide_step7_title">📍 स्थान अनुभाग</string>
+    <string name="guide_step7_msg">राज्य → जिला → तहसील → गांव चुनें।\n\nहर ड्रॉपडाउन पिछले चयन के आधार पर लोड होता है। भूमि रिकॉर्ड से खसरा नंबर दर्ज करें।</string>
+    <string name="guide_step7_tip">💡 सुझाव: गांव नहीं मिला तो Gram Panchayat फ़ील्ड में मैन्युअल दर्ज करें।</string>
+    <string name="guide_step7_action">समझ गया →</string>
+
+    <string name="guide_step8_title">🌾 फसल विवरण अनुभाग</string>
+    <string name="guide_step8_msg">फसल प्रकार, किस्म, अवस्था और सिंचाई प्रकार चुनें।\n\nCLS के लिए: हानि %, घटना का कारण और सूचना तिथि भी भरें।</string>
+    <string name="guide_step8_tip">💡 सुझाव: फसल अवस्था सत्यापन के लिए महत्वपूर्ण है — वह अवस्था चुनें जिसमें फसल अभी है।</string>
+    <string name="guide_step8_action">समझ गया →</string>
+
+    <string name="guide_step9_title">📸 अब फोटो की बारी</string>
+    <string name="guide_step9_msg">ऊपर PHOTOS टैब पर टैप करें। फोटो स्लॉट की सूची दिखेगी — कुछ Required ✦ और कुछ Optional हैं।\n\nसबमिट से पहले सभी Required फोटो लेना अनिवार्य है।</string>
+    <string name="guide_step9_tip">💡 सुझाव: फोटो स्वचालित रूप से GPS टैग होती हैं। मैन्युअल स्थान जोड़ने की जरूरत नहीं।</string>
+    <string name="guide_step9_action">समझ गया →</string>
+
+    <string name="guide_step10_title">📷 आवश्यक फोटो लें</string>
+    <string name="guide_step10_msg">प्रत्येक फोटो स्लॉट के पास CAPTURE दबाएं। फोन स्थिर रखें और अच्छी रोशनी सुनिश्चित करें।\n\nलेबल का पालन करें — जैसे \'Field North\', \'Nadir View\' (फोन फसल के ऊपर सीधा)।</string>
+    <string name="guide_step10_tip">💡 सुझाव: फोटो धुंधली हो तो तुरंत RETAKE दबाएं।</string>
+    <string name="guide_step10_action">समझ गया →</string>
+
+    <string name="guide_step11_title">💾 ड्राफ्ट सहेजें</string>
+    <string name="guide_step11_msg">नीचे SAVE DRAFT दबाकर अपना काम सर्वर पर भेजें। इससे आप:\n• बाद में जारी रख सकते हैं\n• डिवाइस बदल सकते हैं (Admin अनलॉक के बाद)\n• डेटा हानि से बच सकते हैं\n\nड्राफ्ट Dashboard के Draft टैब में दिखेगा।</string>
+    <string name="guide_step11_tip">💡 सुझाव: ऐप 15 सेकंड में स्वतः सहेजता है, लेकिन खराब नेटवर्क पर मैन्युअल सेव बेहतर है।</string>
+    <string name="guide_step11_action">समझ गया →</string>
+
+    <string name="guide_step12_title">🎉 सबमिट करने के लिए तैयार!</string>
+    <string name="guide_step12_msg">सब कुछ भरा हुआ है। QC समीक्षा के लिए SUBMIT → दबाएं।\n\nसबमिट के बाद:\n• Status \'Submitted\' हो जाएगा\n• QC टीम 24-48 घंटों में समीक्षा करेगी\n• Dashboard पर Approved ✅ या Rejected ❌ दिखेगा\n\nरिजेक्ट होने पर सुधार कर दोबारा सबमिट करें। आपने पहला सर्वेक्षण पूरा कर लिया!</string>
+    <string name="guide_step12_tip">💡 इन सुझावों को दोबारा पढ़ने के लिए Dashboard पर 🤖 Guide बटन दबाएं।</string>
+    <string name="guide_step12_action">सबमिट करें और गाइड समाप्त करें 🎉</string>
+
+    <!-- Guide UI Common -->
+    <string name="guide_step_progress">चरण %1$d / %2$d</string>
+    <string name="guide_turn_off_title">AI गाइड बंद करें?</string>
+    <string name="guide_turn_off_msg">गाइड दिखना बंद हो जाएगी। Dashboard → Guide बटन से दोबारा चालू करें।</string>
+    <string name="guide_turn_off_confirm">बंद करें</string>
+    <string name="guide_keep_on">चालू रखें</string>
+    <string name="guide_skip">गाइड छोड़ें</string>
+
 </resources>

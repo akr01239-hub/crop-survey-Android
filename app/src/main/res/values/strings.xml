@@ -567,4 +567,111 @@
     <string name="guide_option_resume">🤖 Resume Guide</string>
     <string name="guide_option_turnoff">❌ Turn Off AI Guide</string>
     <string name="guide_disabled_toast">Guide turned off. Tap 🤖 to turn it back on.</string>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════ -->
+    <!-- AI GUIDE — ONBOARDING SLIDES (OnboardingGuideActivity)                -->
+    <!-- ═══════════════════════════════════════════════════════════════════════ -->
+
+    <!-- Slide 1 -->
+    <string name="guide_slide1_title">Welcome to Krishi Sarvekshan</string>
+    <string name="guide_slide1_body">This quick guide will explain how the app works, what\'s allowed, and how to complete your first survey correctly.\n\nRead each page carefully — it takes less than 2 minutes.</string>
+
+    <!-- Slide 2 -->
+    <string name="guide_slide2_title">One Device Per Account</string>
+    <string name="guide_slide2_body">⚠️ Your account is LOCKED to the first device you log in from.\n\n• Logging in from a second device will IMMEDIATELY log you out of the first.\n• You cannot use 2 devices at the same time.\n• If you change your phone, contact your Admin to unlock the account.\n\nThis protects data integrity and prevents duplicate surveys.</string>
+
+    <!-- Slide 3 -->
+    <string name="guide_slide3_title">No Fake / Mock GPS</string>
+    <string name="guide_slide3_body">The app DETECTS mock location apps (GPS spoofers, fake location tools).\n\n• If a mock location is detected, the app will CLOSE immediately.\n• Surveys with fake GPS coordinates will be REJECTED.\n• Using mock GPS is a violation and can lead to account suspension.\n\nAlways go to the actual survey location before starting.</string>
+
+    <!-- Slide 4 -->
+    <string name="guide_slide4_title">Survey Types</string>
+    <string name="guide_slide4_body">The app supports 3 survey types:\n\n🟢  CLS — Crop Loss Survey\nDocument crop damage, loss %, cause of event, bank details, and government officer info.\n\n🔵  CHM — Crop Health Monitoring\nMonitor crop health with up to 5 visits per case. Draw field boundary on the map.\n\n🟠  CCE — Crop Cutting Experiment\nRecord grain weights, plot size, threshing data, and yield calculations.</string>
+
+    <!-- Slide 5 -->
+    <string name="guide_slide5_title">Photos Are Important</string>
+    <string name="guide_slide5_body">Each survey has required and optional photos.\n\n• Required photos MUST be captured before you can submit.\n• Photos are geo-tagged automatically with GPS coordinates and timestamp.\n• Use the camera in the app — do NOT import from gallery.\n• Take clear, well-lit photos from the correct angle as labeled.\n\nPhotos are evidence — blurry or wrong photos will cause rejection.</string>
+
+    <!-- Slide 6 -->
+    <string name="guide_slide6_title">Draft → Submit → Approval</string>
+    <string name="guide_slide6_body">Here\'s how a survey goes from start to finish:\n\n1️⃣  Fill the form + take photos\n2️⃣  Tap Save Draft anytime to save progress\n3️⃣  When ready, tap Submit\n4️⃣  Survey goes to QC review\n5️⃣  Approved ✅ or Rejected ❌\n\nIf rejected, you can edit and resubmit.\n\nYou\'re now ready to start your first survey!</string>
+    <string name="guide_slide6_btn">Got it! Let\'s Start</string>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════ -->
+    <!-- AI GUIDE — STEP OVERLAY MESSAGES (AiGuideOverlay)                     -->
+    <!-- ═══════════════════════════════════════════════════════════════════════ -->
+
+    <string name="guide_step0_title">👋 Welcome! I\'m your AI Survey Guide</string>
+    <string name="guide_step0_msg">I\'ll walk you through completing your first survey from start to finish.\n\nYou can see 3 survey types on this screen: CLS, CHM, and CCE.</string>
+    <string name="guide_step0_tip">💡 Tip: CLS = Crop Loss Survey. Start with CLS if this is your first time.</string>
+    <string name="guide_step0_action">Start with CLS →</string>
+
+    <string name="guide_step1_title">📋 Choose a Survey Type</string>
+    <string name="guide_step1_msg">Tap the CLS card to start a Crop Loss Survey.\n\n• CLS: For documenting crop damage\n• CHM: For monitoring crop health (up to 5 visits)\n• CCE: For crop cutting experiments</string>
+    <string name="guide_step1_tip">💡 Tip: All 3 types follow the same flow — form + photos + submit.</string>
+    <string name="guide_step1_action">Got it →</string>
+
+    <string name="guide_step2_title">👨‍🌾 Farmer Verification</string>
+    <string name="guide_step2_msg">You can verify the farmer\'s identity using their mobile number and OTP.\n\nThis is optional — tap SKIP if the farmer is not present right now.</string>
+    <string name="guide_step2_tip">💡 Tip: Verified surveys are processed faster and have higher approval rates.</string>
+    <string name="guide_step2_action">Got it →</string>
+
+    <string name="guide_step3_title">✅ Great! Farmer Verified</string>
+    <string name="guide_step3_msg">The farmer\'s phone is confirmed. This will appear as a green banner inside the survey form.</string>
+    <string name="guide_step3_tip">💡 Tip: Even if skipped now, you can always verify before submitting.</string>
+    <string name="guide_step3_action">Got it →</string>
+
+    <string name="guide_step4_title">🗺️ Draw the Field Boundary</string>
+    <string name="guide_step4_msg">Tap on the map to add at least 3 points around the field boundary. The app will calculate the field area automatically.\n\nBe at the actual field location — GPS accuracy matters!</string>
+    <string name="guide_step4_tip">💡 Tip: Tap DELETE to start over if you make a mistake.</string>
+    <string name="guide_step4_action">Got it →</string>
+
+    <string name="guide_step5_title">📝 Fill the Survey Form</string>
+    <string name="guide_step5_msg">The form has multiple sections — tap any section header to expand it. You must fill all required fields (marked with *).\n\nYour progress is auto-saved every 15 seconds.</string>
+    <string name="guide_step5_tip">💡 Tip: Tap \'Save Draft\' anytime to manually save and come back later.</string>
+    <string name="guide_step5_action">Got it →</string>
+
+    <string name="guide_step6_title">📅 Basic Information Section</string>
+    <string name="guide_step6_msg">Fill in:\n• Year (e.g. 2025-2026)\n• Season (Kharif / Rabi / Zaid)\n• Scheme (PMFBY, RWBCIS, etc.)\n\nAll dropdowns are translated to your chosen language.</string>
+    <string name="guide_step6_tip">💡 Tip: The year auto-fills based on the current date.</string>
+    <string name="guide_step6_action">Got it →</string>
+
+    <string name="guide_step7_title">📍 Location Section</string>
+    <string name="guide_step7_msg">Select your State → District → Tehsil → Village.\n\nEach dropdown loads based on the previous selection. Enter the Khasra number from the land records.</string>
+    <string name="guide_step7_tip">💡 Tip: If your village is missing, enter it manually in the Gram Panchayat field.</string>
+    <string name="guide_step7_action">Got it →</string>
+
+    <string name="guide_step8_title">🌾 Crop Details Section</string>
+    <string name="guide_step8_msg">Select the crop type, variety, stage, and irrigation type.\n\nFor CLS: also fill Loss %, Cause of Event, and Intimation Date.</string>
+    <string name="guide_step8_tip">💡 Tip: Crop stage matters for verification — select the stage the crop is CURRENTLY in.</string>
+    <string name="guide_step8_action">Got it →</string>
+
+    <string name="guide_step9_title">📸 Now for the Photos</string>
+    <string name="guide_step9_msg">Tap the PHOTOS tab at the top. You\'ll see a list of photo slots — some are Required ✦ and some are Optional.\n\nYou must capture ALL required photos before you can submit.</string>
+    <string name="guide_step9_tip">💡 Tip: Photos are geo-tagged automatically. No need to add location manually.</string>
+    <string name="guide_step9_action">Got it →</string>
+
+    <string name="guide_step10_title">📷 Capture Required Photos</string>
+    <string name="guide_step10_msg">Tap CAPTURE next to each photo slot. Hold the phone steady and ensure good lighting.\n\nFollow the label — e.g. \'Field North\', \'Nadir View\' (phone directly above crop).</string>
+    <string name="guide_step10_tip">💡 Tip: If a photo is blurry, tap RETAKE immediately.</string>
+    <string name="guide_step10_action">Got it →</string>
+
+    <string name="guide_step11_title">💾 Save Your Draft</string>
+    <string name="guide_step11_msg">Tap SAVE DRAFT at the bottom to sync your work to the server. This lets you:\n• Continue later\n• Switch devices (after admin unlock)\n• Prevent data loss\n\nYour draft will appear on the Dashboard under the Draft tab.</string>
+    <string name="guide_step11_tip">💡 Tip: The app auto-saves every 15 seconds, but manual save is more reliable on poor networks.</string>
+    <string name="guide_step11_action">Got it →</string>
+
+    <string name="guide_step12_title">🎉 Ready to Submit!</string>
+    <string name="guide_step12_msg">Everything is filled. Tap SUBMIT → to send your survey for QC review.\n\nAfter submission:\n• Status changes to \'Submitted\'\n• QC team reviews within 24-48 hours\n• You\'ll see Approved ✅ or Rejected ❌ on the dashboard\n\nIf rejected, you can edit and resubmit. You\'ve completed your first survey!</string>
+    <string name="guide_step12_tip">💡 You can always tap the 🤖 Guide button on the dashboard to re-read these tips.</string>
+    <string name="guide_step12_action">Submit &amp; Finish Guide 🎉</string>
+
+    <!-- Guide UI Common -->
+    <string name="guide_step_progress">Step %1$d / %2$d</string>
+    <string name="guide_turn_off_title">Turn off AI Guide?</string>
+    <string name="guide_turn_off_msg">The guide will stop showing. You can re-enable it from Dashboard → Guide button.</string>
+    <string name="guide_turn_off_confirm">Turn Off</string>
+    <string name="guide_keep_on">Keep On</string>
+    <string name="guide_skip">Skip Guide</string>
+
 </resources>
