@@ -416,7 +416,24 @@ class CCEFormFragment : Fragment() {
                 else      -> R.drawable.section_header_collapsed
             })
         } else {
-            // Expand
+            // Expand — show guide step for this section
+            activity?.let { act ->
+                val currentStep = AiGuideOverlay.currentStep(act)
+                when (section) {
+                    0 -> {
+                        if (currentStep == AiGuideOverlay.Step.FORM_OPEN) AiGuideOverlay.advance(act)
+                        AiGuideOverlay.show(act, AiGuideOverlay.Step.FORM_BASIC_INFO)
+                    }
+                    1 -> {
+                        if (currentStep == AiGuideOverlay.Step.FORM_BASIC_INFO) AiGuideOverlay.advance(act)
+                        AiGuideOverlay.show(act, AiGuideOverlay.Step.FORM_LOCATION)
+                    }
+                    2 -> {
+                        if (currentStep == AiGuideOverlay.Step.FORM_LOCATION) AiGuideOverlay.advance(act)
+                        AiGuideOverlay.show(act, AiGuideOverlay.Step.FORM_CROP_DETAILS)
+                    }
+                }
+            }
             body.visibility = View.VISIBLE
             arrow.text = "▲"
             sectionExpanded[section] = true

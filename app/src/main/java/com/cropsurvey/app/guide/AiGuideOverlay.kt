@@ -208,6 +208,14 @@ object AiGuideOverlay {
         }
     }
 
+    /** Jump directly to a specific step — use when a screen is reached by skipping others */
+    fun jumpToStep(ctx: Context, step: Step) {
+        prefs(ctx).edit()
+            .putInt(KEY_STEP, step.index)
+            .putBoolean(KEY_DONE, false)
+            .apply()
+    }
+
     /**
      * Show the guide card for the given screen step.
      * Only shows if guide is enabled AND user hasn't passed this step yet.

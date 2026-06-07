@@ -243,8 +243,7 @@ class SurveyTabsActivity : BaseActivity() {
         // Collect form data from fragment before leaving the form tab
         if (viewPager.currentItem == TAB_FORM && tab == TAB_PHOTOS) {
             collectAndStoreFormData()
-            // Guide: advance through form steps when going to photos
-            AiGuideOverlay.advance(this)
+            AiGuideOverlay.jumpToStep(this, AiGuideOverlay.Step.PHOTOS_TAB)
         }
         viewPager.currentItem = tab
         highlightTab(tab)

@@ -355,12 +355,25 @@ class CHMFormFragment : Fragment() {
         val header   = sectionHeaders[section]  ?: return
 
         if (!expanded) {
-            // Show guide step when user opens a section for the first time
+            // Advance guide and show next section tip when user opens a section
             activity?.let { act ->
+                val currentStep = AiGuideOverlay.currentStep(act)
                 when (section) {
-                    0 -> AiGuideOverlay.show(act, AiGuideOverlay.Step.FORM_BASIC_INFO)
-                    1 -> AiGuideOverlay.show(act, AiGuideOverlay.Step.FORM_LOCATION)
-                    2 -> AiGuideOverlay.show(act, AiGuideOverlay.Step.FORM_CROP_DETAILS)
+                    0 -> {
+                        // Opening Basic Info — advance from FORM_OPEN (5) to FORM_BASIC_INFO (6)
+                        if (currentStep == AiGuideOverlay.Step.FORM_OPEN) AiGuideOverlay.advance(act)
+                        AiGuideOverlay.show(act, AiGuideOverlay.Step.FORM_BASIC_INFO)
+                    }
+                    1 -> {
+                        // Opening Location — advance from FORM_BASIC_INFO (6) to FORM_LOCATION (7)
+                        if (currentStep == AiGuideOverlay.Step.FORM_BASIC_INFO) AiGuideOverlay.advance(act)
+                        AiGuideOverlay.show(act, AiGuideOverlay.Step.FORM_LOCATION)
+                    }
+                    2 -> {
+                        // Opening Crop Details — advance from FORM_LOCATION (7) to FORM_CROP_DETAILS (8)
+                        if (currentStep == AiGuideOverlay.Step.FORM_LOCATION) AiGuideOverlay.advance(act)
+                        AiGuideOverlay.show(act, AiGuideOverlay.Step.FORM_CROP_DETAILS)
+                    }
                 }
             }
         }

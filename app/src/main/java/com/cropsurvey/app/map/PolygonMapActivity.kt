@@ -89,7 +89,6 @@ class PolygonMapActivity : BaseActivity(), OnMapReadyCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_polygon_map)
-        AiGuideOverlay.show(this, AiGuideOverlay.Step.MAP_DRAW)
 
         surveyType      = intent.getStringExtra("survey_type") ?: "CLS"
         farmerVerified  = intent.getBooleanExtra("farmer_verified", false)
@@ -97,6 +96,11 @@ class PolygonMapActivity : BaseActivity(), OnMapReadyCallback {
 
         bindViews()
         setupButtons()
+
+        // Show guide after layout is fully drawn
+        window.decorView.post {
+            AiGuideOverlay.show(this, AiGuideOverlay.Step.MAP_DRAW)
+        }
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
@@ -185,7 +189,7 @@ class PolygonMapActivity : BaseActivity(), OnMapReadyCallback {
 
         btnConfirm.setOnClickListener {
             if (vertices.size >= 3) {
-                AiGuideOverlay.advance(this)  // advance past MAP_DRAW step
+                AiGuideOverlay.jumpToStep(this, AiGuideOverlay.Step.FORM_OPEN)
                 createSurveyAndProceed()
             }
         }

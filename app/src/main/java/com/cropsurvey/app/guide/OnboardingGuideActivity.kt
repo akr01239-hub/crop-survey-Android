@@ -28,19 +28,30 @@ import com.cropsurvey.app.R
 class OnboardingGuideActivity : BaseActivity() {
 
     companion object {
-        private const val PREF_GUIDE = "crop_survey_guide"
-        private const val KEY_SEEN   = "onboarding_seen"
+        private const val PREF_GUIDE       = "crop_survey_guide"
+        private const val KEY_SEEN         = "onboarding_seen"
+        private const val KEY_LOGIN_COUNT  = "onboarding_login_count"
+        private const val AUTO_SHOW_LOGINS = 2  // show onboarding for first N logins
 
+        /**
+         * Call after every successful login.
+         * Shows onboarding for the first AUTO_SHOW_LOGINS logins automatically.
+         */
         fun showIfNeeded(activity: android.app.Activity) {
             val prefs = activity.getSharedPreferences(PREF_GUIDE, android.content.Context.MODE_PRIVATE)
-            if (!prefs.getBoolean(KEY_SEEN, false)) {
+            val loginCount = prefs.getInt(KEY_LOGIN_COUNT, 0)
+            if (loginCount < AUTO_SHOW_LOGINS) {
+                prefs.edit().putInt(KEY_LOGIN_COUNT, loginCount + 1).apply()
                 activity.startActivity(Intent(activity, OnboardingGuideActivity::class.java))
             }
         }
 
         fun resetAndShow(activity: android.app.Activity) {
             val prefs = activity.getSharedPreferences(PREF_GUIDE, android.content.Context.MODE_PRIVATE)
-            prefs.edit().putBoolean(KEY_SEEN, false).apply()
+            prefs.edit()
+                .putBoolean(KEY_SEEN, false)
+                .putInt(KEY_LOGIN_COUNT, 0)  // reset count so it shows again
+                .apply()
             activity.startActivity(Intent(activity, OnboardingGuideActivity::class.java))
         }
     }

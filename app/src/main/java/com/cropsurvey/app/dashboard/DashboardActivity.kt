@@ -187,15 +187,15 @@ class DashboardActivity : BaseActivity() {
 
     private fun setupSurveyCards() {
         btnCLS.setOnClickListener {
-            AiGuideOverlay.advance(this)  // advance past DASHBOARD → SURVEY_CARD_SELECT
+            AiGuideOverlay.jumpToStep(this, AiGuideOverlay.Step.FARMER_VERIFICATION)
             startSurvey("CLS")
         }
         btnCHM.setOnClickListener {
-            AiGuideOverlay.advance(this)
+            AiGuideOverlay.jumpToStep(this, AiGuideOverlay.Step.FARMER_VERIFICATION)
             openChmVisitScreen()
         }
         btnCCE.setOnClickListener {
-            AiGuideOverlay.advance(this)
+            AiGuideOverlay.jumpToStep(this, AiGuideOverlay.Step.FARMER_VERIFICATION)
             startSurvey("CCE")
         }
     }
