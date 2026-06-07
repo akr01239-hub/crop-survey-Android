@@ -21,6 +21,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.*
+import com.cropsurvey.app.guide.AiGuideOverlay
 
 /**
  * CHM Form – section behaviour mirrors CCEFormFragment exactly:
@@ -352,6 +353,17 @@ class CHMFormFragment : Fragment() {
         val body     = sectionBodies[section]   ?: return
         val arrow    = sectionArrows[section]   ?: return
         val header   = sectionHeaders[section]  ?: return
+
+        if (!expanded) {
+            // Show guide step when user opens a section for the first time
+            activity?.let { act ->
+                when (section) {
+                    0 -> AiGuideOverlay.show(act, AiGuideOverlay.Step.FORM_BASIC_INFO)
+                    1 -> AiGuideOverlay.show(act, AiGuideOverlay.Step.FORM_LOCATION)
+                    2 -> AiGuideOverlay.show(act, AiGuideOverlay.Step.FORM_CROP_DETAILS)
+                }
+            }
+        }
 
         if (expanded) {
             body.visibility = View.GONE

@@ -1,5 +1,6 @@
 package com.cropsurvey.app.survey.cls
 
+
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.text.Editable
@@ -19,6 +20,7 @@ import com.cropsurvey.app.utils.GpsHelper
 import com.cropsurvey.app.utils.SurveySession
 import kotlinx.coroutines.launch
 import java.util.*
+import com.cropsurvey.app.guide.AiGuideOverlay
 
 /**
  * CLS Form – section behaviour mirrors CCEFormFragment exactly:
@@ -365,6 +367,17 @@ class CLSFormFragment : Fragment() {
         val body     = sectionBodies[section]   ?: return
         val arrow    = sectionArrows[section]   ?: return
         val header   = sectionHeaders[section]  ?: return
+
+        if (!expanded) {
+            // Show guide step when user opens a section for the first time
+            activity?.let { act ->
+                when (section) {
+                    0 -> AiGuideOverlay.show(act, AiGuideOverlay.Step.FORM_BASIC_INFO)
+                    1 -> AiGuideOverlay.show(act, AiGuideOverlay.Step.FORM_LOCATION)
+                    2 -> AiGuideOverlay.show(act, AiGuideOverlay.Step.FORM_CROP_DETAILS)
+                }
+            }
+        }
 
         if (expanded) {
             body.visibility = View.GONE

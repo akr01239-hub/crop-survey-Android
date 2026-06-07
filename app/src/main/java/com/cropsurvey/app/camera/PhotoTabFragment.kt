@@ -13,6 +13,7 @@ import com.cropsurvey.app.config.AppConfig
 import com.cropsurvey.app.config.PhotoRequirement
 import com.cropsurvey.app.survey.SurveyTabsActivity
 import com.cropsurvey.app.utils.SurveySession
+import com.cropsurvey.app.guide.AiGuideOverlay
 
 /**
  * Fragment shown in the "Photos" tab of SurveyTabsActivity.
@@ -76,6 +77,8 @@ class PhotoTabFragment : Fragment() {
         tvSubtitle = view.findViewById(R.id.tv_photo_tab_subtitle)
 
         adapter = PhotoListAdapter(requirements) { index ->
+            // Show PHOTOS_CAPTURE guide on first capture tap
+            activity?.let { AiGuideOverlay.show(it, AiGuideOverlay.Step.PHOTOS_CAPTURE) }
             val intent = Intent(requireContext(), PhotoCaptureActivity::class.java)
             intent.putExtra("survey_type",  surveyType)
             intent.putExtra("survey_id",    surveyId)

@@ -82,7 +82,10 @@ class FarmerVerificationActivity : BaseActivity() {
 
     private fun setupStep1() {
         btnYes.setOnClickListener { showStep(2) }
-        btnNo.setOnClickListener { proceedToSurvey(verified = false, farmerPhone = null) }
+        btnNo.setOnClickListener {
+            AiGuideOverlay.advance(this)  // skip verification → advance past FARMER_VERIFICATION step
+            proceedToSurvey(verified = false, farmerPhone = null)
+        }
     }
 
     private fun setupStep2() {
@@ -183,11 +186,14 @@ class FarmerVerificationActivity : BaseActivity() {
     }
 
     private fun showSuccessAndProceed(farmerPhone: String) {
+        AiGuideOverlay.advance(this)  // advance past FARMER_VERIFICATION
+        AiGuideOverlay.show(this, AiGuideOverlay.Step.FARMER_VERIFIED)
         AlertDialog.Builder(this)
             .setTitle("✅ Farmer Verified!")
             .setMessage("Phone number +91-$farmerPhone has been successfully verified.\n\nProceeding to survey...")
             .setCancelable(false)
             .setPositiveButton("Start Survey") { _, _ ->
+                AiGuideOverlay.advance(this)  // advance past FARMER_VERIFIED
                 proceedToSurvey(verified = true, farmerPhone = farmerPhone)
             }
             .show()

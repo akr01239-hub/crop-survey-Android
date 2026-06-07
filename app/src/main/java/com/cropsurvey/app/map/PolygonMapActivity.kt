@@ -184,7 +184,10 @@ class PolygonMapActivity : BaseActivity(), OnMapReadyCallback {
         }
 
         btnConfirm.setOnClickListener {
-            if (vertices.size >= 3) createSurveyAndProceed()
+            if (vertices.size >= 3) {
+                AiGuideOverlay.advance(this)  // advance past MAP_DRAW step
+                createSurveyAndProceed()
+            }
         }
     }
 

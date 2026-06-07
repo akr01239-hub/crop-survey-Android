@@ -96,7 +96,9 @@ class SurveyTabsActivity : BaseActivity() {
         setupHeader()
         setupBanners()
         setupViewPager()
-        AiGuideOverlay.show(this, AiGuideOverlay.Step.FORM_OPEN)
+        window.decorView.post {
+            AiGuideOverlay.show(this, AiGuideOverlay.Step.FORM_OPEN)
+        }
         setupTabs()
         setupBottomBar()
         startAutoSync()
@@ -193,7 +195,6 @@ class SurveyTabsActivity : BaseActivity() {
 
     // ── ViewPager + adapter ───────────────────────────────────────────────────
     private fun setupViewPager() {
-        AiGuideOverlay.show(this, AiGuideOverlay.Step.FORM_OPEN)
         viewPager.adapter = SurveyPagerAdapter()
         viewPager.isUserInputEnabled = false   // only switch via tab taps (prevents accidental swipe mid-form)
 
@@ -201,7 +202,11 @@ class SurveyTabsActivity : BaseActivity() {
             override fun onPageSelected(position: Int) {
                 highlightTab(position)
                 refreshPhotoCount()
-                if (position == TAB_PHOTOS) refreshPhotoCount()
+                if (position == TAB_PHOTOS) {
+                    refreshPhotoCount()
+                    // Guide: user switched to Photos tab
+                    AiGuideOverlay.show(this@SurveyTabsActivity, AiGuideOverlay.Step.PHOTOS_TAB)
+                }
             }
         })
     }
@@ -238,6 +243,8 @@ class SurveyTabsActivity : BaseActivity() {
         // Collect form data from fragment before leaving the form tab
         if (viewPager.currentItem == TAB_FORM && tab == TAB_PHOTOS) {
             collectAndStoreFormData()
+            // Guide: advance through form steps when going to photos
+            AiGuideOverlay.advance(this)
         }
         viewPager.currentItem = tab
         highlightTab(tab)
@@ -288,7 +295,9 @@ class SurveyTabsActivity : BaseActivity() {
     private fun setupBottomBar() {
         btnSaveDraft.setOnClickListener {
             collectAndStoreFormData()
+            AiGuideOverlay.show(this, AiGuideOverlay.Step.SAVE_DRAFT)
             saveDraft {
+                AiGuideOverlay.advance(this)
                 Toast.makeText(this, "Draft saved ✓", Toast.LENGTH_SHORT).show()
             }
         }
@@ -324,8 +333,10 @@ class SurveyTabsActivity : BaseActivity() {
                 return@setOnClickListener
             }
 
-            // All good → save draft then go to submit screen
+            // All good → show SUBMIT guide step, save draft then go to submit screen
+            AiGuideOverlay.show(this, AiGuideOverlay.Step.SUBMIT)
             saveDraft {
+                AiGuideOverlay.advance(this)  // mark guide complete
                 val intent = Intent(this, SubmitSurveyActivity::class.java)
                 intent.putExtra("survey_type", surveyType)
                 intent.putExtra("survey_id",   surveyId)
@@ -337,6 +348,7 @@ class SurveyTabsActivity : BaseActivity() {
 
     // ── Draft save ────────────────────────────────────────────────────────────
     private fun saveDraft(onSuccess: (() -> Unit)? = null) {
+        AiGuideOverlay.show(this, AiGuideOverlay.Step.SAVE_DRAFT)
         SurveySession.savePhotosDraft()  // always persist photos locally first
         lifecycleScope.launch {
             setSyncStatus("syncing")

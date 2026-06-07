@@ -186,9 +186,18 @@ class DashboardActivity : BaseActivity() {
     }
 
     private fun setupSurveyCards() {
-        btnCLS.setOnClickListener { startSurvey("CLS") }
-        btnCHM.setOnClickListener { openChmVisitScreen() }  // CHM uses multi-visit flow
-        btnCCE.setOnClickListener { startSurvey("CCE") }
+        btnCLS.setOnClickListener {
+            AiGuideOverlay.advance(this)  // advance past DASHBOARD → SURVEY_CARD_SELECT
+            startSurvey("CLS")
+        }
+        btnCHM.setOnClickListener {
+            AiGuideOverlay.advance(this)
+            openChmVisitScreen()
+        }
+        btnCCE.setOnClickListener {
+            AiGuideOverlay.advance(this)
+            startSurvey("CCE")
+        }
     }
 
     /** CHM has its own Visit-1..5 entry screen — but goes through farmer verification first */
