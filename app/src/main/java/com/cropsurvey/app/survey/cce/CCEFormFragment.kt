@@ -786,7 +786,7 @@ class CCEFormFragment : Fragment() {
             et.setOnClickListener {
                 val cal = Calendar.getInstance()
                 DatePickerDialog(requireContext(), { _, y, m, d ->
-                    et.setText("%04d-%02d-%02d".format(y, m + 1, d))
+                    et.setText(java.lang.String.format(java.util.Locale.US, "%04d-%02d-%02d", y, m + 1, d))
                     updateYieldEstimate()
                 }, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH)).show()
             }
@@ -1034,7 +1034,7 @@ class CCEFormFragment : Fragment() {
             "cce_plot_size"             to spPlotSize.selectedItem?.toString()?.takeIf { it != "Select Plot Size" },
             "cce_plot_custom"           to etCustomPlotSize.text.toString().toDoubleOrNull(),
             "sampling_method"           to spSamplingMethod.selectedItem?.toString()?.takeIf { !it.contains("Select") },
-            "crop_condition_plot"       to spCropConditionPlot.selectedItem?.toString()?.takeIf { !it.contains("Crop Condition") },
+            "crop_condition_plot"       to tdCode(tdCropCond, spCropConditionPlot.selectedItemPosition - 1),
             "harvesting_date"           to etHarvestingDate.text.toString().takeIf { it.isNotEmpty() },
             "threshing_method"          to spThreshingMethod.selectedItem?.toString()?.takeIf { it != "Select Method" },
             "threshing_date"            to etThreshingDate.text.toString().takeIf { it.isNotEmpty() },
@@ -1111,7 +1111,7 @@ class CCEFormFragment : Fragment() {
             "cce_plot_size"             to spPlotSize.selectedItem?.toString()?.takeIf { it != "Select Plot Size" },
             "cce_plot_custom"           to etCustomPlotSize.text.toString().toDoubleOrNull(),
             "sampling_method"           to spSamplingMethod.selectedItem?.toString()?.takeIf { !it.contains("Select") },
-            "crop_condition_plot"       to spCropConditionPlot.selectedItem?.toString()?.takeIf { !it.contains("Crop Condition") },
+            "crop_condition_plot"       to tdCode(tdCropCond, spCropConditionPlot.selectedItemPosition - 1),
             "harvesting_date"           to etHarvestingDate.text.toString().takeIf { it.isNotEmpty() },
             "threshing_method"          to spThreshingMethod.selectedItem?.toString()?.takeIf { it != "Select Method" },
             "threshing_date"            to etThreshingDate.text.toString().takeIf { it.isNotEmpty() },

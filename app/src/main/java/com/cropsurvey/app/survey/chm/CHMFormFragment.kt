@@ -705,7 +705,7 @@ class CHMFormFragment : Fragment() {
             et.setOnClickListener {
                 val cal = Calendar.getInstance()
                 DatePickerDialog(requireContext(), { _, y, m, d ->
-                    et.setText("%04d-%02d-%02d".format(y, m + 1, d))
+                    et.setText(java.lang.String.format(java.util.Locale.US, "%04d-%02d-%02d", y, m + 1, d))
                 }, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH)).show()
             }
         }
