@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ═══ APP ═══ Santali (Ol Chiki script) -->
+    <string name="app_name">ᱠᱤᱨᱭᱤ ᱥᱟᱨᱵᱮᱠᱥᱟᱱ</string>
+    <string name="select_language">ᱯᱷᱮᱞ ᱪᱷᱩᱱᱟᱹᱣ</string>
+    <string name="continue_btn">ᱡᱟᱨᱤ ᱨᱮᱠᱷᱟᱹ</string>
+    <string name="language_english">English</string>
+    <string name="language_hindi">हिन्दी</string>
+    <string name="language_marathi">मराठी</string>
+    <string name="language_bengali">বাংলা</string>
+    <string name="language_tamil">தமிழ்</string>
+    <string name="language_telugu">తెలుగు</string>
+    <string name="language_kannada">ಕನ್ನಡ</string>
+    <string name="language_urdu">اردو</string>
+    <string name="language_odia">ଓଡ଼ିଆ</string>
+    <string name="language_gujarati">ગુજરાતી</string>
+    <string name="language_punjabi">ਪੰਜਾਬੀ</string>
+    <string name="change_language">ᱯᱷᱮᱞ ᱵᱚᱫᱚᱞ ᱢᱮ</string>
+    <string name="language_changed">ᱯᱷᱮᱞ ᱥᱟᱯᱷᱚᱞᱮ ᱵᱚᱫᱚᱞ ᱦᱩᱭ ᱠᱟᱱᱟ</string>
+
+    <!-- ═══ AUTHENTICATION ═══ -->
+    <string name="login_title">ᱟᱢᱟᱜ ᱮᱠᱟᱣᱱᱴ ᱨᱮ ᱞᱚᱜᱤᱱ ᱢᱮ</string>
+    <string name="phone_number">ᱯᱷᱚᱱ ᱱᱚᱸᱵᱚᱨ</string>
+    <string name="phone_hint">+91 ᱑᱐ ᱥᱟᱸᱠᱷᱭᱟᱹ ᱱᱚᱸᱵᱚᱨ</string>
+    <string name="password">ᱯᱟᱥᱵᱟᱨᱰ</string>
+    <string name="password_hint">ᱟᱢᱟᱜ ᱯᱟᱥᱵᱟᱨᱰ</string>
+    <string name="show_password">ᱫᱮᱠᱷᱟᱹᱣ ᱢᱮ</string>
+    <string name="hide_password">ᱞᱩᱠᱩ ᱢᱮ</string>
+    <string name="forgot_password">ᱯᱟᱥᱵᱟᱨᱰ ᱵᱤᱥᱨᱟᱹᱢ ᱦᱩᱭ ᱠᱟᱱᱟ?</string>
+    <string name="login_btn">ᱞᱚᱜᱤᱱ ᱢᱮ</string>
+    <string name="logging_in">ᱞᱚᱜᱤᱱ ᱦᱩᱭ ᱟᱜᱟ…</string>
+    <string name="new_surveyor">ᱱᱟᱶᱟ ᱥᱟᱨᱵᱮᱭᱚᱨ? </string>
+    <string name="request_account">ᱮᱠᱟᱣᱱᱴ ᱢᱟᱹᱜᱩ ᱢᱮ</string>
+    <string name="logout">ᱞᱚᱜᱟᱣᱴ</string>
+    <string name="logout_confirm_title">ᱞᱚᱜᱟᱣᱴ</string>
+    <string name="logout_confirm_msg">ᱟᱢ ᱥᱟᱹᱪᱤ ᱞᱚᱜᱟᱣᱴ ᱢᱮᱱᱟᱹᱣ?</string>
+    <string name="invalid_phone">ᱥᱟᱪᱤ ᱑᱐ ᱥᱟᱸᱠᱷᱭᱟᱹ ᱯᱷᱚᱱ ᱱᱚᱸᱵᱚᱨ ᱫᱮᱣ ᱢᱮ</string>
+    <string name="invalid_password">ᱯᱟᱥᱵᱟᱨᱰ ᱒ ᱠᱚᱸᱢ ᱐ ᱥᱟᱸᱠᱷᱭᱟᱹ ᱦᱚᱲ ᱜᱮ ᱫᱟᱲᱟᱭ ᱠᱟᱱᱟ</string>
+    <string name="invalid_credentials">ᱜᱚᱞᱚᱴ ᱯᱷᱚᱱ ᱥᱮ ᱯᱟᱥᱵᱟᱨᱰ</string>
+    <string name="session_expired">ᱥᱮᱥᱚᱱ ᱥᱮᱥ ᱦᱩᱭ ᱠᱟᱱᱟ। ᱟᱠᱟ ᱞᱚᱜᱤᱱ ᱢᱮ।</string>
+    <string name="network_error">ᱱᱮᱴᱵᱟᱨᱠ ᱜᱚᱞᱚᱴᱤ। ᱠᱚᱱᱮᱠᱥᱚᱱ ᱡᱟᱸᱪ ᱢᱮ।</string>
+    <string name="account_pending">ᱟᱢᱟᱜ ᱮᱠᱟᱣᱱᱴ ᱯ੍ᱨᱟᱥᱟᱥᱚᱱ ᱩᱱᱩᱢᱩᱫᱽ ᱨᱮ ᱟᱜᱟ। ᱟᱰᱮ ᱵᱟᱝ ᱢᱮ।</string>
+    <string name="reset_password">ᱯᱟᱥᱵᱟᱨᱰ ᱨᱤᱥᱮᱴ ᱢᱮ</string>
+    <string name="enter_otp">OTP ᱫᱮᱣ ᱢᱮ</string>
+    <string name="verify_otp">OTP ᱡᱟᱸᱪ ᱢᱮ</string>
+    <string name="otp_sent">ᱟᱢᱟᱜ ᱱᱚᱸᱵᱚᱨ ᱨᱮ OTP ᱩᱫᱟᱹᱜ ᱦᱩᱭ ᱠᱟᱱᱟ</string>
+    <string name="invalid_otp">ᱜᱚᱞᱚᱴ OTP। ᱟᱠᱟ ᱪᱮᱥᱴᱟ ᱢᱮ।</string>
+    <string name="new_password">ᱱᱟᱶᱟ ᱯᱟᱥᱵᱟᱨᱰ</string>
+    <string name="confirm_password">ᱯᱟᱥᱵᱟᱨᱰ ᱱᱤᱥᱪᱤᱛ ᱢᱮ</string>
+    <string name="password_mismatch">ᱯᱟᱥᱵᱟᱨᱰ ᱢᱤᱞ ᱱᱚᱫᱳᱜ</string>
+    <string name="change_password">ᱯᱟᱥᱵᱟᱨᱰ ᱵᱚᱫᱚᱞ ᱢᱮ</string>
+    <string name="password_changed">ᱯᱟᱥᱵᱟᱨᱰ ᱥᱟᱯᱷᱚᱞᱮ ᱵᱚᱫᱚᱞ ᱦᱩᱭ ᱠᱟᱱᱟ</string>
+
+    <!-- ═══ DASHBOARD ═══ -->
+    <string name="dashboard">ᱰᱟᱥᱵᱚᱨᱰ</string>
+    <string name="home">ᱜᱷᱚᱨ</string>
+    <string name="welcome">ᱡᱚᱦᱟᱨ</string>
+    <string name="greeting_morning">ᱯᱷᱩᱞ ᱵᱷᱤᱱᱥᱟᱨ,</string>
+    <string name="greeting_afternoon">ᱵᱷᱟᱞᱚ ᱫᱩᱯᱩᱨ,</string>
+    <string name="greeting_evening">ᱵᱷᱟᱞᱚ ᱵᱮᱞᱟ,</string>
+    <string name="profile">ᱯᱨᱚᱯᱷᱟᱭᱤᱞ</string>
+    <string name="notifications">ᱥᱩᱪᱱᱟ</string>
+    <string name="settings">ᱥᱮᱴᱤᱝ</string>
+    <string name="my_tasks">ᱟᱢᱟᱜ ᱠᱟᱢ</string>
+    <string name="assigned_surveys">ᱫᱮᱣᱟ ᱥᱟᱨᱵᱮᱠᱥᱟᱱ</string>
+    <string name="pending_surveys">ᱵᱟᱠᱤ ᱥᱟᱨᱵᱮᱠᱥᱟᱱ</string>
+    <string name="completed_surveys">ᱥᱮᱥ ᱥᱟᱨᱵᱮᱠᱥᱟᱱ</string>
+    <string name="draft_surveys">ᱰᱨᱟᱯᱴ ᱥᱟᱨᱵᱮᱠᱥᱟᱱ</string>
+    <string name="rejected_surveys">ᱱᱟᱞᱡᱟᱭ ᱥᱟᱨᱵᱮᱠᱥᱟᱱ</string>
+    <string name="approved_surveys">ᱢᱟᱱᱡᱩᱨ ᱥᱟᱨᱵᱮᱠᱥᱟᱱ</string>
+
+    <!-- ═══ SURVEY MODULES ═══ -->
+    <string name="cce_survey">CCE ᱥᱟᱨᱵᱮᱠᱥᱟᱱ</string>
+    <string name="cls_survey">CLS ᱥᱟᱨᱵᱮᱠᱥᱟᱱ</string>
+    <string name="chm_survey">CHM ᱥᱟᱨᱵᱮᱠᱥᱟᱱ</string>
+    <string name="farmer_survey">ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱥᱟᱨᱵᱮᱠᱥᱟᱱ</string>
+    <string name="crop_inspection">ᱜᱚᱛ ᱡᱟᱸᱪ</string>
+    <string name="start_survey">ᱥᱟᱨᱵᱮᱠᱥᱟᱱ ᱥᱩᱨᱩ ᱢᱮ</string>
+    <string name="new_survey">ᱱᱟᱶᱟ ᱥᱟᱨᱵᱮᱠᱥᱟᱱ</string>
+
+    <!-- ═══ STATUSES ═══ -->
+    <string name="status_draft">ᱰᱨᱟᱯᱴ</string>
+    <string name="status_pending">ᱵᱟᱠᱤ</string>
+    <string name="status_submitted">ᱡᱚᱢᱟ ᱦᱩᱭ ᱠᱟᱱᱟ</string>
+    <string name="status_assigned">ᱫᱮᱣᱟ</string>
+    <string name="status_in_review">ᱨᱤᱵᱭᱩ ᱨᱮ</string>
+    <string name="status_approved">ᱢᱟᱱᱡᱩᱨ</string>
+    <string name="status_rejected">ᱱᱟᱞᱡᱟᱭ</string>
+    <string name="status_completed">ᱥᱮᱥ</string>
+    <string name="status_synced">ᱥᱤᱝᱠ ᱦᱩᱭ ᱠᱟᱱᱟ</string>
+    <string name="status_unsynced">ᱥᱤᱝᱠ ᱱᱚᱫᱳᱜ</string>
+    <string name="status_submitted_pending">ᱡᱚᱢᱟ (ᱥᱤᱝᱠ ᱵᱟᱠᱤ)</string>
+    <string name="status_under_qc">QC ᱨᱮ</string>
+    <string name="tab_draft_count">ᱰᱨᱟᱯᱴ (%d)</string>
+    <string name="tab_submitted_count">ᱡᱚᱢᱟ (%d)</string>
+    <string name="tab_approved_count">ᱢᱟᱱᱡᱩᱨ (%d)</string>
+    <string name="tab_rejected_count">ᱱᱟᱞᱡᱟᱭ (%d)</string>
+
+    <!-- ═══ FORM SECTIONS ═══ -->
+    <string name="section_basic_info">ᱢᱩᱞ ᱡᱟᱱᱟᱢ</string>
+    <string name="section_location">ᱡᱟᱭᱜᱟ</string>
+    <string name="section_crop_survey">ᱜᱚᱛ ᱟᱨ ᱥᱟᱨᱵᱮᱠᱥᱟᱱ ᱵᱤᱵᱚᱨᱚᱱ</string>
+    <string name="section_farmer_info">ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱡᱟᱱᱟᱢ</string>
+    <string name="section_key_dates">ᱜᱚᱨᱚᱢ ᱛᱟᱨᱤᱠᱷ</string>
+    <string name="section_loss_details">ᱢᱟᱨᱟᱝ ᱵᱤᱵᱚᱨᱚᱱ</string>
+    <string name="section_bank_details">ᱵᱟᱸᱠ ᱵᱤᱵᱚᱨᱚᱱ</string>
+    <string name="section_govt_officer">ᱥᱚᱨᱠᱟᱨᱤ ᱠᱚᱨᱚᱢᱪᱟᱨᱤ</string>
+    <string name="section_remarks_gps">ᱴᱤᱯᱚᱱᱤ ᱟᱨ GPS</string>
+    <string name="section_crop_details">ᱜᱚᱛ ᱵᱤᱵᱚᱨᱚᱱ</string>
+    <string name="section_cce_plot">CCE ᱯᱞᱚᱴ ᱵᱤᱵᱚᱨᱚᱱ</string>
+    <string name="section_yield">ᱩᱯᱡᱟᱹ ᱜᱚᱱᱚᱱᱟ</string>
+    <string name="section_witness">ᱥᱟᱠᱥᱤ ᱵᱤᱵᱚᱨᱚᱱ</string>
+    <string name="section_chm_visit">CHM ᱵᱷᱤᱡᱤᱴ ᱵᱤᱵᱚᱨᱚᱱ</string>
+    <string name="section_observations">ᱫᱤᱭᱟᱹᱲ</string>
+
+    <!-- ═══ FIELD LABELS ═══ -->
+    <string name="field_year">ᱥᱮᱨᱢᱟ</string>
+    <string name="field_season">ᱨᱩᱛᱩ</string>
+    <string name="field_scheme">ᱭᱚᱡᱚᱱᱟ</string>
+    <string name="field_other_scheme">ᱟᱞᱚᱜ ᱭᱚᱡᱚᱱᱟ</string>
+    <string name="field_state">ᱨᱟᱡᱽ</string>
+    <string name="field_district">ᱡᱤᱞᱟ</string>
+    <string name="field_tehsil">ᱛᱟᱦᱥᱤᱞ</string>
+    <string name="field_revenue_circle">ᱨᱮᱵᱷᱮᱱᱩ ᱥᱚᱨᱠᱤᱞ</string>
+    <string name="field_gram_panchayat">ᱜᱨᱟᱢ ᱯᱚᱸᱪᱟᱭᱚᱛ</string>
+    <string name="field_village">ᱜᱟᱣ</string>
+    <string name="field_survey_intimation_no">ᱥᱟᱨᱵᱮᱠᱥᱟᱱ ᱥᱩᱪᱱᱟ ᱱᱚᱸ.</string>
+    <string name="field_crop_name">ᱜᱚᱛ ᱱᱟᱢ</string>
+    <string name="field_insurance_unit">ᱵᱤᱢᱟ ᱭᱩᱱᱤᱴ</string>
+    <string name="field_farmer_name">ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱱᱟᱢ</string>
+    <string name="field_farmer_mobile">ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱢᱚᱵᱟᱭᱤᱞ</string>
+    <string name="field_farmer_app_no">ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱟᱵᱮᱫᱚᱱ ᱱᱚᱸ.</string>
+    <string name="field_survey_date">ᱥᱟᱨᱵᱮᱠᱥᱟᱱ ᱛᱟᱨᱤᱠᱷ</string>
+    <string name="field_sowing_date">ᱵᱤᱡᱽ ᱵᱩᱣᱟᱹᱭᱚᱜ ᱛᱟᱨᱤᱠᱷ</string>
+    <string name="field_intimation_date">ᱥᱩᱪᱱᱟ ᱛᱟᱨᱤᱠᱷ</string>
+    <string name="field_loss_date">ᱢᱟᱨᱟᱝ ᱛᱟᱨᱤᱠᱷ</string>
+    <string name="field_cause_of_event">ᱜᱷᱴᱚᱱᱟ ᱠᱟᱨᱚᱱ</string>
+    <string name="field_crop_stage">ᱜᱚᱛ ᱟᱵᱚᱥᱛᱷᱟ</string>
+    <string name="field_cropping_pattern">ᱜᱚᱛ ᱯᱚᱫᱽᱫᱷᱚᱛᱤ</string>
+    <string name="field_khasra_no">ᱠᱷᱟᱥᱨᱟ ᱱᱚᱸᱵᱚᱨ</string>
+    <string name="field_field_area_polygon">ᱠᱷᱮᱛ ᱡᱟᱭᱜᱟ (ᱯᱚᱞᱤᱜᱚᱱ)</string>
+    <string name="field_total_land_area">ᱢᱩᱱᱟ ᱡᱚᱢᱤᱱ (ᱦᱮ.)</string>
+    <string name="field_insured_area">ᱵᱤᱢᱟ ᱡᱚᱢᱤᱱ (ᱦᱮ.)</string>
+    <string name="field_area_affected_pct">ᱯᱨᱚᱵᱷᱟᱵᱤᱛ ᱡᱟᱭᱜᱟ (%)</string>
+    <string name="field_loss_pct">ᱢᱟᱨᱟᱝ (%)</string>
+    <string name="field_recovery_rate">ᱨᱤᱠᱚᱵᱷᱚᱨᱤ ᱫᱚᱨ</string>
+    <string name="field_onfield_condition">ᱠᱷᱮᱛ ᱟᱵᱚᱥᱛᱷᱟ</string>
+    <string name="field_bank_name">ᱵᱟᱸᱠ ᱱᱟᱢ</string>
+    <string name="field_branch_name">ᱵᱨᱟᱸᱪ ᱱᱟᱢ</string>
+    <string name="field_ifsc_code">IFSC ᱠᱳᱰ</string>
+    <string name="field_account_type">ᱮᱠᱟᱣᱱᱴ ᱛᱭᱟᱜ</string>
+    <string name="field_account_no">ᱮᱠᱟᱣᱱᱴ ᱱᱚᱸᱵᱚᱨ</string>
+    <string name="field_officer_name">ᱠᱚᱨᱚᱢᱪᱟᱨᱤ ᱱᱟᱢ</string>
+    <string name="field_officer_mobile">ᱠᱚᱨᱚᱢᱪᱟᱨᱤ ᱢᱚᱵᱟᱭᱤᱞ</string>
+    <string name="field_officer_designation">ᱠᱚᱨᱚᱢᱪᱟᱨᱤ ᱯᱚᱫ</string>
+    <string name="field_remarks">ᱴᱤᱯᱚᱱᱤ</string>
+    <string name="field_crop_variety">ᱜᱚᱛ ᱡᱟᱛ</string>
+    <string name="field_expected_harvest">ᱩᱢᱤᱫ ᱠᱟᱴᱟᱭ ᱛᱟᱨᱤᱠᱷ</string>
+    <string name="field_irrigation_type">ᱡᱚᱞ ᱥᱤᱸᱪᱚᱱ ᱛᱭᱟᱜ</string>
+    <string name="field_land_type">ᱡᱚᱢᱤᱱ ᱛᱭᱟᱜ</string>
+    <string name="field_plot_size">ᱯᱞᱚᱴ ᱟᱠᱟᱨ</string>
+    <string name="field_sampling_method">ᱱᱚᱢᱩᱱᱟ ᱛᱨᱤᱠᱟ</string>
+    <string name="field_crop_condition">ᱜᱚᱛ ᱟᱵᱚᱥᱛᱷᱟ</string>
+    <string name="field_harvesting_date">ᱠᱟᱴᱟᱭ ᱛᱟᱨᱤᱠᱷ</string>
+    <string name="field_threshing_method">ᱠᱩᱴᱟᱭ ᱛᱨᱤᱠᱟ</string>
+    <string name="field_threshing_date">ᱠᱩᱴᱟᱭ ᱛᱟᱨᱤᱠᱷ</string>
+    <string name="field_fresh_biomass">ᱱᱩᱛᱩᱱ ᱵᱟᱭᱚᱢᱟᱥ ᱵᱚᱡᱚᱱ (ᱠᱤ.ᱜᱨᱟ.)</string>
+    <string name="field_fresh_grain">ᱱᱩᱛᱩᱱ ᱩᱱᱫᱟᱹ ᱵᱚᱡᱚᱱ (ᱠᱤ.ᱜᱨᱟ.)</string>
+    <string name="field_dry_grain">ᱥᱩᱠᱩᱞ ᱩᱱᱫᱟᱹ ᱵᱚᱡᱚᱱ (ᱠᱤ.ᱜᱨᱟ.)</string>
+    <string name="field_moisture_pct">ᱱᱚᱲ (%)</string>
+    <string name="field_yield_kg_per_ha">ᱩᱯᱡᱟᱹ (ᱠᱤ.ᱜᱨᱟ./ᱦᱮ.)</string>
+    <string name="field_witness_type">ᱥᱟᱠᱥᱤ ᱛᱭᱟᱜ</string>
+    <string name="field_witness_name">ᱥᱟᱠᱥᱤ ᱱᱟᱢ</string>
+    <string name="field_witness_mobile">ᱥᱟᱠᱥᱤ ᱢᱚᱵᱟᱭᱤᱞ</string>
+    <string name="field_cce_number">CCE ᱱᱚᱸᱵᱚᱨ</string>
+    <string name="field_cce_date">CCE ᱛᱟᱨᱤᱠᱷ</string>
+    <string name="field_experiment_id">ᱯᱚᱨᱤᱠᱥᱟ ID</string>
+    <string name="field_farmer_aadhaar_last4">ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱟᱫᱷᱟᱨ (ᱟᱹᱠᱷᱨᱤ ᱔)</string>
+    <string name="field_observations">ᱫᱤᱭᱟᱹᱲ</string>
+    <string name="field_recommendations">ᱥᱩᱫᱷᱩᱲ</string>
+
+    <!-- ═══ PLACEHOLDERS ═══ -->
+    <string name="hint_select">ᱪᱷᱩᱱᱟᱹᱣ ᱢᱮ…</string>
+    <string name="hint_enter">ᱫᱮᱣ ᱢᱮ…</string>
+    <string name="hint_revenue_circle">ᱨᱮᱵᱷᱮᱱᱩ ᱥᱚᱨᱠᱤᱞ ᱱᱟᱢ ᱫᱮᱣ ᱢᱮ</string>
+    <string name="hint_village">ᱜᱟᱣ ᱱᱟᱢ ᱫᱮᱣ ᱢᱮ</string>
+    <string name="hint_remarks">ᱟᱢᱟᱜ ᱯᱷᱮᱞ ᱨᱮ ᱴᱤᱯᱚᱱᱤ ᱞᱤᱠᱷᱟᱹ ᱢᱮ…</string>
+    <string name="hint_farmer_name">ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱯᱩᱨᱟ ᱱᱟᱢ ᱫᱮᱣ ᱢᱮ</string>
+    <string name="hint_bank_name">ᱵᱟᱸᱠ ᱱᱟᱢ ᱫᱮᱣ ᱢᱮ</string>
+
+    <!-- ═══ VALIDATION ═══ -->
+    <string name="required_field">ᱱᱤ ᱠᱷᱮᱛᱨᱚ ᱫᱟᱲᱟᱭ ᱠᱟᱱᱟ</string>
+    <string name="invalid_mobile">ᱥᱟᱪᱤ ᱑᱐ ᱥᱟᱸᱠᱷᱭᱟᱹ ᱢᱚᱵᱟᱭᱤᱞ ᱱᱚᱸᱵᱚᱨ ᱫᱮᱣ ᱢᱮ</string>
+    <string name="invalid_area">ᱥᱟᱪᱤ ᱡᱟᱭᱜᱟ ᱫᱮᱣ ᱢᱮ</string>
+    <string name="invalid_percentage">ᱯᱚᱨᱥᱮᱱᱴ ᱐ ᱛᱮ ᱑᱐᱐ ᱢᱟᱹᱧᱡᱽ ᱞᱟᱹᱜᱤᱫ ᱫᱟᱲᱟᱭ ᱠᱟᱱᱟ</string>
+    <string name="fill_required_fields">ᱟᱲᱟᱱ ᱥᱩᱵᱤᱫᱷᱟ ᱫᱟᱲᱟᱭ ᱠᱟᱱᱟ ᱠᱷᱮᱛᱨᱚ ᱵᱷᱚᱨᱟᱹ ᱢᱮ</string>
+    <string name="section_incomplete">ᱥᱮᱠᱥᱚᱱ ᱟᱥᱚᱢᱯᱩᱨᱱ: %s</string>
+
+    <!-- ═══ BUTTONS ═══ -->
+    <string name="btn_save">ᱵᱟᱪᱷᱟᱣ ᱢᱮ</string>
+    <string name="btn_save_draft">ᱰᱨᱟᱯᱴ ᱵᱟᱪᱷᱟᱣ ᱢᱮ</string>
+    <string name="btn_submit">ᱡᱚᱢᱟ ᱢᱮ</string>
+    <string name="btn_resubmit">ᱟᱠᱟ ᱡᱚᱢᱟ ᱢᱮ</string>
+    <string name="btn_approve">ᱢᱟᱱᱡᱩᱨ ᱢᱮ</string>
+    <string name="btn_reject">ᱱᱟᱞᱡᱟᱭ ᱢᱮ</string>
+    <string name="btn_edit">ᱵᱚᱫᱚᱞ ᱢᱮ</string>
+    <string name="btn_delete">ᱢᱩᱪᱟᱹᱣ ᱢᱮ</string>
+    <string name="btn_search">ᱠᱷᱩᱡᱽ ᱢᱮ</string>
+    <string name="btn_filter">ᱯᱷᱤᱞᱴᱟᱨ</string>
+    <string name="btn_sync">ᱥᱤᱝᱠ ᱢᱮ</string>
+    <string name="btn_back">ᱛᱤᱨᱤᱧ ᱢᱮ</string>
+    <string name="btn_next">ᱟᱜᱩ</string>
+    <string name="btn_continue">ᱡᱟᱨᱤ ᱨᱮᱠᱷᱟᱹ</string>
+    <string name="btn_finish">ᱥᱮᱥ ᱢᱮ</string>
+    <string name="btn_cancel">ᱵᱟᱛᱤᱞ ᱢᱮ</string>
+    <string name="btn_close">ᱵᱚᱸᱫ ᱢᱮ</string>
+    <string name="btn_ok">ᱴᱷᱤᱠ ᱟᱜ</string>
+    <string name="btn_retry">ᱟᱠᱟ ᱪᱮᱥᱴᱟ ᱢᱮ</string>
+    <string name="btn_refresh">ᱨᱤᱯᱷᱨᱮᱥ ᱢᱮ</string>
+
+    <!-- ═══ VISITS ═══ -->
+    <string name="visit">ᱵᱷᱤᱡᱤᱴ</string>
+    <string name="first_visit">ᱯᱚᱦᱤᱞ ᱵᱷᱤᱡᱤᱴ</string>
+    <string name="second_visit">ᱫᱚᱦᱞᱟᱜ ᱵᱷᱤᱡᱤᱴ</string>
+    <string name="third_visit">ᱯᱮ ᱵᱷᱤᱡᱤᱴ</string>
+    <string name="fourth_visit">ᱯᱩᱱ ᱵᱷᱤᱡᱤᱴ</string>
+    <string name="fifth_visit">ᱢᱚᱱᱮ ᱵᱷᱤᱡᱤᱴ</string>
+    <string name="scheduled_visit">ᱱᱤᱨᱫᱷᱟᱨᱤᱛ ᱵᱷᱤᱡᱤᱴ</string>
+    <string name="completed_visit">ᱥᱮᱥ ᱵᱷᱤᱡᱤᱴ</string>
+    <string name="missed_visit">ᱪᱷᱩᱴᱟ ᱵᱷᱤᱡᱤᱴ</string>
+    <string name="rescheduled_visit">ᱟᱠᱟ ᱱᱤᱨᱫᱷᱟᱨᱤᱛ ᱵᱷᱤᱡᱤᱴ</string>
+    <string name="visit_date">ᱵᱷᱤᱡᱤᱴ ᱛᱟᱨᱤᱠᱷ</string>
+    <string name="visit_time">ᱵᱷᱤᱡᱤᱴ ᱛᱟᱭᱚᱢ</string>
+
+    <!-- ═══ PHOTO ═══ -->
+    <string name="take_photo">ᱯᱷᱳᱴᱳ ᱠᱚᱨᱟᱹ ᱢᱮ</string>
+    <string name="capture_photo">ᱯᱷᱳᱴᱳ ᱠᱮᱯᱪᱟᱨ ᱢᱮ</string>
+    <string name="retake_photo">ᱟᱠᱟ ᱠᱚᱨᱟᱹ ᱢᱮ</string>
+    <string name="upload_photo">ᱯᱷᱳᱴᱳ ᱩᱯᱞᱳᱰ ᱢᱮ</string>
+    <string name="delete_photo">ᱯᱷᱳᱴᱳ ᱢᱩᱪᱟᱹᱣ ᱢᱮ</string>
+    <string name="preview_photo">ᱯᱷᱳᱴᱳ ᱯᱨᱤᱵᱷᱤᱣ</string>
+    <string name="view_photo">ᱯᱷᱳᱴᱳ ᱫᱮᱠᱷᱟᱹ ᱢᱮ</string>
+    <string name="camera_permission_required">ᱠᱮᱢᱮᱨᱟ ᱩᱱᱩᱢᱩᱫᱽ ᱫᱟᱲᱟᱭ ᱠᱟᱱᱟ</string>
+    <string name="camera_permission_msg">ᱠᱷᱮᱛ ᱯᱷᱳᱴᱳ ᱠᱮᱯᱪᱟᱨ ᱞᱟᱹᱜᱤᱫ ᱠᱮᱢᱮᱨᱟ ᱩᱱᱩᱢᱩᱫᱽ ᱫᱮᱣ ᱢᱮ।</string>
+    <string name="photo_uploaded_success">ᱯᱷᱳᱴᱳ ᱥᱟᱯᱷᱚᱞᱮ ᱩᱯᱞᱳᱰ ᱦᱩᱭ ᱠᱟᱱᱟ</string>
+    <string name="photo_upload_failed">ᱯᱷᱳᱴᱳ ᱩᱯᱞᱳᱰ ᱵᱤᱯᱷᱞ। ᱟᱠᱟ ᱪᱮᱥᱴᱟ ᱢᱮ।</string>
+    <string name="photos">ᱯᱷᱳᱴᱳᱥᱟᱵᱚ</string>
+    <string name="photo_required">ᱫᱟᱲᱟᱭ</string>
+    <string name="photo_optional">ᱟᱭᱪᱷᱤᱠ</string>
+    <string name="all_photos_uploaded">ᱥᱟᱵᱚ ᱯᱷᱳᱴᱳ ᱩᱯᱞᱳᱰ ᱦᱩᱭ ᱠᱟᱱᱟ</string>
+    <string name="photos_pending">%d ᱯᱷᱳᱴᱳ ᱵᱟᱠᱤ</string>
+
+    <!-- ═══ GPS ═══ -->
+    <string name="capture_gps">GPS ᱠᱮᱯᱪᱟᱨ ᱢᱮ</string>
+    <string name="latitude">ᱟᱠᱥᱟᱸᱥ</string>
+    <string name="longitude">ᱫᱨᱟᱜᱷᱤᱢᱟᱸᱥ</string>
+    <string name="gps_accuracy">GPS ᱥᱟᱪᱤᱠᱷᱟ</string>
+    <string name="enable_gps">GPS ᱪᱟᱞᱩ ᱢᱮ</string>
+    <string name="gps_disabled">GPS ᱵᱚᱸᱫ ᱟᱜ</string>
+    <string name="gps_disabled_msg">ᱡᱟᱭᱜᱟ ᱠᱮᱯᱪᱟᱨ ᱞᱟᱹᱜᱤᱫ GPS/ᱞᱚᱠᱮᱥᱚᱱ ᱪᱟᱞᱩ ᱢᱮ।</string>
+    <string name="location_captured">ᱡᱟᱭᱜᱟ ᱠᱮᱯᱪᱟᱨ ᱦᱩᱭ ᱠᱟᱱᱟ</string>
+    <string name="location_not_available">ᱡᱟᱭᱜᱟ ᱩᱯᱞᱚᱵᱷᱫᱷ ᱱᱚᱦᱳᱜ</string>
+    <string name="gps_capturing">GPS ᱠᱮᱯᱪᱟᱨ ᱦᱩᱭ ᱟᱜᱟ…</string>
+    <string name="gps_accuracy_poor">GPS ᱥᱟᱪᱤᱠᱷᱟ ᱠᱚᱢ (%s ᱢᱤᱴᱟᱨ)। ᱢᱩᱠᱩᱞ ᱡᱟᱭᱜᱟ ᱡᱟᱹᱣ ᱢᱮ।</string>
+    <string name="gps_captured_success" formatted="false">GPS ᱠᱮᱯᱪᱟᱨ: %s, %s (ᱥᱟᱪᱤᱠᱷᱟ: %s ᱢᱤᱴᱟᱨ)</string>
+
+    <!-- ═══ MAP ═══ -->
+    <string name="open_map">ᱢᱮᱯ ᱩᱜᱷᱩᱰ ᱢᱮ</string>
+    <string name="plot_location">ᱯᱞᱚᱴ ᱡᱟᱭᱜᱟ</string>
+    <string name="farmer_location">ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱡᱟᱭᱜᱟ</string>
+    <string name="current_location">ᱟᱥᱟᱞ ᱡᱟᱭᱜᱟ</string>
+    <string name="draw_polygon">ᱯᱞᱚᱴ ᱥᱤᱢᱟ ᱛᱟᱹᱱᱟᱹᱜ ᱢᱮ</string>
+    <string name="polygon_saved">ᱯᱚᱞᱤᱜᱚᱱ ᱵᱟᱪᱷᱟᱣ ᱦᱩᱭ ᱠᱟᱱᱟ</string>
+    <string name="polygon_area">ᱯᱚᱞᱤᱜᱚᱱ ᱡᱟᱭᱜᱟ: %s ᱦᱮ.</string>
+
+    <!-- ═══ REJECTION ═══ -->
+    <string name="rejected">ᱱᱟᱞᱡᱟᱭ</string>
+    <string name="rejection_reason">ᱱᱟᱞᱡᱟᱭ ᱠᱟᱨᱚᱱ</string>
+    <string name="missing_photo">ᱯᱷᱳᱴᱳ ᱱᱟᱦᱳᱜ</string>
+    <string name="gps_mismatch">GPS ᱢᱤᱞ ᱱᱚᱦᱳᱜ</string>
+    <string name="invalid_data">ᱟᱵᱷᱟᱞ ᱰᱮᱴᱟ</string>
+    <string name="correction_required">ᱥᱩᱫᱷᱟᱨ ᱫᱟᱲᱟᱭ ᱠᱟᱱᱟ</string>
+    <string name="reopen_survey">ᱥᱟᱨᱵᱮᱠᱥᱟᱱ ᱟᱠᱟ ᱩᱜᱷᱩᱰ ᱢᱮ</string>
+    <string name="resubmit_banner_msg">⚠️ ᱱᱤ ᱥᱟᱨᱵᱮᱠᱥᱟᱱ ᱱᱟᱞᱡᱟᱭ ᱦᱩᱭ ᱠᱟᱱᱟ। ᱟᱠᱟ ᱡᱚᱢᱟ ᱫᱮᱣᱟ ᱟᱹᱜᱩ ᱥᱚᱢᱥᱭᱟ ᱡᱟᱸᱪ ᱢᱮ।</string>
+
+    <!-- ═══ APPROVAL ═══ -->
+    <string name="approved">ᱢᱟᱱᱡᱩᱨ</string>
+    <string name="approved_by">ᱢᱟᱱᱡᱩᱨ ᱠᱚᱨᱟᱹᱱᱤᱜ</string>
+    <string name="approval_date">ᱢᱟᱱᱡᱩᱨ ᱛᱟᱨᱤᱠᱷ</string>
+    <string name="final_approval">ᱟᱹᱠᱷᱨᱤ ᱢᱟᱱᱡᱩᱨ</string>
+
+    <!-- ═══ COMMENTS ═══ -->
+    <string name="remarks">ᱴᱤᱯᱚᱱᱤ</string>
+    <string name="comments">ᱴᱤᱯᱚᱱᱤᱥᱟᱵᱚ</string>
+    <string name="notes">ᱱᱳᱴ</string>
+    <string name="observation">ᱫᱤᱭᱟᱹᱲ</string>
+    <string name="recommendation">ᱥᱩᱫᱷᱩᱲ</string>
+    <string name="farmer_statement">ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱵᱭᱟᱱ</string>
+    <string name="visit_notes">ᱵᱷᱤᱡᱤᱴ ᱱᱳᱴ</string>
+    <string name="damage_description">ᱢᱟᱨᱟᱝ ᱵᱤᱵᱚᱨᱚᱱ</string>
+
+    <!-- ═══ FILE ═══ -->
+    <string name="upload">ᱩᱯᱞᱳᱰ</string>
+    <string name="download">ᱰᱟᱣᱱᱞᱳᱰ</string>
+    <string name="attachment">ᱥᱟᱸᱞᱚᱜᱱᱟᱠ</string>
+    <string name="document">ᱫᱚᱥᱛᱟᱵᱮᱡ</string>
+    <string name="view_file">ᱯᱷᱟᱭᱤᱞ ᱫᱮᱠᱷᱟᱹ ᱢᱮ</string>
+    <string name="delete_file">ᱯᱷᱟᱭᱤᱞ ᱢᱩᱪᱟᱹᱣ ᱢᱮ</string>
+
+    <!-- ═══ SYNC ═══ -->
+    <string name="sync">ᱥᱤᱝᱠ</string>
+    <string name="sync_now">ᱱᱚᱟ ᱥᱤᱝᱠ ᱢᱮ</string>
+    <string name="sync_pending">ᱥᱤᱝᱠ ᱵᱟᱠᱤ</string>
+    <string name="sync_successful">ᱥᱤᱝᱠ ᱥᱟᱯᱷᱚᱞ</string>
+    <string name="sync_failed">ᱥᱤᱝᱠ ᱵᱤᱯᱷᱞ</string>
+    <string name="last_sync_time">ᱟᱹᱠᱷᱨᱤ ᱥᱤᱝᱠ: %s</string>
+    <string name="offline_mode">ᱟᱯᱷᱞᱟᱭᱤᱱ ᱢᱳᱰ</string>
+    <string name="online_mode">ᱟᱱᱞᱟᱭᱤᱱ ᱢᱳᱰ</string>
+    <string name="connecting">ᱠᱚᱱᱮᱠᱥᱚᱱ ᱦᱩᱭ ᱟᱜᱟ…</string>
+    <string name="loading">ᱞᱳᱰ ᱦᱩᱭ ᱟᱜᱟ…</string>
+    <string name="saving_draft">ᱰᱨᱟᱯᱴ ᱵᱟᱪᱷᱟᱣ ᱦᱩᱭ ᱟᱜᱟ…</string>
+    <string name="submitting">ᱡᱚᱢᱟ ᱦᱩᱭ ᱟᱜᱟ…</string>
+    <string name="deleting">ᱢᱩᱪᱟᱹᱣ ᱦᱩᱭ ᱟᱜᱟ…</string>
+
+    <!-- ═══ LISTS ═══ -->
+    <string name="no_records_found">ᱠᱳᱱᱳ ᱨᱮᱠᱚᱨᱰ ᱢᱮᱞᱮᱫ ᱱᱚᱦᱳᱜ</string>
+    <string name="no_surveys">ᱱᱳᱟ ᱥᱟᱨᱵᱮᱠᱥᱟᱱ ᱱᱟᱦᱳᱜ</string>
+    <string name="search_results">Search Results</string>
+    <string name="total_records">ᱢᱩᱱᱟ: %d ᱨᱮᱠᱚᱨᱰ</string>
+    <string name="next_page">Next</string>
+    <string name="prev_page">Previous</string>
+
+    <!-- ═══ DIALOGS ═══ -->
+    <string name="success">ᱥᱟᱯᱷᱚᱞᱛᱟ</string>
+    <string name="error">ᱜᱚᱞᱚᱴᱤ</string>
+    <string name="warning">ᱥᱟᱵᱫᱷᱟᱱ</string>
+    <string name="information">ᱡᱟᱱᱟᱢ</string>
+    <string name="are_you_sure">ᱟᱢ ᱥᱟᱪᱤᱡᱚᱦᱟᱛ ᱠᱟ?</string>
+    <string name="confirm_submission">ᱡᱚᱢᱟ ᱱᱤᱥᱪᱤᱛ ᱢᱮ</string>
+    <string name="confirm_submission_msg">ᱱᱤ ᱥᱟᱨᱵᱮᱠᱥᱟᱱ ᱡᱚᱢᱟ ᱢᱮ? ᱡᱚᱢᱟ ᱠᱟᱛᱮ QC ᱨᱤᱵᱭᱩ ᱞᱟᱹᱜᱤᱫ ᱡᱟᱭᱜᱟ।</string>
+    <string name="confirm_deletion">ᱢᱩᱪᱟᱹᱣ ᱱᱤᱥᱪᱤᱛ ᱢᱮ</string>
+    <string name="confirm_delete_msg">ᱱᱤ ᱰᱨᱟᱯᱴ ᱢᱩᱪᱟᱹᱣ ᱢᱮ?\n\nᱠᱮᱥ: %s\n\nᱱᱤ ᱵᱟᱯᱥ ᱱᱚᱫᱳᱜ।</string>
+    <string name="unsaved_changes">ᱵᱟᱪᱷᱟᱣ ᱱᱚᱦᱳᱜ ᱵᱚᱫᱚᱞ</string>
+    <string name="unsaved_changes_msg">ᱟᱢᱟᱜ ᱠᱤᱪᱷᱩ ᱵᱟᱪᱷᱟᱣ ᱱᱚᱦᱳᱜ ᱵᱚᱫᱚᱞ ᱟᱜ। ᱟᱢ ᱥᱟᱪᱤᱡᱚᱦᱟᱛ ᱛᱤᱨᱤᱧ ᱡᱟᱭᱟᱜ ᱠᱟ?</string>
+    <string name="survey_submitted">ᱥᱟᱨᱵᱮᱠᱥᱟᱱ ᱥᱟᱯᱷᱚᱞᱮ ᱡᱚᱢᱟ ᱦᱩᱭ ᱠᱟᱱᱟ!</string>
+    <string name="draft_saved">ᱰᱨᱟᱯᱴ ᱵᱟᱪᱷᱟᱣ ᱦᱩᱭ ᱠᱟᱱᱟ</string>
+    <string name="survey_deleted">ᱥᱟᱨᱵᱮᱠᱥᱟᱱ ᱢᱩᱪᱟᱹᱣ ᱦᱩᱭ ᱠᱟᱱᱟ</string>
+    <string name="delete_failed">ᱢᱩᱪᱟᱹᱣ ᱵᱤᱯᱷᱞ (%d)। ᱟᱠᱟ ᱪᱮᱥᱴᱟ ᱢᱮ।</string>
+
+    <!-- ═══ SETTINGS ═══ -->
+    <string name="language">ᱯᱷᱮᱞ</string>
+    <string name="app_version">ᱮᱯ ᱵᱚᱨᱥᱚᱱ</string>
+    <string name="about">ᱵᱤᱥᱚᱭᱮ</string>
+    <string name="privacy_policy">ᱜᱩᱯᱛᱤᱭᱛᱟ ᱱᱤᱛᱤ</string>
+    <string name="terms_and_conditions">ᱱᱤᱭᱚᱢ ᱟᱨ ᱥᱚᱨᱛ</string>
+    <string name="powered_by">ᱠᱨᱤᱥᱷᱤ ᱠᱮᱭᱟᱨ ᱮᱱᱰ ᱢᱮᱱᱮᱡᱢᱮᱱᱴ ᱥᱟᱨᱵᱤᱥᱮᱥ ᱯᱨᱟ. ᱞᱤ. ᱫ᱿ᱟᱨᱟ ᱪᱟᱞᱤᱛ</string>
+    <string name="app_tagline">ᱯᱷᱤᱞᱰ ᱥᱟᱨᱵᱮ ᱯᱞᱮᱴᱯᱷᱚᱨᱢ</string>
+
+    <!-- ═══ FARMER VERIFICATION ═══ -->
+    <string name="farmer_verification">ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱡᱟᱸᱪ</string>
+    <string name="verify_farmer">ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱡᱟᱸᱪ ᱢᱮ</string>
+    <string name="skip_verification">ᱡᱟᱸᱪ ᱪᱷᱟᱰ ᱢᱮ</string>
+    <string name="farmer_verified_label">✅ ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱡᱟᱸᱪ: +91-%s</string>
+    <string name="enter_farmer_mobile">ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱢᱚᱵᱟᱭᱤᱞ ᱱᱚᱸᱵᱚᱨ ᱫᱮᱣ ᱢᱮ</string>
+    <string name="verify_farmer_title">ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱯᱚᱨᱤᱪᱚᱭ ᱡᱟᱸᱪ ᱢᱮᱱᱟᱹᱣ?</string>
+    <string name="verify_farmer_subtitle">ᱥᱟᱨᱵᱮᱠᱥᱟᱱ ᱥᱩᱨᱩ ᱟᱹᱜᱩ ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱯᱚᱨᱤᱪᱚᱭ ᱡᱟᱸᱪ ᱞᱟᱹᱜᱤᱫ \'ᱡᱟᱸᱪ ᱢᱮ\' ᱫᱵᱟᱹᱣ ᱢᱮ।</string>
+    <string name="farmers_mobile_label">ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱯᱚᱸᱡᱤᱵᱷᱩᱠᱛᱚ ᱢᱚᱵᱟᱭᱤᱞ ᱱᱚᱸᱵᱚᱨ</string>
+    <string name="farmers_mobile_hint">ᱵᱤᱢᱟ ᱥᱮ ᱵᱟᱸᱠ ᱮᱠᱟᱣᱱᱴ ᱥᱟᱸᱜᱮ ᱡᱩᱰᱟᱹ ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱢᱚᱵᱟᱭᱤᱞ ᱫᱮᱣ ᱢᱮ।</string>
+    <string name="send_otp">OTP ᱯᱟᱺᱜᱳᱣ ᱢᱮ</string>
+    <string name="verify_and_start">ᱡᱟᱸᱪ ᱢᱮ ᱟᱨ ᱥᱟᱨᱵᱮᱠᱥᱟᱱ ᱥᱩᱨᱩ ᱢᱮ ✓</string>
+    <string name="resend_otp">OTP ᱟᱠᱟ ᱯᱟᱺᱜᱳᱣ ᱢᱮ</string>
+    <string name="otp_section_title">OTP ᱯᱟᱺᱜᱳᱣᱟ +91-%s ᱨᱮ</string>
+    <string name="otp_section_hint">ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱯᱚᱨᱤᱪᱚᱭ ᱱᱤᱥᱪᱤᱛ ᱞᱟᱹᱜᱤᱫ ᱒ ᱥᱟᱸᱠᱷᱭᱟᱹ OTP ᱫᱮᱣ ᱢᱮ।</string>
+
+    <!-- ═══ QUEUE ═══ -->
+    <string name="queue">Queue</string>
+    <string name="queue_title">ᱟᱯᱷᱞᱟᱭᱤᱱ ᱠᱤᱣ</string>
+    <string name="queue_empty">ᱠᱤᱣ ᱨᱮ ᱠᱳᱱᱳ ᱟᱭᱴᱮᱢ ᱱᱟᱦᱳᱜ</string>
+    <string name="queue_pending">%d ᱟᱭᱴᱮᱢ ᱥᱤᱝᱠ ᱟᱹᱜᱩ</string>
+
+    <!-- ═══ MASTER DATA ═══ -->
+    <string name="season_kharif">ᱠᱷᱟᱨᱤᱯᱷ</string>
+    <string name="season_rabi">ᱨᱵᱤ</string>
+    <string name="season_zaid">ᱡᱟᱭᱫ</string>
+    <string name="crop_wheat">ᱜᱳᱦᱩᱢ</string>
+    <string name="crop_rice">ᱪᱟᱣᱞ</string>
+    <string name="crop_mango">ᱟᱢ</string>
+    <string name="crop_soybean">ᱥᱳᱭᱟᱵᱤᱱ</string>
+    <string name="crop_cotton">ᱠᱟᱯᱟᱥ</string>
+    <string name="crop_sugarcane">ᱟᱭᱩᱜ</string>
+    <string name="crop_banana">ᱠᱩᱞ</string>
+    <string name="crop_tomato">ᱴᱚᱢᱮᱴᱳ</string>
+    <string name="crop_potato">ᱟᱞᱩ</string>
+    <string name="crop_onion">ᱯᱤᱭᱟᱡ</string>
+    <string name="crop_sorghum">ᱡᱳᱣᱟᱨ</string>
+    <string name="crop_maize">ᱢᱟᱠᱟᱭ</string>
+    <string name="crop_groundnut">ᱢᱩᱸᱜᱯᱷᱩᱞᱤ</string>
+    <string name="crop_sunflower">ᱥᱩᱨᱤᱡᱢᱩᱠᱷᱤ</string>
+    <string name="crop_gram">ᱪᱚᱱᱟ</string>
+    <string name="crop_tur">ᱛᱩᱨ (ᱟᱨᱦᱚᱨ)</string>
+    <string name="crop_moong">ᱢᱩᱸᱜ</string>
+    <string name="crop_urad">ᱩᱲᱟᱫ</string>
+    <string name="crop_linseed">ᱛᱤᱥᱤ</string>
+    <string name="crop_mustard">ᱥᱚᱨᱥᱚᱸ</string>
+    <string name="crop_grapes">ᱟᱸᱜᱩᱨ</string>
+    <string name="crop_pomegranate">ᱟᱱᱟᱨ</string>
+    <string name="crop_orange">ᱥᱚᱸᱛᱚᱨᱟ</string>
+    <string name="crop_other">ᱟᱞᱚᱜ</string>
+    <string name="stage_sowing">ᱵᱤᱡᱽ ᱵᱩᱣᱟᱹᱭᱚᱜ</string>
+    <string name="stage_germination">ᱟᱸᱠᱩᱨᱚᱱ</string>
+    <string name="stage_vegetative">ᱩᱫᱟᱹᱵᱷᱤᱡᱽ</string>
+    <string name="stage_tillering">ᱠᱟᱞᱞᱤ ᱵᱮᱨᱚᱜ</string>
+    <string name="stage_flowering">ᱯᱷᱩᱞ ᱯᱷᱩᱴᱟᱹᱣ</string>
+    <string name="stage_grain_filling">ᱫᱟᱱᱟ ᱵᱷᱚᱨᱟᱹᱣ</string>
+    <string name="stage_maturity">ᱯᱚᱠᱟᱣ</string>
+    <string name="stage_harvesting">ᱠᱟᱴᱟᱭ</string>
+    <string name="irrigation_irrigated">ᱡᱚᱞ ᱥᱤᱸᱪᱚᱱ</string>
+    <string name="irrigation_rainfed">ᱵᱟᱨᱤᱥ ᱟᱭᱚᱜ</string>
+    <string name="irrigation_partial">ᱟᱸᱥᱚ ᱡᱚᱞ ᱥᱤᱸᱪᱚᱱ</string>
+    <string name="land_plain">ᱥᱚᱢᱛᱚᱞ</string>
+    <string name="land_hilly">ᱵᱩᱨᱩ</string>
+    <string name="land_undulating">ᱛᱟᱨᱚᱝᱢᱚᱭ</string>
+    <string name="land_coastal">ᱥᱩᱢᱩᱫᱽ ᱠᱤᱱᱟᱨᱟ</string>
+    <string name="land_wetland">ᱡᱚᱞ ᱡᱟᱭᱜᱟ</string>
+    <string name="cause_heavy_rain">ᱵᱟᱨᱤ ᱵᱟᱨᱤᱥ</string>
+    <string name="cause_drought">ᱠᱷᱚᱨᱟᱝ</string>
+    <string name="cause_hailstorm">ᱠᱚᱞᱩ ᱵᱟᱨᱤᱥ</string>
+    <string name="cause_flood">ᱵᱟᱱ</string>
+    <string name="cause_cyclone">ᱜᱷᱩᱨᱱᱤ</string>
+    <string name="cause_pest">ᱠᱤᱴ ᱟᱨ ᱰᱚᱨ</string>
+    <string name="cause_fire">ᱵᱷᱟᱞᱩ</string>
+    <string name="cause_landslide">ᱡᱚᱢᱤᱱ ᱛᱤᱥᱞᱟᱣ</string>
+    <string name="cause_cold_wave">ᱠᱩᱦᱤᱭᱟᱹ ᱞᱟᱦᱟᱨ</string>
+    <string name="cause_heat_wave">ᱜᱟᱨᱢᱤ ᱞᱟᱦᱟᱨ</string>
+    <string name="cause_lightning">ᱵᱚᱡᱽᱨᱚᱯᱟᱛ</string>
+    <string name="cause_other">ᱟᱞᱚᱜ</string>
+    <string name="condition_excellent">ᱵᱮᱥ ᱵᱷᱟᱞᱚ</string>
+    <string name="condition_good">ᱵᱷᱟᱞᱚ</string>
+    <string name="condition_fair">ᱚᱨᱫᱤᱱᱟᱨᱤ</string>
+    <string name="condition_poor">ᱠᱚᱢ</string>
+    <string name="condition_complete_loss">ᱯᱩᱨᱟ ᱢᱟᱨᱟᱝ</string>
+    <string name="account_saving">ᱵᱟᱪᱷᱟᱣ ᱮᱠᱟᱣᱱᱴ</string>
+    <string name="account_current">ᱪᱟᱞᱤᱛ ᱮᱠᱟᱣᱱᱴ</string>
+    <string name="account_kcc">KCC (ᱨᱤᱱ ᱮᱠᱟᱣᱱᱴ)</string>
+    <string name="pattern_single">ᱮᱠᱚᱞ</string>
+    <string name="pattern_mixed">ᱢᱤᱥᱨᱤᱛ</string>
+    <string name="pattern_intercrop">ᱟᱸᱛᱚᱨᱜᱚᱛ</string>
+    <string name="scheme_rwbcis">RWBCIS</string>
+    <string name="scheme_pmfby">PMFBY</string>
+    <string name="scheme_wbcis">WBCIS</string>
+    <string name="scheme_others">Others</string>
+    <string name="unit_ri_circle">RI ᱥᱚᱨᱠᱤᱞ ᱛᱟᱞ</string>
+    <string name="unit_village">ᱜᱟᱣ ᱛᱟᱞ</string>
+    <string name="unit_district">ᱡᱤᱞᱟ ᱛᱟᱞ</string>
+    <string name="unit_block">ᱵᱞᱳᱠ ᱛᱟᱞ</string>
+
+    <!-- ═══ SECURITY ═══ -->
+    <string name="device_locked_title">🔒 Account Locked to Another Device</string>
+    <string name="mock_location_title">⚠️ Fake Location Detected</string>
+    <string name="account_blocked_title">🚫 ᱮᱠᱟᱣᱱᱴ ᱵᱚᱸᱫ</string>
+    <string name="security_alert_title">🔒 Security Alert</string>
+    <string name="session_expired_device_title">🔒 Session Expired on This Device</string>
+    <string name="session_expired_device_msg">This account has been logged in on another device.\n\nFor security and data integrity, only one device can use an account at a time.\n\nContact Admin: Akshay Rai to unlock your account.</string>
+
+    <!-- ═══ PHOTO LABELS ═══ -->
+    <string name="photo_sw_corner">ᱯᱞᱚᱴ ᱫᱟᱠᱥᱤᱱ-ᱯᱚᱥᱪᱤᱢ ᱠᱳᱱᱟ</string>
+    <string name="photo_sw_corner_instruction">ᱫᱟᱠᱥᱤᱱ-ᱯᱚᱥᱪᱤᱢ ᱠᱳᱱᱟ ᱛᱮ ᱜᱚᱛ ᱯᱷᱳᱴᱳ</string>
+    <string name="photo_sw_corner_chm">ᱫᱟᱠᱥᱤᱱ-ᱯᱚᱥᱪᱤᱢ ᱠᱳᱱᱟ</string>
+    <string name="photo_sw_corner_chm_instruction">ᱠᱷᱮᱛ ᱫᱟᱠᱥᱤᱱ-ᱯᱚᱥᱪᱤᱢ ᱠᱳᱱᱟ ᱨᱮ ᱫᱟᱢᱦᱮᱲ ᱢᱮ</string>
+    <string name="photo_plot_marking">ᱯᱞᱚᱴ ᱪᱤᱦᱱᱤᱛ</string>
+    <string name="photo_plot_marking_instruction">10m×10m ᱯᱞᱚᱴ ᱪᱟᱨ ᱠᱳᱱᱟ ᱨᱮ ᱠᱷᱩᱸᱴᱤ</string>
+    <string name="photo_field_overview">ᱠᱷᱮᱛ ᱥᱟᱢᱜᱨᱤᱠ ᱫᱤᱥᱟᱹ</string>
+    <string name="photo_field_overview_instruction">ᱯᱩᱨᱟ CCE ᱯᱞᱚᱴ ᱡᱷᱟᱹᱣᱠᱷᱟᱹᱱ ᱯᱷᱳᱴᱳ</string>
+    <string name="photo_crop_north">ᱜᱚᱛ — ᱩᱛᱛᱚᱨ ᱫᱤᱥᱟᱹ</string>
+    <string name="photo_crop_north_instruction">ᱩᱛᱛᱚᱨ ᱢᱩᱠᱷᱤ ᱜᱚᱛ</string>
+    <string name="photo_crop_east">ᱜᱚᱛ — ᱯᱩᱨᱵᱚ ᱫᱤᱥᱟᱹ</string>
+    <string name="photo_crop_east_instruction">ᱯᱩᱨᱵᱚ ᱢᱩᱠᱷᱤ ᱜᱚᱛ</string>
+    <string name="photo_crop_south">ᱜᱚᱛ — ᱫᱟᱠᱥᱤᱱ ᱫᱤᱥᱟᱹ</string>
+    <string name="photo_crop_south_instruction">ᱫᱟᱠᱥᱤᱱ ᱢᱩᱠᱷᱤ ᱜᱚᱛ</string>
+    <string name="photo_crop_west">ᱜᱚᱛ — ᱯᱚᱥᱪᱤᱢ ᱫᱤᱥᱟᱹ</string>
+    <string name="photo_crop_west_instruction">ᱯᱚᱥᱪᱤᱢ ᱢᱩᱠᱷᱤ ᱜᱚᱛ</string>
+    <string name="photo_harvesting">ᱠᱟᱴᱟᱭ ᱪᱟᱞᱩ ᱟᱜ</string>
+    <string name="photo_harvesting_instruction">CCE ᱯᱞᱚᱴ ᱠᱟᱴᱟᱭ ᱵᱮᱞᱟ ᱯᱷᱳᱴᱳ</string>
+    <string name="photo_harvested_pile">ᱠᱟᱴᱟ ᱜᱚᱛ ᱫᱤᱦᱤ</string>
+    <string name="photo_harvested_pile_instruction">ᱠᱩᱴᱟᱭ ᱟᱹᱜᱩ ᱥᱤᱴ ᱨᱮ ᱜᱚᱛ ᱫᱤᱦᱤ</string>
+    <string name="photo_threshing">ᱠᱩᱴᱟᱭ ᱯᱷᱳᱴᱳ</string>
+    <string name="photo_threshing_instruction">ᱜᱚᱛ ᱠᱩᱴᱟᱭ (ᱦᱟᱛᱮ/ᱢᱟᱥᱤᱱᱮ)</string>
+    <string name="photo_fresh_biomass">ᱱᱳᱛᱩᱱ ᱵᱟᱭᱚᱢᱟᱥ ᱵᱚᱡᱚᱱ</string>
+    <string name="photo_fresh_biomass_instruction">ᱛᱩᱞᱟ ᱨᱮ ᱢᱩᱱᱟ ᱱᱳᱛᱩᱱ ᱵᱟᱭᱚᱢᱟᱥ (kg)</string>
+    <string name="photo_fresh_grain">ᱱᱳᱛᱩᱱ ᱩᱱᱫᱟᱹ ᱵᱚᱡᱚᱱ</string>
+    <string name="photo_fresh_grain_instruction">ᱛᱩᱞᱟ ᱨᱮ ᱱᱳᱛᱩᱱ ᱠᱩᱴᱟ ᱩᱱᱫᱟᱹ (kg)</string>
+    <string name="photo_grain_drying">ᱩᱱᱫᱟᱹ ᱥᱩᱠᱟᱹᱣ</string>
+    <string name="photo_grain_drying_instruction">ᱦᱟᱸᱥᱟ/ᱪᱷᱟᱭᱟ ᱨᱮ ᱥᱩᱠᱟᱹᱣ ᱞᱟᱹᱜᱤᱫ ᱩᱱᱫᱟᱹ</string>
+    <string name="photo_dry_grain">ᱥᱩᱠᱩᱞ ᱩᱱᱫᱟᱹ ᱵᱚᱡᱚᱱ</string>
+    <string name="photo_dry_grain_instruction">ᱛᱩᱞᱟ ᱨᱮ ᱥᱩᱠᱩᱞ ᱩᱱᱫᱟᱹ (kg)</string>
+    <string name="photo_moisture_meter">ᱱᱚᱲ ᱢᱤᱴᱟᱨ ᱨᱤᱰᱤᱝ</string>
+    <string name="photo_moisture_meter_instruction">ᱩᱱᱫᱟᱹ ᱱᱚᱢᱩᱱᱟ % ᱱᱚᱲ ᱨᱤᱰᱤᱝ</string>
+    <string name="photo_witness">ᱡᱟᱭᱜᱟ ᱨᱮ ᱥᱟᱠᱥᱤ</string>
+    <string name="photo_witness_instruction">IC ᱯᱨᱚᱛᱤᱱᱤᱫᱷᱤ / ᱯᱚᱴᱣᱟᱨᱤ / ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱯᱷᱳᱴᱳ</string>
+    <string name="photo_with_farmer">ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱥᱟᱸᱜᱮ ᱯᱷᱳᱴᱳ</string>
+    <string name="photo_with_farmer_instruction">ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱪᱟᱠᱚᱦᱳᱣ ᱢᱤᱞᱚᱜ ᱫᱟᱲᱟᱭ</string>
+    <string name="photo_with_official">ᱥᱚᱨᱠᱟᱨᱤ ᱠᱚᱨᱚᱢᱪᱟᱨᱤ ᱥᱟᱸᱜᱮ ᱯᱷᱳᱴᱳ</string>
+    <string name="photo_with_official_instruction">ᱠᱚᱨᱚᱢᱪᱟᱨᱤ ᱫᱤᱭᱚᱜ ᱫᱟᱲᱟᱭ</string>
+    <string name="photo_survey_form">ᱥᱟᱨᱵᱮᱠᱥᱟᱱ ᱯᱷᱚᱨᱢ</string>
+    <string name="photo_survey_form_instruction">ᱯᱷᱚᱨᱢ ᱥᱚᱢᱛᱚᱞ ᱨᱟᱠᱷᱩ, ᱪᱟᱨ ᱠᱳᱱᱟ ᱠᱮᱯᱪᱟᱨ ᱢᱮ</string>
+    <string name="photo_land_record">ᱡᱚᱢᱤᱱ ᱨᱮᱠᱚᱨᱰ (7/12)</string>
+    <string name="photo_land_record_instruction">ᱫᱚᱥᱛᱟᱵᱮᱡ ᱯᱩᱨᱟ ᱫᱤᱭᱚᱜ ᱫᱟᱲᱟᱭ</string>
+    <string name="photo_id_proof">ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱯᱚᱨᱤᱪᱚᱭ ᱯᱨᱚᱢᱟᱱ</string>
+    <string name="photo_id_proof_instruction">ᱥᱟᱵᱚ ᱞᱤᱠᱷᱚᱱ ᱯᱟᱲᱷᱟᱣ ᱦᱩᱭ ᱫᱟᱲᱟᱭ</string>
+    <string name="photo_bank_passbook">ᱵᱟᱸᱠ ᱯᱟᱥᱵᱩᱠ</string>
+    <string name="photo_bank_passbook_instruction">ᱮᱠᱟᱣᱱᱴ ᱵᱤᱵᱚᱨᱚᱱ ᱫᱮᱠᱷᱟᱹᱣᱟ ᱯᱚᱦᱤᱞ ᱯᱷᱳᱴᱹ</string>
+    <string name="photo_chequebook">ᱪᱮᱠᱵᱩᱠ</string>
+    <string name="photo_chequebook_instruction">ᱮᱠᱟᱣᱱᱴ ᱱᱚᱸᱵᱚᱨ ᱫᱮᱠᱷᱟᱹᱣᱟ ᱯᱚᱦᱤᱞ ᱯᱷᱳᱴᱹ</string>
+    <string name="photo_nadir">ᱱᱟᱰᱤᱨ ᱵᱷᱩ</string>
+    <string name="photo_nadir_instruction">ᱯᱷᱚᱱ ᱥᱤᱫᱷᱟ ᱩᱯᱚᱨ ᱫᱷᱚᱨᱩ, ᱠᱮᱢᱮᱨᱟ ᱛᱟᱞᱮ</string>
+    <string name="photo_leaf">ᱯᱚᱛᱳᱝ ᱠᱞᱳᱥ-ᱟᱯ</string>
+    <string name="photo_leaf_instruction">ᱯᱨᱚᱛᱤᱱᱤᱫᱷᱤ ᱯᱚᱛᱳᱝ ᱥᱮ ᱯᱨᱮᱢ ᱵᱷᱚᱨᱚ</string>
+    <string name="photo_field_north">ᱠᱷᱮᱛ — ᱩᱛᱛᱚᱨ</string>
+    <string name="photo_field_north_instruction">ᱫᱟᱠᱥᱤᱱ ᱥᱤᱢᱟ ᱨᱮ ᱫᱟᱢᱦᱮᱲ, ᱩᱛᱛᱚᱨ ᱪᱟᱦᱟᱣ</string>
+    <string name="photo_field_east">ᱠᱷᱮᱛ — ᱯᱩᱨᱵᱚ</string>
+    <string name="photo_field_east_instruction">ᱯᱚᱥᱪᱤᱢ ᱥᱤᱢᱟ ᱨᱮ ᱫᱟᱢᱦᱮᱲ, ᱯᱩᱨᱵᱚ ᱪᱟᱦᱟᱣ</string>
+    <string name="photo_field_south">ᱠᱷᱮᱛ — ᱫᱟᱠᱥᱤᱱ</string>
+    <string name="photo_field_south_instruction">ᱩᱛᱛᱚᱨ ᱥᱤᱢᱟ ᱨᱮ ᱫᱟᱢᱦᱮᱲ, ᱫᱟᱠᱥᱤᱱ ᱪᱟᱦᱟᱣ</string>
+    <string name="photo_field_west">ᱠᱷᱮᱛ — ᱯᱚᱥᱪᱤᱢ</string>
+    <string name="photo_field_west_instruction">ᱯᱩᱨᱵᱚ ᱥᱤᱢᱟ ᱨᱮ ᱫᱟᱢᱦᱮᱲ, ᱯᱚᱥᱪᱤᱢ ᱪᱟᱦᱟᱣ</string>
+    <string name="photo_grain_image">ᱩᱱᱫᱟᱹ ᱯᱷᱳᱴᱳ</string>
+    <string name="photo_grain_image_instruction">ᱩᱱᱫᱟᱹ/ᱯᱷᱚᱞ ᱠᱞᱳᱥ-ᱟᱯ</string>
+    <string name="photo_biomass_weight">ᱵᱟᱭᱚᱢᱟᱥ ᱵᱚᱡᱚᱱ ᱯᱷᱳᱴᱳ</string>
+    <string name="photo_biomass_weight_instruction">ᱛᱩᱞᱟ ᱨᱮ ᱵᱟᱭᱚᱢᱟᱥ ᱯᱷᱳᱴᱳ</string>
+    <string name="photo_grain_weight">ᱩᱱᱫᱟᱹ ᱵᱚᱡᱚᱱ ᱯᱷᱳᱴᱳ</string>
+    <string name="photo_grain_weight_instruction">ᱛᱩᱞᱟ ᱨᱮ ᱩᱱᱫᱟᱹ ᱯᱷᱳᱴᱳ</string>
+
+    <!-- ═══ AI GUIDE ═══ -->
+    <string name="guide_btn_label">AI ᱜᱟᱭᱰ</string>
+    <string name="guide_got_it">ᱵᱩᱡᱦᱩᱢ →</string>
+    <string name="guide_turn_off">ᱜᱟᱭᱰ ᱵᱚᱸᱫ ᱢᱮ</string>
+    <string name="guide_menu_title">🤖 AI ᱥᱟᱨᱵᱮ ᱜᱟᱭᱰ</string>
+    <string name="guide_option_rules">📖 ᱮᱯ ᱱᱤᱭᱚᱢ ᱟᱨ ᱫᱤᱥᱟ ᱫᱮᱠᱷᱟᱹᱣ ᱢᱮ</string>
+    <string name="guide_option_restart">🔄 ᱥᱟᱨᱵᱮ ᱜᱟᱭᱰ ᱟᱠᱟ ᱥᱩᱨᱩ ᱢᱮ</string>
+    <string name="guide_option_resume">🤖 ᱜᱟᱭᱰ ᱡᱟᱨᱤ ᱨᱮᱠᱷᱟᱹ</string>
+    <string name="guide_option_turnoff">❌ AI ᱜᱟᱭᱰ ᱵᱚᱸᱫ ᱢᱮ</string>
+    <string name="guide_disabled_toast">ᱜᱟᱭᱰ ᱵᱚᱸᱫ ᱦᱩᱭ ᱠᱟᱱᱟ। ᱟᱠᱟ ᱪᱟᱞᱩ ᱞᱟᱹᱜᱤᱫ 🤖 ᱴᱤᱯ ᱢᱮ।</string>
+
+    <!-- ONBOARDING SLIDES -->
+    <string name="guide_slide1_title">ᱠᱤᱨᱭᱤ ᱥᱟᱨᱵᱮᱠᱥᱟᱱ ᱨᱮ ᱡᱚᱦᱟᱨ</string>
+    <string name="guide_slide1_body">ᱱᱤ ᱜᱟᱭᱰ ᱟᱢᱠᱮ ᱫᱤᱥᱟᱹᱵᱤᱫ ᱮᱯ ᱠᱮᱫᱟᱹ ᱠᱟᱢ ᱢᱮᱱᱟᱜ ᱟᱨ ᱯᱚᱦᱤᱞ ᱥᱟᱨᱵᱮᱠᱥᱟᱱ ᱠᱮᱫᱟᱹ ᱥᱮᱥ ᱢᱮᱱᱟᱜ।\n\nᱥᱟᱵᱚ ᱯᱮᱡ ᱜᱳᱱ ᱯᱟᱲᱷᱟᱣ — ᱒ ᱢᱤᱱᱤᱴ ᱛᱮᱠ।</string>
+    <string name="guide_slide2_title">ᱮᱠᱚᱞ ᱮᱠᱟᱣᱱᱴ — ᱮᱠᱚᱞ ᱰᱤᱵᱷᱟᱭᱤᱥ</string>
+    <string name="guide_slide2_body">⚠️ ᱟᱢᱟᱜ ᱮᱠᱟᱣᱱᱴ ᱯᱚᱦᱤᱞ ᱰᱤᱵᱷᱟᱭᱤᱥ ᱨᱮ ᱞᱳᱠ ᱦᱩᱭ।\n\n• ᱫᱳᱥᱤᱨ ᱰᱤᱵᱷᱟᱭᱤᱥ ᱨᱮ ᱞᱳᱜᱤᱱ ᱞᱮᱠᱟᱛᱮ ᱯᱚᱦᱤᱞᱟᱜ ᱞᱳᱜᱟᱣᱴ ᱦᱩᱭ।\n• ᱰᱤᱵᱷᱟᱭᱤᱥ ᱵᱚᱫᱚᱞ ᱞᱮᱠᱟᱛᱮ Admin ᱛᱮ ᱮᱠᱟᱣᱱᱴ ᱩᱱᱞᱳᱠ ᱢᱮ।</string>
+    <string name="guide_slide3_title">ᱱᱚᱠᱚᱞ GPS ᱠᱮᱴᱮ ᱵᱮᱵᱷᱟᱨ ᱢᱮ</string>
+    <string name="guide_slide3_body">ᱮᱯ ᱱᱚᱠᱚᱞ ᱞᱳᱠᱮᱥᱚᱱ ᱵᱩᱡᱦᱩᱢ ᱢᱮᱱᱟᱜ।\n\n• ᱱᱚᱠᱚᱞ GPS ᱥᱟᱨᱵᱮᱠᱥᱟᱱ ᱱᱟᱞᱡᱟᱭ ᱦᱩᱭ।</string>
+    <string name="guide_slide4_title">ᱥᱟᱨᱵᱮᱠᱥᱟᱱ ᱛᱭᱟᱜ</string>
+    <string name="guide_slide4_body">ᱮᱯ ᱨᱮ ᱒ ᱥᱟᱨᱵᱮᱠᱥᱟᱱ ᱛᱭᱟᱜ ᱟᱜ:\n\n🟢  CLS — ᱜᱚᱛ ᱢᱟᱨᱟᱝ ᱥᱟᱨᱵᱮᱠᱥᱟᱱ\n🔵  CHM — ᱜᱚᱛ ᱥᱮᱦᱮᱛ ᱫᱤᱭᱟᱹᱲ\n🟠  CCE — ᱜᱚᱛ ᱠᱟᱴᱟᱭ ᱯᱚᱨᱤᱠᱥᱟ</string>
+    <string name="guide_slide5_title">ᱯᱷᱳᱴᱳ ᱜᱚᱨᱚᱢ</string>
+    <string name="guide_slide5_body">ᱡᱚᱢᱟ ᱟᱹᱜᱩ ᱥᱟᱵᱚ ᱫᱟᱲᱟᱭ ᱯᱷᱳᱴᱳ ᱠᱚᱨᱟᱹ ᱫᱟᱲᱟᱭ।\n\n• ᱯᱷᱳᱴᱳ ᱟᱩᱴᱳᱢᱮᱴᱤᱠ GPS ᱴᱮᱜ ᱦᱩᱭ।</string>
+    <string name="guide_slide6_title">ᱰᱨᱟᱯᱴ → ᱡᱚᱢᱟ → ᱢᱟᱱᱡᱩᱨ</string>
+    <string name="guide_slide6_body">ᱥᱟᱨᱵᱮᱠᱥᱟᱱ ᱱᱚᱟᱠᱟᱛᱮ ᱥᱮᱥ ᱦᱩᱭ:\n\n1️⃣  ᱯᱷᱚᱨᱢ ᱵᱷᱚᱨᱚ + ᱯᱷᱳᱴᱳ ᱠᱚᱨᱟᱹ\n2️⃣  Save Draft ᱫᱵᱟᱹᱣ\n3️⃣  ᱛᱭᱟᱨ ᱦᱩᱭᱞᱮ Submit ᱫᱵᱟᱹᱣ\n5️⃣  Approved ✅ ᱥᱮ Rejected ❌</string>
+    <string name="guide_slide6_btn">ᱵᱩᱡᱦᱩᱢ! ᱥᱩᱨᱩ ᱢᱮ</string>
+
+    <!-- STEP OVERLAYS -->
+    <string name="guide_step0_title">👋 ᱡᱚᱦᱟᱨ! ᱟᱢ AI ᱥᱟᱨᱵᱮ ᱜᱟᱭᱰ ᱟᱜᱟᱸ</string>
+    <string name="guide_step0_msg">ᱟᱢᱠᱮ ᱯᱚᱦᱤᱞ ᱥᱟᱨᱵᱮᱠᱥᱟᱱ ᱥᱮᱥ ᱢᱮᱱᱟᱜ ᱞᱟᱹᱜᱤᱫ ᱥᱟᱦᱟᱭ ᱢᱮᱱᱟᱜ।</string>
+    <string name="guide_step0_tip">💡 ᱥᱩᱫᱷᱩᱲ: CLS ᱛᱮ ᱥᱩᱨᱩ ᱢᱮ।</string>
+    <string name="guide_step0_action">CLS ᱛᱮ ᱥᱩᱨᱩ ᱢᱮ →</string>
+    <string name="guide_step1_title">📋 ᱥᱟᱨᱵᱮᱠᱥᱟᱱ ᱛᱭᱟᱜ ᱪᱷᱩᱱᱟᱹᱣ ᱢᱮ</string>
+    <string name="guide_step1_msg">CLS ᱠᱟᱨᱰ ᱛᱮ ᱴᱤᱯ ᱢᱮ।</string>
+    <string name="guide_step1_tip">💡 ᱥᱩᱫᱷᱩᱲ: ᱥᱟᱵᱚ ᱛᱭᱟᱜ ᱮᱠᱚᱞ ᱠᱨᱚᱢ — ᱯᱷᱚᱨᱢ + ᱯᱷᱳᱴᱳ + ᱡᱚᱢᱟ।</string>
+    <string name="guide_step1_action">ᱵᱩᱡᱦᱩᱢ →</string>
+    <string name="guide_step2_title">👨‍🌾 ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱡᱟᱸᱪ</string>
+    <string name="guide_step2_msg">ᱢᱚᱵᱟᱭᱤᱞ ᱟᱨ OTP ᱛᱮ ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱯᱚᱨᱤᱪᱚᱭ ᱡᱟᱸᱪ ᱢᱮ।</string>
+    <string name="guide_step2_tip">💡 ᱥᱩᱫᱷᱩᱲ: ᱡᱟᱸᱪ ᱠᱟᱛᱮ ᱥᱟᱨᱵᱮᱠᱥᱟᱱ ᱠᱚᱢ ᱵᱮᱞᱟ ᱨᱮ ᱥᱮᱥ ᱦᱩᱭ।</string>
+    <string name="guide_step2_action">ᱵᱩᱡᱦᱩᱢ →</string>
+    <string name="guide_step3_title">✅ ᱵᱮᱥ! ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱡᱟᱸᱪ ᱦᱩᱭ ᱠᱟᱱᱟ</string>
+    <string name="guide_step3_msg">ᱯᱚᱨᱢᱟᱹᱱᱤᱜ ᱯᱷᱚᱱ ᱱᱤᱥᱪᱤᱛ ᱦᱩᱭ ᱠᱟᱱᱟ।</string>
+    <string name="guide_step3_tip">💡 ᱥᱩᱫᱷᱩᱲ: ᱡᱚᱢᱟ ᱟᱹᱜᱩᱣᱚ ᱡᱟᱸᱪ ᱢᱮᱱᱟᱜ।</string>
+    <string name="guide_step3_action">ᱵᱩᱡᱦᱩᱢ →</string>
+    <string name="guide_step4_title">🗺️ ᱠᱷᱮᱛ ᱥᱤᱢᱟ ᱛᱟᱹᱱᱟᱹᱜ ᱢᱮ</string>
+    <string name="guide_step4_msg">ᱠᱷᱮᱛ ᱥᱤᱢᱟ ᱨᱮ ᱒ᱜᱮ ᱒ ᱵᱤᱱᱫᱩ ᱡᱩᱲᱩᱣ ᱞᱟᱹᱜᱤᱫ ᱢᱮᱯ ᱨᱮ ᱴᱤᱯ ᱢᱮ।</string>
+    <string name="guide_step4_tip">💡 ᱥᱩᱫᱷᱩᱲ: ᱜᱚᱞᱚᱴᱤ ᱦᱩᱭᱞᱮ DELETE ᱫᱵᱟᱹᱣ।</string>
+    <string name="guide_step4_action">ᱵᱩᱡᱦᱩᱢ →</string>
+    <string name="guide_step5_title">📝 ᱥᱟᱨᱵᱮᱠᱥᱟᱱ ᱯᱷᱚᱨᱢ ᱵᱷᱚᱨᱚ ᱢᱮ</string>
+    <string name="guide_step5_msg">* ᱪᱤᱦᱱᱤᱛ ᱥᱟᱵᱚ ᱫᱟᱲᱟᱭ ᱠᱷᱮᱛᱨᱚ ᱵᱷᱚᱨᱚ ᱢᱮ।</string>
+    <string name="guide_step5_tip">💡 ᱥᱩᱫᱷᱩᱲ: ᱱᱳᱟ ᱵᱮᱞᱟ ᱵᱷᱤ \'Save Draft\' ᱫᱵᱟᱹᱣ।</string>
+    <string name="guide_step5_action">ᱵᱩᱡᱦᱩᱢ →</string>
+    <string name="guide_step6_title">📅 ᱢᱩᱞ ᱡᱟᱱᱟᱢ ᱥᱮᱠᱥᱚᱱ</string>
+    <string name="guide_step6_msg">ᱵᱷᱚᱨᱚ ᱢᱮ:\n• ᱥᱮᱨᱢᱟ\n• ᱨᱩᱛᱩ\n• ᱭᱚᱡᱚᱱᱟ</string>
+    <string name="guide_step6_tip">💡 ᱥᱩᱫᱷᱩᱲ: ᱥᱮᱨᱢᱟ ᱟᱩᱴᱳ ᱵᱷᱚᱨᱚ ᱦᱩᱭ।</string>
+    <string name="guide_step6_action">ᱵᱩᱡᱦᱩᱢ →</string>
+    <string name="guide_step7_title">📍 ᱡᱟᱭᱜᱟ ᱥᱮᱠᱥᱚᱱ</string>
+    <string name="guide_step7_msg">ᱨᱟᱡᱽ → ᱡᱤᱞᱟ → ᱛᱟᱦᱥᱤᱞ → ᱜᱟᱣ ᱪᱷᱩᱱᱟᱹᱣ ᱢᱮ।</string>
+    <string name="guide_step7_tip">💡 ᱥᱩᱫᱷᱩᱲ: ᱜᱟᱣ ᱱᱟᱦᱳᱜ ᱞᱮᱠᱟᱛᱮ Gram Panchayat ᱨᱮ ᱞᱤᱠᱷᱟᱹ ᱢᱮ।</string>
+    <string name="guide_step7_action">ᱵᱩᱡᱦᱩᱢ →</string>
+    <string name="guide_step8_title">🌾 ᱜᱚᱛ ᱵᱤᱵᱚᱨᱚᱱ ᱥᱮᱠᱥᱚᱱ</string>
+    <string name="guide_step8_msg">ᱜᱚᱛ ᱛᱭᱟᱜ, ᱡᱟᱛ, ᱟᱵᱚᱥᱛᱷᱟ ᱟᱨ ᱡᱚᱞ ᱥᱤᱸᱪᱚᱱ ᱛᱭᱟᱜ ᱪᱷᱩᱱᱟᱹᱣ ᱢᱮ।</string>
+    <string name="guide_step8_tip">💡 ᱥᱩᱫᱷᱩᱲ: ᱜᱚᱛ ᱱᱚᱟ ᱡᱮ ᱟᱵᱚᱥᱛᱷᱟ ᱨᱮ ᱟᱜ ᱱᱤ ᱪᱷᱩᱱᱟᱹᱣ ᱢᱮ।</string>
+    <string name="guide_step8_action">ᱵᱩᱡᱦᱩᱢ →</string>
+    <string name="guide_step9_title">📸 ᱱᱳᱟ ᱯᱷᱳᱴᱳ ᱵᱮᱞᱟ</string>
+    <string name="guide_step9_msg">ᱩᱯᱚᱨ PHOTOS ᱴᱮᱵ ᱛᱮ ᱴᱤᱯ ᱢᱮ। Required ✦ ᱯᱷᱳᱴᱳ ᱡᱚᱢᱟ ᱟᱹᱜᱩ ᱠᱚᱨᱟᱹ ᱫᱟᱲᱟᱭ।</string>
+    <string name="guide_step9_tip">💡 ᱥᱩᱫᱷᱩᱲ: ᱯᱷᱳᱴᱳ ᱟᱩᱴᱳ GPS ᱴᱮᱜ ᱦᱩᱭ।</string>
+    <string name="guide_step9_action">ᱵᱩᱡᱦᱩᱢ →</string>
+    <string name="guide_step10_title">📷 ᱫᱟᱲᱟᱭ ᱯᱷᱳᱴᱳ ᱠᱚᱨᱟᱹ ᱢᱮ</string>
+    <string name="guide_step10_msg">ᱥᱟᱵᱚ ᱥᱞᱳᱴ ᱠᱟᱛᱮ CAPTURE ᱫᱵᱟᱹᱣ।</string>
+    <string name="guide_step10_tip">💡 ᱥᱩᱫᱷᱩᱲ: ᱯᱷᱳᱴᱳ ᱵᱷᱟᱞᱚ ᱱᱚᱦᱳᱜ ᱞᱮᱠᱟᱛᱮ RETAKE ᱫᱵᱟᱹᱣ।</string>
+    <string name="guide_step10_action">ᱵᱩᱡᱦᱩᱢ →</string>
+    <string name="guide_step11_title">💾 ᱰᱨᱟᱯᱴ ᱵᱟᱪᱷᱟᱣ ᱢᱮ</string>
+    <string name="guide_step11_msg">SAVE DRAFT ᱫᱵᱟᱹᱣ।\n• ᱟᱜᱩ ᱡᱟᱨᱤ ᱨᱟᱠᱷᱩ\n• ᱰᱮᱴᱟ ᱱᱚᱩᱠᱩ ᱱᱚᱦᱳᱜ</string>
+    <string name="guide_step11_tip">💡 ᱥᱩᱫᱷᱩᱲ: ᱠᱚᱢ ᱱᱮᱴᱵᱟᱨᱠ ᱨᱮ ᱱᱤᱡᱮ ᱵᱟᱪᱷᱟᱣ ᱵᱮᱥ।</string>
+    <string name="guide_step11_action">ᱵᱩᱡᱦᱩᱢ →</string>
+    <string name="guide_step12_title">🎉 ᱡᱚᱢᱟ ᱞᱟᱹᱜᱤᱫ ᱛᱭᱟᱨ!</string>
+    <string name="guide_step12_msg">SUBMIT → ᱫᱵᱟᱹᱣ।\n\nᱡᱚᱢᱟ ᱠᱟᱛᱮ:\n• QC ᱴᱤᱢ ᱒᱔-᱔᱘ ᱜᱷᱚᱰᱟ ᱨᱮ ᱨᱤᱵᱭᱩ ᱢᱮᱱᱟᱜ\n• Approved ✅ ᱥᱮ Rejected ❌ ᱫᱤᱭᱚᱜ</string>
+    <string name="guide_step12_tip">💡 Dashboard ᱨᱮ 🤖 Guide ᱫᱵᱟᱹᱣ ᱟᱨ ᱯᱟᱲᱷᱟᱣ।</string>
+    <string name="guide_step12_action">ᱡᱚᱢᱟ ᱢᱮ ᱟᱨ ᱜᱟᱭᱰ ᱥᱮᱥ ᱢᱮ 🎉</string>
+    <string name="guide_step_progress">ᱰᱟᱣᱨᱤ %1$d / %2$d</string>
+    <string name="guide_turn_off_title">AI ᱜᱟᱭᱰ ᱵᱚᱸᱫ ᱢᱮᱱᱟᱹᱣ?</string>
+    <string name="guide_turn_off_msg">ᱜᱟᱭᱰ ᱫᱮᱠᱷᱟᱹᱣ ᱵᱚᱸᱫ ᱦᱩᱭ। Dashboard → Guide ᱛᱮ ᱟᱠᱟ ᱪᱟᱞᱩ ᱢᱮ।</string>
+    <string name="guide_turn_off_confirm">ᱵᱚᱸᱫ ᱢᱮ</string>
+    <string name="guide_keep_on">ᱪᱟᱞᱩ ᱨᱟᱠᱷᱩ</string>
+    <string name="guide_skip">ᱜᱟᱭᱰ ᱪᱷᱟᱰ ᱢᱮ</string>
+</resources>

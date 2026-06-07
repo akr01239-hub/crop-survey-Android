@@ -35,17 +35,22 @@ object LanguageManager {
      * To add a new language: add entry here + create res/values-XX/strings.xml
      */
     val SUPPORTED_LANGUAGES = listOf(
-        Language("en", "English",  "English",  isRtl = false),
-        Language("hi", "Hindi",    "हिन्दी",   isRtl = false),
-        Language("mr", "Marathi",  "मराठी",    isRtl = false),
-        Language("bn", "Bengali",  "বাংলা",    isRtl = false),
-        Language("ta", "Tamil",    "தமிழ்",    isRtl = false),
-        Language("te", "Telugu",   "తెలుగు",   isRtl = false),
-        Language("kn", "Kannada",  "ಕನ್ನಡ",    isRtl = false),
-        Language("ur", "Urdu",     "اردو",     isRtl = true),
-        Language("or", "Odia",     "ଓଡ଼ିଆ",    isRtl = false),
-        Language("gu", "Gujarati",  "ગુજરાતી",  isRtl = false),
-        Language("pa", "Punjabi",   "ਪੰਜਾਬੀ",   isRtl = false)
+        Language("en",  "English",   "English",    isRtl = false),
+        Language("hi",  "Hindi",     "हिन्दी",     isRtl = false),
+        Language("mr",  "Marathi",   "मराठी",      isRtl = false),
+        Language("bn",  "Bengali",   "বাংলা",      isRtl = false),
+        Language("ta",  "Tamil",     "தமிழ்",      isRtl = false),
+        Language("te",  "Telugu",    "తెలుగు",     isRtl = false),
+        Language("kn",  "Kannada",   "ಕನ್ನಡ",      isRtl = false),
+        Language("ur",  "Urdu",      "اردو",       isRtl = true),
+        Language("or",  "Odia",      "ଓଡ଼ିଆ",      isRtl = false),
+        Language("gu",  "Gujarati",  "ગુજરાતી",    isRtl = false),
+        Language("pa",  "Punjabi",   "ਪੰਜਾਬੀ",     isRtl = false),
+        Language("as",  "Assamese",  "অসমীয়া",    isRtl = false),
+        Language("sat", "Santali",   "ᱥᱟᱱᱛᱟᱲᱤ",   isRtl = false),
+        Language("ml",  "Malayalam", "മലയാളം",     isRtl = false),
+        Language("ks",  "Kashmiri",  "کٲشُر",      isRtl = true),
+        Language("brx", "Bodo",      "बड़ो",        isRtl = false)
     )
 
     fun init(context: Context) {
@@ -91,9 +96,14 @@ object LanguageManager {
     }
 
     private fun buildLocale(code: String): Locale = when (code) {
-        "or" -> Locale("or", "IN")
-        "ur" -> Locale("ur", "IN")
-        else -> Locale(code, "IN")
+        "or"  -> Locale("or",  "IN")
+        "ur"  -> Locale("ur",  "IN")
+        "ks"  -> Locale("ks",  "IN")
+        "sat" -> Locale("sat", "IN")
+        "brx" -> Locale("brx", "IN")
+        "as"  -> Locale("as",  "IN")
+        "ml"  -> Locale("ml",  "IN")
+        else  -> Locale(code,  "IN")
     }
 
     /** Returns translated display name for current UI locale */

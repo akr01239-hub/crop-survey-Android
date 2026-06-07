@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ═══ APP ═══ -->
+    <string name="app_name">কৃষি সৰ্বেক্ষণ</string>
+    <string name="select_language">ভাষা বাছক</string>
+    <string name="continue_btn">অব্যাহত ৰাখক</string>
+    <string name="language_english">English</string>
+    <string name="language_hindi">हिन्दी</string>
+    <string name="language_marathi">मराठी</string>
+    <string name="language_bengali">বাংলা</string>
+    <string name="language_tamil">தமிழ்</string>
+    <string name="language_telugu">తెలుగు</string>
+    <string name="language_kannada">ಕನ್ನಡ</string>
+    <string name="language_urdu">اردو</string>
+    <string name="language_odia">ଓଡ଼ିଆ</string>
+    <string name="language_gujarati">ગુજરાતી</string>
+    <string name="language_punjabi">ਪੰਜਾਬੀ</string>
+    <string name="change_language">ভাষা সলনি কৰক</string>
+    <string name="language_changed">ভাষা সফলতাৰে সলনি কৰা হৈছে</string>
+
+    <!-- ═══ AUTHENTICATION ═══ -->
+    <string name="login_title">আপোনাৰ একাউণ্টত লগইন কৰক</string>
+    <string name="phone_number">ফোন নম্বৰ</string>
+    <string name="phone_hint">+91 ১০ সংখ্যাৰ নম্বৰ</string>
+    <string name="password">পাছৱৰ্ড</string>
+    <string name="password_hint">আপোনাৰ পাছৱৰ্ড</string>
+    <string name="show_password">দেখুৱাওক</string>
+    <string name="hide_password">লুকুৱাওক</string>
+    <string name="forgot_password">পাছৱৰ্ড পাহৰিলে?</string>
+    <string name="login_btn">লগইন কৰক</string>
+    <string name="logging_in">লগইন হৈ আছে…</string>
+    <string name="new_surveyor">নতুন সৰ্বেক্ষক? </string>
+    <string name="request_account">একাউণ্ট অনুৰোধ কৰক</string>
+    <string name="logout">লগআউট</string>
+    <string name="logout_confirm_title">লগআউট</string>
+    <string name="logout_confirm_msg">আপুনি সঁচাকৈ লগআউট কৰিব বিচাৰেনে?</string>
+    <string name="invalid_phone">সঠিক ১০ সংখ্যাৰ ফোন নম্বৰ দিয়ক</string>
+    <string name="invalid_password">পাছৱৰ্ড কমেও ৬ আখৰৰ হ\'ব লাগিব</string>
+    <string name="invalid_credentials">ভুল ফোন বা পাছৱৰ্ড</string>
+    <string name="session_expired">ছেছন শেষ হ\'ল। অনুগ্ৰহ কৰি পুনৰ লগইন কৰক।</string>
+    <string name="network_error">নেটৱৰ্ক ত্ৰুটি। সংযোগ পৰীক্ষা কৰক।</string>
+    <string name="account_pending">আপোনাৰ একাউণ্ট প্ৰশাসনৰ অনুমোদনৰ অপেক্ষাত আছে। অনুগ্ৰহ কৰি অপেক্ষা কৰক।</string>
+    <string name="reset_password">পাছৱৰ্ড ৰিছেট কৰক</string>
+    <string name="enter_otp">OTP দিয়ক</string>
+    <string name="verify_otp">OTP যাচাই কৰক</string>
+    <string name="otp_sent">আপোনাৰ নম্বৰত OTP পঠোৱা হৈছে</string>
+    <string name="invalid_otp">ভুল OTP। পুনৰ চেষ্টা কৰক।</string>
+    <string name="new_password">নতুন পাছৱৰ্ড</string>
+    <string name="confirm_password">পাছৱৰ্ড নিশ্চিত কৰক</string>
+    <string name="password_mismatch">পাছৱৰ্ড মিলা নাই</string>
+    <string name="change_password">পাছৱৰ্ড সলনি কৰক</string>
+    <string name="password_changed">পাছৱৰ্ড সফলতাৰে সলনি কৰা হৈছে</string>
+
+    <!-- ═══ DASHBOARD ═══ -->
+    <string name="dashboard">ডেছব\'ৰ্ড</string>
+    <string name="home">হোম</string>
+    <string name="welcome">স্বাগতম</string>
+    <string name="greeting_morning">শুভ প্ৰভাত,</string>
+    <string name="greeting_afternoon">শুভ দুপৰীয়া,</string>
+    <string name="greeting_evening">শুভ সন্ধিয়া,</string>
+    <string name="profile">প্ৰ\'ফাইল</string>
+    <string name="notifications">জাননী</string>
+    <string name="settings">ছেটিংছ</string>
+    <string name="my_tasks">মোৰ কাম</string>
+    <string name="assigned_surveys">নিযুক্ত সৰ্বেক্ষণ</string>
+    <string name="pending_surveys">বাকী সৰ্বেক্ষণ</string>
+    <string name="completed_surveys">সম্পূৰ্ণ সৰ্বেক্ষণ</string>
+    <string name="draft_surveys">খচৰা সৰ্বেক্ষণ</string>
+    <string name="rejected_surveys">প্ৰত্যাখ্যাত সৰ্বেক্ষণ</string>
+    <string name="approved_surveys">অনুমোদিত সৰ্বেক্ষণ</string>
+
+    <!-- ═══ SURVEY MODULES ═══ -->
+    <string name="cce_survey">CCE সৰ্বেক্ষণ</string>
+    <string name="cls_survey">CLS সৰ্বেক্ষণ</string>
+    <string name="chm_survey">CHM সৰ্বেক্ষণ</string>
+    <string name="farmer_survey">কৃষক সৰ্বেক্ষণ</string>
+    <string name="crop_inspection">শস্য পৰীক্ষা</string>
+    <string name="start_survey">সৰ্বেক্ষণ আৰম্ভ কৰক</string>
+    <string name="new_survey">নতুন সৰ্বেক্ষণ</string>
+
+    <!-- ═══ STATUSES ═══ -->
+    <string name="status_draft">খচৰা</string>
+    <string name="status_pending">বাকী</string>
+    <string name="status_submitted">জমা দিয়া হৈছে</string>
+    <string name="status_assigned">নিযুক্ত</string>
+    <string name="status_in_review">পৰ্যালোচনাত</string>
+    <string name="status_approved">অনুমোদিত</string>
+    <string name="status_rejected">প্ৰত্যাখ্যাত</string>
+    <string name="status_completed">সম্পূৰ্ণ</string>
+    <string name="status_synced">চিংক হৈছে</string>
+    <string name="status_unsynced">চিংক হোৱা নাই</string>
+    <string name="status_submitted_pending">জমা (চিংক বাকী)</string>
+    <string name="status_under_qc">QC-ত</string>
+    <string name="tab_draft_count">খচৰা (%d)</string>
+    <string name="tab_submitted_count">জমা (%d)</string>
+    <string name="tab_approved_count">অনুমোদিত (%d)</string>
+    <string name="tab_rejected_count">প্ৰত্যাখ্যাত (%d)</string>
+
+    <!-- ═══ FORM SECTIONS ═══ -->
+    <string name="section_basic_info">মূল তথ্য</string>
+    <string name="section_location">স্থান</string>
+    <string name="section_crop_survey">শস্য আৰু সৰ্বেক্ষণ বিৱৰণ</string>
+    <string name="section_farmer_info">কৃষকৰ তথ্য</string>
+    <string name="section_key_dates">গুৰুত্বপূৰ্ণ তাৰিখসমূহ</string>
+    <string name="section_loss_details">ক্ষতিৰ বিৱৰণ</string>
+    <string name="section_bank_details">বেংক বিৱৰণ</string>
+    <string name="section_govt_officer">চৰকাৰী বিষয়া</string>
+    <string name="section_remarks_gps">মন্তব্য আৰু GPS</string>
+    <string name="section_crop_details">শস্যৰ বিৱৰণ</string>
+    <string name="section_cce_plot">CCE প্লট বিৱৰণ</string>
+    <string name="section_yield">উৎপাদন গণনা</string>
+    <string name="section_witness">সাক্ষী বিৱৰণ</string>
+    <string name="section_chm_visit">CHM ভিজিট বিৱৰণ</string>
+    <string name="section_observations">পৰ্যবেক্ষণ</string>
+
+    <!-- ═══ FIELD LABELS ═══ -->
+    <string name="field_year">বছৰ</string>
+    <string name="field_season">ঋতু</string>
+    <string name="field_scheme">আঁচনি</string>
+    <string name="field_other_scheme">অন্য আঁচনি</string>
+    <string name="field_state">ৰাজ্য</string>
+    <string name="field_district">জিলা</string>
+    <string name="field_tehsil">তহচিল</string>
+    <string name="field_revenue_circle">ৰাজহ চক্ৰ</string>
+    <string name="field_gram_panchayat">গ্ৰাম পঞ্চায়ত</string>
+    <string name="field_village">গাঁও</string>
+    <string name="field_survey_intimation_no">সৰ্বেক্ষণ জাননী নং.</string>
+    <string name="field_crop_name">শস্যৰ নাম</string>
+    <string name="field_insurance_unit">বীমা একক</string>
+    <string name="field_farmer_name">কৃষকৰ নাম</string>
+    <string name="field_farmer_mobile">কৃষকৰ মোবাইল</string>
+    <string name="field_farmer_app_no">কৃষক আবেদন নং.</string>
+    <string name="field_survey_date">সৰ্বেক্ষণৰ তাৰিখ</string>
+    <string name="field_sowing_date">বীজ সিঁচাৰ তাৰিখ</string>
+    <string name="field_intimation_date">জাননীৰ তাৰিখ</string>
+    <string name="field_loss_date">ক্ষতিৰ তাৰিখ</string>
+    <string name="field_cause_of_event">ঘটনাৰ কাৰণ</string>
+    <string name="field_crop_stage">শস্যৰ অৱস্থা</string>
+    <string name="field_cropping_pattern">শস্য পদ্ধতি</string>
+    <string name="field_khasra_no">খচৰা নম্বৰ</string>
+    <string name="field_field_area_polygon">পথাৰৰ মাটি (পলিগন)</string>
+    <string name="field_total_land_area">মুঠ মাটি (হে.)</string>
+    <string name="field_insured_area">বীমা কৰা মাটি (হে.)</string>
+    <string name="field_area_affected_pct">প্ৰভাৱিত মাটি (%)</string>
+    <string name="field_loss_pct">ক্ষতি (%)</string>
+    <string name="field_recovery_rate">পুনৰুদ্ধাৰ হাৰ</string>
+    <string name="field_onfield_condition">পথাৰৰ অৱস্থা</string>
+    <string name="field_bank_name">বেংকৰ নাম</string>
+    <string name="field_branch_name">শাখাৰ নাম</string>
+    <string name="field_ifsc_code">IFSC কোড</string>
+    <string name="field_account_type">একাউণ্টৰ প্ৰকাৰ</string>
+    <string name="field_account_no">একাউণ্ট নম্বৰ</string>
+    <string name="field_officer_name">বিষয়াৰ নাম</string>
+    <string name="field_officer_mobile">বিষয়াৰ মোবাইল</string>
+    <string name="field_officer_designation">বিষয়াৰ পদবী</string>
+    <string name="field_remarks">মন্তব্য</string>
+    <string name="field_crop_variety">শস্যৰ জাত</string>
+    <string name="field_expected_harvest">প্ৰত্যাশিত চপোৱাৰ তাৰিখ</string>
+    <string name="field_irrigation_type">জলসিঞ্চনৰ প্ৰকাৰ</string>
+    <string name="field_land_type">মাটিৰ প্ৰকাৰ</string>
+    <string name="field_plot_size">প্লটৰ আকাৰ</string>
+    <string name="field_sampling_method">নমুনা পদ্ধতি</string>
+    <string name="field_crop_condition">শস্যৰ অৱস্থা</string>
+    <string name="field_harvesting_date">চপোৱাৰ তাৰিখ</string>
+    <string name="field_threshing_method">মৰণা পদ্ধতি</string>
+    <string name="field_threshing_date">মৰণাৰ তাৰিখ</string>
+    <string name="field_fresh_biomass">তাজা বায়োমাছ ওজন (কি.গ্ৰা.)</string>
+    <string name="field_fresh_grain">তাজা শস্যৰ ওজন (কি.গ্ৰা.)</string>
+    <string name="field_dry_grain">শুকান শস্যৰ ওজন (কি.গ্ৰা.)</string>
+    <string name="field_moisture_pct">আৰ্দ্ৰতা (%)</string>
+    <string name="field_yield_kg_per_ha">উৎপাদন (কি.গ্ৰা./হে.)</string>
+    <string name="field_witness_type">সাক্ষীৰ প্ৰকাৰ</string>
+    <string name="field_witness_name">সাক্ষীৰ নাম</string>
+    <string name="field_witness_mobile">সাক্ষীৰ মোবাইল</string>
+    <string name="field_cce_number">CCE নম্বৰ</string>
+    <string name="field_cce_date">CCE তাৰিখ</string>
+    <string name="field_experiment_id">পৰীক্ষা ID</string>
+    <string name="field_farmer_aadhaar_last4">কৃষকৰ আধাৰ (শেষ ৪)</string>
+    <string name="field_observations">পৰ্যবেক্ষণ</string>
+    <string name="field_recommendations">পৰামৰ্শ</string>
+
+    <!-- ═══ PLACEHOLDERS ═══ -->
+    <string name="hint_select">বাছক…</string>
+    <string name="hint_enter">দিয়ক…</string>
+    <string name="hint_revenue_circle">ৰাজহ চক্ৰৰ নাম দিয়ক</string>
+    <string name="hint_village">গাঁওৰ নাম দিয়ক</string>
+    <string name="hint_remarks">আপোনাৰ ভাষাত মন্তব্য লিখক…</string>
+    <string name="hint_farmer_name">কৃষকৰ সম্পূৰ্ণ নাম দিয়ক</string>
+    <string name="hint_bank_name">বেংকৰ নাম দিয়ক</string>
+
+    <!-- ═══ VALIDATION ═══ -->
+    <string name="required_field">এই ক্ষেত্ৰ প্ৰয়োজনীয়</string>
+    <string name="invalid_mobile">সঠিক ১০ সংখ্যাৰ মোবাইল নম্বৰ দিয়ক</string>
+    <string name="invalid_area">সঠিক মাটিৰ পৰিমাণ দিয়ক</string>
+    <string name="invalid_percentage">শতাংশ ০ৰ পৰা ১০০ৰ মাজত হ\'ব লাগিব</string>
+    <string name="fill_required_fields">অনুগ্ৰহ কৰি সকলো প্ৰয়োজনীয় ক্ষেত্ৰ পূৰণ কৰক</string>
+    <string name="section_incomplete">অনুভাগ অসম্পূৰ্ণ: %s</string>
+
+    <!-- ═══ BUTTONS ═══ -->
+    <string name="btn_save">সংৰক্ষণ কৰক</string>
+    <string name="btn_save_draft">খচৰা সংৰক্ষণ কৰক</string>
+    <string name="btn_submit">জমা দিয়ক</string>
+    <string name="btn_resubmit">পুনৰ জমা দিয়ক</string>
+    <string name="btn_approve">অনুমোদন কৰক</string>
+    <string name="btn_reject">প্ৰত্যাখ্যান কৰক</string>
+    <string name="btn_edit">সম্পাদনা কৰক</string>
+    <string name="btn_delete">মচক</string>
+    <string name="btn_search">বিচাৰক</string>
+    <string name="btn_filter">ফিল্টাৰ</string>
+    <string name="btn_sync">চিংক কৰক</string>
+    <string name="btn_back">উভতি যাওক</string>
+    <string name="btn_next">পৰৱৰ্তী</string>
+    <string name="btn_continue">অব্যাহত ৰাখক</string>
+    <string name="btn_finish">শেষ কৰক</string>
+    <string name="btn_cancel">বাতিল কৰক</string>
+    <string name="btn_close">বন্ধ কৰক</string>
+    <string name="btn_ok">ঠিক আছে</string>
+    <string name="btn_retry">পুনৰ চেষ্টা কৰক</string>
+    <string name="btn_refresh">ৰিফ্ৰেছ কৰক</string>
+
+    <!-- ═══ VISITS ═══ -->
+    <string name="visit">ভিজিট</string>
+    <string name="first_visit">প্ৰথম ভিজিট</string>
+    <string name="second_visit">দ্বিতীয় ভিজিট</string>
+    <string name="third_visit">তৃতীয় ভিজিট</string>
+    <string name="fourth_visit">চতুৰ্থ ভিজিট</string>
+    <string name="fifth_visit">পঞ্চম ভিজিট</string>
+    <string name="scheduled_visit">নিৰ্ধাৰিত ভিজিট</string>
+    <string name="completed_visit">সম্পূৰ্ণ ভিজিট</string>
+    <string name="missed_visit">বাদ পৰা ভিজিট</string>
+    <string name="rescheduled_visit">পুনৰ নিৰ্ধাৰিত ভিজিট</string>
+    <string name="visit_date">ভিজিটৰ তাৰিখ</string>
+    <string name="visit_time">ভিজিটৰ সময়</string>
+
+    <!-- ═══ PHOTO ═══ -->
+    <string name="take_photo">ফটো তোলক</string>
+    <string name="capture_photo">ফটো কেপচাৰ কৰক</string>
+    <string name="retake_photo">পুনৰ তোলক</string>
+    <string name="upload_photo">ফটো আপলোড কৰক</string>
+    <string name="delete_photo">ফটো মচক</string>
+    <string name="preview_photo">ফটো পূৰ্বদৰ্শন</string>
+    <string name="view_photo">ফটো চাওক</string>
+    <string name="camera_permission_required">কেমেৰাৰ অনুমতি প্ৰয়োজন</string>
+    <string name="camera_permission_msg">পথাৰৰ ফটো তুলিবলৈ কেমেৰাৰ অনুমতি দিয়ক।</string>
+    <string name="photo_uploaded_success">ফটো সফলতাৰে আপলোড হৈছে</string>
+    <string name="photo_upload_failed">ফটো আপলোড বিফল। পুনৰ চেষ্টা কৰক।</string>
+    <string name="photos">ফটোসমূহ</string>
+    <string name="photo_required">প্ৰয়োজনীয়</string>
+    <string name="photo_optional">ঐচ্ছিক</string>
+    <string name="all_photos_uploaded">সকলো ফটো আপলোড হৈছে</string>
+    <string name="photos_pending">%d ফটো বাকী</string>
+
+    <!-- ═══ GPS ═══ -->
+    <string name="capture_gps">GPS কেপচাৰ কৰক</string>
+    <string name="latitude">অক্ষাংশ</string>
+    <string name="longitude">দ্ৰাঘিমাংশ</string>
+    <string name="gps_accuracy">GPS সঠিকতা</string>
+    <string name="enable_gps">GPS চালু কৰক</string>
+    <string name="gps_disabled">GPS বন্ধ আছে</string>
+    <string name="gps_disabled_msg">স্থানাংক কেপচাৰ কৰিবলৈ GPS/লোকেচন চালু কৰক।</string>
+    <string name="location_captured">স্থান কেপচাৰ হৈছে</string>
+    <string name="location_not_available">স্থান উপলব্ধ নহয়</string>
+    <string name="gps_capturing">GPS কেপচাৰ হৈ আছে…</string>
+    <string name="gps_accuracy_poor">GPS সঠিকতা দুৰ্বল (%s মিটাৰ)। মুকলি ঠাইলৈ যাওক।</string>
+    <string name="gps_captured_success" formatted="false">GPS কেপচাৰ: %s, %s (সঠিকতা: %s মিটাৰ)</string>
+
+    <!-- ═══ MAP ═══ -->
+    <string name="open_map">মানচিত্ৰ খোলক</string>
+    <string name="plot_location">প্লটৰ স্থান</string>
+    <string name="farmer_location">কৃষকৰ স্থান</string>
+    <string name="current_location">বৰ্তমান স্থান</string>
+    <string name="draw_polygon">প্লট সীমা আঁকক</string>
+    <string name="polygon_saved">পলিগন সংৰক্ষিত হৈছে</string>
+    <string name="polygon_area">পলিগন মাটি: %s হে.</string>
+
+    <!-- ═══ REJECTION ═══ -->
+    <string name="rejected">প্ৰত্যাখ্যাত</string>
+    <string name="rejection_reason">প্ৰত্যাখ্যানৰ কাৰণ</string>
+    <string name="missing_photo">ফটো নাই</string>
+    <string name="gps_mismatch">GPS মিলা নাই</string>
+    <string name="invalid_data">অবৈধ ডেটা</string>
+    <string name="correction_required">সংশোধন প্ৰয়োজন</string>
+    <string name="reopen_survey">সৰ্বেক্ষণ পুনৰ খোলক</string>
+    <string name="resubmit_banner_msg">⚠️ এই সৰ্বেক্ষণ প্ৰত্যাখ্যাত হৈছে। পুনৰ জমা দিয়াৰ আগতে সমস্যাসমূহ পৰীক্ষা কৰক।</string>
+
+    <!-- ═══ APPROVAL ═══ -->
+    <string name="approved">অনুমোদিত</string>
+    <string name="approved_by">অনুমোদন কৰিছে</string>
+    <string name="approval_date">অনুমোদনৰ তাৰিখ</string>
+    <string name="final_approval">চূড়ান্ত অনুমোদন</string>
+
+    <!-- ═══ COMMENTS ═══ -->
+    <string name="remarks">মন্তব্য</string>
+    <string name="comments">মন্তব্যসমূহ</string>
+    <string name="notes">টোকা</string>
+    <string name="observation">পৰ্যবেক্ষণ</string>
+    <string name="recommendation">পৰামৰ্শ</string>
+    <string name="farmer_statement">কৃষকৰ বয়ান</string>
+    <string name="visit_notes">ভিজিটৰ টোকা</string>
+    <string name="damage_description">ক্ষতিৰ বিৱৰণ</string>
+
+    <!-- ═══ FILE ═══ -->
+    <string name="upload">আপলোড</string>
+    <string name="download">ডাউনলোড</string>
+    <string name="attachment">সংলগ্নক</string>
+    <string name="document">দস্তাবেজ</string>
+    <string name="view_file">ফাইল চাওক</string>
+    <string name="delete_file">ফাইল মচক</string>
+
+    <!-- ═══ SYNC ═══ -->
+    <string name="sync">চিংক</string>
+    <string name="sync_now">এতিয়াই চিংক কৰক</string>
+    <string name="sync_pending">চিংক বাকী</string>
+    <string name="sync_successful">চিংক সফল</string>
+    <string name="sync_failed">চিংক বিফল</string>
+    <string name="last_sync_time">শেষ চিংক: %s</string>
+    <string name="offline_mode">অফলাইন মোড</string>
+    <string name="online_mode">অনলাইন মোড</string>
+    <string name="connecting">সংযোগ হৈ আছে…</string>
+    <string name="loading">লোড হৈ আছে…</string>
+    <string name="saving_draft">খচৰা সংৰক্ষণ হৈ আছে…</string>
+    <string name="submitting">জমা হৈ আছে…</string>
+    <string name="deleting">মচা হৈ আছে…</string>
+
+    <!-- ═══ LISTS ═══ -->
+    <string name="no_records_found">কোনো ৰেকৰ্ড পোৱা নগ\'ল</string>
+    <string name="no_surveys">এতিয়ালৈকে কোনো সৰ্বেক্ষণ নাই</string>
+    <string name="search_results">Search Results</string>
+    <string name="total_records">মুঠ: %d ৰেকৰ্ড</string>
+    <string name="next_page">Next</string>
+    <string name="prev_page">Previous</string>
+
+    <!-- ═══ DIALOGS ═══ -->
+    <string name="success">সফলতা</string>
+    <string name="error">ত্ৰুটি</string>
+    <string name="warning">সতৰ্কতা</string>
+    <string name="information">তথ্য</string>
+    <string name="are_you_sure">আপুনি নিশ্চিত নে?</string>
+    <string name="confirm_submission">জমা দিয়াৰ নিশ্চিতকৰণ</string>
+    <string name="confirm_submission_msg">এই সৰ্বেক্ষণ জমা দিব? জমা দিলে QC পৰ্যালোচনালৈ যাব।</string>
+    <string name="confirm_deletion">মচাৰ নিশ্চিতকৰণ</string>
+    <string name="confirm_delete_msg">এই খচৰা মচিব?\n\nকেছ: %s\n\nএইটো উভতাব নোৱাৰি।</string>
+    <string name="unsaved_changes">সংৰক্ষণ নোহোৱা পৰিৱৰ্তন</string>
+    <string name="unsaved_changes_msg">আপোনাৰ কিছু সংৰক্ষণ নোহোৱা পৰিৱৰ্তন আছে। আপুনি সঁচাকৈ উভতি যাব বিচাৰেনে?</string>
+    <string name="survey_submitted">সৰ্বেক্ষণ সফলতাৰে জমা হৈছে!</string>
+    <string name="draft_saved">খচৰা সংৰক্ষিত হৈছে</string>
+    <string name="survey_deleted">সৰ্বেক্ষণ মচা হৈছে</string>
+    <string name="delete_failed">মচিব পৰা নগ\'ল (%d)। পুনৰ চেষ্টা কৰক।</string>
+
+    <!-- ═══ SETTINGS ═══ -->
+    <string name="language">ভাষা</string>
+    <string name="app_version">এপ সংস্কৰণ</string>
+    <string name="about">বিষয়ে</string>
+    <string name="privacy_policy">গোপনীয়তা নীতি</string>
+    <string name="terms_and_conditions">নিয়ম আৰু চৰ্তসমূহ</string>
+    <string name="powered_by">কৃষি কেয়াৰ এণ্ড মেনেজমেণ্ট ছাৰ্ভিছেছ প্ৰা. লি. দ্বাৰা পৰিচালিত</string>
+    <string name="app_tagline">ফিল্ড ছাৰ্ভে প্লেটফৰ্ম</string>
+
+    <!-- ═══ FARMER VERIFICATION ═══ -->
+    <string name="farmer_verification">কৃষক যাচাই</string>
+    <string name="verify_farmer">কৃষক যাচাই কৰক</string>
+    <string name="skip_verification">যাচাই এৰক</string>
+    <string name="farmer_verified_label">✅ কৃষক যাচাই: +91-%s</string>
+    <string name="enter_farmer_mobile">কৃষকৰ মোবাইল নম্বৰ দিয়ক</string>
+    <string name="verify_farmer_title">কৃষকৰ পৰিচয় যাচাই কৰিব নে?</string>
+    <string name="verify_farmer_subtitle">সৰ্বেক্ষণ আৰম্ভ কৰাৰ আগতে কৃষকৰ পৰিচয় যাচাই কৰিবলৈ \'যাচাই কৰক\' টিপক।</string>
+    <string name="farmers_mobile_label">কৃষকৰ পঞ্জীভুক্ত মোবাইল নম্বৰ</string>
+    <string name="farmers_mobile_hint">বীমা বা বেংক একাউণ্টৰ সৈতে সংযুক্ত কৃষকৰ মোবাইল নম্বৰ দিয়ক।</string>
+    <string name="send_otp">OTP পঠাওক</string>
+    <string name="verify_and_start">যাচাই কৰক আৰু সৰ্বেক্ষণ আৰম্ভ কৰক ✓</string>
+    <string name="resend_otp">OTP পুনৰ পঠাওক</string>
+    <string name="otp_section_title">OTP পঠোৱা হৈছে +91-%s লৈ</string>
+    <string name="otp_section_hint">কৃষকৰ পৰিচয় নিশ্চিত কৰিবলৈ ৬ সংখ্যাৰ OTP দিয়ক।</string>
+
+    <!-- ═══ QUEUE ═══ -->
+    <string name="queue">Queue</string>
+    <string name="queue_title">অফলাইন কিউ</string>
+    <string name="queue_empty">কিউত কোনো আইটেম নাই</string>
+    <string name="queue_pending">%d আইটেম চিংকৰ অপেক্ষাত</string>
+
+    <!-- ═══ MASTER DATA ═══ -->
+    <string name="season_kharif">খাৰিফ</string>
+    <string name="season_rabi">ৰবি</string>
+    <string name="season_zaid">জায়দ</string>
+    <string name="crop_wheat">ঘেঁহু</string>
+    <string name="crop_rice">চাউল</string>
+    <string name="crop_mango">আম</string>
+    <string name="crop_soybean">চয়াবিন</string>
+    <string name="crop_cotton">কপাহ</string>
+    <string name="crop_sugarcane">কুঁহিয়াৰ</string>
+    <string name="crop_banana">কল</string>
+    <string name="crop_tomato">টমেটো</string>
+    <string name="crop_potato">আলু</string>
+    <string name="crop_onion">পিঁয়াজ</string>
+    <string name="crop_sorghum">জোৱাৰ</string>
+    <string name="crop_maize">মাকৈ</string>
+    <string name="crop_groundnut">মাটিমাহ</string>
+    <string name="crop_sunflower">সূৰ্যমুখী</string>
+    <string name="crop_gram">বুট</string>
+    <string name="crop_tur">তুৰ (অৰহৰ)</string>
+    <string name="crop_moong">মগু</string>
+    <string name="crop_urad">মাহকলাই</string>
+    <string name="crop_linseed">তিচি</string>
+    <string name="crop_mustard">সৰিয়হ</string>
+    <string name="crop_grapes">আঙুৰ</string>
+    <string name="crop_pomegranate">দাৰিম</string>
+    <string name="crop_orange">কমলা</string>
+    <string name="crop_other">অন্য</string>
+    <string name="stage_sowing">বীজ সিঁচা</string>
+    <string name="stage_germination">অংকুৰণ</string>
+    <string name="stage_vegetative">উদ্ভিজ্জ</string>
+    <string name="stage_tillering">কল্লি ওলোৱা</string>
+    <string name="stage_flowering">ফুল ফোটা</string>
+    <string name="stage_grain_filling">গুটি ভৰা</string>
+    <string name="stage_maturity">পৰিপক্কতা</string>
+    <string name="stage_harvesting">চপোৱা</string>
+    <string name="irrigation_irrigated">জলসিঞ্চিত</string>
+    <string name="irrigation_rainfed">বৰষুণ নিৰ্ভৰ</string>
+    <string name="irrigation_partial">আংশিক জলসিঞ্চিত</string>
+    <string name="land_plain">সমতল</string>
+    <string name="land_hilly">পাহাৰীয়া</string>
+    <string name="land_undulating">তৰংগময়</string>
+    <string name="land_coastal">উপকূলীয়</string>
+    <string name="land_wetland">জলাভূমি</string>
+    <string name="cause_heavy_rain">ভাৰী বৰষুণ</string>
+    <string name="cause_drought">খৰাং</string>
+    <string name="cause_hailstorm">শিলাবৃষ্টি</string>
+    <string name="cause_flood">বান পানী</string>
+    <string name="cause_cyclone">ঘূৰ্ণীবতাহ</string>
+    <string name="cause_pest">পোক-পতংগ আৰু ৰোগ</string>
+    <string name="cause_fire">জুই</string>
+    <string name="cause_landslide">ভূমিস্খলন</string>
+    <string name="cause_cold_wave">শীতল ঢৌ</string>
+    <string name="cause_heat_wave">গৰমৰ ঢৌ</string>
+    <string name="cause_lightning">বজ্ৰপাত</string>
+    <string name="cause_other">অন্য</string>
+    <string name="condition_excellent">অতি উত্তম</string>
+    <string name="condition_good">ভাল</string>
+    <string name="condition_fair">মোটামুটি</string>
+    <string name="condition_poor">বেয়া</string>
+    <string name="condition_complete_loss">সম্পূৰ্ণ ক্ষতি</string>
+    <string name="account_saving">সঞ্চয় একাউণ্ট</string>
+    <string name="account_current">চলিত একাউণ্ট</string>
+    <string name="account_kcc">KCC (ঋণ একাউণ্ট)</string>
+    <string name="pattern_single">একক</string>
+    <string name="pattern_mixed">মিশ্ৰিত</string>
+    <string name="pattern_intercrop">আন্তঃশস্য</string>
+    <string name="scheme_rwbcis">RWBCIS</string>
+    <string name="scheme_pmfby">PMFBY</string>
+    <string name="scheme_wbcis">WBCIS</string>
+    <string name="scheme_others">Others</string>
+    <string name="unit_ri_circle">RI চক্ৰ স্তৰ</string>
+    <string name="unit_village">গ্ৰাম স্তৰ</string>
+    <string name="unit_district">জিলা স্তৰ</string>
+    <string name="unit_block">ব্লক স্তৰ</string>
+
+    <!-- ═══ SECURITY ═══ -->
+    <string name="device_locked_title">🔒 Account Locked to Another Device</string>
+    <string name="mock_location_title">⚠️ Fake Location Detected</string>
+    <string name="account_blocked_title">🚫 একাউণ্ট অৱৰুদ্ধ</string>
+    <string name="security_alert_title">🔒 Security Alert</string>
+    <string name="session_expired_device_title">🔒 Session Expired on This Device</string>
+    <string name="session_expired_device_msg">This account has been logged in on another device.\n\nFor security and data integrity, only one device can use an account at a time.\n\nContact Admin: Akshay Rai to unlock your account.</string>
+
+    <!-- ═══ PHOTO LABELS ═══ -->
+    <string name="photo_sw_corner">প্লটৰ দক্ষিণ-পশ্চিম কোণ</string>
+    <string name="photo_sw_corner_instruction">দক্ষিণ-পশ্চিম কোণৰ পৰা পথাৰৰ শস্যৰ ফটো</string>
+    <string name="photo_sw_corner_chm">দক্ষিণ-পশ্চিম কোণ</string>
+    <string name="photo_sw_corner_chm_instruction">পথাৰৰ দক্ষিণ-পশ্চিম কোণত থিয় হওক</string>
+    <string name="photo_plot_marking">প্লট চিহ্নিতকৰণ</string>
+    <string name="photo_plot_marking_instruction">10m×10m প্লটৰ চাৰি কোণত খুঁটা/লাঠি</string>
+    <string name="photo_field_overview">পথাৰৰ সামগ্ৰিক দৃশ্য</string>
+    <string name="photo_field_overview_instruction">পথাৰৰ প্ৰসংগত সম্পূৰ্ণ CCE প্লটৰ বহল কোণৰ ফটো</string>
+    <string name="photo_crop_north">শস্য — উত্তৰ দৃশ্য</string>
+    <string name="photo_crop_north_instruction">উত্তৰমুখী শস্য</string>
+    <string name="photo_crop_east">শস্য — পূব দৃশ্য</string>
+    <string name="photo_crop_east_instruction">পূবমুখী শস্য</string>
+    <string name="photo_crop_south">শস্য — দক্ষিণ দৃশ্য</string>
+    <string name="photo_crop_south_instruction">দক্ষিণমুখী শস্য</string>
+    <string name="photo_crop_west">শস্য — পশ্চিম দৃশ্য</string>
+    <string name="photo_crop_west_instruction">পশ্চিমমুখী শস্য</string>
+    <string name="photo_harvesting">চপোৱা চলি আছে</string>
+    <string name="photo_harvesting_instruction">CCE প্লট চপোৱাৰ সময়ত ফটো</string>
+    <string name="photo_harvested_pile">কাটি লোৱা শস্যৰ ঢেৰি</string>
+    <string name="photo_harvested_pile_instruction">মৰণাৰ আগতে থ্ৰেছিং শ্বীটত শস্যৰ ঢেৰি</string>
+    <string name="photo_threshing">মৰণাৰ ফটো</string>
+    <string name="photo_threshing_instruction">শস্যৰ মৰণা (হাতেৰে/যন্ত্ৰেৰে)</string>
+    <string name="photo_fresh_biomass">তাজা বায়োমাছ ওজন</string>
+    <string name="photo_fresh_biomass_instruction">কেলিব্ৰেটেড তুলাত মুঠ তাজা বায়োমাছ (kg)</string>
+    <string name="photo_fresh_grain">তাজা শস্যৰ ওজন</string>
+    <string name="photo_fresh_grain_instruction">তুলাত সদ্য মৰণা কৰা শস্য (kg)</string>
+    <string name="photo_grain_drying">শস্য শুকোৱা</string>
+    <string name="photo_grain_drying_instruction">ৰ\'দত/ছাঁত শুকোৱাৰ বাবে বিছোৱা শস্য</string>
+    <string name="photo_dry_grain">শুকান শস্যৰ ওজন</string>
+    <string name="photo_dry_grain_instruction">তুলাত শুকান শস্য — চূড়ান্ত উৎপাদন ওজন (kg)</string>
+    <string name="photo_moisture_meter">আৰ্দ্ৰতা মিটাৰ ৰিডিং</string>
+    <string name="photo_moisture_meter_instruction">শস্যৰ নমুনাৰ % আৰ্দ্ৰতা ৰিডিং</string>
+    <string name="photo_witness">স্থলত সাক্ষী</string>
+    <string name="photo_witness_instruction">IC প্ৰতিনিধি / পটৱাৰী / কৃষকৰ ফটো</string>
+    <string name="photo_with_farmer">কৃষকৰ সৈতে ফটো</string>
+    <string name="photo_with_farmer_instruction">কৃষক স্পষ্টভাৱে দেখা যাব লাগিব</string>
+    <string name="photo_with_official">চৰকাৰী বিষয়াৰ সৈতে ফটো</string>
+    <string name="photo_with_official_instruction">চৰকাৰী বিষয়া দেখা যাব লাগিব</string>
+    <string name="photo_survey_form">সৰ্বেক্ষণ ফৰ্ম</string>
+    <string name="photo_survey_form_instruction">ফৰ্ম সমতলকৈ ৰাখক, সকলো ৪ কোণ কেপচাৰ কৰক</string>
+    <string name="photo_land_record">মাটিৰ ৰেকৰ্ড (7/12)</string>
+    <string name="photo_land_record_instruction">দস্তাবেজ সম্পূৰ্ণভাৱে দেখা যাব লাগিব</string>
+    <string name="photo_id_proof">কৃষকৰ পৰিচয়পত্ৰ</string>
+    <string name="photo_id_proof_instruction">সকলো লিখনি পঢ়িব পৰা হ\'ব লাগিব</string>
+    <string name="photo_bank_passbook">বেংক পাছবুক</string>
+    <string name="photo_bank_passbook_instruction">একাউণ্টৰ বিৱৰণ দেখোৱা প্ৰথম পৃষ্ঠা</string>
+    <string name="photo_chequebook">চেকবুক</string>
+    <string name="photo_chequebook_instruction">একাউণ্ট নম্বৰ দেখোৱা প্ৰথম পৃষ্ঠা</string>
+    <string name="photo_nadir">নাডিৰ ভিউ</string>
+    <string name="photo_nadir_instruction">ফোন সিধাকৈ ওপৰত ধৰক, কেমেৰা তললৈ</string>
+    <string name="photo_leaf">পাতৰ ক্লোজ-আপ</string>
+    <string name="photo_leaf_instruction">এটা প্ৰতিনিধিত্বমূলক পাতেৰে ফ্ৰেম ভৰাওক</string>
+    <string name="photo_field_north">পথাৰ — উত্তৰ</string>
+    <string name="photo_field_north_instruction">দক্ষিণ সীমাত থিয় হওক, উত্তৰলৈ চাওক</string>
+    <string name="photo_field_east">পথাৰ — পূব</string>
+    <string name="photo_field_east_instruction">পশ্চিম সীমাত থিয় হওক, পূবলৈ চাওক</string>
+    <string name="photo_field_south">পথাৰ — দক্ষিণ</string>
+    <string name="photo_field_south_instruction">উত্তৰ সীমাত থিয় হওক, দক্ষিণলৈ চাওক</string>
+    <string name="photo_field_west">পথাৰ — পশ্চিম</string>
+    <string name="photo_field_west_instruction">পূব সীমাত থিয় হওক, পশ্চিমলৈ চাওক</string>
+    <string name="photo_grain_image">শস্যৰ ফটো</string>
+    <string name="photo_grain_image_instruction">শস্য/ফলৰ ক্লোজ-আপ</string>
+    <string name="photo_biomass_weight">বায়োমাছ ওজনৰ ফটো</string>
+    <string name="photo_biomass_weight_instruction">তুলাত বায়োমাছৰ ফটো</string>
+    <string name="photo_grain_weight">শস্যৰ ওজনৰ ফটো</string>
+    <string name="photo_grain_weight_instruction">তুলাত শস্যৰ ফটো</string>
+
+    <!-- ═══ AI GUIDE ═══ -->
+    <string name="guide_btn_label">AI গাইড</string>
+    <string name="guide_got_it">বুজিলোঁ →</string>
+    <string name="guide_turn_off">গাইড বন্ধ কৰক</string>
+    <string name="guide_menu_title">🤖 AI ছাৰ্ভে গাইড</string>
+    <string name="guide_option_rules">📖 এপ নিয়ম আৰু নিৰ্দেশনা দেখুৱাওক</string>
+    <string name="guide_option_restart">🔄 ছাৰ্ভে গাইড পুনৰ আৰম্ভ কৰক</string>
+    <string name="guide_option_resume">🤖 গাইড অব্যাহত ৰাখক</string>
+    <string name="guide_option_turnoff">❌ AI গাইড বন্ধ কৰক</string>
+    <string name="guide_disabled_toast">গাইড বন্ধ হৈছে। পুনৰ চালু কৰিবলৈ 🤖 টিপক।</string>
+
+    <!-- ONBOARDING SLIDES -->
+    <string name="guide_slide1_title">কৃষি সৰ্বেক্ষণত আপোনাক স্বাগতম</string>
+    <string name="guide_slide1_body">এই চমু গাইডে আপোনাক ক\'ব যে এপটো কেনেকৈ কাম কৰে, কি অনুমোদিত আৰু প্ৰথম সৰ্বেক্ষণ কেনেকৈ সঠিকভাৱে সম্পন্ন কৰিব।\n\nপ্ৰতিটো পৃষ্ঠা মনোযোগেৰে পঢ়ক — ২ মিনিটতকৈ কম সময় লাগিব।</string>
+    <string name="guide_slide2_title">এটা একাউণ্ট — এটা ডিভাইছ</string>
+    <string name="guide_slide2_body">⚠️ আপোনাৰ একাউণ্ট প্ৰথম ডিভাইছত লক হয়।\n\n• দ্বিতীয় ডিভাইছত লগইন কৰিলে প্ৰথমটো লগআউট হ\'ব।\n• একে সময়তে ২টা ডিভাইছ ব্যৱহাৰ নহ\'ব।\n• ফোন সলনি কৰিলে Admin-ৰ পৰা একাউণ্ট আনলক কৰক।</string>
+    <string name="guide_slide3_title">নকল GPS ব্যৱহাৰ নকৰিব</string>
+    <string name="guide_slide3_body">এপটোৱে নকল লোকেচন ধৰা পেলায়।\n\n• নকল লোকেচন পালে এপটো লগে লগে বন্ধ হ\'ব।\n• নকল GPS থকা সৰ্বেক্ষণ বাতিল হ\'ব।\n\nসদায় প্ৰকৃত পথাৰলৈ গৈ সৰ্বেক্ষণ আৰম্ভ কৰক।</string>
+    <string name="guide_slide4_title">সৰ্বেক্ষণৰ প্ৰকাৰ</string>
+    <string name="guide_slide4_body">এপত ৩টা সৰ্বেক্ষণ প্ৰকাৰ আছে:\n\n🟢  CLS — শস্য ক্ষতি সৰ্বেক্ষণ\n🔵  CHM — শস্য স্বাস্থ্য নিৰীক্ষণ\n🟠  CCE — শস্য কাটনি পৰীক্ষা</string>
+    <string name="guide_slide5_title">ফটো গুৰুত্বপূৰ্ণ</string>
+    <string name="guide_slide5_body">প্ৰতিটো সৰ্বেক্ষণত প্ৰয়োজনীয় আৰু ঐচ্ছিক ফটো থাকে।\n\n• জমা দিয়াৰ আগতে সকলো প্ৰয়োজনীয় ফটো তুলিব লাগিব।\n• ফটো স্বয়ংক্ৰিয়ভাৱে GPS টেগ হয়।</string>
+    <string name="guide_slide6_title">খচৰা → জমা → অনুমোদন</string>
+    <string name="guide_slide6_body">সৰ্বেক্ষণ এনেকৈ সম্পন্ন হয়:\n\n1️⃣  ফৰ্ম পূৰণ + ফটো তোলক\n2️⃣  Save Draft টিপক\n3️⃣  সাজু হ\'লে Submit টিপক\n4️⃣  QC পৰ্যালোচনালৈ যায়\n5️⃣  Approved ✅ বা Rejected ❌</string>
+    <string name="guide_slide6_btn">বুজিলোঁ! আৰম্ভ কৰোঁ</string>
+
+    <!-- STEP OVERLAYS -->
+    <string name="guide_step0_title">👋 নমস্কাৰ! মই আপোনাৰ AI সৰ্বেক্ষণ গাইড</string>
+    <string name="guide_step0_msg">মই আপোনাক প্ৰথম সৰ্বেক্ষণ আৰম্ভৰ পৰা শেষলৈকে সম্পন্ন কৰাত সহায় কৰিম।\n\nএই স্ক্ৰীনত ৩টা সৰ্বেক্ষণ প্ৰকাৰ আছে: CLS, CHM আৰু CCE।</string>
+    <string name="guide_step0_tip">💡 পৰামৰ্শ: CLS = শস্য ক্ষতি সৰ্বেক্ষণ। প্ৰথমবাৰ CLS-ৰ পৰা আৰম্ভ কৰক।</string>
+    <string name="guide_step0_action">CLS-ৰ পৰা আৰম্ভ কৰক →</string>
+    <string name="guide_step1_title">📋 সৰ্বেক্ষণৰ প্ৰকাৰ বাছক</string>
+    <string name="guide_step1_msg">শস্য ক্ষতি সৰ্বেক্ষণ আৰম্ভ কৰিবলৈ CLS কাৰ্ডত টিপক।</string>
+    <string name="guide_step1_tip">💡 পৰামৰ্শ: তিনিওটা প্ৰকাৰৰ একেই ক্ৰম — ফৰ্ম + ফটো + জমা।</string>
+    <string name="guide_step1_action">বুজিলোঁ →</string>
+    <string name="guide_step2_title">👨‍🌾 কৃষক যাচাই</string>
+    <string name="guide_step2_msg">মোবাইল নম্বৰ আৰু OTP-ৰে কৃষকৰ পৰিচয় যাচাই কৰক।\n\nকৃষক নাথাকিলে SKIP টিপক।</string>
+    <string name="guide_step2_tip">💡 পৰামৰ্শ: যাচাই কৰা সৰ্বেক্ষণ দ্ৰুতভাৱে প্ৰক্ৰিয়া হয়।</string>
+    <string name="guide_step2_action">বুজিলোঁ →</string>
+    <string name="guide_step3_title">✅ বহুত ভাল! কৃষক যাচাই হৈছে</string>
+    <string name="guide_step3_msg">কৃষকৰ ফোন নিশ্চিত হৈছে।</string>
+    <string name="guide_step3_tip">💡 পৰামৰ্শ: জমা দিয়াৰ আগতেও যাচাই কৰিব পাৰি।</string>
+    <string name="guide_step3_action">বুজিলোঁ →</string>
+    <string name="guide_step4_title">🗺️ পথাৰৰ সীমা আঁকক</string>
+    <string name="guide_step4_msg">পথাৰৰ সীমাৰ চাৰিওকাষে কমেও ৩টা বিন্দু যোগ কৰিবলৈ মানচিত্ৰত টিপক।\n\nপ্ৰকৃত পথাৰৰ স্থানত থাকক — GPS সঠিকতা গুৰুত্বপূৰ্ণ!</string>
+    <string name="guide_step4_tip">💡 পৰামৰ্শ: ভুল হ\'লে DELETE টিপি পুনৰ আৰম্ভ কৰক।</string>
+    <string name="guide_step4_action">বুজিলোঁ →</string>
+    <string name="guide_step5_title">📝 সৰ্বেক্ষণ ফৰ্ম পূৰণ কৰক</string>
+    <string name="guide_step5_msg">ফৰ্মত কেইবাটাও অংশ আছে। * চিহ্নিত সকলো বাধ্যতামূলক ক্ষেত্ৰ পূৰণ কৰক।</string>
+    <string name="guide_step5_tip">💡 পৰামৰ্শ: যিকোনো সময়তে \'Save Draft\' টিপিব পাৰি।</string>
+    <string name="guide_step5_action">বুজিলোঁ →</string>
+    <string name="guide_step6_title">📅 মূল তথ্য অংশ</string>
+    <string name="guide_step6_msg">পূৰণ কৰক:\n• বছৰ\n• ঋতু (খাৰিফ / ৰবি / জায়দ)\n• আঁচনি</string>
+    <string name="guide_step6_tip">💡 পৰামৰ্শ: বছৰ বৰ্তমান তাৰিখ অনুযায়ী স্বয়ংক্ৰিয়ভাৱে পূৰণ হয়।</string>
+    <string name="guide_step6_action">বুজিলোঁ →</string>
+    <string name="guide_step7_title">📍 স্থান অংশ</string>
+    <string name="guide_step7_msg">ৰাজ্য → জিলা → তহচিল → গাঁও বাছক।</string>
+    <string name="guide_step7_tip">💡 পৰামৰ্শ: গাঁও নাপালে Gram Panchayat ক্ষেত্ৰত নিজে লিখক।</string>
+    <string name="guide_step7_action">বুজিলোঁ →</string>
+    <string name="guide_step8_title">🌾 শস্যৰ বিৱৰণ অংশ</string>
+    <string name="guide_step8_msg">শস্যৰ প্ৰকাৰ, জাত, অৱস্থা আৰু জলসিঞ্চনৰ প্ৰকাৰ বাছক।</string>
+    <string name="guide_step8_tip">💡 পৰামৰ্শ: শস্য বৰ্তমান যি অৱস্থাত আছে সেইটো বাছক।</string>
+    <string name="guide_step8_action">বুজিলোঁ →</string>
+    <string name="guide_step9_title">📸 এতিয়া ফটোৰ পালি</string>
+    <string name="guide_step9_msg">ওপৰত PHOTOS টেবত টিপক। Required ✦ ফটো জমা দিয়াৰ আগতে তুলিব লাগিব।</string>
+    <string name="guide_step9_tip">💡 পৰামৰ্শ: ফটো স্বয়ংক্ৰিয়ভাৱে GPS টেগ হয়।</string>
+    <string name="guide_step9_action">বুজিলোঁ →</string>
+    <string name="guide_step10_title">📷 প্ৰয়োজনীয় ফটো তোলক</string>
+    <string name="guide_step10_msg">প্ৰতিটো স্লটৰ কাষত CAPTURE টিপক।</string>
+    <string name="guide_step10_tip">💡 পৰামৰ্শ: ফটো অস্পষ্ট হ\'লে লগে লগে RETAKE টিপক।</string>
+    <string name="guide_step10_action">বুজিলোঁ →</string>
+    <string name="guide_step11_title">💾 খচৰা সংৰক্ষণ কৰক</string>
+    <string name="guide_step11_msg">SAVE DRAFT টিপক।\n• পিছত অব্যাহত ৰাখিব পাৰি\n• ডেটা নষ্ট নহ\'ব</string>
+    <string name="guide_step11_tip">💡 পৰামৰ্শ: দুৰ্বল নেটৱৰ্কত নিজে সংৰক্ষণ কৰাটো ভাল।</string>
+    <string name="guide_step11_action">বুজিলোঁ →</string>
+    <string name="guide_step12_title">🎉 জমা দিবলৈ সাজু!</string>
+    <string name="guide_step12_msg">SUBMIT → টিপক।\n\nজমা দিয়াৰ পিছত:\n• QC টিমে ২৪-৪৮ ঘণ্টাত পৰ্যালোচনা কৰিব\n• Approved ✅ বা Rejected ❌ দেখা যাব</string>
+    <string name="guide_step12_tip">💡 Dashboard-ত 🤖 Guide টিপি পুনৰ পঢ়িব পাৰি।</string>
+    <string name="guide_step12_action">জমা দিয়ক আৰু গাইড শেষ কৰক 🎉</string>
+    <string name="guide_step_progress">পদক্ষেপ %1$d / %2$d</string>
+    <string name="guide_turn_off_title">AI গাইড বন্ধ কৰিব নে?</string>
+    <string name="guide_turn_off_msg">গাইড দেখা বন্ধ হ\'ব। Dashboard → Guide টিপি পুনৰ চালু কৰক।</string>
+    <string name="guide_turn_off_confirm">বন্ধ কৰক</string>
+    <string name="guide_keep_on">চালু ৰাখক</string>
+    <string name="guide_skip">গাইড এৰক</string>
+</resources>
