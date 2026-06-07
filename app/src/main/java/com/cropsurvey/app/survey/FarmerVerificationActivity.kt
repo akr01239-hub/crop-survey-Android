@@ -46,7 +46,6 @@ class FarmerVerificationActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_farmer_verification)
-        AiGuideOverlay.show(this, AiGuideOverlay.Step.FARMER_VERIFICATION)
 
         surveyType = intent.getStringExtra("survey_type") ?: "CLS"
 
@@ -55,6 +54,11 @@ class FarmerVerificationActivity : BaseActivity() {
         setupStep1()
         setupStep2()
         setupStep3()
+
+        // Show guide AFTER layout is fully drawn so overlay attaches correctly
+        window.decorView.post {
+            AiGuideOverlay.show(this, AiGuideOverlay.Step.FARMER_VERIFICATION)
+        }
     }
 
     private fun bindViews() {
