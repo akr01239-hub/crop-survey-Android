@@ -230,6 +230,19 @@ class LoginActivity : BaseActivity() {
         val view = LayoutInflater.from(this).inflate(R.layout.bottom_sheet_language, null)
         dialog.setContentView(view)
 
+        // Expand to 85% of screen height so all 16 languages are reachable
+        dialog.setOnShowListener {
+            val bottomSheet = dialog.findViewById<android.view.View>(
+                com.google.android.material.R.id.design_bottom_sheet
+            )
+            bottomSheet?.let {
+                val behavior = com.google.android.material.bottomsheet.BottomSheetBehavior.from(it)
+                val screenHeight = resources.displayMetrics.heightPixels
+                behavior.peekHeight = (screenHeight * 0.85).toInt()
+                behavior.state = com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED
+            }
+        }
+
         val container = view.findViewById<LinearLayout>(R.id.ll_language_list)
         val languages = LanguageManager.SUPPORTED_LANGUAGES
         val currentCode = LanguageManager.getSelectedLanguageCode()
