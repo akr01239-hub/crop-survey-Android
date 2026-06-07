@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">कृषि सर्भेक्षण</string>
-    <string name="select_language">बे'थाव फोरखौ सायख</string>
+    <string name="select_language">बे\'थाव फोरखौ सायख</string>
     <string name="continue_btn">जाथाय थानाय</string>
     <string name="language_english">English</string>
     <string name="language_hindi">हिन्दी</string>
@@ -14,8 +14,8 @@
     <string name="language_odia">ଓଡ଼ିଆ</string>
     <string name="language_gujarati">ગુજરાતી</string>
     <string name="language_punjabi">ਪੰਜਾਬੀ</string>
-    <string name="change_language">बे'थाव बोसोर</string>
-    <string name="language_changed">बे'थाव सुबुंथाव दोन्थिनाय जायो</string>
+    <string name="change_language">बे\'थाव बोसोर</string>
+    <string name="language_changed">बे\'थाव सुबुंथाव दोन्थिनाय जायो</string>
     <string name="login_title">नि अखौवातिनि भिथाव लगिन खालाम</string>
     <string name="phone_number">फन नाम्बर</string>
     <string name="phone_hint">+91 10 आखरनि नाम्बर</string>
@@ -36,7 +36,7 @@
     <string name="invalid_credentials">राङो फन आरो पासवर्ड</string>
     <string name="session_expired">सेसन समापन जायो। उनाव लगिन खालाम।</string>
     <string name="network_error">नेटवर्क बोसोन। कनेक्सन गोखोन।</string>
-    <string name="account_pending">नि अखौवाति प्रसासननि मान्जिनायनि सा'नाय आवगाव। अरायथाव।</string>
+    <string name="account_pending">नि अखौवाति प्रसासननि मान्जिनायनि सा\'नाय आवगाव। अरायथाव।</string>
     <string name="reset_password">पासवर्ड रिसेट खालाम</string>
     <string name="enter_otp">OTP दे</string>
     <string name="verify_otp">OTP जोबोद खालाम</string>
@@ -169,7 +169,7 @@
     <string name="hint_enter">दे…</string>
     <string name="hint_revenue_circle">रेभेन्यु सर्कल मुं दे</string>
     <string name="hint_village">गांव मुं दे</string>
-    <string name="hint_remarks">नि बे'थावनि टिप्पनी लिख…</string>
+    <string name="hint_remarks">नि बे\'थावनि टिप्पनी लिख…</string>
     <string name="hint_farmer_name">खामनि गैया मुं दे</string>
     <string name="hint_bank_name">बेंक मुं दे</string>
     <string name="required_field">नि फिल्ड थाखोयो</string>
@@ -305,7 +305,7 @@
     <string name="draft_saved">ड्राफ्ट नागिरनाय जायो</string>
     <string name="survey_deleted">सर्भेक्षण नगानाय जायो</string>
     <string name="delete_failed">नगानाय थाबेनाय (%d)। उनाव सिमान।</string>
-    <string name="language">बे'थाव</string>
+    <string name="language">बे\'थाव</string>
     <string name="app_version">एप भर्सन</string>
     <string name="about">बिसोयाव</string>
     <string name="privacy_policy">गपनियो नीति</string>
@@ -318,7 +318,7 @@
     <string name="farmer_verified_label">✅ खाम जोबोद: +91-%s</string>
     <string name="enter_farmer_mobile">खाम मबाइल नाम्बर दे</string>
     <string name="verify_farmer_title">खामनि पचिनाय जोबोद खालामनो?</string>
-    <string name="verify_farmer_subtitle">सर्भेक्षण सुरुनाय गेहेन 'जोबोद' दबाव।</string>
+    <string name="verify_farmer_subtitle">सर्भेक्षण सुरुनाय गेहेन \'जोबोद\' दबाव।</string>
     <string name="farmers_mobile_label">खामनि रजिस्टर मबाइल नाम्बर</string>
     <string name="farmers_mobile_hint">बिमा नाहाय बेंक अखौवातिजों जुरि मबाइल दे।</string>
     <string name="send_otp">OTP रायदां</string>
@@ -520,7 +520,7 @@
     <string name="guide_step4_action">बुजिलुं →</string>
     <string name="guide_step5_title">📝 सर्भेक्षण फर्म बिजाब</string>
     <string name="guide_step5_msg">* चिनाखिनाय सकलनि थाखो फिल्ड बिजाब।</string>
-    <string name="guide_step5_tip">💡 बिसाराय: नाया माव 'Save Draft' दबाव।</string>
+    <string name="guide_step5_tip">💡 बिसाराय: नाया माव \'Save Draft\' दबाव।</string>
     <string name="guide_step5_action">बुजिलुं →</string>
     <string name="guide_step6_title">📅 मुलनि खबर सेक्सन</string>
     <string name="guide_step6_msg">बिजाब:\n• बोसर\n• मौसुम\n• योजना</string>

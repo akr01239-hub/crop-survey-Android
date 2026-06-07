@@ -318,7 +318,7 @@
     <string name="farmer_verified_label">✅ കർഷകൻ സ്ഥിരീകരിച്ചു: +91-%s</string>
     <string name="enter_farmer_mobile">കർഷകന്റെ മൊബൈൽ നമ്പർ നൽകുക</string>
     <string name="verify_farmer_title">കർഷകന്റെ തിരിച്ചറിയൽ സ്ഥിരീകരിക്കണോ?</string>
-    <string name="verify_farmer_subtitle">സർവേ ആരംഭിക്കുന്നതിന് മുൻപ് 'സ്ഥിരീകരിക്കുക' അമർത്തുക.</string>
+    <string name="verify_farmer_subtitle">സർവേ ആരംഭിക്കുന്നതിന് മുൻപ് \'സ്ഥിരീകരിക്കുക\' അമർത്തുക.</string>
     <string name="farmers_mobile_label">കർഷകന്റെ രജിസ്‌റ്റേർഡ് മൊബൈൽ നമ്പർ</string>
     <string name="farmers_mobile_hint">ഇൻഷ്വറൻസ് / ബാങ്ക് അക്കൗണ്ടുമായി ബന്ധിപ്പിച്ച മൊബൈൽ നൽകുക.</string>
     <string name="send_otp">OTP അയക്കുക</string>
@@ -520,7 +520,7 @@
     <string name="guide_step4_action">മനസ്സിലായി →</string>
     <string name="guide_step5_title">📝 സർവേ ഫോം പൂരിപ്പിക്കുക</string>
     <string name="guide_step5_msg">* അടയാളപ്പെടുത്തിയ എല്ലാ നിർബന്ധ ഫീൽഡുകളും പൂരിപ്പിക്കുക.</string>
-    <string name="guide_step5_tip">💡 നുറുങ്ങ്: ഏത് സമയത്തും 'Save Draft' ടാപ്പ് ചെയ്യാം.</string>
+    <string name="guide_step5_tip">💡 നുറുങ്ങ്: ഏത് സമയത്തും \'Save Draft\' ടാപ്പ് ചെയ്യാം.</string>
     <string name="guide_step5_action">മനസ്സിലായി →</string>
     <string name="guide_step6_title">📅 അടിസ്ഥാന വിവരങ്ങൾ വിഭാഗം</string>
     <string name="guide_step6_msg">വർഷം, കാലം, പദ്ധതി പൂരിപ്പിക്കുക.</string>

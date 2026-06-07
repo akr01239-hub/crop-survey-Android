@@ -318,7 +318,7 @@
     <string name="farmer_verified_label">✅ کاشتکار تصدیق: +91-%s</string>
     <string name="enter_farmer_mobile">کاشتکار موبائل نمبر داخل کرو</string>
     <string name="verify_farmer_title">کاشتکار کی شناخت تصدیق کرو؟</string>
-    <string name="verify_farmer_subtitle">سرویکشن شروع کرنے سے پہلے 'تصدیق کرو' دباؤ۔</string>
+    <string name="verify_farmer_subtitle">سرویکشن شروع کرنے سے پہلے \'تصدیق کرو\' دباؤ۔</string>
     <string name="farmers_mobile_label">کاشتکار کا رجسٹرڈ موبائل نمبر</string>
     <string name="farmers_mobile_hint">بیمہ یا بینک اکاؤنٹ سے منسلک موبائل نمبر دو۔</string>
     <string name="send_otp">OTP بھیجو</string>
@@ -520,7 +520,7 @@
     <string name="guide_step4_action">سمجھ گیا →</string>
     <string name="guide_step5_title">📝 سرویکشن فارم بھرو</string>
     <string name="guide_step5_msg">* سے نشان زدہ تمام ضروری فیلڈ بھرو۔</string>
-    <string name="guide_step5_tip">💡 اشارہ: کسی وی وقت 'Save Draft' دباؤ۔</string>
+    <string name="guide_step5_tip">💡 اشارہ: کسی وی وقت \'Save Draft\' دباؤ۔</string>
     <string name="guide_step5_action">سمجھ گیا →</string>
     <string name="guide_step6_title">📅 بنیادی معلومات سیکشن</string>
     <string name="guide_step6_msg">بھرو:\n• سال\n• موسم\n• اسکیم</string>
