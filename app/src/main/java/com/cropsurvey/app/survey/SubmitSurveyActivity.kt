@@ -91,6 +91,8 @@ class SubmitSurveyActivity : BaseActivity() {
                         SurveySession.clearPolygonOnSubmit()
                         SurveySession.clearPhotoFiles(applicationContext)  // delete photo files from filesDir now that survey is submitted
                         SurveySession.reset()
+                        // Track submission count — auto guide runs for first 2 surveys
+                        AiGuideOverlay.onSurveySubmitted(this@SubmitSurveyActivity)
                         val intent = Intent(this@SubmitSurveyActivity, DashboardActivity::class.java)
                         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                         startActivity(intent)

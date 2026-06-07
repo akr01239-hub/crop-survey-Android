@@ -13,6 +13,7 @@ import com.cropsurvey.app.BaseActivity
 import com.cropsurvey.app.R
 import com.cropsurvey.app.auth.LoginActivity
 import com.cropsurvey.app.dashboard.DashboardActivity
+import com.cropsurvey.app.guide.OnboardingGuideActivity
 import com.cropsurvey.app.i18n.LanguageManager
 import com.cropsurvey.app.utils.SessionManager
 
@@ -57,19 +58,12 @@ class LanguageSelectionActivity : BaseActivity() {
     }
 
     private fun applyLanguage(code: String) {
-        if (code == selectedCode) return
-
-        // 1. Persist the new language
+        // Save language immediately so the guide shows in the right language
         LanguageManager.setLanguage(this, code)
         selectedCode = code
 
-        // 2. Show confirmation toast
-        Toast.makeText(this, getString(R.string.language_changed), Toast.LENGTH_SHORT).show()
-
-        // 3. Just finish — the calling activity will recreate itself via onResume/onRestart
-        //    because attachBaseContext in BaseActivity picks up the new locale automatically.
-        //    We set RESULT_OK so the caller knows to recreate.
-        setResult(RESULT_OK)
+        // Reset onboarding so guide always shows for new language selection
+        OnboardingGuideActivity.resetAndShow(this)
         finish()
     }
 

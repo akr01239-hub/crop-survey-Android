@@ -67,13 +67,10 @@ open class BaseActivity : AppCompatActivity() {
      */
     private fun injectLanguageButton() {
         // Skip screens where language button would be redundant or disruptive
-        val skipClasses = listOf(
-            "LanguageSelectionActivity",
-            "LanguageSettingsActivity",
-            "SplashActivity",
-            "PhotoCaptureActivity"
-        )
-        if (skipClasses.any { this.javaClass.simpleName == it }) return
+        // Globe button ONLY on LoginActivity — user picks language before login,
+        // and can change it from Login screen. Everywhere else it's not needed.
+        val allowClasses = listOf("LoginActivity")
+        if (!allowClasses.any { this.javaClass.simpleName == it }) return
 
         val decorView = window.decorView as? FrameLayout ?: return
 

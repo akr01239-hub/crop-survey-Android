@@ -7,6 +7,7 @@ import android.widget.*
 import androidx.viewpager2.widget.ViewPager2
 import androidx.recyclerview.widget.RecyclerView
 import com.cropsurvey.app.BaseActivity
+import com.cropsurvey.app.auth.LoginActivity
 import com.cropsurvey.app.R
 
 /**
@@ -85,7 +86,13 @@ class OnboardingGuideActivity : BaseActivity() {
     override fun finish() {
         getSharedPreferences(PREF_GUIDE, MODE_PRIVATE)
             .edit().putBoolean(KEY_SEEN, true).apply()
-        super.finish()
+        // After guide ends, go to Login (user selects language → sees guide → reaches login)
+        if (!isTaskRoot) {
+            super.finish()
+        } else {
+            startActivity(Intent(this, LoginActivity::class.java))
+            super.finish()
+        }
     }
 
     private fun updateUI(pos: Int) {

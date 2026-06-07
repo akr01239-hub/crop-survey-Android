@@ -37,10 +37,12 @@ import com.cropsurvey.app.R
  */
 object AiGuideOverlay {
 
-    private const val PREF_GUIDE  = "crop_survey_ai_guide"
-    private const val KEY_STEP    = "ai_guide_step"
-    private const val KEY_ENABLED = "ai_guide_enabled"
-    private const val KEY_DONE    = "ai_guide_done"
+    private const val PREF_GUIDE         = "crop_survey_ai_guide"
+    private const val KEY_STEP           = "ai_guide_step"
+    private const val KEY_ENABLED        = "ai_guide_enabled"
+    private const val KEY_DONE           = "ai_guide_done"
+    private const val KEY_SURVEYS_SUBMITTED = "surveys_submitted_count"
+    private const val AUTO_GUIDE_SURVEYS = 2   // show guide automatically for first N surveys
 
     // ── Step definitions ──────────────────────────────────────────────────────
     enum class Step(val index: Int) {
@@ -157,8 +159,27 @@ object AiGuideOverlay {
 
     // ── Public API ────────────────────────────────────────────────────────────
 
-    fun isEnabled(ctx: Context): Boolean =
-        prefs(ctx).getBoolean(KEY_ENABLED, true)
+    fun isEnabled(ctx: Context): Boolean {
+        // Auto-enable for first N surveys regardless of manual toggle
+        if (getSubmittedSurveysCount(ctx) < AUTO_GUIDE_SURVEYS) return true
+        return prefs(ctx).getBoolean(KEY_ENABLED, true)
+    }
+
+    fun getSubmittedSurveysCount(ctx: Context): Int =
+        prefs(ctx).getInt(KEY_SURVEYS_SUBMITTED, 0)
+
+    /**
+     * Call this every time a survey is successfully submitted.
+     * Resets the guide steps so user gets guided through the next survey too.
+     */
+    fun onSurveySubmitted(ctx: Context) {
+        val count = getSubmittedSurveysCount(ctx) + 1
+        prefs(ctx).edit()
+            .putInt(KEY_SURVEYS_SUBMITTED, count)
+            .putInt(KEY_STEP, 0)          // reset to step 0 for next survey
+            .putBoolean(KEY_DONE, false)  // re-enable guide walkthrough
+            .apply()
+    }
 
     fun isDone(ctx: Context): Boolean =
         prefs(ctx).getBoolean(KEY_DONE, false)
