@@ -11,6 +11,7 @@ import com.cropsurvey.app.R
 import com.cropsurvey.app.dashboard.DashboardActivity
 import com.cropsurvey.app.network.ApiClient
 import com.cropsurvey.app.queue.QueueManager
+import com.cropsurvey.app.guide.AiGuideOverlay
 import com.cropsurvey.app.utils.SurveySession
 import kotlinx.coroutines.launch
 
