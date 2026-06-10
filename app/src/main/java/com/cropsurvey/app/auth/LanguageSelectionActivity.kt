@@ -58,12 +58,11 @@ class LanguageSelectionActivity : BaseActivity() {
     }
 
     private fun applyLanguage(code: String) {
-        // Save language immediately so the guide shows in the right language
         LanguageManager.setLanguage(this, code)
         selectedCode = code
-
-        // Reset onboarding so guide always shows for new language selection
-        OnboardingGuideActivity.resetAndShow(this)
+        // Language selected → go to Login
+        // Onboarding will show after login (only once, in selected language)
+        startActivity(Intent(this, LoginActivity::class.java))
         finish()
     }
 

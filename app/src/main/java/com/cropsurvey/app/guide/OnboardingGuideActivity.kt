@@ -94,14 +94,13 @@ class OnboardingGuideActivity : BaseActivity() {
     override fun finish() {
         getSharedPreferences(PREF_GUIDE, MODE_PRIVATE)
             .edit().putBoolean(KEY_SEEN, true).apply()
-        // After guide ends → show Terms & Conditions (once only)
-        // If terms already accepted, goes straight to Login
-        if (!isTaskRoot) {
-            super.finish()
-        } else {
-            startActivity(Intent(this, com.cropsurvey.app.auth.TermsAndConditionsActivity::class.java))
-            super.finish()
-        }
+        // After onboarding: go to Terms if not yet accepted, else Dashboard
+        val dest = if (!com.cropsurvey.app.auth.TermsAndConditionsActivity.hasAccepted(this))
+            com.cropsurvey.app.auth.TermsAndConditionsActivity::class.java
+        else
+            com.cropsurvey.app.dashboard.DashboardActivity::class.java
+        startActivity(Intent(this, dest))
+        super.finish()
     }
 
     private fun updateUI(pos: Int) {

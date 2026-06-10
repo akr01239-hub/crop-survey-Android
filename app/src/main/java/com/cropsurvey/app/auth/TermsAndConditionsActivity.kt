@@ -200,7 +200,12 @@ class TermsAndConditionsActivity : BaseActivity() {
     }
 
     private fun goToLogin() {
-        startActivity(Intent(this, LoginActivity::class.java))
+        // After terms accepted, go to Dashboard directly (user is already logged in)
+        val dest = if (com.cropsurvey.app.utils.SessionManager.isLoggedIn())
+            com.cropsurvey.app.dashboard.DashboardActivity::class.java
+        else
+            LoginActivity::class.java
+        startActivity(Intent(this, dest))
         finish()
     }
 

@@ -85,10 +85,7 @@ class DashboardActivity : BaseActivity() {
         loadRecentSurveys()
         updateQueueBadge()
 
-        // Show onboarding guide once on first login
-        OnboardingGuideActivity.showIfNeeded(this)
-
-        // Show AI guide step for dashboard
+        // AI guide step for dashboard
         AiGuideOverlay.show(this, AiGuideOverlay.Step.DASHBOARD)
     }
 

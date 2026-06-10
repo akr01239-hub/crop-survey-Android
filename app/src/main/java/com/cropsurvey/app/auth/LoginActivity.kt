@@ -221,7 +221,26 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun goToDashboard() {
-        startActivity(Intent(this, DashboardActivity::class.java))
+        // Flow after login:
+        // 1. Onboarding guide (once ever)
+        // 2. Terms & Conditions (once ever)
+        // 3. Dashboard
+        val prefs = getSharedPreferences("crop_survey_guide", MODE_PRIVATE)
+        val seenOnboarding = prefs.getBoolean("onboarding_seen", false)
+
+        when {
+            !seenOnboarding -> {
+                // Show onboarding first — it will route to Terms → Login flow
+                // But since we're already logged in, OnboardingGuide should go to Terms then Dashboard
+                startActivity(Intent(this, com.cropsurvey.app.guide.OnboardingGuideActivity::class.java))
+            }
+            !com.cropsurvey.app.auth.TermsAndConditionsActivity.hasAccepted(this) -> {
+                startActivity(Intent(this, com.cropsurvey.app.auth.TermsAndConditionsActivity::class.java))
+            }
+            else -> {
+                startActivity(Intent(this, DashboardActivity::class.java))
+            }
+        }
         finish()
     }
 
