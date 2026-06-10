@@ -183,7 +183,7 @@ class TermsAndConditionsActivity : BaseActivity() {
                 .setTitle(getString(R.string.terms_decline_confirm_title))
                 .setMessage(getString(R.string.terms_decline_confirm_msg))
                 .setPositiveButton(getString(R.string.terms_decline_confirm_yes)) { _, _ ->
-                    com.cropsurvey.app.utils.SessionManager.logout(this)
+                    com.cropsurvey.app.utils.SessionManager.clearSession()
                     val intent = Intent(this, LoginActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                     startActivity(intent); finish()
