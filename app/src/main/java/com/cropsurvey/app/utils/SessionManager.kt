@@ -21,6 +21,25 @@ object SessionManager {
 
     fun init(context: Context) {
         prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+
+        // ── Detect fresh reinstall ────────────────────────────────────────────
+        // SharedPreferences survive uninstall on some Android versions/devices.
+        // We detect a reinstall by comparing the app's first-install time with
+        // the install time we stored last time. If they differ → fresh install → clear session.
+        try {
+            val pkgInfo = context.packageManager.getPackageInfo(context.packageName, 0)
+            val currentInstallTime = pkgInfo.firstInstallTime
+            val savedInstallTime = prefs.getLong("install_time", 0L)
+            if (savedInstallTime == 0L) {
+                // First ever run — save install time
+                prefs.edit().putLong("install_time", currentInstallTime).apply()
+            } else if (savedInstallTime != currentInstallTime) {
+                // Install time changed → app was uninstalled and reinstalled → clear everything
+                prefs.edit().clear().putLong("install_time", currentInstallTime).apply()
+                android.util.Log.i("SessionManager", "Fresh reinstall detected — session cleared")
+            }
+        } catch (_: Exception) {}
+
         getAccessToken()?.let { ApiClient.setToken(it) }
     }
 

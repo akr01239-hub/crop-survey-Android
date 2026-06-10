@@ -80,10 +80,9 @@
                 android:layout_width="42dp"
                 android:layout_height="42dp"
                 android:background="@drawable/bg_icon_glass"
-                android:src="@drawable/ic_language"
-                android:tint="#FCD34D"
+                android:src="@drawable/ic_ai_guide"
                 android:contentDescription="AI Guide"
-                android:padding="10dp"
+                android:padding="8dp"
                 android:layout_marginEnd="8dp"/>
 
             <ImageButton
@@ -91,7 +90,7 @@
                 android:layout_width="42dp"
                 android:layout_height="42dp"
                 android:background="@drawable/bg_icon_glass"
-                android:src="@drawable/ic_language"
+                android:src="@drawable/ic_more_vert"
                 android:tint="#FFFFFF"
                 android:contentDescription="Change Language"
                 android:padding="10dp"
