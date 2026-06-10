@@ -674,4 +674,30 @@
     <string name="guide_keep_on">Keep On</string>
     <string name="guide_skip">Skip Guide</string>
 
+    <!-- ── Terms & Conditions ──────────────────────────────────────────────── -->
+    <string name="terms_title">Terms &amp; Conditions</string>
+    <string name="terms_subtitle">Please read carefully before using the app</string>
+    <string name="terms_agree_label">I have read and agree to the Terms and Conditions</string>
+    <string name="terms_accept_btn">Accept &amp; Continue</string>
+    <string name="terms_decline_btn">Decline</string>
+    <string name="terms_decline_confirm_title">Decline Terms?</string>
+    <string name="terms_decline_confirm_msg">You must accept the Terms and Conditions to use this app. Declining will log you out.</string>
+    <string name="terms_decline_confirm_yes">Yes, Logout</string>
+    <string name="terms_decline_confirm_no">Go Back</string>
+
+    <string name="terms_section1_title">1. Data Collection &amp; Usage</string>
+    <string name="terms_section1_body">By using this app, you agree that your GPS location, survey data, photographs, and device information will be collected and stored securely. This data is used solely for agricultural survey purposes and official reporting.</string>
+
+    <string name="terms_section2_title">2. One Device Policy</string>
+    <string name="terms_section2_body">Your account is locked to the device you first log in from. Logging in from a second device will immediately log out the first device. Using multiple devices simultaneously is not permitted. Contact your admin if you change your phone.</string>
+
+    <string name="terms_section3_title">3. No Fake GPS / Mock Location</string>
+    <string name="terms_section3_body">Use of fake GPS or mock location apps is strictly prohibited. The app automatically detects mock location usage. Surveys submitted with fake GPS will be rejected and your account may be suspended.</string>
+
+    <string name="terms_section4_title">4. Photo &amp; Survey Accuracy</string>
+    <string name="terms_section4_body">All photographs must be taken using the app camera at the actual field location. Importing from gallery is not allowed. You are responsible for the accuracy of all survey data you submit. Submitting false or inaccurate data is a violation.</string>
+
+    <string name="terms_section5_title">5. Confidentiality</string>
+    <string name="terms_section5_body">All survey data, farmer information, and field records are confidential. You must not share, copy, or distribute any data collected through this app. Unauthorized sharing is a serious violation and may lead to legal action.</string>
+
 </resources>

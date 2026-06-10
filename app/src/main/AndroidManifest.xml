@@ -65,6 +65,12 @@
             android:exported="false"
             android:screenOrientation="portrait" />
 
+        <!-- Terms & Conditions (shown once after onboarding) -->
+        <activity
+            android:name=".auth.TermsAndConditionsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
         <activity android:name=".auth.SignupActivity"
             android:screenOrientation="portrait" />
 

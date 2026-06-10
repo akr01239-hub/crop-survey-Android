@@ -97,11 +97,12 @@ class OnboardingGuideActivity : BaseActivity() {
     override fun finish() {
         getSharedPreferences(PREF_GUIDE, MODE_PRIVATE)
             .edit().putBoolean(KEY_SEEN, true).apply()
-        // After guide ends, go to Login (user selects language → sees guide → reaches login)
+        // After guide ends → show Terms & Conditions (once only)
+        // If terms already accepted, goes straight to Login
         if (!isTaskRoot) {
             super.finish()
         } else {
-            startActivity(Intent(this, LoginActivity::class.java))
+            startActivity(Intent(this, com.cropsurvey.app.auth.TermsAndConditionsActivity::class.java))
             super.finish()
         }
     }

@@ -27,9 +27,12 @@ import com.cropsurvey.app.utils.MockLocationDetector
 import com.cropsurvey.app.utils.SurveySession
 import com.cropsurvey.app.guide.AiGuideOverlay
 import com.cropsurvey.app.guide.OnboardingGuideActivity
+import com.cropsurvey.app.i18n.LanguageManager
 import android.animation.ObjectAnimator
 import android.animation.AnimatorSet
 import android.animation.ValueAnimator
+import android.view.LayoutInflater
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.coroutines.launch
 import java.util.Calendar
 
@@ -53,6 +56,7 @@ class DashboardActivity : BaseActivity() {
     private lateinit var btnQueue: ImageButton
     private lateinit var tvQueueBadge: TextView
     private lateinit var btnAiGuide: ImageButton
+    private lateinit var btnChangeLanguage: ImageButton
 
     // FIX 3: Stat cards — all-time totals (not month-filtered)
     private lateinit var tvStatDraft: TextView
@@ -142,6 +146,7 @@ class DashboardActivity : BaseActivity() {
         btnQueue        = findViewById(R.id.btn_queue)
         tvQueueBadge    = findViewById(R.id.tv_queue_badge)
         btnAiGuide      = findViewById(R.id.btn_ai_guide)
+        btnChangeLanguage = findViewById(R.id.btn_change_language)
         tvStatDraft     = findViewById(R.id.tv_stat_draft)
         tvStatSubmitted = findViewById(R.id.tv_stat_submitted)
         tvStatApproved  = findViewById(R.id.tv_stat_approved)
@@ -165,6 +170,10 @@ class DashboardActivity : BaseActivity() {
 
         btnAiGuide.setOnClickListener {
             AiGuideOverlay.showGuideMenu(this)
+        }
+
+        btnChangeLanguage.setOnClickListener {
+            showLanguageBottomSheet()
         }
 
         btnLogout.setOnClickListener {
@@ -577,5 +586,61 @@ class DashboardActivity : BaseActivity() {
             in 12..16 -> getString(R.string.greeting_afternoon)
             else      -> getString(R.string.greeting_evening)
         }
+    }
+
+    // ── Language Bottom Sheet (same as login page) ────────────────────────────
+    private fun showLanguageBottomSheet() {
+        val dialog = BottomSheetDialog(this, R.style.BottomSheetDialogTheme)
+        val view = LayoutInflater.from(this).inflate(R.layout.bottom_sheet_language, null)
+        dialog.setContentView(view)
+
+        dialog.setOnShowListener {
+            val bottomSheet = dialog.findViewById<android.view.View>(
+                com.google.android.material.R.id.design_bottom_sheet
+            )
+            bottomSheet?.let {
+                val behavior = com.google.android.material.bottomsheet.BottomSheetBehavior.from(it)
+                val screenHeight = resources.displayMetrics.heightPixels
+                behavior.peekHeight = (screenHeight * 0.85).toInt()
+                behavior.state = com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED
+            }
+        }
+
+        val container = view.findViewById<LinearLayout>(R.id.ll_language_list)
+        val languages = LanguageManager.SUPPORTED_LANGUAGES
+        val currentCode = LanguageManager.getSelectedLanguageCode()
+
+        for (lang in languages) {
+            val item = LayoutInflater.from(this).inflate(R.layout.item_language_sheet, container, false)
+            val tvNative  = item.findViewById<android.widget.TextView>(R.id.tv_lang_native)
+            val tvEnglish = item.findViewById<android.widget.TextView>(R.id.tv_lang_english)
+            val ivCheck   = item.findViewById<android.view.View>(R.id.iv_lang_check)
+
+            tvNative.text  = lang.nativeName
+            tvEnglish.text = lang.englishName
+            ivCheck.visibility = if (lang.code == currentCode) android.view.View.VISIBLE else android.view.View.GONE
+            item.setBackgroundColor(
+                if (lang.code == currentCode)
+                    android.graphics.Color.parseColor("#F0FDF4")
+                else
+                    android.graphics.Color.TRANSPARENT
+            )
+
+            item.setOnClickListener {
+                if (lang.code != currentCode) {
+                    LanguageManager.setLanguage(this, lang.code)
+                    dialog.dismiss()
+                    // Recreate the entire activity stack so all strings update instantly
+                    val intent = Intent(this, DashboardActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    dialog.dismiss()
+                }
+            }
+            container.addView(item)
+        }
+        dialog.show()
     }
 }
