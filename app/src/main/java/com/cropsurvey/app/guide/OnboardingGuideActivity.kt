@@ -30,18 +30,15 @@ class OnboardingGuideActivity : BaseActivity() {
     companion object {
         private const val PREF_GUIDE       = "crop_survey_guide"
         private const val KEY_SEEN         = "onboarding_seen"
-        private const val KEY_LOGIN_COUNT  = "onboarding_login_count"
-        private const val AUTO_SHOW_LOGINS = 2  // show onboarding for first N logins
 
         /**
          * Call after every successful login.
-         * Shows onboarding for the first AUTO_SHOW_LOGINS logins automatically.
+         * Shows onboarding ONCE ever — never again after first completion.
          */
         fun showIfNeeded(activity: android.app.Activity) {
             val prefs = activity.getSharedPreferences(PREF_GUIDE, android.content.Context.MODE_PRIVATE)
-            val loginCount = prefs.getInt(KEY_LOGIN_COUNT, 0)
-            if (loginCount < AUTO_SHOW_LOGINS) {
-                prefs.edit().putInt(KEY_LOGIN_COUNT, loginCount + 1).apply()
+            val seen = prefs.getBoolean(KEY_SEEN, false)
+            if (!seen) {
                 activity.startActivity(Intent(activity, OnboardingGuideActivity::class.java))
             }
         }
