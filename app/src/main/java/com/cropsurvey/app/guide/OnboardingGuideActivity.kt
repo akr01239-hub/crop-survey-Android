@@ -47,7 +47,6 @@ class OnboardingGuideActivity : BaseActivity() {
             val prefs = activity.getSharedPreferences(PREF_GUIDE, android.content.Context.MODE_PRIVATE)
             prefs.edit()
                 .putBoolean(KEY_SEEN, false)
-                .putInt(KEY_LOGIN_COUNT, 0)  // reset count so it shows again
                 .apply()
             activity.startActivity(Intent(activity, OnboardingGuideActivity::class.java))
         }
