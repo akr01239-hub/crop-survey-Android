@@ -18,9 +18,7 @@ object TranslatedDropdown {
     )
 
     fun schemes(ctx: Context): List<Option> = listOf(
-        Option("RWBCIS", "RWBCIS"),
         Option("PMFBY",  "PMFBY"),
-        Option("WBCIS",  "WBCIS"),
         Option("Others", ctx.getString(R.string.crop_other))
     )
 
@@ -115,7 +113,8 @@ object TranslatedDropdown {
         Option("RICircle Level", ctx.getString(R.string.unit_ri_circle)),
         Option("Village Level",  ctx.getString(R.string.unit_village)),
         Option("District Level", ctx.getString(R.string.unit_district)),
-        Option("Block Level",    ctx.getString(R.string.unit_block))
+        Option("Block Level",    ctx.getString(R.string.unit_block)),
+        Option("GP/NP",          ctx.getString(R.string.unit_gp_np))
     )
 
     fun cropHealth(ctx: Context): List<Option> = listOf(
@@ -131,6 +130,17 @@ object TranslatedDropdown {
         Option("Broadcast",    "Broadcast"),
         Option("Transplanted", "Transplanted"),
         Option("Drill Sowing", "Drill Sowing")
+    )
+
+    fun yesNo(ctx: Context): List<Option> = listOf(
+        Option("yes", ctx.getString(R.string.yes)),
+        Option("no",  ctx.getString(R.string.no))
+    )
+
+    fun cropSituationField(ctx: Context): List<Option> = listOf(
+        Option("cut_spread",    "Cut & Spread"),
+        Option("bundle",        "Bundle"),
+        Option("field_removed", "Field Removed")
     )
 }
 

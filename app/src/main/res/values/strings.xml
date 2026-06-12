@@ -126,8 +126,8 @@
     <string name="field_state">State</string>
     <string name="field_district">District</string>
     <string name="field_tehsil">Tehsil</string>
-    <string name="field_revenue_circle">Revenue Circle</string>
-    <string name="field_gram_panchayat">Gram Panchayat</string>
+    <string name="field_revenue_circle">Revenue Circle/Block/Patwar Circle</string>
+    <string name="field_gram_panchayat">Gram Panchayat/ Nyay Panchayat</string>
     <string name="field_village">Village</string>
     <string name="field_survey_intimation_no">Survey Intimation No.</string>
     <string name="field_crop_name">Crop Name</string>
@@ -142,7 +142,7 @@
     <string name="field_cause_of_event">Cause of Event</string>
     <string name="field_crop_stage">Crop Stage</string>
     <string name="field_cropping_pattern">Cropping Pattern</string>
-    <string name="field_khasra_no">Khasra No.</string>
+    <string name="field_khasra_no">Khasra No/Survey No.</string>
     <string name="field_field_area_polygon">Field Area (Polygon)</string>
     <string name="field_total_land_area">Total Land Area (Ha)</string>
     <string name="field_insured_area">Insured Area (Ha)</string>
@@ -158,6 +158,25 @@
     <string name="field_officer_name">Officer Name</string>
     <string name="field_officer_mobile">Officer Mobile</string>
     <string name="field_officer_designation">Officer Designation</string>
+
+    <!-- ═══ CLS FORM CHANGE SPEC — new field labels ═══ -->
+    <string name="field_survey_id">Survey ID (Docket-ID)</string>
+    <string name="field_insured_crop">Insured Crop</string>
+    <string name="field_farmer_available">Farmer Available</string>
+    <string name="field_relation_with_farmer">Relation with Farmer</string>
+    <string name="field_representative_name">Representative Name</string>
+    <string name="field_representative_mobile">Representative Mobile No.</string>
+    <string name="field_representative_id_photo">His ID Photograph</string>
+    <string name="field_post_harvest">Post Harvest?</string>
+    <string name="field_harvest_date">Harvest Date</string>
+    <string name="field_crop_situation_field">Crop Situation on Field</string>
+    <string name="field_dispute_if_any">Dispute If Any</string>
+    <string name="field_dispute_recording">Dispute Recording (Audio/Video, 30 sec)</string>
+    <string name="unit_gp_np">GP/NP</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="photo_closeup_affected_area">Closeup Affected Area Photo</string>
+    <string name="photo_closeup_affected_area_instruction">Close-up of the affected crop/field area</string>
     <string name="field_remarks">Remarks</string>
     <string name="field_crop_variety">Crop Variety</string>
     <string name="field_expected_harvest">Expected Harvest Date</string>

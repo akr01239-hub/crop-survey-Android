@@ -27,6 +27,16 @@
             android:paddingTop="8dp" android:paddingBottom="12dp"
             android:layout_marginBottom="12dp" android:visibility="gone">
 
+            <TextView android:id="@+id/lbl_survey_id" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="@string/field_survey_id" android:textSize="12sp" android:textColor="#64748B"
+                android:layout_marginTop="8dp" android:layout_marginBottom="4dp"/>
+            <FrameLayout android:layout_width="match_parent" android:layout_height="48dp"
+                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
+                <EditText android:id="@+id/et_survey_id" android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@android:color/transparent" android:focusable="false" android:clickable="false"
+                    android:textColor="#0F172A" android:padding="12dp"/>
+            </FrameLayout>
+
             <TextView android:id="@+id/lbl_year" android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:text="@string/field_year" android:textSize="12sp" android:textColor="#64748B"
                 android:layout_marginTop="8dp" android:layout_marginBottom="4dp"/>
@@ -170,7 +180,7 @@
             </FrameLayout>
 
             <TextView android:id="@+id/lbl_crop_name" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="@string/field_crop_name" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+                android:text="@string/field_insured_crop" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
             <FrameLayout android:id="@+id/frame_sp_crop_name" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <Spinner android:id="@+id/sp_crop_name" android:layout_width="match_parent" android:layout_height="match_parent"
@@ -185,13 +195,16 @@
                     android:background="@android:color/transparent" android:paddingLeft="12dp" android:paddingRight="12dp"/>
             </FrameLayout>
 
-            <TextView android:id="@+id/lbl_other_crop" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="@string/field_crop_name" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
-            <FrameLayout android:id="@+id/frame_et_other_crop" android:layout_width="match_parent" android:layout_height="48dp"
-                android:background="@drawable/input_background">
-                <EditText android:id="@+id/et_other_crop" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="Specify crop name" android:padding="12dp"/>
-            </FrameLayout>
+            <LinearLayout android:id="@+id/layout_other_crop" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
+                <TextView android:id="@+id/lbl_other_crop" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="@string/field_crop_name" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+                <FrameLayout android:id="@+id/frame_et_other_crop" android:layout_width="match_parent" android:layout_height="48dp"
+                    android:background="@drawable/input_background">
+                    <EditText android:id="@+id/et_other_crop" android:layout_width="match_parent" android:layout_height="match_parent"
+                        android:background="@android:color/transparent" android:hint="Specify crop name" android:padding="12dp"/>
+                </FrameLayout>
+            </LinearLayout>
         </LinearLayout>
 
         <!-- ══ SECTION 4: Farmer Information ══ -->
@@ -282,10 +295,54 @@
 
 
             <FrameLayout android:id="@+id/frame_et_farmer_app_no" android:layout_width="match_parent" android:layout_height="48dp"
-                android:background="@drawable/input_background">
+                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_farmer_app_no" android:layout_width="match_parent" android:layout_height="match_parent"
                     android:background="@android:color/transparent" android:hint="Enter application number" android:padding="12dp"/>
             </FrameLayout>
+
+            <TextView android:id="@+id/lbl_farmer_available" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="@string/field_farmer_available" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+            <FrameLayout android:id="@+id/frame_sp_farmer_available" android:layout_width="match_parent" android:layout_height="48dp"
+                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
+                <Spinner android:id="@+id/sp_farmer_available" android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@android:color/transparent" android:paddingLeft="12dp" android:paddingRight="12dp"/>
+            </FrameLayout>
+
+            <LinearLayout android:id="@+id/layout_farmer_unavailable" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
+
+                <TextView android:id="@+id/lbl_relation_with_farmer" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="@string/field_relation_with_farmer" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+                <FrameLayout android:id="@+id/frame_et_relation_with_farmer" android:layout_width="match_parent" android:layout_height="48dp"
+                    android:background="@drawable/input_background" android:layout_marginBottom="12dp">
+                    <EditText android:id="@+id/et_relation_with_farmer" android:layout_width="match_parent" android:layout_height="match_parent"
+                        android:background="@android:color/transparent" android:hint="Enter relation with farmer" android:padding="12dp"/>
+                </FrameLayout>
+
+                <TextView android:id="@+id/lbl_representative_name" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="@string/field_representative_name" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+                <FrameLayout android:id="@+id/frame_et_representative_name" android:layout_width="match_parent" android:layout_height="48dp"
+                    android:background="@drawable/input_background" android:layout_marginBottom="12dp">
+                    <EditText android:id="@+id/et_representative_name" android:layout_width="match_parent" android:layout_height="match_parent"
+                        android:background="@android:color/transparent" android:hint="Enter representative name" android:padding="12dp"/>
+                </FrameLayout>
+
+                <TextView android:id="@+id/lbl_representative_mobile" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="@string/field_representative_mobile" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+                <FrameLayout android:id="@+id/frame_et_representative_mobile" android:layout_width="match_parent" android:layout_height="48dp"
+                    android:background="@drawable/input_background" android:layout_marginBottom="12dp">
+                    <EditText android:id="@+id/et_representative_mobile" android:layout_width="match_parent" android:layout_height="match_parent"
+                        android:background="@android:color/transparent" android:hint="10-digit mobile number"
+                        android:inputType="phone" android:padding="12dp"/>
+                </FrameLayout>
+
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="@string/field_representative_id_photo" android:textSize="12sp" android:textColor="#2563EB"
+                    android:textStyle="bold" android:layout_marginBottom="4dp"/>
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="Capture in the Photos tab" android:textSize="11sp" android:textColor="#94A3B8"
+                    android:layout_marginBottom="8dp"/>
+            </LinearLayout>
         </LinearLayout>
 
         <!-- ══ SECTION 5: Key Dates ══ -->
@@ -397,6 +454,35 @@
                     android:background="@android:color/transparent" android:paddingLeft="12dp" android:paddingRight="12dp"/>
             </FrameLayout>
 
+            <TextView android:id="@+id/lbl_post_harvest" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="@string/field_post_harvest" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+            <FrameLayout android:id="@+id/frame_sp_post_harvest" android:layout_width="match_parent" android:layout_height="48dp"
+                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
+                <Spinner android:id="@+id/sp_post_harvest" android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@android:color/transparent" android:paddingLeft="12dp" android:paddingRight="12dp"/>
+            </FrameLayout>
+
+            <LinearLayout android:id="@+id/layout_post_harvest" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
+
+                <TextView android:id="@+id/lbl_harvest_date" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="@string/field_harvest_date" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+                <FrameLayout android:id="@+id/frame_et_harvest_date" android:layout_width="match_parent" android:layout_height="48dp"
+                    android:background="@drawable/input_background" android:layout_marginBottom="12dp">
+                    <EditText android:id="@+id/et_harvest_date" android:layout_width="match_parent" android:layout_height="match_parent"
+                        android:background="@android:color/transparent" android:hint="Tap to select date"
+                        android:focusable="false" android:padding="12dp"/>
+                </FrameLayout>
+
+                <TextView android:id="@+id/lbl_crop_situation_field" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="@string/field_crop_situation_field" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+                <FrameLayout android:id="@+id/frame_sp_crop_situation_field" android:layout_width="match_parent" android:layout_height="48dp"
+                    android:background="@drawable/input_background" android:layout_marginBottom="12dp">
+                    <Spinner android:id="@+id/sp_crop_situation_field" android:layout_width="match_parent" android:layout_height="match_parent"
+                        android:background="@android:color/transparent" android:paddingLeft="12dp" android:paddingRight="12dp"/>
+                </FrameLayout>
+            </LinearLayout>
+
             <TextView android:id="@+id/lbl_khasra_no" android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:text="@string/field_khasra_no" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
             <FrameLayout android:id="@+id/frame_et_khasra_no" android:layout_width="match_parent" android:layout_height="48dp"
@@ -437,11 +523,14 @@
             <TextView android:id="@+id/lbl_area_affected_pct" android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:text="@string/field_area_affected_pct" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
             <FrameLayout android:id="@+id/frame_et_area_affected_pct" android:layout_width="match_parent" android:layout_height="48dp"
-                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
+                android:background="@drawable/input_background" android:layout_marginBottom="4dp">
                 <EditText android:id="@+id/et_area_affected_pct" android:layout_width="match_parent" android:layout_height="match_parent"
                     android:background="@android:color/transparent" android:hint="e.g. 75"
                     android:inputType="numberDecimal" android:padding="12dp"/>
             </FrameLayout>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Area affected cannot exceed insured area" android:textSize="11sp" android:textColor="#94A3B8"
+                android:layout_marginBottom="12dp"/>
 
             <TextView android:id="@+id/lbl_loss_pct" android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:text="@string/field_loss_pct" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
@@ -470,7 +559,7 @@
             </FrameLayout>
         </LinearLayout>
 
-        <!-- ══ SECTION 7: Bank Details ══ -->
+        <!-- ══ SECTION 7: Government Officer ══ -->
         <LinearLayout android:id="@+id/section_header_7"
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -478,7 +567,7 @@
             android:padding="14dp" android:gravity="center_vertical"
             android:clickable="true" android:focusable="true">
             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
-                android:text="@string/section_bank_details" android:textSize="15sp" android:textStyle="bold" android:textColor="#0F172A"/>
+                android:text="@string/section_govt_officer" android:textSize="15sp" android:textStyle="bold" android:textColor="#0F172A"/>
             <ImageView android:id="@+id/ic_check_7" android:layout_width="26dp" android:layout_height="26dp"
                 android:src="@drawable/ic_check_white" android:background="@drawable/circle_green"
                 android:visibility="gone" android:layout_marginEnd="8dp"/>
@@ -487,72 +576,6 @@
         </LinearLayout>
 
         <LinearLayout android:id="@+id/section_body_7"
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="vertical" android:background="@drawable/section_card_bg"
-            android:paddingLeft="12dp" android:paddingRight="12dp"
-            android:paddingTop="8dp" android:paddingBottom="12dp"
-            android:layout_marginBottom="12dp" android:visibility="gone">
-
-            <TextView android:id="@+id/lbl_bank_name" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="@string/field_bank_name" android:textSize="12sp" android:textColor="#64748B"
-                android:layout_marginTop="8dp" android:layout_marginBottom="4dp"/>
-            <FrameLayout android:id="@+id/frame_et_bank_name" android:layout_width="match_parent" android:layout_height="48dp"
-                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
-                <EditText android:id="@+id/et_bank_name" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="Enter bank name" android:padding="12dp"/>
-            </FrameLayout>
-
-            <TextView android:id="@+id/lbl_branch_name" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="@string/field_branch_name" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
-            <FrameLayout android:id="@+id/frame_et_branch_name" android:layout_width="match_parent" android:layout_height="48dp"
-                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
-                <EditText android:id="@+id/et_branch_name" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="Enter branch name" android:padding="12dp"/>
-            </FrameLayout>
-
-            <TextView android:id="@+id/lbl_ifsc_code" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="@string/field_ifsc_code" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
-            <FrameLayout android:id="@+id/frame_et_ifsc_code" android:layout_width="match_parent" android:layout_height="48dp"
-                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
-                <EditText android:id="@+id/et_ifsc_code" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="e.g. SBIN0001234" android:padding="12dp"/>
-            </FrameLayout>
-
-            <TextView android:id="@+id/lbl_account_type" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="@string/field_account_type" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
-            <FrameLayout android:id="@+id/frame_sp_account_type" android:layout_width="match_parent" android:layout_height="48dp"
-                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
-                <Spinner android:id="@+id/sp_account_type" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:paddingLeft="12dp" android:paddingRight="12dp"/>
-            </FrameLayout>
-
-            <TextView android:id="@+id/lbl_account_no" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="@string/field_account_no" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
-            <FrameLayout android:id="@+id/frame_et_account_no" android:layout_width="match_parent" android:layout_height="48dp"
-                android:background="@drawable/input_background">
-                <EditText android:id="@+id/et_account_no" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="Enter account number"
-                    android:inputType="number" android:padding="12dp"/>
-            </FrameLayout>
-        </LinearLayout>
-
-        <!-- ══ SECTION 8: Government Officer ══ -->
-        <LinearLayout android:id="@+id/section_header_8"
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:orientation="horizontal" android:background="@drawable/section_header_collapsed"
-            android:padding="14dp" android:gravity="center_vertical"
-            android:clickable="true" android:focusable="true">
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
-                android:text="@string/section_govt_officer" android:textSize="15sp" android:textStyle="bold" android:textColor="#0F172A"/>
-            <ImageView android:id="@+id/ic_check_8" android:layout_width="26dp" android:layout_height="26dp"
-                android:src="@drawable/ic_check_white" android:background="@drawable/circle_green"
-                android:visibility="gone" android:layout_marginEnd="8dp"/>
-            <TextView android:id="@+id/arrow_8" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="▼" android:textColor="#64748B" android:textSize="12sp"/>
-        </LinearLayout>
-
-        <LinearLayout android:id="@+id/section_body_8"
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:orientation="vertical" android:background="@drawable/section_card_bg"
             android:paddingLeft="12dp" android:paddingRight="12dp"
@@ -586,8 +609,8 @@
             </FrameLayout>
         </LinearLayout>
 
-        <!-- ══ SECTION 9: Remarks & GPS ══ -->
-        <LinearLayout android:id="@+id/section_header_9"
+        <!-- ══ SECTION 8: Remarks & GPS ══ -->
+        <LinearLayout android:id="@+id/section_header_8"
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:orientation="horizontal" android:background="@drawable/section_header_collapsed"
@@ -595,19 +618,39 @@
             android:clickable="true" android:focusable="true">
             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
                 android:text="@string/section_remarks_gps" android:textSize="15sp" android:textStyle="bold" android:textColor="#0F172A"/>
-            <ImageView android:id="@+id/ic_check_9" android:layout_width="26dp" android:layout_height="26dp"
+            <ImageView android:id="@+id/ic_check_8" android:layout_width="26dp" android:layout_height="26dp"
                 android:src="@drawable/ic_check_white" android:background="@drawable/circle_green"
                 android:visibility="gone" android:layout_marginEnd="8dp"/>
-            <TextView android:id="@+id/arrow_9" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            <TextView android:id="@+id/arrow_8" android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="▼" android:textColor="#64748B" android:textSize="12sp"/>
         </LinearLayout>
 
-        <LinearLayout android:id="@+id/section_body_9"
+        <LinearLayout android:id="@+id/section_body_8"
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:orientation="vertical" android:background="@drawable/section_card_bg"
             android:paddingLeft="12dp" android:paddingRight="12dp"
             android:paddingTop="8dp" android:paddingBottom="12dp"
             android:layout_marginBottom="24dp" android:visibility="gone">
+
+            <TextView android:id="@+id/lbl_dispute_if_any" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="@string/field_dispute_if_any" android:textSize="12sp" android:textColor="#64748B"
+                android:layout_marginTop="8dp" android:layout_marginBottom="4dp"/>
+            <FrameLayout android:id="@+id/frame_sp_dispute_if_any" android:layout_width="match_parent" android:layout_height="48dp"
+                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
+                <Spinner android:id="@+id/sp_dispute_if_any" android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@android:color/transparent" android:paddingLeft="12dp" android:paddingRight="12dp"/>
+            </FrameLayout>
+
+            <LinearLayout android:id="@+id/layout_dispute_recording" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="@string/field_dispute_recording" android:textSize="12sp" android:textColor="#2563EB"
+                    android:textStyle="bold" android:layout_marginBottom="4dp"/>
+                <Button android:id="@+id/btn_record_dispute" android:layout_width="match_parent" android:layout_height="48dp"
+                    android:text="Record 30s Audio/Video" android:layout_marginBottom="12dp"/>
+                <TextView android:id="@+id/tv_dispute_recording_status" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="Not recorded" android:textSize="11sp" android:textColor="#94A3B8" android:layout_marginBottom="12dp"/>
+            </LinearLayout>
 
             <TextView android:id="@+id/lbl_remarks" android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:text="@string/field_remarks" android:textSize="12sp" android:textColor="#64748B"
