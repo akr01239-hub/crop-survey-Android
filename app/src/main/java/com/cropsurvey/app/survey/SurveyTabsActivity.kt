@@ -116,7 +116,7 @@ class SurveyTabsActivity : BaseActivity() {
      */
     private fun fetchCaseId() {
         // Fast path: already cached for this survey
-        if (SurveySession.currentCaseId != null && SurveySession.formData["survey_id"] == SurveySession.currentCaseId) {
+        if (SurveySession.currentCaseId.isNotEmpty() && SurveySession.formData["survey_id"] == SurveySession.currentCaseId) {
             return
         }
         lifecycleScope.launch {

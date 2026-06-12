@@ -930,7 +930,7 @@ class CLSFormFragment : Fragment() {
         // Prefer the short display Case ID (e.g. "CK0J9MGTHU") fetched from the
         // server — falls back to whatever's cached, then the raw UUID as a
         // last resort until fetchCaseId() in SurveyTabsActivity resolves it.
-        val surveyId = SurveySession.currentCaseId
+        val surveyId = SurveySession.currentCaseId.takeIf { it.isNotEmpty() }
             ?: SurveySession.formData["survey_id"]?.toString()
             ?: activity?.intent?.getStringExtra("survey_id")
         etSurveyId.setText(surveyId ?: "")
