@@ -166,7 +166,7 @@
     <string name="field_relation_with_farmer">Relation with Farmer</string>
     <string name="field_representative_name">Representative Name</string>
     <string name="field_representative_mobile">Representative Mobile No.</string>
-    <string name="field_representative_id_photo">His ID Photograph</string>
+    <string name="field_representative_id_photo">Farmer Representative ID</string>
     <string name="field_post_harvest">Post Harvest?</string>
     <string name="field_harvest_date">Harvest Date</string>
     <string name="field_crop_situation_field">Crop Situation on Field</string>

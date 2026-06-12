@@ -2,13 +2,18 @@ package com.cropsurvey.app.survey.cls
 
 
 import android.app.DatePickerDialog
+import android.content.ContentValues
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -96,6 +101,8 @@ class CLSFormFragment : Fragment() {
     // ── Section 8: Remarks & GPS ──────────────────────────────────
     private lateinit var spDisputeIfAny: Spinner
     private lateinit var layoutDisputeRecording: View
+    private lateinit var btnRecordDispute: Button
+    private lateinit var tvDisputeRecordingStatus: TextView
     private lateinit var etRemarks: EditText
     private lateinit var tvGpsCoords: TextView
 
@@ -150,7 +157,44 @@ class CLSFormFragment : Fragment() {
     private var subDistricts = listOf<String>()
     private var isRestoring  = false
 
-    private val colorGreen get() = ContextCompat.getColor(requireContext(), R.color.primary)
+    private var disputeRecordingUri: Uri? = null
+
+    private val recordDisputeLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == android.app.Activity.RESULT_OK) {
+            val uri = result.data?.data ?: disputeRecordingUri
+            if (uri != null) {
+                SurveySession.formData["dispute_recording_uri"] = uri.toString()
+                tvDisputeRecordingStatus.text = "Recorded ✓"
+                tvDisputeRecordingStatus.setTextColor(android.graphics.Color.parseColor("#16A34A"))
+            }
+        } else {
+            Toast.makeText(requireContext(), "Recording cancelled", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun launchDisputeRecording() {
+        val values = ContentValues().apply {
+            put(MediaStore.Video.Media.DISPLAY_NAME, "dispute_${System.currentTimeMillis()}.mp4")
+            put(MediaStore.Video.Media.MIME_TYPE, "video/mp4")
+        }
+        val uri = requireContext().contentResolver.insert(
+            MediaStore.Video.Media.EXTERNAL_CONTENT_URI, values
+        )
+        disputeRecordingUri = uri
+        val intent = Intent(MediaStore.ACTION_VIDEO_CAPTURE).apply {
+            putExtra(MediaStore.EXTRA_DURATION_LIMIT, 30) // 30-second cap
+            putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 1)
+            if (uri != null) putExtra(MediaStore.EXTRA_OUTPUT, uri)
+            addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+        }
+        try {
+            recordDisputeLauncher.launch(intent)
+        } catch (e: Exception) {
+            Toast.makeText(requireContext(), "No camera app available for recording", Toast.LENGTH_SHORT).show()
+        }
+    }
     private val colorGrey = 0xFF64748B.toInt()
 
     // ─────────────────────────────────────────────────────────────────
@@ -231,6 +275,13 @@ class CLSFormFragment : Fragment() {
         etOfficerDesignation = v.findViewById(R.id.et_officer_designation)
         spDisputeIfAny       = v.findViewById(R.id.sp_dispute_if_any)
         layoutDisputeRecording = v.findViewById(R.id.layout_dispute_recording)
+        btnRecordDispute = v.findViewById(R.id.btn_record_dispute)
+        tvDisputeRecordingStatus = v.findViewById(R.id.tv_dispute_recording_status)
+        btnRecordDispute.setOnClickListener { launchDisputeRecording() }
+        SurveySession.formData["dispute_recording_uri"]?.toString()?.takeIf { it.isNotEmpty() }?.let {
+            tvDisputeRecordingStatus.text = "Recorded ✓"
+            tvDisputeRecordingStatus.setTextColor(android.graphics.Color.parseColor("#16A34A"))
+        }
         etRemarks            = v.findViewById(R.id.et_remarks)
         tvGpsCoords          = v.findViewById(R.id.tv_gps_coords)
 
@@ -495,8 +546,11 @@ class CLSFormFragment : Fragment() {
         spInsuranceUnit.onItemSelectedListener = spinnerListener(3)
         spFarmerAvailable.onItemSelectedListener = spinnerListener(4, object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p: AdapterView<*>?, v: View?, pos: Int, id: Long) {
-                layoutFarmerUnavailable.visibility =
-                    if (tdYesNo.getOrNull(pos - 1)?.code == "no") View.VISIBLE else View.GONE
+                val code = tdYesNo.getOrNull(pos - 1)?.code
+                layoutFarmerUnavailable.visibility = if (code == "no") View.VISIBLE else View.GONE
+                // Update immediately so the Photos tab can show/hide the 14th
+                // "Farmer Representative ID" photo requirement without waiting for a save.
+                if (code != null) SurveySession.formData["farmer_available"] = code
             }
             override fun onNothingSelected(p: AdapterView<*>?) {}
         })
@@ -863,6 +917,7 @@ class CLSFormFragment : Fragment() {
         tdRestore(spCroppingPattern, tdCropPattern, fd["cropping_pattern"]?.toString())
         tdRestore(spOnfieldCondition, tdOnfield, fd["onfield_condition"]?.toString())
         tdRestore(spFarmerAvailable, tdYesNo, fd["farmer_available"]?.toString())
+        fd["farmer_available"]?.toString()?.let { SurveySession.formData["farmer_available"] = it }
         tdRestore(spPostHarvest, tdYesNo, fd["post_harvest"]?.toString())
         tdRestore(spCropSituationField, tdCropSituationField, fd["crop_situation_field"]?.toString())
         tdRestore(spDisputeIfAny, tdYesNo, fd["dispute_if_any"]?.toString())
@@ -1002,6 +1057,7 @@ class CLSFormFragment : Fragment() {
             "govt_officer_mobile"      to etOfficerMobile.text.toString().takeIf { it.isNotEmpty() },
             "govt_officer_designation" to etOfficerDesignation.text.toString().takeIf { it.isNotEmpty() },
             "dispute_if_any"           to tdCode(tdYesNo, spDisputeIfAny.selectedItemPosition - 1),
+            "dispute_recording_uri"    to SurveySession.formData["dispute_recording_uri"],
         )
     }
 
@@ -1063,6 +1119,7 @@ class CLSFormFragment : Fragment() {
             "govt_officer_designation" to etOfficerDesignation.text.toString().takeIf { it.isNotEmpty() },
             "dispute_if_any"           to tdCode(tdYesNo, spDisputeIfAny.selectedItemPosition - 1),
             "remarks"                  to etRemarks.text.toString().takeIf { it.isNotEmpty() },
+            "dispute_recording_uri"    to SurveySession.formData["dispute_recording_uri"],
             "capture_lat"              to SurveySession.formData["capture_lat"],
             "capture_lon"              to SurveySession.formData["capture_lon"],
             "field_area_polygon"       to etFieldAreaPolygon.text.toString().toDoubleOrNull(),
