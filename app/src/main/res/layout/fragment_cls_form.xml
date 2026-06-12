@@ -529,7 +529,7 @@
                     android:inputType="numberDecimal" android:padding="12dp"/>
             </FrameLayout>
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="Area affected cannot exceed insured area" android:textSize="11sp" android:textColor="#94A3B8"
+                android:text="Enter a value between 0 and 100" android:textSize="11sp" android:textColor="#94A3B8"
                 android:layout_marginBottom="12dp"/>
 
             <TextView android:id="@+id/lbl_loss_pct" android:layout_width="match_parent" android:layout_height="wrap_content"

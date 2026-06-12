@@ -14,6 +14,17 @@
     <uses-feature android:name="android.hardware.camera" android:required="true" />
     <uses-feature android:name="android.hardware.location.gps" android:required="true" />
 
+    <!-- Required on Android 11+ so ACTION_VIDEO_CAPTURE / ACTION_IMAGE_CAPTURE
+         can resolve to the device's camera app (package visibility). -->
+    <queries>
+        <intent>
+            <action android:name="android.media.action.VIDEO_CAPTURE" />
+        </intent>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+    </queries>
+
     <application
         android:name=".CropSurveyApp"
         android:allowBackup="true"

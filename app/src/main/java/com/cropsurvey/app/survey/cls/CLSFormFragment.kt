@@ -649,9 +649,8 @@ class CLSFormFragment : Fragment() {
 
     private fun validateAreaAffected() {
         val a = etAreaAffectedPct.text.toString().toDoubleOrNull()
-        val i = etInsuredArea.text.toString().toDoubleOrNull()
         etAreaAffectedPct.error =
-            if (a != null && i != null && a > i) "Area affected cannot exceed insured area" else null
+            if (a != null && (a < 0 || a > 100)) "Area affected must be between 0 and 100%" else null
     }
 
     // ─────────────────────────────────────────────────────────────────

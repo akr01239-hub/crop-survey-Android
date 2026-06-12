@@ -116,7 +116,11 @@ object AppConfig {
     )
 
     // Keep old static lists for backward compat — callers should migrate to context versions
-    val CLS_PHOTOS get() = getCLSPhotos_static()
+    val CLS_PHOTOS get() = getCLSPhotos_static().let { base ->
+        if (com.cropsurvey.app.utils.SurveySession.formData["farmer_available"]?.toString() == "no")
+            base + PhotoRequirement("representative_id_photo", "Farmer Representative ID", null, required = true)
+        else base
+    }
     val CHM_PHOTOS get() = getCHMPhotos_static()
     val CCE_PHOTOS get() = getCCEPhotos_static()
 
