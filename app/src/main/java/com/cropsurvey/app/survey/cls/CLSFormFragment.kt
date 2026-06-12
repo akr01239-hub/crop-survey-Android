@@ -111,6 +111,7 @@ class CLSFormFragment : Fragment() {
     private lateinit var tvGpsCoords: TextView
 
     // ── Label TextViews ───────────────────────────────────────────
+    private lateinit var lblSurveyId: TextView
     private lateinit var lblYear: TextView
     private lateinit var lblSeason: TextView
     private lateinit var lblScheme: TextView
@@ -348,6 +349,7 @@ class CLSFormFragment : Fragment() {
         etRemarks            = v.findViewById(R.id.et_remarks)
         tvGpsCoords          = v.findViewById(R.id.tv_gps_coords)
 
+        lblSurveyId          = v.findViewById(R.id.lbl_survey_id)
         lblYear              = v.findViewById(R.id.lbl_year)
         lblSeason            = v.findViewById(R.id.lbl_season)
         lblScheme            = v.findViewById(R.id.lbl_scheme)
@@ -413,6 +415,7 @@ class CLSFormFragment : Fragment() {
 
     private fun refreshFieldUi() {
         updateSpinnerUi(spYear,           lblYear,           R.id.frame_sp_year)
+        updateFieldUi(etSurveyId,         lblSurveyId,       R.id.frame_et_survey_id)
         updateSpinnerUi(spSeason,         lblSeason,         R.id.frame_sp_season)
         updateSpinnerUi(spScheme,         lblScheme,         R.id.frame_sp_scheme)
         updateFieldUi(etOtherScheme,      lblOtherScheme,    R.id.frame_et_other_scheme)
@@ -656,7 +659,10 @@ class CLSFormFragment : Fragment() {
 
     /** Called by SurveyTabsActivity once the short Case ID is fetched from the server. */
     fun refreshSurveyId(caseId: String) {
-        if (::etSurveyId.isInitialized) etSurveyId.setText(caseId)
+        if (::etSurveyId.isInitialized) {
+            etSurveyId.setText(caseId)
+            refreshFieldUi()
+        }
     }
 
     private fun validateAreaAffected() {
