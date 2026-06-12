@@ -333,6 +333,7 @@ class CLSFormFragment : Fragment() {
 
     private fun setupCollapsibleSections(root: View) {
         for (i in 1..8) {
+            val header = root.findViewById<View>(
                 resources.getIdentifier("section_header_$i", "id", requireContext().packageName))
             val body = root.findViewById<View>(
                 resources.getIdentifier("section_body_$i", "id", requireContext().packageName))
