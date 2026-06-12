@@ -33,6 +33,7 @@ import com.cropsurvey.app.guide.AiGuideOverlay
 class CLSFormFragment : Fragment() {
 
     // ── Section 1: Basic Information ──────────────────────────────
+    private lateinit var etSurveyId: EditText
     private lateinit var spYear: Spinner
     private lateinit var spSeason: Spinner
     private lateinit var spScheme: Spinner
@@ -52,11 +53,17 @@ class CLSFormFragment : Fragment() {
     private lateinit var spCropName: Spinner
     private lateinit var spInsuranceUnit: Spinner
     private lateinit var etOtherCrop: EditText
+    private lateinit var layoutOtherCrop: View
 
     // ── Section 4: Farmer Information ────────────────────────────
     private lateinit var etFarmerName: EditText
     private lateinit var etFarmerMobile: EditText
     private lateinit var etFarmerAppNo: EditText
+    private lateinit var spFarmerAvailable: Spinner
+    private lateinit var layoutFarmerUnavailable: View
+    private lateinit var etRelationWithFarmer: EditText
+    private lateinit var etRepresentativeName: EditText
+    private lateinit var etRepresentativeMobile: EditText
 
     // ── Section 5: Key Dates ──────────────────────────────────────
     private lateinit var etSurveyDate: EditText
@@ -68,6 +75,10 @@ class CLSFormFragment : Fragment() {
     private lateinit var spCauseOfEvent: Spinner
     private lateinit var spCropStage: Spinner
     private lateinit var spCroppingPattern: Spinner
+    private lateinit var spPostHarvest: Spinner
+    private lateinit var layoutPostHarvest: View
+    private lateinit var etHarvestDate: EditText
+    private lateinit var spCropSituationField: Spinner
     private lateinit var etKhasraNo: EditText
     private lateinit var etFieldAreaPolygon: EditText
     private lateinit var etTotalLandArea: EditText
@@ -77,19 +88,14 @@ class CLSFormFragment : Fragment() {
     private lateinit var etRecoveryRate: EditText
     private lateinit var spOnfieldCondition: Spinner
 
-    // ── Section 7: Bank Details ───────────────────────────────────
-    private lateinit var etBankName: EditText
-    private lateinit var etBranchName: EditText
-    private lateinit var etIfscCode: EditText
-    private lateinit var spAccountType: Spinner
-    private lateinit var etAccountNo: EditText
-
-    // ── Section 8: Government Officer ────────────────────────────
+    // ── Section 7: Government Officer ────────────────────────────
     private lateinit var etOfficerName: EditText
     private lateinit var etOfficerMobile: EditText
     private lateinit var etOfficerDesignation: EditText
 
-    // ── Section 9: Remarks & GPS ──────────────────────────────────
+    // ── Section 8: Remarks & GPS ──────────────────────────────────
+    private lateinit var spDisputeIfAny: Spinner
+    private lateinit var layoutDisputeRecording: View
     private lateinit var etRemarks: EditText
     private lateinit var tvGpsCoords: TextView
 
@@ -125,11 +131,6 @@ class CLSFormFragment : Fragment() {
     private lateinit var lblLossPct: TextView
     private lateinit var lblRecoveryRate: TextView
     private lateinit var lblOnfieldCondition: TextView
-    private lateinit var lblBankName: TextView
-    private lateinit var lblBranchName: TextView
-    private lateinit var lblIfscCode: TextView
-    private lateinit var lblAccountType: TextView
-    private lateinit var lblAccountNo: TextView
     private lateinit var lblOfficerName: TextView
     private lateinit var lblOfficerMobile: TextView
     private lateinit var lblOfficerDesignation: TextView
@@ -181,6 +182,7 @@ class CLSFormFragment : Fragment() {
     }
 
     private fun bindViews(v: View) {
+        etSurveyId           = v.findViewById(R.id.et_survey_id)
         spYear               = v.findViewById(R.id.sp_year)
         spSeason             = v.findViewById(R.id.sp_season)
         spScheme             = v.findViewById(R.id.sp_scheme)
@@ -196,9 +198,15 @@ class CLSFormFragment : Fragment() {
         spCropName           = v.findViewById(R.id.sp_crop_name)
         spInsuranceUnit      = v.findViewById(R.id.sp_insurance_unit)
         etOtherCrop          = v.findViewById(R.id.et_other_crop)
+        layoutOtherCrop      = v.findViewById(R.id.layout_other_crop)
         etFarmerName         = v.findViewById(R.id.et_farmer_name)
         etFarmerMobile       = v.findViewById(R.id.et_farmer_mobile)
         etFarmerAppNo        = v.findViewById(R.id.et_farmer_app_no)
+        spFarmerAvailable    = v.findViewById(R.id.sp_farmer_available)
+        layoutFarmerUnavailable = v.findViewById(R.id.layout_farmer_unavailable)
+        etRelationWithFarmer = v.findViewById(R.id.et_relation_with_farmer)
+        etRepresentativeName = v.findViewById(R.id.et_representative_name)
+        etRepresentativeMobile = v.findViewById(R.id.et_representative_mobile)
         etSurveyDate         = v.findViewById(R.id.et_survey_date)
         etSowingDate         = v.findViewById(R.id.et_sowing_date)
         etDateOfIntimation   = v.findViewById(R.id.et_date_of_intimation)
@@ -206,6 +214,10 @@ class CLSFormFragment : Fragment() {
         spCauseOfEvent       = v.findViewById(R.id.sp_cause_of_event)
         spCropStage          = v.findViewById(R.id.sp_crop_stage)
         spCroppingPattern    = v.findViewById(R.id.sp_cropping_pattern)
+        spPostHarvest        = v.findViewById(R.id.sp_post_harvest)
+        layoutPostHarvest    = v.findViewById(R.id.layout_post_harvest)
+        etHarvestDate        = v.findViewById(R.id.et_harvest_date)
+        spCropSituationField = v.findViewById(R.id.sp_crop_situation_field)
         etKhasraNo           = v.findViewById(R.id.et_khasra_no)
         etFieldAreaPolygon   = v.findViewById(R.id.et_field_area_polygon)
         etTotalLandArea      = v.findViewById(R.id.et_total_land_area)
@@ -214,14 +226,11 @@ class CLSFormFragment : Fragment() {
         etLossPct            = v.findViewById(R.id.et_loss_pct)
         etRecoveryRate       = v.findViewById(R.id.et_recovery_rate)
         spOnfieldCondition   = v.findViewById(R.id.sp_onfield_condition)
-        etBankName           = v.findViewById(R.id.et_bank_name)
-        etBranchName         = v.findViewById(R.id.et_branch_name)
-        etIfscCode           = v.findViewById(R.id.et_ifsc_code)
-        spAccountType        = v.findViewById(R.id.sp_account_type)
-        etAccountNo          = v.findViewById(R.id.et_account_no)
         etOfficerName        = v.findViewById(R.id.et_officer_name)
         etOfficerMobile      = v.findViewById(R.id.et_officer_mobile)
         etOfficerDesignation = v.findViewById(R.id.et_officer_designation)
+        spDisputeIfAny       = v.findViewById(R.id.sp_dispute_if_any)
+        layoutDisputeRecording = v.findViewById(R.id.layout_dispute_recording)
         etRemarks            = v.findViewById(R.id.et_remarks)
         tvGpsCoords          = v.findViewById(R.id.tv_gps_coords)
 
@@ -256,11 +265,6 @@ class CLSFormFragment : Fragment() {
         lblLossPct           = v.findViewById(R.id.lbl_loss_pct)
         lblRecoveryRate      = v.findViewById(R.id.lbl_recovery_rate)
         lblOnfieldCondition  = v.findViewById(R.id.lbl_onfield_condition)
-        lblBankName          = v.findViewById(R.id.lbl_bank_name)
-        lblBranchName        = v.findViewById(R.id.lbl_branch_name)
-        lblIfscCode          = v.findViewById(R.id.lbl_ifsc_code)
-        lblAccountType       = v.findViewById(R.id.lbl_account_type)
-        lblAccountNo         = v.findViewById(R.id.lbl_account_no)
         lblOfficerName       = v.findViewById(R.id.lbl_officer_name)
         lblOfficerMobile     = v.findViewById(R.id.lbl_officer_mobile)
         lblOfficerDesignation = v.findViewById(R.id.lbl_officer_designation)
@@ -317,11 +321,6 @@ class CLSFormFragment : Fragment() {
         updateFieldUi(etLossPct,          lblLossPct,        R.id.frame_et_loss_pct)
         updateFieldUi(etRecoveryRate,     lblRecoveryRate,   R.id.frame_et_recovery_rate)
         updateSpinnerUi(spOnfieldCondition, lblOnfieldCondition, R.id.frame_sp_onfield_condition)
-        updateFieldUi(etBankName,         lblBankName,       R.id.frame_et_bank_name)
-        updateFieldUi(etBranchName,       lblBranchName,     R.id.frame_et_branch_name)
-        updateFieldUi(etIfscCode,         lblIfscCode,       R.id.frame_et_ifsc_code)
-        updateSpinnerUi(spAccountType,    lblAccountType,    R.id.frame_sp_account_type)
-        updateFieldUi(etAccountNo,        lblAccountNo,      R.id.frame_et_account_no)
         updateFieldUi(etOfficerName,      lblOfficerName,    R.id.frame_et_officer_name)
         updateFieldUi(etOfficerMobile,    lblOfficerMobile,  R.id.frame_et_officer_mobile)
         updateFieldUi(etOfficerDesignation, lblOfficerDesignation, R.id.frame_et_officer_designation)
@@ -333,8 +332,7 @@ class CLSFormFragment : Fragment() {
     // ─────────────────────────────────────────────────────────────────
 
     private fun setupCollapsibleSections(root: View) {
-        for (i in 1..9) {
-            val header = root.findViewById<View>(
+        for (i in 1..8) {
                 resources.getIdentifier("section_header_$i", "id", requireContext().packageName))
             val body = root.findViewById<View>(
                 resources.getIdentifier("section_body_$i", "id", requireContext().packageName))
@@ -438,6 +436,9 @@ class CLSFormFragment : Fragment() {
         etFarmerName.addTextChangedListener(watcher(4))
         etFarmerMobile.addTextChangedListener(watcher(4))
         etFarmerAppNo.addTextChangedListener(watcher(4))
+        etRelationWithFarmer.addTextChangedListener(watcher(4))
+        etRepresentativeName.addTextChangedListener(watcher(4))
+        etRepresentativeMobile.addTextChangedListener(watcher(4))
         etSurveyDate.addTextChangedListener(watcher(5))
         etSowingDate.addTextChangedListener(watcher(5))
         etDateOfIntimation.addTextChangedListener(watcher(5))
@@ -445,17 +446,23 @@ class CLSFormFragment : Fragment() {
         etKhasraNo.addTextChangedListener(watcher(6))
         etTotalLandArea.addTextChangedListener(watcher(6))
         etInsuredArea.addTextChangedListener(watcher(6))
-        etAreaAffectedPct.addTextChangedListener(watcher(6))
+        etHarvestDate.addTextChangedListener(watcher(6))
+        etAreaAffectedPct.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                sectionTouched[6] = true
+                validateAreaAffected()
+                refreshFieldUi()
+                refreshSectionStatus()
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+        })
         etLossPct.addTextChangedListener(watcher(6))
         etRecoveryRate.addTextChangedListener(watcher(6))
-        etBankName.addTextChangedListener(watcher(7))
-        etBranchName.addTextChangedListener(watcher(7))
-        etIfscCode.addTextChangedListener(watcher(7))
-        etAccountNo.addTextChangedListener(watcher(7))
-        etOfficerName.addTextChangedListener(watcher(8))
-        etOfficerMobile.addTextChangedListener(watcher(8))
-        etOfficerDesignation.addTextChangedListener(watcher(8))
-        etRemarks.addTextChangedListener(watcher(9))
+        etOfficerName.addTextChangedListener(watcher(7))
+        etOfficerMobile.addTextChangedListener(watcher(7))
+        etOfficerDesignation.addTextChangedListener(watcher(7))
+        etRemarks.addTextChangedListener(watcher(8))
 
         fun spinnerListener(sectionHint: Int, extra: AdapterView.OnItemSelectedListener? = null) =
             object : AdapterView.OnItemSelectedListener {
@@ -472,17 +479,52 @@ class CLSFormFragment : Fragment() {
         spSeason.onItemSelectedListener = spinnerListener(1)
         spScheme.onItemSelectedListener = spinnerListener(1, object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p: AdapterView<*>?, v: View?, pos: Int, id: Long) {
-                layoutOtherScheme.visibility = if (spScheme.selectedItem == "Others") View.VISIBLE else View.GONE
+                layoutOtherScheme.visibility =
+                    if (tdSchemes.getOrNull(pos - 1)?.code == "Others") View.VISIBLE else View.GONE
             }
             override fun onNothingSelected(p: AdapterView<*>?) {}
         })
-        spCropName.onItemSelectedListener      = spinnerListener(3)
+        spCropName.onItemSelectedListener = spinnerListener(3, object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p: AdapterView<*>?, v: View?, pos: Int, id: Long) {
+                layoutOtherCrop.visibility =
+                    if (tdCrops.getOrNull(pos - 1)?.code in listOf("Others", "Other")) View.VISIBLE else View.GONE
+            }
+            override fun onNothingSelected(p: AdapterView<*>?) {}
+        })
         spInsuranceUnit.onItemSelectedListener = spinnerListener(3)
+        spFarmerAvailable.onItemSelectedListener = spinnerListener(4, object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p: AdapterView<*>?, v: View?, pos: Int, id: Long) {
+                layoutFarmerUnavailable.visibility =
+                    if (tdYesNo.getOrNull(pos - 1)?.code == "no") View.VISIBLE else View.GONE
+            }
+            override fun onNothingSelected(p: AdapterView<*>?) {}
+        })
         spCauseOfEvent.onItemSelectedListener  = spinnerListener(6)
         spCropStage.onItemSelectedListener     = spinnerListener(6)
         spCroppingPattern.onItemSelectedListener = spinnerListener(6)
+        spPostHarvest.onItemSelectedListener = spinnerListener(6, object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p: AdapterView<*>?, v: View?, pos: Int, id: Long) {
+                layoutPostHarvest.visibility =
+                    if (tdYesNo.getOrNull(pos - 1)?.code == "yes") View.VISIBLE else View.GONE
+            }
+            override fun onNothingSelected(p: AdapterView<*>?) {}
+        })
+        spCropSituationField.onItemSelectedListener = spinnerListener(6)
         spOnfieldCondition.onItemSelectedListener = spinnerListener(6)
-        spAccountType.onItemSelectedListener   = spinnerListener(7)
+        spDisputeIfAny.onItemSelectedListener = spinnerListener(8, object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p: AdapterView<*>?, v: View?, pos: Int, id: Long) {
+                layoutDisputeRecording.visibility =
+                    if (tdYesNo.getOrNull(pos - 1)?.code == "yes") View.VISIBLE else View.GONE
+            }
+            override fun onNothingSelected(p: AdapterView<*>?) {}
+        })
+    }
+
+    private fun validateAreaAffected() {
+        val a = etAreaAffectedPct.text.toString().toDoubleOrNull()
+        val i = etInsuredArea.text.toString().toDoubleOrNull()
+        etAreaAffectedPct.error =
+            if (a != null && i != null && a > i) "Area affected cannot exceed insured area" else null
     }
 
     // ─────────────────────────────────────────────────────────────────
@@ -495,7 +537,7 @@ class CLSFormFragment : Fragment() {
         1 -> spYear.selectedItemPosition > 0
                 && spSeason.selectedItemPosition > 0
                 && spScheme.selectedItemPosition > 0
-                && (spScheme.selectedItem?.toString() != "Others" || etOtherScheme.text.isNotBlank())
+                && (tdSchemes.getOrNull(spScheme.selectedItemPosition - 1)?.code != "Others" || etOtherScheme.text.isNotBlank())
         // S2: state, district, tehsil, revenue_circle, gram_panchayat, village
         2 -> spState.selectedItemPosition > 0
                 && spDistrict.selectedItemPosition > 0
@@ -503,24 +545,32 @@ class CLSFormFragment : Fragment() {
                 && etRevenueCircle.text.isNotBlank()
                 && etGramPanchayat.text.isNotBlank()
                 && etVillage.text.isNotBlank()
-        // S3: survey_intimation_no, crop_name, insurance_unit, other_crop
+        // S3: survey_intimation_no, crop_name, insurance_unit, other_crop(conditional)
         3 -> etSurveyIntimationNo.text.isNotBlank()
                 && spCropName.selectedItemPosition > 0
                 && spInsuranceUnit.selectedItemPosition > 0
-                && etOtherCrop.text.isNotBlank()
-        // S4: farmer_name, farmer_mobile, farmer_app_no
+                && (tdCrops.getOrNull(spCropName.selectedItemPosition - 1)?.code !in listOf("Others", "Other") || etOtherCrop.text.isNotBlank())
+        // S4: farmer_name, farmer_mobile, farmer_app_no, farmer_available (+ representative block if No)
         4 -> etFarmerName.text.isNotBlank()
                 && etFarmerMobile.text.length >= 10
                 && etFarmerAppNo.text.isNotBlank()
+                && spFarmerAvailable.selectedItemPosition > 0
+                && (tdYesNo.getOrNull(spFarmerAvailable.selectedItemPosition - 1)?.code != "no"
+                        || (etRelationWithFarmer.text.isNotBlank()
+                            && etRepresentativeName.text.isNotBlank()
+                            && etRepresentativeMobile.text.length >= 10))
         // S5: survey_date, sowing_date, date_of_intimation, date_of_loss
         5 -> etSurveyDate.text.isNotBlank()
                 && etSowingDate.text.isNotBlank()
                 && etDateOfIntimation.text.isNotBlank()
                 && etDateOfLoss.text.isNotBlank()
-        // S6: cause_of_event, crop_stage, cropping_pattern, khasra_no, field_area, total_land, insured_area, area_affected, loss_pct, recovery_rate, onfield_condition
+        // S6: cause_of_event, crop_stage, cropping_pattern, post_harvest (+harvest fields), khasra_no, field_area, total_land, insured_area, area_affected, loss_pct, recovery_rate, onfield_condition
         6 -> spCauseOfEvent.selectedItemPosition > 0
                 && spCropStage.selectedItemPosition > 0
                 && spCroppingPattern.selectedItemPosition > 0
+                && spPostHarvest.selectedItemPosition > 0
+                && (tdYesNo.getOrNull(spPostHarvest.selectedItemPosition - 1)?.code != "yes"
+                        || (etHarvestDate.text.isNotBlank() && spCropSituationField.selectedItemPosition > 0))
                 && etKhasraNo.text.isNotBlank()
                 && etFieldAreaPolygon.text.isNotBlank()
                 && etTotalLandArea.text.isNotBlank()
@@ -529,22 +579,16 @@ class CLSFormFragment : Fragment() {
                 && etLossPct.text.isNotBlank()
                 && etRecoveryRate.text.isNotBlank()
                 && spOnfieldCondition.selectedItemPosition > 0
-        // S7: bank_name, branch_name, ifsc_code, account_type, account_no
-        7 -> etBankName.text.isNotBlank()
-                && etBranchName.text.isNotBlank()
-                && etIfscCode.text.isNotBlank()
-                && spAccountType.selectedItemPosition > 0
-                && etAccountNo.text.isNotBlank()
-        // S8: officer_name, officer_mobile, officer_designation
-        8 -> etOfficerName.text.isNotBlank()
+        // S7: officer_name, officer_mobile, officer_designation
+        7 -> etOfficerName.text.isNotBlank()
                 && etOfficerMobile.text.length >= 10
                 && etOfficerDesignation.text.isNotBlank()
-        // S9: remarks
-        9 -> etRemarks.text.isNotBlank()
+        // S8: dispute_if_any, remarks
+        8 -> spDisputeIfAny.selectedItemPosition > 0 && etRemarks.text.isNotBlank()
         else -> false
     }
     fun refreshSectionStatus() {
-        for (i in 1..9) {
+        for (i in 1..8) {
             updateSectionUi(i, isSectionDone(i))
         }
     }
@@ -584,9 +628,9 @@ class CLSFormFragment : Fragment() {
     fun markAllTouchedAndValidate(): Boolean {
         nextAttempted = true
         refreshSectionStatus()
-        val allDone = (1..9).all { isSectionDone(it) }
+        val allDone = (1..8).all { isSectionDone(it) }
         if (!allDone) {
-            val firstIncomplete = (1..9).firstOrNull { !isSectionDone(it) }
+            val firstIncomplete = (1..8).firstOrNull { !isSectionDone(it) }
             if (firstIncomplete != null && sectionExpanded[firstIncomplete] == false) {
                 toggleSection(firstIncomplete)
             }
@@ -631,7 +675,8 @@ class CLSFormFragment : Fragment() {
     private var tdCauseEvent  = listOf<TranslatedDropdown.Option>()
     private var tdCropPattern = listOf<TranslatedDropdown.Option>()
     private var tdOnfield     = listOf<TranslatedDropdown.Option>()
-    private var tdAccountType = listOf<TranslatedDropdown.Option>()
+    private var tdYesNo       = listOf<TranslatedDropdown.Option>()
+    private var tdCropSituationField = listOf<TranslatedDropdown.Option>()
 
     private fun setupSpinners() {
         val ctx = requireContext()
@@ -643,7 +688,8 @@ class CLSFormFragment : Fragment() {
         tdCauseEvent  = TranslatedDropdown.causeOfEvent(ctx)
         tdCropPattern = TranslatedDropdown.croppingPatterns(ctx)
         tdOnfield     = TranslatedDropdown.onfieldConditions(ctx)
-        tdAccountType = TranslatedDropdown.accountTypes(ctx)
+        tdYesNo       = TranslatedDropdown.yesNo(ctx)
+        tdCropSituationField = TranslatedDropdown.cropSituationField(ctx)
 
         setSpinner(spYear,            listOf("Select Year")       + AppConfig.YEARS)
         setSpinner(spSeason,          listOf(getString(R.string.hint_select)) + tdLabels(tdSeasons))
@@ -653,8 +699,11 @@ class CLSFormFragment : Fragment() {
         setSpinner(spCropStage,       listOf(getString(R.string.hint_select)) + tdLabels(tdCropStages))
         setSpinner(spCroppingPattern, listOf(getString(R.string.hint_select)) + tdLabels(tdCropPattern))
         setSpinner(spOnfieldCondition,listOf(getString(R.string.hint_select)) + tdLabels(tdOnfield))
-        setSpinner(spAccountType,     listOf(getString(R.string.hint_select)) + tdLabels(tdAccountType))
         setSpinner(spScheme,          listOf(getString(R.string.hint_select)) + tdLabels(tdSchemes))
+        setSpinner(spFarmerAvailable, listOf(getString(R.string.hint_select)) + tdLabels(tdYesNo))
+        setSpinner(spPostHarvest,     listOf(getString(R.string.hint_select)) + tdLabels(tdYesNo))
+        setSpinner(spCropSituationField, listOf(getString(R.string.hint_select)) + tdLabels(tdCropSituationField))
+        setSpinner(spDisputeIfAny,    listOf(getString(R.string.hint_select)) + tdLabels(tdYesNo))
         setSpinner(spState,    listOf("Select State"))
         setSpinner(spDistrict, listOf("Select District"))
         setSpinner(spTehsil,   listOf("Select Tehsil"))
@@ -695,15 +744,25 @@ class CLSFormFragment : Fragment() {
     }
 
     private fun setupDatePickers() {
-        listOf(etSurveyDate, etSowingDate, etDateOfIntimation, etDateOfLoss).forEach { et ->
+        listOf(etSowingDate, etDateOfIntimation, etDateOfLoss, etHarvestDate).forEach { et ->
             et.isFocusable = false
             et.setOnClickListener {
                 val cal = Calendar.getInstance()
-                DatePickerDialog(requireContext(), { _, y, m, d ->
+                val dialog = DatePickerDialog(requireContext(), { _, y, m, d ->
                     et.setText(java.lang.String.format(java.util.Locale.US, "%04d-%02d-%02d", y, m + 1, d))
-                }, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH)).show()
+                }, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH))
+                dialog.datePicker.maxDate = System.currentTimeMillis()
+                dialog.show()
             }
         }
+
+        // Survey Date = today, read-only, auto-filled
+        val cal = Calendar.getInstance()
+        etSurveyDate.setText(java.lang.String.format(
+            java.util.Locale.US, "%04d-%02d-%02d",
+            cal.get(Calendar.YEAR), cal.get(Calendar.MONTH) + 1, cal.get(Calendar.DAY_OF_MONTH)))
+        etSurveyDate.isFocusable = false
+        etSurveyDate.isClickable = false
     }
 
     private fun loadStates() {
@@ -757,12 +816,19 @@ class CLSFormFragment : Fragment() {
     }
 
     private fun restoreFormData() {
+        val surveyId = activity?.intent?.getStringExtra("survey_id")
+            ?: SurveySession.formData["survey_id"]?.toString()
+        etSurveyId.setText(surveyId ?: "")
+
         val fd = SurveySession.formData
         if (fd.isEmpty()) return
 
         etFarmerName.setText(fd["farmer_name"]?.toString() ?: "")
         etFarmerMobile.setText(fd["farmer_mobile"]?.toString() ?: "")
         etFarmerAppNo.setText(fd["farmer_insurance_app_no"]?.toString() ?: "")
+        etRelationWithFarmer.setText(fd["relation_with_farmer"]?.toString() ?: "")
+        etRepresentativeName.setText(fd["representative_name"]?.toString() ?: "")
+        etRepresentativeMobile.setText(fd["representative_mobile"]?.toString() ?: "")
         etVillage.setText(fd["village"]?.toString() ?: "")
         etRevenueCircle.setText(fd["revenue_circle"]?.toString() ?: "")
         etGramPanchayat.setText(fd["gram_panchayat"]?.toString() ?: "")
@@ -773,20 +839,18 @@ class CLSFormFragment : Fragment() {
         etAreaAffectedPct.setText(fd["area_affected_pct"]?.toString() ?: "")
         etLossPct.setText(fd["loss_pct"]?.toString() ?: "")
         etRecoveryRate.setText(fd["recovery_rate_pct"]?.toString() ?: "")
-        etBankName.setText(fd["bank_name"]?.toString() ?: "")
-        etBranchName.setText(fd["branch_name"]?.toString() ?: "")
-        etIfscCode.setText(fd["ifsc_code"]?.toString() ?: "")
-        etAccountNo.setText(fd["bank_account_no"]?.toString() ?: "")
+        etHarvestDate.setText(fd["harvest_date"]?.toString() ?: "")
         etOfficerName.setText(fd["govt_officer_name"]?.toString() ?: "")
         etOfficerMobile.setText(fd["govt_officer_mobile"]?.toString() ?: "")
         etOfficerDesignation.setText(fd["govt_officer_designation"]?.toString() ?: "")
         etRemarks.setText(fd["remarks"]?.toString() ?: "")
         etOtherScheme.setText(fd["others_scheme"]?.toString() ?: "")
         etOtherCrop.setText(fd["other_crop"]?.toString() ?: "")
-        etSurveyDate.setText(fd["survey_date"]?.toString() ?: "")
         etSowingDate.setText(fd["sowing_date"]?.toString() ?: "")
         etDateOfIntimation.setText(fd["date_of_intimation"]?.toString() ?: "")
         etDateOfLoss.setText(fd["date_of_loss"]?.toString() ?: "")
+        // Survey date is auto-filled with today's date by setupDatePickers(); only override on edit/resubmit
+        fd["survey_date"]?.toString()?.takeIf { it.isNotEmpty() }?.let { etSurveyDate.setText(it) }
 
         restoreSpinner(spYear,            fd["year"]?.toString())
         tdRestore(spSeason, tdSeasons, fd["season"]?.toString())
@@ -797,12 +861,22 @@ class CLSFormFragment : Fragment() {
         tdRestore(spCropStage, tdCropStages, fd["crop_stage"]?.toString())
         tdRestore(spCroppingPattern, tdCropPattern, fd["cropping_pattern"]?.toString())
         tdRestore(spOnfieldCondition, tdOnfield, fd["onfield_condition"]?.toString())
-        tdRestore(spAccountType, tdAccountType, fd["account_type"]?.toString())
+        tdRestore(spFarmerAvailable, tdYesNo, fd["farmer_available"]?.toString())
+        tdRestore(spPostHarvest, tdYesNo, fd["post_harvest"]?.toString())
+        tdRestore(spCropSituationField, tdCropSituationField, fd["crop_situation_field"]?.toString())
+        tdRestore(spDisputeIfAny, tdYesNo, fd["dispute_if_any"]?.toString())
+
+        // Apply conditional visibility based on restored values
+        layoutOtherScheme.visibility = if (fd["scheme"]?.toString() == "Others") View.VISIBLE else View.GONE
+        layoutOtherCrop.visibility = if (fd["crop_name"]?.toString() in listOf("Others", "Other")) View.VISIBLE else View.GONE
+        layoutFarmerUnavailable.visibility = if (fd["farmer_available"]?.toString() == "no") View.VISIBLE else View.GONE
+        layoutPostHarvest.visibility = if (fd["post_harvest"]?.toString() == "yes") View.VISIBLE else View.GONE
+        layoutDisputeRecording.visibility = if (fd["dispute_if_any"]?.toString() == "yes") View.VISIBLE else View.GONE
 
         // Only expand on edit/resubmit — new surveys start collapsed
         val isEditRestore = activity?.intent?.getBooleanExtra("is_edit_mode", false) == true ||
                 activity?.intent?.getBooleanExtra("is_resubmit", false) == true
-        for (i in 1..9) {
+        for (i in 1..8) {
             // Only mark touched on edit/resubmit — on new survey sections start untouched (no tick)
             if (isEditRestore) {
                 sectionTouched[i] = true
@@ -882,6 +956,7 @@ class CLSFormFragment : Fragment() {
         val insuredArea   = etInsuredArea.text.toString().trim()
 
         return mapOf(
+            "survey_id"                to (etSurveyId.text.toString().takeIf { it.isNotEmpty() } ?: SurveySession.formData["survey_id"]),
             "year"                     to spYear.selectedItem?.toString()?.takeIf { it != "Select Year" },
             "season"                   to tdCode(tdSeasons, spSeason.selectedItemPosition - 1),
             "scheme"                   to tdCode(tdSchemes, spScheme.selectedItemPosition - 1),
@@ -901,6 +976,10 @@ class CLSFormFragment : Fragment() {
             "farmer_insurance_app_no"  to etFarmerAppNo.text.toString().takeIf { it.isNotEmpty() },
             "farmer_verified"          to (SurveySession.formData["farmer_verified"]?.toString() ?: "skipped"),
             "farmer_phone_verified"    to (SurveySession.formData["farmer_phone"]?.toString() ?: ""),
+            "farmer_available"         to tdCode(tdYesNo, spFarmerAvailable.selectedItemPosition - 1),
+            "relation_with_farmer"     to etRelationWithFarmer.text.toString().takeIf { it.isNotEmpty() },
+            "representative_name"      to etRepresentativeName.text.toString().takeIf { it.isNotEmpty() },
+            "representative_mobile"    to etRepresentativeMobile.text.toString().takeIf { it.isNotEmpty() },
             "survey_date"              to etSurveyDate.text.toString().takeIf { it.isNotEmpty() },
             "sowing_date"              to etSowingDate.text.toString().takeIf { it.isNotEmpty() },
             "date_of_intimation"       to etDateOfIntimation.text.toString().takeIf { it.isNotEmpty() },
@@ -908,6 +987,9 @@ class CLSFormFragment : Fragment() {
             "cause_of_event"           to tdCode(tdCauseEvent, spCauseOfEvent.selectedItemPosition - 1),
             "crop_stage"               to tdCode(tdCropStages, spCropStage.selectedItemPosition - 1),
             "cropping_pattern"         to tdCode(tdCropPattern, spCroppingPattern.selectedItemPosition - 1),
+            "post_harvest"             to tdCode(tdYesNo, spPostHarvest.selectedItemPosition - 1),
+            "harvest_date"             to etHarvestDate.text.toString().takeIf { it.isNotEmpty() },
+            "crop_situation_field"     to tdCode(tdCropSituationField, spCropSituationField.selectedItemPosition - 1),
             "khasra_no"                to etKhasraNo.text.toString().takeIf { it.isNotEmpty() },
             "total_land_area"          to totalLandArea.toDoubleOrNull(),
             "insured_area"             to insuredArea.toDoubleOrNull(),
@@ -915,14 +997,10 @@ class CLSFormFragment : Fragment() {
             "loss_pct"                 to etLossPct.text.toString().toDoubleOrNull(),
             "recovery_rate_pct"        to etRecoveryRate.text.toString().toDoubleOrNull(),
             "onfield_condition"        to tdCode(tdOnfield, spOnfieldCondition.selectedItemPosition - 1),
-            "bank_name"                to etBankName.text.toString().takeIf { it.isNotEmpty() },
-            "branch_name"              to etBranchName.text.toString().takeIf { it.isNotEmpty() },
-            "ifsc_code"                to etIfscCode.text.toString().takeIf { it.isNotEmpty() },
-            "account_type"             to tdCode(tdAccountType, spAccountType.selectedItemPosition - 1),
-            "bank_account_no"          to etAccountNo.text.toString().takeIf { it.isNotEmpty() },
             "govt_officer_name"        to etOfficerName.text.toString().takeIf { it.isNotEmpty() },
             "govt_officer_mobile"      to etOfficerMobile.text.toString().takeIf { it.isNotEmpty() },
             "govt_officer_designation" to etOfficerDesignation.text.toString().takeIf { it.isNotEmpty() },
+            "dispute_if_any"           to tdCode(tdYesNo, spDisputeIfAny.selectedItemPosition - 1),
         )
     }
 
@@ -938,6 +1016,7 @@ class CLSFormFragment : Fragment() {
         if (village.isEmpty())        { etVillage.error = "Required"; return emptyMap() }
 
         return mapOf(
+            "survey_id"                to (etSurveyId.text.toString().takeIf { it.isNotEmpty() } ?: SurveySession.formData["survey_id"]),
             "year"                     to spYear.selectedItem?.toString()?.takeIf { it != "Select Year" },
             "season"                   to tdCode(tdSeasons, spSeason.selectedItemPosition - 1),
             "scheme"                   to tdCode(tdSchemes, spScheme.selectedItemPosition - 1),
@@ -957,6 +1036,10 @@ class CLSFormFragment : Fragment() {
             "farmer_insurance_app_no"  to etFarmerAppNo.text.toString().takeIf { it.isNotEmpty() },
             "farmer_verified"          to (SurveySession.formData["farmer_verified"]?.toString() ?: "skipped"),
             "farmer_phone_verified"    to (SurveySession.formData["farmer_phone"]?.toString() ?: ""),
+            "farmer_available"         to tdCode(tdYesNo, spFarmerAvailable.selectedItemPosition - 1),
+            "relation_with_farmer"     to etRelationWithFarmer.text.toString().takeIf { it.isNotEmpty() },
+            "representative_name"      to etRepresentativeName.text.toString().takeIf { it.isNotEmpty() },
+            "representative_mobile"    to etRepresentativeMobile.text.toString().takeIf { it.isNotEmpty() },
             "survey_date"              to etSurveyDate.text.toString().takeIf { it.isNotEmpty() },
             "sowing_date"              to etSowingDate.text.toString().takeIf { it.isNotEmpty() },
             "date_of_intimation"       to etDateOfIntimation.text.toString().takeIf { it.isNotEmpty() },
@@ -964,6 +1047,9 @@ class CLSFormFragment : Fragment() {
             "cause_of_event"           to tdCode(tdCauseEvent, spCauseOfEvent.selectedItemPosition - 1),
             "crop_stage"               to tdCode(tdCropStages, spCropStage.selectedItemPosition - 1),
             "cropping_pattern"         to tdCode(tdCropPattern, spCroppingPattern.selectedItemPosition - 1),
+            "post_harvest"             to tdCode(tdYesNo, spPostHarvest.selectedItemPosition - 1),
+            "harvest_date"             to etHarvestDate.text.toString().takeIf { it.isNotEmpty() },
+            "crop_situation_field"     to tdCode(tdCropSituationField, spCropSituationField.selectedItemPosition - 1),
             "khasra_no"                to etKhasraNo.text.toString().takeIf { it.isNotEmpty() },
             "total_land_area"          to totalLandArea.toDoubleOrNull(),
             "insured_area"             to insuredArea.toDoubleOrNull(),
@@ -971,14 +1057,10 @@ class CLSFormFragment : Fragment() {
             "loss_pct"                 to etLossPct.text.toString().toDoubleOrNull(),
             "recovery_rate_pct"        to etRecoveryRate.text.toString().toDoubleOrNull(),
             "onfield_condition"        to tdCode(tdOnfield, spOnfieldCondition.selectedItemPosition - 1),
-            "bank_name"                to etBankName.text.toString().takeIf { it.isNotEmpty() },
-            "branch_name"              to etBranchName.text.toString().takeIf { it.isNotEmpty() },
-            "ifsc_code"                to etIfscCode.text.toString().takeIf { it.isNotEmpty() },
-            "account_type"             to tdCode(tdAccountType, spAccountType.selectedItemPosition - 1),
-            "bank_account_no"          to etAccountNo.text.toString().takeIf { it.isNotEmpty() },
             "govt_officer_name"        to etOfficerName.text.toString().takeIf { it.isNotEmpty() },
             "govt_officer_mobile"      to etOfficerMobile.text.toString().takeIf { it.isNotEmpty() },
             "govt_officer_designation" to etOfficerDesignation.text.toString().takeIf { it.isNotEmpty() },
+            "dispute_if_any"           to tdCode(tdYesNo, spDisputeIfAny.selectedItemPosition - 1),
             "remarks"                  to etRemarks.text.toString().takeIf { it.isNotEmpty() },
             "capture_lat"              to SurveySession.formData["capture_lat"],
             "capture_lon"              to SurveySession.formData["capture_lon"],

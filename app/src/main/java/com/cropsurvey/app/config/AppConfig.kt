@@ -60,22 +60,28 @@ object AppConfig {
     const val PHOTO_BUCKET = "survey-photos"
 
     // ─── Survey Photo Requirements (use context for localized labels) ─
-    fun getCLSPhotos(ctx: Context): List<PhotoRequirement> = listOf(
-        PhotoRequirement("image_with_farmer",   ctx.getString(R.string.photo_with_farmer),     ctx.getString(R.string.photo_with_farmer_instruction),     required = true),
-        PhotoRequirement("image_with_official", ctx.getString(R.string.photo_with_official),   ctx.getString(R.string.photo_with_official_instruction),   required = true),
-        PhotoRequirement("survey_form",         ctx.getString(R.string.photo_survey_form),     ctx.getString(R.string.photo_survey_form_instruction),     required = true),
-        PhotoRequirement("land_record",         ctx.getString(R.string.photo_land_record),     ctx.getString(R.string.photo_land_record_instruction),     required = true),
-        PhotoRequirement("id_proof",            ctx.getString(R.string.photo_id_proof),        ctx.getString(R.string.photo_id_proof_instruction),        required = true),
-        PhotoRequirement("bank_passbook",       ctx.getString(R.string.photo_bank_passbook),   ctx.getString(R.string.photo_bank_passbook_instruction),   required = true),
-        PhotoRequirement("chequebook",          ctx.getString(R.string.photo_chequebook),      ctx.getString(R.string.photo_chequebook_instruction),      required = true),
-        PhotoRequirement("nadir_view",          ctx.getString(R.string.photo_nadir),           ctx.getString(R.string.photo_nadir_instruction),           required = true),
-        PhotoRequirement("leaf_image",          ctx.getString(R.string.photo_leaf),            ctx.getString(R.string.photo_leaf_instruction),            required = true),
-        PhotoRequirement("field_image_1",       ctx.getString(R.string.photo_field_north),     ctx.getString(R.string.photo_field_north_instruction),     required = true),
-        PhotoRequirement("field_image_2",       ctx.getString(R.string.photo_field_east),      ctx.getString(R.string.photo_field_east_instruction),      required = true),
-        PhotoRequirement("field_image_3",       ctx.getString(R.string.photo_field_south),     ctx.getString(R.string.photo_field_south_instruction),     required = true),
-        PhotoRequirement("field_image_4",       ctx.getString(R.string.photo_field_west),      ctx.getString(R.string.photo_field_west_instruction),      required = true),
-        PhotoRequirement("sw_corner",           ctx.getString(R.string.photo_sw_corner_chm),   ctx.getString(R.string.photo_sw_corner_chm_instruction),   required = true),
-    )
+    fun getCLSPhotos(ctx: Context, farmerAvailable: String? = null): List<PhotoRequirement> {
+        val base = listOf(
+            PhotoRequirement("sw_corner",              ctx.getString(R.string.photo_sw_corner_chm),   ctx.getString(R.string.photo_sw_corner_chm_instruction),   required = true),
+            PhotoRequirement("closeup_affected_area",  ctx.getString(R.string.photo_closeup_affected_area), ctx.getString(R.string.photo_closeup_affected_area_instruction), required = true),
+            PhotoRequirement("nadir_view",             ctx.getString(R.string.photo_nadir),           ctx.getString(R.string.photo_nadir_instruction),           required = true),
+            PhotoRequirement("leaf_image",             ctx.getString(R.string.photo_leaf),            ctx.getString(R.string.photo_leaf_instruction),            required = true),
+            PhotoRequirement("survey_form",            ctx.getString(R.string.photo_survey_form),     ctx.getString(R.string.photo_survey_form_instruction),     required = true),
+            PhotoRequirement("land_record",            ctx.getString(R.string.photo_land_record),     ctx.getString(R.string.photo_land_record_instruction),     required = true),
+            PhotoRequirement("id_proof",               ctx.getString(R.string.photo_id_proof),        ctx.getString(R.string.photo_id_proof_instruction),        required = true),
+            PhotoRequirement("image_with_farmer",      ctx.getString(R.string.photo_with_farmer),     ctx.getString(R.string.photo_with_farmer_instruction),     required = true),
+            PhotoRequirement("image_with_official",    ctx.getString(R.string.photo_with_official),   ctx.getString(R.string.photo_with_official_instruction),   required = true),
+            PhotoRequirement("field_image_1",          ctx.getString(R.string.photo_field_north),     ctx.getString(R.string.photo_field_north_instruction),     required = true),
+            PhotoRequirement("field_image_2",          ctx.getString(R.string.photo_field_east),      ctx.getString(R.string.photo_field_east_instruction),      required = true),
+            PhotoRequirement("field_image_3",          ctx.getString(R.string.photo_field_south),     ctx.getString(R.string.photo_field_south_instruction),     required = true),
+            PhotoRequirement("field_image_4",          ctx.getString(R.string.photo_field_west),      ctx.getString(R.string.photo_field_west_instruction),      required = true),
+        )
+        return if (farmerAvailable == "no") base + getCLSRepresentativeIdPhoto(ctx) else base
+    }
+
+    /** Conditional photo requirement, appended when Section 4 "Farmer Available" = No */
+    fun getCLSRepresentativeIdPhoto(ctx: Context): PhotoRequirement =
+        PhotoRequirement("representative_id_photo", ctx.getString(R.string.field_representative_id_photo), null, required = true)
 
     fun getCHMPhotos(ctx: Context): List<PhotoRequirement> = listOf(
         PhotoRequirement("sw_corner",            ctx.getString(R.string.photo_sw_corner_chm),      null,                                                         required = true),
@@ -115,20 +121,19 @@ object AppConfig {
     val CCE_PHOTOS get() = getCCEPhotos_static()
 
     private fun getCLSPhotos_static() = listOf(
-        PhotoRequirement("image_with_farmer",   "Image with Farmer",       "Farmer must be clearly visible in frame",                    required = true),
-        PhotoRequirement("image_with_official", "Image with Govt Official", "Government officer must be visible",                        required = true),
-        PhotoRequirement("survey_form",         "Survey Form",             "Lay form flat, capture all 4 corners",                       required = true),
-        PhotoRequirement("land_record",         "Land Record (7/12)",      "Document must be fully visible",                             required = true),
-        PhotoRequirement("id_proof",            "Farmer ID Proof",         "All text must be legible",                                   required = true),
-        PhotoRequirement("bank_passbook",       "Bank Passbook",           "First page showing account details",                         required = true),
-        PhotoRequirement("chequebook",          "Chequebook",              "First page showing account number",                          required = true),
-        PhotoRequirement("nadir_view",          "Nadir View",              "Hold phone directly overhead, camera pointing straight down", required = true),
-        PhotoRequirement("leaf_image",          "Leaf Close-up",           "Fill frame with a representative leaf",                      required = true),
-        PhotoRequirement("field_image_1",       "Field — North",           "Stand at south boundary, face north",                        required = true),
-        PhotoRequirement("field_image_2",       "Field — East",            "Stand at west boundary, face east",                          required = true),
-        PhotoRequirement("field_image_3",       "Field — South",           "Stand at north boundary, face south",                        required = true),
-        PhotoRequirement("field_image_4",       "Field — West",            "Stand at east boundary, face west",                          required = true),
-        PhotoRequirement("sw_corner",           "SW Corner",               "Stand at south-west corner of the field",                    required = true),
+        PhotoRequirement("sw_corner",             "SW Corner",               "Stand at south-west corner of the field",                    required = true),
+        PhotoRequirement("closeup_affected_area", "Closeup Affected Area Photo", "Close-up of the affected crop/field area",               required = true),
+        PhotoRequirement("nadir_view",            "Nadir View",              "Hold phone directly overhead, camera pointing straight down", required = true),
+        PhotoRequirement("leaf_image",            "Leaf Close-up",           "Fill frame with a representative leaf",                      required = true),
+        PhotoRequirement("survey_form",           "Survey Form",             "Lay form flat, capture all 4 corners",                       required = true),
+        PhotoRequirement("land_record",           "Land Record (7/12)",      "Document must be fully visible",                             required = true),
+        PhotoRequirement("id_proof",              "Farmer ID Proof",         "All text must be legible",                                   required = true),
+        PhotoRequirement("image_with_farmer",     "Image with Farmer",       "Farmer must be clearly visible in frame",                    required = true),
+        PhotoRequirement("image_with_official",   "Image with Govt Official", "Government officer must be visible",                        required = true),
+        PhotoRequirement("field_image_1",         "Field — North",           "Stand at south boundary, face north",                        required = true),
+        PhotoRequirement("field_image_2",         "Field — East",            "Stand at west boundary, face east",                          required = true),
+        PhotoRequirement("field_image_3",         "Field — South",           "Stand at north boundary, face south",                        required = true),
+        PhotoRequirement("field_image_4",         "Field — West",            "Stand at east boundary, face west",                          required = true),
     )
     private fun getCHMPhotos_static() = listOf(
         PhotoRequirement("sw_corner",            "SW Corner",            instruction = null,                             required = true),
@@ -169,7 +174,7 @@ object AppConfig {
     }
 
     fun getPhotosForType(ctx: Context, type: String): List<PhotoRequirement> = when (type) {
-        "CLS" -> getCLSPhotos(ctx)
+        "CLS" -> getCLSPhotos(ctx, com.cropsurvey.app.utils.SurveySession.formData["farmer_available"]?.toString())
         "CHM" -> getCHMPhotos(ctx)
         "CCE" -> getCCEPhotos(ctx)
         else  -> emptyList()
