@@ -133,12 +133,18 @@ object ApiClient {
 
     private val httpClient = OkHttpClient.Builder()
         .connectTimeout(30, TimeUnit.SECONDS)
-        .readTimeout(60, TimeUnit.SECONDS)
-        .writeTimeout(60, TimeUnit.SECONDS)
+        .readTimeout(120, TimeUnit.SECONDS)
+        .writeTimeout(180, TimeUnit.SECONDS)  // generous — photo/video uploads on slow rural networks
         .addInterceptor(loggingInterceptor)
         .addInterceptor { chain ->
-            val builder = chain.request().newBuilder()
-                .header("Content-Type", "application/json")
+            val original = chain.request()
+            val builder = original.newBuilder()
+            // Only set JSON content-type for requests that don't already specify one
+            // (multipart/form-data uploads set their own boundary-bearing content-type
+            // on the request body — forcing application/json here broke uploads).
+            if (original.header("Content-Type") == null && original.body?.contentType() == null) {
+                builder.header("Content-Type", "application/json")
+            }
             accessToken?.let { builder.header("Authorization", "Bearer $it") }
             deviceId?.let { builder.header("X-Device-Id", it) }
             val response = chain.proceed(builder.build())
