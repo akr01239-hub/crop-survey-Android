@@ -266,6 +266,7 @@ class CLSFormFragment : Fragment() {
             Toast.makeText(requireContext(), "No camera app available for recording", Toast.LENGTH_SHORT).show()
         }
     }
+    private val colorGreen get() = ContextCompat.getColor(requireContext(), R.color.primary)
     private val colorGrey = 0xFF64748B.toInt()
 
     // ─────────────────────────────────────────────────────────────────
