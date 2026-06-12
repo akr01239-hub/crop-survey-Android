@@ -294,10 +294,8 @@ class CLSFormFragment : Fragment() {
 
     private fun autoFillPolygonArea() {
         val area = SurveySession.polygonAreaHectares
-        etFieldAreaPolygon.setText(
-            if (area != null) "%.4f".format(area)
-            else SurveySession.formData["field_area_polygon"]?.toString() ?: ""
-        )
+            ?: (SurveySession.formData["field_area_polygon"] as? Number)?.toDouble()
+        etFieldAreaPolygon.setText(if (area != null) "%.4f".format(area) else "")
     }
 
     private fun bindViews(v: View) {

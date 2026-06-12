@@ -543,6 +543,10 @@ class PolygonMapActivity : BaseActivity(), OnMapReadyCallback {
                     SurveySession.currentCaseId       = survey.caseId
                     SurveySession.polygonGeoJson      = buildGeoJson()
                     SurveySession.polygonAreaHectares = calculateAreaHectares(vertices)
+                    // Persist into formData too — polygonAreaHectares is in-memory only
+                    // and resets on session/draft reload, which left "Field Area
+                    // (Polygon)" permanently blank for resumed drafts.
+                    SurveySession.formData["field_area_polygon"] = SurveySession.polygonAreaHectares
 
                     val intent = Intent(this@PolygonMapActivity, SurveyTabsActivity::class.java)
                     intent.putExtra("survey_type", surveyType)
