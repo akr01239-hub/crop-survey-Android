@@ -183,9 +183,10 @@ class CLSFormFragment : Fragment() {
      * be played back on the review dashboard.
      */
     private fun uploadDisputeRecording(videoFile: File) {
-        val surveyId = etSurveyId.text?.toString()?.takeIf { it.isNotEmpty() }
-            ?: SurveySession.currentSurveyId
-            ?: SurveySession.formData["survey_id"]?.toString()
+        // IMPORTANT: surveys/{id}/photos needs the internal UUID, NOT the
+        // short display Survey ID (Docket-ID/case_id) shown in etSurveyId.
+        val surveyId = SurveySession.currentSurveyId
+            ?: activity?.intent?.getStringExtra("survey_id")
         if (surveyId == null) {
             tvDisputeRecordingStatus.text = "Recorded (will upload on save)"
             tvDisputeRecordingStatus.setTextColor(android.graphics.Color.parseColor("#94A3B8"))
@@ -626,6 +627,11 @@ class CLSFormFragment : Fragment() {
         })
     }
 
+    /** Called by SurveyTabsActivity once the short Case ID is fetched from the server. */
+    fun refreshSurveyId(caseId: String) {
+        if (::etSurveyId.isInitialized) etSurveyId.setText(caseId)
+    }
+
     private fun validateAreaAffected() {
         val a = etAreaAffectedPct.text.toString().toDoubleOrNull()
         etAreaAffectedPct.error =
@@ -921,8 +927,12 @@ class CLSFormFragment : Fragment() {
     }
 
     private fun restoreFormData() {
-        val surveyId = activity?.intent?.getStringExtra("survey_id")
+        // Prefer the short display Case ID (e.g. "CK0J9MGTHU") fetched from the
+        // server — falls back to whatever's cached, then the raw UUID as a
+        // last resort until fetchCaseId() in SurveyTabsActivity resolves it.
+        val surveyId = SurveySession.currentCaseId
             ?: SurveySession.formData["survey_id"]?.toString()
+            ?: activity?.intent?.getStringExtra("survey_id")
         etSurveyId.setText(surveyId ?: "")
 
         val fd = SurveySession.formData

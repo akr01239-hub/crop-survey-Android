@@ -102,9 +102,37 @@ class SurveyTabsActivity : BaseActivity() {
         setupTabs()
         setupBottomBar()
         startAutoSync()
+        fetchCaseId()
 
         // If starting on resubmit, restore previously-uploaded photos into session
         if (isResubmit) loadExistingPhotosForResubmit()
+    }
+
+    /**
+     * Looks up the survey's short display Case ID (e.g. "CK0J9MGTHU") from
+     * the server and stores it in SurveySession — this is what's shown on
+     * the dashboard "Case ID" column and should populate the CLS form's
+     * "Survey ID (Docket-ID)" field, NOT the internal UUID.
+     */
+    private fun fetchCaseId() {
+        // Fast path: already cached for this survey
+        if (SurveySession.currentCaseId != null && SurveySession.formData["survey_id"] == SurveySession.currentCaseId) {
+            return
+        }
+        lifecycleScope.launch {
+            try {
+                val res = ApiClient.service.getSurvey(surveyId)
+                if (res.isSuccessful) {
+                    val caseId = res.body()?.caseId
+                    if (!caseId.isNullOrEmpty()) {
+                        SurveySession.currentCaseId = caseId
+                        SurveySession.formData["survey_id"] = caseId
+                        tvCaseId.text = "Case: $caseId"
+                        (supportFragmentManager.findFragmentByTag("f0") as? CLSFormFragment)?.refreshSurveyId(caseId)
+                    }
+                }
+            } catch (_: Exception) { /* keep showing UUID-based case label; non-fatal */ }
+        }
     }
 
     override fun onDestroy() {

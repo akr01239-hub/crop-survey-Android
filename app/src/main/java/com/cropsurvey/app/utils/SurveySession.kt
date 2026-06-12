@@ -28,6 +28,7 @@ object SurveySession {
     }
 
     var currentSurveyId: String? = null
+    var currentCaseId: String? = null
     var currentSurveyType: String? = null
     var currentCaseId: String = ""       // human-readable case ID shown on watermark (e.g. K2VATH5INI)
     var userId: String = ""          // internal UUID (set at login)

@@ -250,6 +250,12 @@
 
             <TextView android:id="@+id/lbl_farmer_app_no" android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:text="@string/field_farmer_app_no" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+            <FrameLayout android:id="@+id/frame_et_farmer_app_no" android:layout_width="match_parent" android:layout_height="48dp"
+                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
+                <EditText android:id="@+id/et_farmer_app_no" android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@android:color/transparent" android:hint="Enter application number" android:padding="12dp"/>
+            </FrameLayout>
+
             <!-- Farmer Verified Status — shown when OTP verified -->
             <TextView
                 android:id="@+id/lbl_farmer_verified"
@@ -290,14 +296,6 @@
                     android:paddingEnd="12dp"
                     android:gravity="center_vertical"
                     android:textColor="#1A1A1A"/>
-            </FrameLayout>
-
-
-
-            <FrameLayout android:id="@+id/frame_et_farmer_app_no" android:layout_width="match_parent" android:layout_height="48dp"
-                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
-                <EditText android:id="@+id/et_farmer_app_no" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="Enter application number" android:padding="12dp"/>
             </FrameLayout>
 
             <TextView android:id="@+id/lbl_farmer_available" android:layout_width="match_parent" android:layout_height="wrap_content"
