@@ -142,6 +142,14 @@ class CLSFormFragment : Fragment() {
     private lateinit var lblLossPct: TextView
     private lateinit var lblRecoveryRate: TextView
     private lateinit var lblOnfieldCondition: TextView
+    private lateinit var lblFarmerAvailable: TextView
+    private lateinit var lblRelationWithFarmer: TextView
+    private lateinit var lblRepresentativeName: TextView
+    private lateinit var lblRepresentativeMobile: TextView
+    private lateinit var lblPostHarvest: TextView
+    private lateinit var lblHarvestDate: TextView
+    private lateinit var lblCropSituationField: TextView
+    private lateinit var lblDisputeIfAny: TextView
     private lateinit var lblOfficerName: TextView
     private lateinit var lblOfficerMobile: TextView
     private lateinit var lblOfficerDesignation: TextView
@@ -229,13 +237,16 @@ class CLSFormFragment : Fragment() {
                     tvDisputeRecordingStatus.text = "Recorded & uploaded ✓"
                     tvDisputeRecordingStatus.setTextColor(android.graphics.Color.parseColor("#16A34A"))
                 } else {
-                    tvDisputeRecordingStatus.text = "Recorded — upload failed, will retry on save"
+                    val errBody = try { res.errorBody()?.string() } catch (_: Exception) { null }
+                    android.util.Log.e("DisputeUpload", "HTTP ${res.code()} ${res.message()}: $errBody")
+                    tvDisputeRecordingStatus.text = "Upload failed (HTTP ${res.code()}) — will retry on save"
                     tvDisputeRecordingStatus.setTextColor(android.graphics.Color.parseColor("#F59E0B"))
                     SurveySession.formData["dispute_recording_uri"] = outFile.absolutePath
                 }
                 (activity as? com.cropsurvey.app.survey.SurveyTabsActivity)?.refreshPhotoCount()
             } catch (e: Exception) {
-                tvDisputeRecordingStatus.text = "Recorded — upload failed, will retry on save"
+                android.util.Log.e("DisputeUpload", "Upload exception", e)
+                tvDisputeRecordingStatus.text = "Upload error: ${e.javaClass.simpleName} — will retry on save"
                 tvDisputeRecordingStatus.setTextColor(android.graphics.Color.parseColor("#F59E0B"))
                 SurveySession.formData["dispute_recording_uri"] = videoFile.absolutePath
             }
@@ -368,6 +379,14 @@ class CLSFormFragment : Fragment() {
         lblLossPct           = v.findViewById(R.id.lbl_loss_pct)
         lblRecoveryRate      = v.findViewById(R.id.lbl_recovery_rate)
         lblOnfieldCondition  = v.findViewById(R.id.lbl_onfield_condition)
+        lblFarmerAvailable   = v.findViewById(R.id.lbl_farmer_available)
+        lblRelationWithFarmer = v.findViewById(R.id.lbl_relation_with_farmer)
+        lblRepresentativeName = v.findViewById(R.id.lbl_representative_name)
+        lblRepresentativeMobile = v.findViewById(R.id.lbl_representative_mobile)
+        lblPostHarvest       = v.findViewById(R.id.lbl_post_harvest)
+        lblHarvestDate       = v.findViewById(R.id.lbl_harvest_date)
+        lblCropSituationField = v.findViewById(R.id.lbl_crop_situation_field)
+        lblDisputeIfAny      = v.findViewById(R.id.lbl_dispute_if_any)
         lblOfficerName       = v.findViewById(R.id.lbl_officer_name)
         lblOfficerMobile     = v.findViewById(R.id.lbl_officer_mobile)
         lblOfficerDesignation = v.findViewById(R.id.lbl_officer_designation)
@@ -410,6 +429,10 @@ class CLSFormFragment : Fragment() {
         updateFieldUi(etFarmerName,       lblFarmerName,     R.id.frame_et_farmer_name)
         updateFieldUi(etFarmerMobile,     lblFarmerMobile,   R.id.frame_et_farmer_mobile)
         updateFieldUi(etFarmerAppNo,      lblFarmerAppNo,    R.id.frame_et_farmer_app_no)
+        updateSpinnerUi(spFarmerAvailable, lblFarmerAvailable, R.id.frame_sp_farmer_available)
+        updateFieldUi(etRelationWithFarmer, lblRelationWithFarmer, R.id.frame_et_relation_with_farmer)
+        updateFieldUi(etRepresentativeName, lblRepresentativeName, R.id.frame_et_representative_name)
+        updateFieldUi(etRepresentativeMobile, lblRepresentativeMobile, R.id.frame_et_representative_mobile)
         updateFieldUi(etSurveyDate,       lblSurveyDate,     R.id.frame_et_survey_date)
         updateFieldUi(etSowingDate,       lblSowingDate,     R.id.frame_et_sowing_date)
         updateFieldUi(etDateOfIntimation, lblDateOfIntimation, R.id.frame_et_date_of_intimation)
@@ -417,6 +440,9 @@ class CLSFormFragment : Fragment() {
         updateSpinnerUi(spCauseOfEvent,   lblCauseOfEvent,   R.id.frame_sp_cause_of_event)
         updateSpinnerUi(spCropStage,      lblCropStage,      R.id.frame_sp_crop_stage)
         updateSpinnerUi(spCroppingPattern, lblCroppingPattern, R.id.frame_sp_cropping_pattern)
+        updateSpinnerUi(spPostHarvest,    lblPostHarvest,    R.id.frame_sp_post_harvest)
+        updateFieldUi(etHarvestDate,      lblHarvestDate,    R.id.frame_et_harvest_date)
+        updateSpinnerUi(spCropSituationField, lblCropSituationField, R.id.frame_sp_crop_situation_field)
         updateFieldUi(etKhasraNo,         lblKhasraNo,       R.id.frame_et_khasra_no)
         updateFieldUi(etTotalLandArea,    lblTotalLandArea,  R.id.frame_et_total_land_area)
         updateFieldUi(etInsuredArea,      lblInsuredArea,    R.id.frame_et_insured_area)
@@ -428,6 +454,7 @@ class CLSFormFragment : Fragment() {
         updateFieldUi(etOfficerMobile,    lblOfficerMobile,  R.id.frame_et_officer_mobile)
         updateFieldUi(etOfficerDesignation, lblOfficerDesignation, R.id.frame_et_officer_designation)
         updateFieldUi(etRemarks,          lblRemarks,        R.id.frame_et_remarks)
+        updateSpinnerUi(spDisputeIfAny,   lblDisputeIfAny,   R.id.frame_sp_dispute_if_any)
     }
 
     // ─────────────────────────────────────────────────────────────────
