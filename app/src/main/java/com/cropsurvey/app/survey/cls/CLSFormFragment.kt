@@ -20,10 +20,17 @@ import androidx.lifecycle.lifecycleScope
 import com.cropsurvey.app.R
 import com.cropsurvey.app.config.AppConfig
 import com.cropsurvey.app.i18n.TranslatedDropdown
+import com.cropsurvey.app.models.CapturedPhoto
 import com.cropsurvey.app.network.ApiClient
 import com.cropsurvey.app.utils.GpsHelper
 import com.cropsurvey.app.utils.SurveySession
 import kotlinx.coroutines.launch
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
+import java.io.File
+import java.text.SimpleDateFormat
 import java.util.*
 import com.cropsurvey.app.guide.AiGuideOverlay
 
@@ -165,12 +172,76 @@ class CLSFormFragment : Fragment() {
         if (result.resultCode == android.app.Activity.RESULT_OK) {
             val uri = result.data?.data ?: disputeRecordingUri
             if (uri != null) {
-                SurveySession.formData["dispute_recording_uri"] = uri.toString()
-                tvDisputeRecordingStatus.text = "Recorded ✓"
-                tvDisputeRecordingStatus.setTextColor(android.graphics.Color.parseColor("#16A34A"))
+                tvDisputeRecordingStatus.text = "Uploading…"
+                tvDisputeRecordingStatus.setTextColor(android.graphics.Color.parseColor("#2563EB"))
+                uploadDisputeRecording(uri)
             }
         } else {
             Toast.makeText(requireContext(), "Recording cancelled", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    /**
+     * Copies the recorded video to a local file, then uploads it through the
+     * same surveys/{id}/photos pipeline used for photos — stamped with the
+     * survey's GPS coords and the capture timestamp — so it shows up in the
+     * Photos tab/count and can be played back on the review dashboard.
+     */
+    private fun uploadDisputeRecording(uri: Uri) {
+        val surveyId = etSurveyId.text?.toString()?.takeIf { it.isNotEmpty() }
+            ?: SurveySession.currentSurveyId
+            ?: SurveySession.formData["survey_id"]?.toString()
+        if (surveyId == null) {
+            tvDisputeRecordingStatus.text = "Recorded (will upload on save)"
+            tvDisputeRecordingStatus.setTextColor(android.graphics.Color.parseColor("#94A3B8"))
+            SurveySession.formData["dispute_recording_uri"] = uri.toString()
+            return
+        }
+
+        lifecycleScope.launch {
+            try {
+                val videoDir = File(requireContext().filesDir, "survey_videos").also { it.mkdirs() }
+                val outFile = File(videoDir, "dispute_${System.currentTimeMillis()}.mp4")
+                requireContext().contentResolver.openInputStream(uri)?.use { input ->
+                    outFile.outputStream().use { output -> input.copyTo(output) }
+                }
+
+                val lat = (SurveySession.formData["capture_lat"] as? Double) ?: 0.0
+                val lon = (SurveySession.formData["capture_lon"] as? Double) ?: 0.0
+                val capturedAt = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault()).format(Date())
+
+                val videoPart = MultipartBody.Part.createFormData(
+                    "photo", outFile.name, outFile.asRequestBody("video/mp4".toMediaType())
+                )
+                val res = ApiClient.service.uploadPhoto(
+                    surveyId   = surveyId,
+                    photo      = videoPart,
+                    photoKey   = "dispute_recording".toRequestBody("text/plain".toMediaType()),
+                    label      = getString(R.string.field_dispute_recording).toRequestBody("text/plain".toMediaType()),
+                    lat        = lat.toString().toRequestBody("text/plain".toMediaType()),
+                    lon        = lon.toString().toRequestBody("text/plain".toMediaType()),
+                    accuracy   = "0".toRequestBody("text/plain".toMediaType()),
+                    capturedAt = capturedAt.toRequestBody("text/plain".toMediaType())
+                )
+
+                if (res.isSuccessful) {
+                    SurveySession.addCapturedPhoto(
+                        CapturedPhoto("dispute_recording", outFile.absolutePath, lat, lon, 0f, uploaded = true)
+                    )
+                    SurveySession.formData["dispute_recording_uri"] = uri.toString()
+                    tvDisputeRecordingStatus.text = "Recorded & uploaded ✓"
+                    tvDisputeRecordingStatus.setTextColor(android.graphics.Color.parseColor("#16A34A"))
+                } else {
+                    tvDisputeRecordingStatus.text = "Recorded — upload failed, will retry on save"
+                    tvDisputeRecordingStatus.setTextColor(android.graphics.Color.parseColor("#F59E0B"))
+                    SurveySession.formData["dispute_recording_uri"] = uri.toString()
+                }
+                (activity as? com.cropsurvey.app.survey.SurveyTabsActivity)?.refreshPhotoCount()
+            } catch (e: Exception) {
+                tvDisputeRecordingStatus.text = "Recorded — upload failed, will retry on save"
+                tvDisputeRecordingStatus.setTextColor(android.graphics.Color.parseColor("#F59E0B"))
+                SurveySession.formData["dispute_recording_uri"] = uri.toString()
+            }
         }
     }
 
