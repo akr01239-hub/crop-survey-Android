@@ -171,6 +171,7 @@
     <string name="field_harvest_date">Harvest Date</string>
     <string name="field_crop_situation_field">Crop Situation on Field</string>
     <string name="field_dispute_if_any">Dispute If Any</string>
+    <string name="field_other_cause">Specify Cause of Event</string>
     <string name="field_dispute_recording">Dispute Recording (Audio/Video, 30 sec)</string>
     <string name="unit_gp_np">GP/NP</string>
     <string name="yes">Yes</string>

@@ -23,6 +23,9 @@ import com.cropsurvey.app.survey.cls.CLSFormFragment
 import com.cropsurvey.app.utils.SurveySession
 import com.cropsurvey.app.guide.AiGuideOverlay
 import kotlinx.coroutines.Job
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
@@ -439,7 +442,8 @@ class SurveyTabsActivity : BaseActivity() {
                     tvSyncStatus.setTextColor(android.graphics.Color.parseColor("#D97706"))
                 }
                 "synced" -> {
-                    tvSyncStatus.text = "● Synced"
+                    val time = SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(Date())
+                    tvSyncStatus.text = "● Synced $time"
                     tvSyncStatus.setTextColor(android.graphics.Color.parseColor("#16A34A"))
                 }
                 "offline" -> {

@@ -83,6 +83,8 @@ class CLSFormFragment : Fragment() {
 
     // ── Section 6: Loss Details ───────────────────────────────────
     private lateinit var spCauseOfEvent: Spinner
+    private lateinit var etOtherCause: EditText
+    private lateinit var layoutOtherCause: View
     private lateinit var spCropStage: Spinner
     private lateinit var spCroppingPattern: Spinner
     private lateinit var spPostHarvest: Spinner
@@ -135,6 +137,7 @@ class CLSFormFragment : Fragment() {
     private lateinit var lblDateOfIntimation: TextView
     private lateinit var lblDateOfLoss: TextView
     private lateinit var lblCauseOfEvent: TextView
+    private lateinit var lblOtherCause: TextView
     private lateinit var lblCropStage: TextView
     private lateinit var lblCroppingPattern: TextView
     private lateinit var lblKhasraNo: TextView
@@ -329,6 +332,8 @@ class CLSFormFragment : Fragment() {
         etDateOfIntimation   = v.findViewById(R.id.et_date_of_intimation)
         etDateOfLoss         = v.findViewById(R.id.et_date_of_loss)
         spCauseOfEvent       = v.findViewById(R.id.sp_cause_of_event)
+        etOtherCause         = v.findViewById(R.id.et_other_cause)
+        layoutOtherCause     = v.findViewById(R.id.layout_other_cause)
         spCropStage          = v.findViewById(R.id.sp_crop_stage)
         spCroppingPattern    = v.findViewById(R.id.sp_cropping_pattern)
         spPostHarvest        = v.findViewById(R.id.sp_post_harvest)
@@ -381,6 +386,7 @@ class CLSFormFragment : Fragment() {
         lblDateOfIntimation  = v.findViewById(R.id.lbl_date_of_intimation)
         lblDateOfLoss        = v.findViewById(R.id.lbl_date_of_loss)
         lblCauseOfEvent      = v.findViewById(R.id.lbl_cause_of_event)
+        lblOtherCause        = v.findViewById(R.id.lbl_other_cause)
         lblCropStage         = v.findViewById(R.id.lbl_crop_stage)
         lblCroppingPattern   = v.findViewById(R.id.lbl_cropping_pattern)
         lblKhasraNo          = v.findViewById(R.id.lbl_khasra_no)
@@ -450,6 +456,7 @@ class CLSFormFragment : Fragment() {
         updateFieldUi(etDateOfIntimation, lblDateOfIntimation, R.id.frame_et_date_of_intimation)
         updateFieldUi(etDateOfLoss,       lblDateOfLoss,     R.id.frame_et_date_of_loss)
         updateSpinnerUi(spCauseOfEvent,   lblCauseOfEvent,   R.id.frame_sp_cause_of_event)
+        updateFieldUi(etOtherCause,       lblOtherCause,     R.id.frame_et_other_cause)
         updateSpinnerUi(spCropStage,      lblCropStage,      R.id.frame_sp_crop_stage)
         updateSpinnerUi(spCroppingPattern, lblCroppingPattern, R.id.frame_sp_cropping_pattern)
         updateSpinnerUi(spPostHarvest,    lblPostHarvest,    R.id.frame_sp_post_harvest)
@@ -576,6 +583,7 @@ class CLSFormFragment : Fragment() {
         etGramPanchayat.addTextChangedListener(watcher(2))
         etSurveyIntimationNo.addTextChangedListener(watcher(3))
         etOtherCrop.addTextChangedListener(watcher(3))
+        etOtherCause.addTextChangedListener(watcher(6))
         etFarmerName.addTextChangedListener(watcher(4))
         etFarmerMobile.addTextChangedListener(watcher(4))
         etFarmerAppNo.addTextChangedListener(watcher(4))
@@ -645,7 +653,13 @@ class CLSFormFragment : Fragment() {
             }
             override fun onNothingSelected(p: AdapterView<*>?) {}
         })
-        spCauseOfEvent.onItemSelectedListener  = spinnerListener(6)
+        spCauseOfEvent.onItemSelectedListener = spinnerListener(6, object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p: AdapterView<*>?, v: View?, pos: Int, id: Long) {
+                layoutOtherCause.visibility =
+                    if (tdCauseEvent.getOrNull(pos - 1)?.code in listOf("Other", "Others")) View.VISIBLE else View.GONE
+            }
+            override fun onNothingSelected(p: AdapterView<*>?) {}
+        })
         spCropStage.onItemSelectedListener     = spinnerListener(6)
         spCroppingPattern.onItemSelectedListener = spinnerListener(6)
         spPostHarvest.onItemSelectedListener = spinnerListener(6, object : AdapterView.OnItemSelectedListener {
@@ -719,6 +733,7 @@ class CLSFormFragment : Fragment() {
                 && etDateOfLoss.text.isNotBlank()
         // S6: cause_of_event, crop_stage, cropping_pattern, post_harvest (+harvest fields), khasra_no, field_area, total_land, insured_area, area_affected, loss_pct, recovery_rate, onfield_condition
         6 -> spCauseOfEvent.selectedItemPosition > 0
+                && (tdCauseEvent.getOrNull(spCauseOfEvent.selectedItemPosition - 1)?.code !in listOf("Other", "Others") || etOtherCause.text.isNotBlank())
                 && spCropStage.selectedItemPosition > 0
                 && spCroppingPattern.selectedItemPosition > 0
                 && spPostHarvest.selectedItemPosition > 0
@@ -1015,6 +1030,7 @@ class CLSFormFragment : Fragment() {
         tdRestore(spCropName, tdCrops, fd["crop_name"]?.toString())
         tdRestore(spInsuranceUnit, tdInsurance, fd["insurance_unit"]?.toString())
         tdRestore(spCauseOfEvent, tdCauseEvent, fd["cause_of_event"]?.toString())
+        etOtherCause.setText(fd["other_cause"]?.toString() ?: "")
         tdRestore(spCropStage, tdCropStages, fd["crop_stage"]?.toString())
         tdRestore(spCroppingPattern, tdCropPattern, fd["cropping_pattern"]?.toString())
         tdRestore(spOnfieldCondition, tdOnfield, fd["onfield_condition"]?.toString())
@@ -1027,6 +1043,7 @@ class CLSFormFragment : Fragment() {
         // Apply conditional visibility based on restored values
         layoutOtherScheme.visibility = if (fd["scheme"]?.toString() == "Others") View.VISIBLE else View.GONE
         layoutOtherCrop.visibility = if (fd["crop_name"]?.toString() in listOf("Others", "Other")) View.VISIBLE else View.GONE
+        layoutOtherCause.visibility = if (fd["cause_of_event"]?.toString() in listOf("Other", "Others")) View.VISIBLE else View.GONE
         layoutFarmerUnavailable.visibility = if (fd["farmer_available"]?.toString() == "no") View.VISIBLE else View.GONE
         layoutPostHarvest.visibility = if (fd["post_harvest"]?.toString() == "yes") View.VISIBLE else View.GONE
         layoutDisputeRecording.visibility = if (fd["dispute_if_any"]?.toString() == "yes") View.VISIBLE else View.GONE
@@ -1143,6 +1160,7 @@ class CLSFormFragment : Fragment() {
             "date_of_intimation"       to etDateOfIntimation.text.toString().takeIf { it.isNotEmpty() },
             "date_of_loss"             to etDateOfLoss.text.toString().takeIf { it.isNotEmpty() },
             "cause_of_event"           to tdCode(tdCauseEvent, spCauseOfEvent.selectedItemPosition - 1),
+            "other_cause"              to etOtherCause.text.toString().takeIf { it.isNotEmpty() },
             "crop_stage"               to tdCode(tdCropStages, spCropStage.selectedItemPosition - 1),
             "cropping_pattern"         to tdCode(tdCropPattern, spCroppingPattern.selectedItemPosition - 1),
             "post_harvest"             to tdCode(tdYesNo, spPostHarvest.selectedItemPosition - 1),
@@ -1204,6 +1222,7 @@ class CLSFormFragment : Fragment() {
             "date_of_intimation"       to etDateOfIntimation.text.toString().takeIf { it.isNotEmpty() },
             "date_of_loss"             to etDateOfLoss.text.toString().takeIf { it.isNotEmpty() },
             "cause_of_event"           to tdCode(tdCauseEvent, spCauseOfEvent.selectedItemPosition - 1),
+            "other_cause"              to etOtherCause.text.toString().takeIf { it.isNotEmpty() },
             "crop_stage"               to tdCode(tdCropStages, spCropStage.selectedItemPosition - 1),
             "cropping_pattern"         to tdCode(tdCropPattern, spCroppingPattern.selectedItemPosition - 1),
             "post_harvest"             to tdCode(tdYesNo, spPostHarvest.selectedItemPosition - 1),
