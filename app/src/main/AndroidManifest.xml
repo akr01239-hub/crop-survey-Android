@@ -112,6 +112,9 @@
         <activity android:name=".camera.PhotoCaptureActivity"
             android:screenOrientation="portrait" />
 
+        <activity android:name=".camera.VideoCaptureActivity"
+            android:screenOrientation="portrait" />
+
         <activity android:name=".survey.SubmitSurveyActivity"
             android:screenOrientation="portrait" />
 

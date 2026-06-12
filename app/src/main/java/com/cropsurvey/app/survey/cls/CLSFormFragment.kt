@@ -2,11 +2,8 @@ package com.cropsurvey.app.survey.cls
 
 
 import android.app.DatePickerDialog
-import android.content.ContentValues
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -164,17 +161,15 @@ class CLSFormFragment : Fragment() {
     private var subDistricts = listOf<String>()
     private var isRestoring  = false
 
-    private var disputeRecordingUri: Uri? = null
-
     private val recordDisputeLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
         if (result.resultCode == android.app.Activity.RESULT_OK) {
-            val uri = result.data?.data ?: disputeRecordingUri
-            if (uri != null) {
+            val path = result.data?.getStringExtra(com.cropsurvey.app.camera.VideoCaptureActivity.EXTRA_RESULT_PATH)
+            if (path != null) {
                 tvDisputeRecordingStatus.text = "Uploading…"
                 tvDisputeRecordingStatus.setTextColor(android.graphics.Color.parseColor("#2563EB"))
-                uploadDisputeRecording(uri)
+                uploadDisputeRecording(File(path))
             }
         } else {
             Toast.makeText(requireContext(), "Recording cancelled", Toast.LENGTH_SHORT).show()
@@ -182,29 +177,30 @@ class CLSFormFragment : Fragment() {
     }
 
     /**
-     * Copies the recorded video to a local file, then uploads it through the
-     * same surveys/{id}/photos pipeline used for photos — stamped with the
-     * survey's GPS coords and the capture timestamp — so it shows up in the
-     * Photos tab/count and can be played back on the review dashboard.
+     * Uploads the recorded video through the same surveys/{id}/photos
+     * pipeline used for photos — stamped with the survey's GPS coords and
+     * the capture timestamp — so it shows up in the Photos tab/count and can
+     * be played back on the review dashboard.
      */
-    private fun uploadDisputeRecording(uri: Uri) {
+    private fun uploadDisputeRecording(videoFile: File) {
         val surveyId = etSurveyId.text?.toString()?.takeIf { it.isNotEmpty() }
             ?: SurveySession.currentSurveyId
             ?: SurveySession.formData["survey_id"]?.toString()
         if (surveyId == null) {
             tvDisputeRecordingStatus.text = "Recorded (will upload on save)"
             tvDisputeRecordingStatus.setTextColor(android.graphics.Color.parseColor("#94A3B8"))
-            SurveySession.formData["dispute_recording_uri"] = uri.toString()
+            SurveySession.formData["dispute_recording_uri"] = videoFile.absolutePath
             return
         }
 
+        val disputeLabel = getString(R.string.field_dispute_recording)
         lifecycleScope.launch {
             try {
+                // Move from cache to filesDir so it survives cache cleanup until uploaded.
                 val videoDir = File(requireContext().filesDir, "survey_videos").also { it.mkdirs() }
-                val outFile = File(videoDir, "dispute_${System.currentTimeMillis()}.mp4")
-                requireContext().contentResolver.openInputStream(uri)?.use { input ->
-                    outFile.outputStream().use { output -> input.copyTo(output) }
-                }
+                val outFile = File(videoDir, videoFile.name)
+                videoFile.copyTo(outFile, overwrite = true)
+                videoFile.delete()
 
                 val lat = (SurveySession.formData["capture_lat"] as? Double) ?: 0.0
                 val lon = (SurveySession.formData["capture_lon"] as? Double) ?: 0.0
@@ -217,7 +213,7 @@ class CLSFormFragment : Fragment() {
                     surveyId   = surveyId,
                     photo      = videoPart,
                     photoKey   = "dispute_recording".toRequestBody("text/plain".toMediaType()),
-                    label      = getString(R.string.field_dispute_recording).toRequestBody("text/plain".toMediaType()),
+                    label      = disputeLabel.toRequestBody("text/plain".toMediaType()),
                     lat        = lat.toString().toRequestBody("text/plain".toMediaType()),
                     lon        = lon.toString().toRequestBody("text/plain".toMediaType()),
                     accuracy   = "0".toRequestBody("text/plain".toMediaType()),
@@ -228,43 +224,26 @@ class CLSFormFragment : Fragment() {
                     SurveySession.addCapturedPhoto(
                         CapturedPhoto("dispute_recording", outFile.absolutePath, lat, lon, 0f, uploaded = true)
                     )
-                    SurveySession.formData["dispute_recording_uri"] = uri.toString()
+                    SurveySession.formData["dispute_recording_uri"] = outFile.absolutePath
                     tvDisputeRecordingStatus.text = "Recorded & uploaded ✓"
                     tvDisputeRecordingStatus.setTextColor(android.graphics.Color.parseColor("#16A34A"))
                 } else {
                     tvDisputeRecordingStatus.text = "Recorded — upload failed, will retry on save"
                     tvDisputeRecordingStatus.setTextColor(android.graphics.Color.parseColor("#F59E0B"))
-                    SurveySession.formData["dispute_recording_uri"] = uri.toString()
+                    SurveySession.formData["dispute_recording_uri"] = outFile.absolutePath
                 }
                 (activity as? com.cropsurvey.app.survey.SurveyTabsActivity)?.refreshPhotoCount()
             } catch (e: Exception) {
                 tvDisputeRecordingStatus.text = "Recorded — upload failed, will retry on save"
                 tvDisputeRecordingStatus.setTextColor(android.graphics.Color.parseColor("#F59E0B"))
-                SurveySession.formData["dispute_recording_uri"] = uri.toString()
+                SurveySession.formData["dispute_recording_uri"] = videoFile.absolutePath
             }
         }
     }
 
     private fun launchDisputeRecording() {
-        val values = ContentValues().apply {
-            put(MediaStore.Video.Media.DISPLAY_NAME, "dispute_${System.currentTimeMillis()}.mp4")
-            put(MediaStore.Video.Media.MIME_TYPE, "video/mp4")
-        }
-        val uri = requireContext().contentResolver.insert(
-            MediaStore.Video.Media.EXTERNAL_CONTENT_URI, values
-        )
-        disputeRecordingUri = uri
-        val intent = Intent(MediaStore.ACTION_VIDEO_CAPTURE).apply {
-            putExtra(MediaStore.EXTRA_DURATION_LIMIT, 30) // 30-second cap
-            putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 1)
-            if (uri != null) putExtra(MediaStore.EXTRA_OUTPUT, uri)
-            addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
-        }
-        try {
-            recordDisputeLauncher.launch(intent)
-        } catch (e: Exception) {
-            Toast.makeText(requireContext(), "No camera app available for recording", Toast.LENGTH_SHORT).show()
-        }
+        val intent = Intent(requireContext(), com.cropsurvey.app.camera.VideoCaptureActivity::class.java)
+        recordDisputeLauncher.launch(intent)
     }
     private val colorGreen get() = ContextCompat.getColor(requireContext(), R.color.primary)
     private val colorGrey = 0xFF64748B.toInt()

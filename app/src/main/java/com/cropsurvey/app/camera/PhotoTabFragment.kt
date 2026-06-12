@@ -98,6 +98,8 @@ class PhotoTabFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        requirements = AppConfig.getPhotosForType(requireContext(), surveyType)
+        adapter.updateRequirements(requirements)
         adapter.notifyDataSetChanged()
         refreshSubtitle()
     }
@@ -115,9 +117,13 @@ class PhotoTabFragment : Fragment() {
 
     // ── Adapter ───────────────────────────────────────────────────────────────
     inner class PhotoListAdapter(
-        private val items: List<PhotoRequirement>,
+        private var items: List<PhotoRequirement>,
         private val onCapture: (Int) -> Unit
     ) : RecyclerView.Adapter<PhotoListAdapter.VH>() {
+
+        fun updateRequirements(newItems: List<PhotoRequirement>) {
+            items = newItems
+        }
 
         inner class VH(view: View) : RecyclerView.ViewHolder(view) {
             val tvIndex:       TextView  = view.findViewById(R.id.tv_photo_index)
