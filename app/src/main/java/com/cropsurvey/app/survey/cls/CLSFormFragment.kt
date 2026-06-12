@@ -19,6 +19,7 @@ import com.cropsurvey.app.config.AppConfig
 import com.cropsurvey.app.i18n.TranslatedDropdown
 import com.cropsurvey.app.models.CapturedPhoto
 import com.cropsurvey.app.network.ApiClient
+import com.cropsurvey.app.queue.QueueManager
 import com.cropsurvey.app.utils.GpsHelper
 import com.cropsurvey.app.utils.SurveySession
 import kotlinx.coroutines.launch
@@ -240,16 +241,26 @@ class CLSFormFragment : Fragment() {
                 } else {
                     val errBody = try { res.errorBody()?.string() } catch (_: Exception) { null }
                     android.util.Log.e("DisputeUpload", "HTTP ${res.code()} ${res.message()}: $errBody")
-                    tvDisputeRecordingStatus.text = "Upload failed (HTTP ${res.code()}) — will retry on save"
+                    tvDisputeRecordingStatus.text = "Upload failed (HTTP ${res.code()}) — retrying automatically"
                     tvDisputeRecordingStatus.setTextColor(android.graphics.Color.parseColor("#F59E0B"))
                     SurveySession.formData["dispute_recording_uri"] = outFile.absolutePath
+                    QueueManager.enqueuePhoto(
+                        requireContext(), surveyId, "dispute_recording", disputeLabel,
+                        outFile.absolutePath, com.cropsurvey.app.models.GpsCoords(lat, lon)
+                    )
                 }
                 (activity as? com.cropsurvey.app.survey.SurveyTabsActivity)?.refreshPhotoCount()
             } catch (e: Exception) {
                 android.util.Log.e("DisputeUpload", "Upload exception", e)
-                tvDisputeRecordingStatus.text = "Upload error: ${e.javaClass.simpleName} — will retry on save"
+                tvDisputeRecordingStatus.text = "Upload error: ${e.javaClass.simpleName} — retrying automatically"
                 tvDisputeRecordingStatus.setTextColor(android.graphics.Color.parseColor("#F59E0B"))
                 SurveySession.formData["dispute_recording_uri"] = videoFile.absolutePath
+                val lat = (SurveySession.formData["capture_lat"] as? Double) ?: 0.0
+                val lon = (SurveySession.formData["capture_lon"] as? Double) ?: 0.0
+                QueueManager.enqueuePhoto(
+                    requireContext(), surveyId, "dispute_recording", disputeLabel,
+                    videoFile.absolutePath, com.cropsurvey.app.models.GpsCoords(lat, lon)
+                )
             }
         }
     }

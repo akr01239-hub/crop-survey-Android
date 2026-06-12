@@ -131,7 +131,8 @@ object QueueManager {
                             val lon = (item.payload["lon"] as? Double)?.toString() ?: "0"
                             val capturedAt = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault()).format(Date())
 
-                            val photoPart = MultipartBody.Part.createFormData("photo", file.name, file.asRequestBody("image/jpeg".toMediaType()))
+                            val mimeType = if (file.name.endsWith(".mp4", ignoreCase = true)) "video/mp4" else "image/jpeg"
+                            val photoPart = MultipartBody.Part.createFormData("photo", file.name, file.asRequestBody(mimeType.toMediaType()))
                             val res = ApiClient.service.uploadPhoto(
                                 surveyId = item.surveyId,
                                 photo = photoPart,

@@ -421,6 +421,12 @@ class SurveyTabsActivity : BaseActivity() {
                 } catch (e: Exception) {
                     setSyncStatus("offline")
                 }
+                // Retry any queued photo/video uploads & form updates that
+                // failed earlier (network blip, server 500, etc.) so nothing
+                // sits stuck waiting for a manual "Send All" tap.
+                if (QueueManager.getPendingCount(this@SurveyTabsActivity) > 0) {
+                    QueueManager.flush(this@SurveyTabsActivity)
+                }
             }
         }
     }

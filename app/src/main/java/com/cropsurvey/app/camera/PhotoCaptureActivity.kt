@@ -194,9 +194,13 @@ class PhotoCaptureActivity : BaseActivity() {
                 .setTargetAspectRatio(AspectRatio.RATIO_16_9)
                 .build()
                 .also { it.setSurfaceProvider(previewView.surfaceProvider) }
-            // Capture in highest quality — aspect ratio doesn't affect saved image quality
+            // Capture at the SAME 16:9 ratio as the preview, so the captured
+            // photo matches what the user framed (FILL_CENTER preview was
+            // cropping to 16:9 while capture defaulted to 4:3 — causing the
+            // saved photo to look "zoomed out" / show more than was framed).
             imageCapture = ImageCapture.Builder()
                 .setCaptureMode(ImageCapture.CAPTURE_MODE_MAXIMIZE_QUALITY)
+                .setTargetAspectRatio(AspectRatio.RATIO_16_9)
                 .setJpegQuality(AppConfig.PHOTO_QUALITY)
                 .build()
             try { cp.unbindAll(); cp.bindToLifecycle(this, CameraSelector.DEFAULT_BACK_CAMERA, preview, imageCapture) }
@@ -234,6 +238,10 @@ class PhotoCaptureActivity : BaseActivity() {
                     override fun onImageSaved(o: ImageCapture.OutputFileResults) {
                         lifecycleScope.launch {
                             val place = withContext(Dispatchers.IO) { reverseGeocode(this@PhotoCaptureActivity, coords.lat, coords.lon) }
+
+                            // ── Blur check on the RAW captured frame (before watermark) ──
+                            val isBlurry = withContext(Dispatchers.Default) { isImageBlurry(file) }
+
                             val wFile = burnWatermark(file, coords, place)
 
                             // ── Show preview for user to confirm before uploading ──
@@ -255,6 +263,15 @@ class PhotoCaptureActivity : BaseActivity() {
                                 bar.post {
                                     ivPhotoPreview.setImageBitmap(previewBmp)
                                     ivPhotoPreview.visibility = View.VISIBLE
+                                    if (isBlurry) {
+                                        androidx.appcompat.app.AlertDialog.Builder(this@PhotoCaptureActivity)
+                                            .setTitle("Photo looks blurry")
+                                            .setMessage("This photo appears out of focus. Hold the phone steady and try again for a clearer shot.")
+                                            .setCancelable(false)
+                                            .setNegativeButton("Retake") { _, _ -> btnRetake.performClick() }
+                                            .setPositiveButton("Use Anyway", null)
+                                            .show()
+                                    }
                                 }
                             }
 
@@ -539,6 +556,56 @@ class PhotoCaptureActivity : BaseActivity() {
             else QueueManager.enqueuePhoto(this, surveyId, req.key, req.label, file.absolutePath, coords)
         } catch (e: Exception) {
             QueueManager.enqueuePhoto(this, surveyId, req.key, req.label, file.absolutePath, coords)
+        }
+    }
+
+    /**
+     * Cheap blur detection: downscale to a small grayscale bitmap, run a 3x3
+     * Laplacian edge filter, and measure the variance of the result. Sharp
+     * images have high-variance edges; blurry images have low variance.
+     * Threshold tuned conservatively to avoid false positives on legitimately
+     * soft/low-texture subjects (e.g. plain field soil).
+     */
+    private fun isImageBlurry(file: File, threshold: Double = 35.0): Boolean {
+        return try {
+            val opts = BitmapFactory.Options().apply { inSampleSize = 4 } // downscale ~1/4
+            val bmp = BitmapFactory.decodeFile(file.absolutePath, opts) ?: return false
+            val w = bmp.width
+            val h = bmp.height
+            if (w < 9 || h < 9) return false
+
+            // Grayscale pixel buffer
+            val gray = IntArray(w * h)
+            val pixels = IntArray(w * h)
+            bmp.getPixels(pixels, 0, w, 0, 0, w, h)
+            for (i in pixels.indices) {
+                val p = pixels[i]
+                val r = (p shr 16) and 0xFF
+                val g = (p shr 8) and 0xFF
+                val b = p and 0xFF
+                gray[i] = (r * 299 + g * 587 + b * 114) / 1000
+            }
+
+            // 3x3 Laplacian kernel: [0 1 0; 1 -4 1; 0 1 0]
+            var sum = 0.0
+            var sumSq = 0.0
+            var count = 0
+            for (y in 1 until h - 1) {
+                for (x in 1 until w - 1) {
+                    val idx = y * w + x
+                    val lap = (gray[idx - w] + gray[idx + w] + gray[idx - 1] + gray[idx + 1] - 4 * gray[idx]).toDouble()
+                    sum += lap
+                    sumSq += lap * lap
+                    count++
+                }
+            }
+            bmp.recycle()
+            if (count == 0) return false
+            val mean = sum / count
+            val variance = (sumSq / count) - (mean * mean)
+            variance < threshold
+        } catch (e: Exception) {
+            false  // never block capture due to a blur-check failure
         }
     }
 
