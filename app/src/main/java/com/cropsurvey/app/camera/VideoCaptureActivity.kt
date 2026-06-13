@@ -167,7 +167,7 @@ class VideoCaptureActivity : AppCompatActivity() {
                 .also { it.setSurfaceProvider(previewView.surfaceProvider) }
 
             val qualitySelector = QualitySelector.fromOrderedList(
-                listOf(Quality.SD, Quality.LOWEST),
+                listOf(Quality.HD, Quality.SD, Quality.LOWEST),
                 FallbackStrategy.lowerQualityOrHigherThan(Quality.SD)
             )
             val recorder = Recorder.Builder()
@@ -246,48 +246,61 @@ class VideoCaptureActivity : AppCompatActivity() {
                 )
             val place = latestPlace.ifEmpty { GeoTagOverlay.reverseGeocode(this@VideoCaptureActivity, coords.lat, coords.lon) }
 
-            // Get frame width from the recorded file - the stamp PNG is
-            // rendered at this width so it spans the full video width,
-            // matching the photo watermark proportions exactly.
+            // Read actual recorded frame dimensions - CameraX SD/LOWEST may
+            // record portrait 480x640 or landscape 640x480 depending on device.
             val extractor = android.media.MediaExtractor()
             extractor.setDataSource(originalFile.absolutePath)
             var videoW = 1080
+            var videoH = 1920
             for (i in 0 until extractor.trackCount) {
                 val fmt = extractor.getTrackFormat(i)
                 if (fmt.getString(android.media.MediaFormat.KEY_MIME)?.startsWith("video/") == true) {
                     videoW = fmt.getInteger(android.media.MediaFormat.KEY_WIDTH)
+                    videoH = fmt.getInteger(android.media.MediaFormat.KEY_HEIGHT)
                     break
                 }
             }
             extractor.release()
 
-            // Same GeoTagOverlay used for photo watermarks - single source of
-            // truth, so any change to the photo stamp automatically applies here.
+            // h264_mediacodec requires even dimensions - snap down to nearest 2.
+            val encW = if (videoW % 2 == 0) videoW else videoW - 1
+            val encH = if (videoH % 2 == 0) videoH else videoH - 1
+
+            // Render stamp at actual video width so it spans edge-to-edge.
             val survId = SurveySession.currentSurveyId ?: ""
-            val stampBmp = GeoTagOverlay.renderStampBitmap(videoW, coords, place, survId)
-            val stampPng = File(cacheDir, "stamp_${originalFile.name}.png")
-            FileOutputStream(stampPng).use { fos -> stampBmp.compress(Bitmap.CompressFormat.PNG, 100, fos) }
+            val stampBmp = GeoTagOverlay.renderStampBitmap(encW, coords, place, survId)
+            // Add bottom padding so FFmpeg overlay doesn't clip the last row.
+            val padPx = (encW * 0.006f).toInt().coerceAtLeast(4)
+            val paddedBmp = android.graphics.Bitmap.createBitmap(encW, stampBmp.height + padPx, android.graphics.Bitmap.Config.ARGB_8888)
+            android.graphics.Canvas(paddedBmp).drawBitmap(stampBmp, 0f, 0f, null)
             stampBmp.recycle()
+
+            val stampPng = File(cacheDir, "stamp_${originalFile.name}.png")
+            FileOutputStream(stampPng).use { fos -> paddedBmp.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, fos) }
+            paddedBmp.recycle()
 
             val stampedFile = File(cacheDir, "stamped_${originalFile.name}")
             if (stampedFile.exists()) stampedFile.delete()
 
-            // Overlay the stamp PNG at the bottom-left of every frame (matching
-            // GeoTagOverlay's own bottom-anchored layout), re-encode video,
-            // copy audio through unchanged.
+            // Scale video to even dimensions if needed (h264_mediacodec strict
+            // requirement), then overlay stamp at bottom-left of every frame.
             //
             // Encoder priority:
-            //   1. h264_mediacodec — Android hardware H.264 (always present on
-            //      device, zero-license, produces browser-compatible H.264).
-            //   2. mpeg4 — pure-software fallback if MediaCodec surface mode
-            //      fails (rare); less browser-compatible but never lost.
+            //   1. h264_mediacodec - Android hardware H.264 (always present,
+            //      zero-license, browser-compatible H.264 output).
+            //   2. mpeg4 - software fallback for rare surface-init failures.
+            val scaleFilter = if (encW != videoW || encH != videoH)
+                "[0:v]scale=${encW}:${encH}[scaled];[scaled][1:v]"
+            else
+                "[0:v][1:v]"
+
             fun buildCmd(encoder: String): Array<String> {
                 val extra = if (encoder == "h264_mediacodec") arrayOf("-level", "3.1") else arrayOf("-q:v", "5")
                 return arrayOf(
                     "-y",
                     "-i", originalFile.absolutePath,
                     "-i", stampPng.absolutePath,
-                    "-filter_complex", "[0:v][1:v] overlay=0:main_h-overlay_h:format=auto,format=yuv420p[outv]",
+                    "-filter_complex", "${scaleFilter} overlay=0:main_h-overlay_h:format=auto,format=yuv420p[outv]",
                     "-map", "[outv]",
                     "-map", "0:a?",
                     "-c:v", encoder, *extra,
