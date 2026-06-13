@@ -5,11 +5,18 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
 import android.widget.ImageButton
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.cropsurvey.app.utils.GpsHelper
+import com.cropsurvey.app.utils.SurveySession
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import androidx.camera.core.CameraSelector
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.video.FallbackStrategy
@@ -157,10 +164,16 @@ class VideoCaptureActivity : AppCompatActivity() {
                         isRecording = false
                         handler.removeCallbacks(tickRunnable)
                         if (!event.hasError()) {
-                            val resultIntent = android.content.Intent()
-                            resultIntent.putExtra(EXTRA_RESULT_PATH, outFile.absolutePath)
-                            setResult(RESULT_OK, resultIntent)
-                            finish()
+                            tvStatus.text = "Adding authenticity stamp…"
+                            progressBar.visibility = View.VISIBLE
+                            btnRecord.isEnabled = false
+                            lifecycleScope.launch {
+                                val finalPath = stampAndGetPath(outFile)
+                                val resultIntent = android.content.Intent()
+                                resultIntent.putExtra(EXTRA_RESULT_PATH, finalPath)
+                                setResult(RESULT_OK, resultIntent)
+                                finish()
+                            }
                         } else {
                             Toast.makeText(this, "Recording failed: ${event.error}", Toast.LENGTH_SHORT).show()
                             tvStatus.text = "Tap to start recording (30 sec)"
@@ -171,6 +184,47 @@ class VideoCaptureActivity : AppCompatActivity() {
                     else -> {}
                 }
             }
+    }
+
+    /**
+     * Burns a GPS/timestamp/employee-ID stamp into the recorded video.
+     * On any failure (unsupported codec, low memory, etc.) falls back to the
+     * original unstamped file so the recording is never lost.
+     */
+    private suspend fun stampAndGetPath(originalFile: File): String = withContext(Dispatchers.Default) {
+        try {
+            val coords = GpsHelper.getCurrentLocation(this@VideoCaptureActivity)
+                ?: com.cropsurvey.app.models.GpsCoords(
+                    (SurveySession.formData["capture_lat"] as? Double) ?: 0.0,
+                    (SurveySession.formData["capture_lon"] as? Double) ?: 0.0
+                )
+            val place = StampUtils.reverseGeocode(this@VideoCaptureActivity, coords.lat, coords.lon)
+            val empId = SurveySession.employeeId.ifEmpty { "—" }
+            val caseId = SurveySession.currentCaseId.ifEmpty { "—" }
+
+            // Get frame dimensions from the recorded file to size the overlay correctly
+            val extractor = android.media.MediaExtractor()
+            extractor.setDataSource(originalFile.absolutePath)
+            var w = 1280; var h = 720
+            for (i in 0 until extractor.trackCount) {
+                val fmt = extractor.getTrackFormat(i)
+                if (fmt.getString(android.media.MediaFormat.KEY_MIME)?.startsWith("video/") == true) {
+                    w = fmt.getInteger(android.media.MediaFormat.KEY_WIDTH)
+                    h = fmt.getInteger(android.media.MediaFormat.KEY_HEIGHT)
+                    break
+                }
+            }
+            extractor.release()
+
+            val stampBmp = StampUtils.createVideoStampBitmap(w, h, coords, place, empId, caseId)
+            val stampedFile = File(cacheDir, "stamped_${originalFile.name}")
+            VideoStampTranscoder.stampVideo(originalFile, stampedFile, stampBmp)
+            originalFile.delete()
+            stampedFile.absolutePath
+        } catch (e: Exception) {
+            android.util.Log.e("VideoStamp", "Stamping failed, using unstamped video", e)
+            originalFile.absolutePath
+        }
     }
 
     private fun stopRecording(cancelled: Boolean = false) {
