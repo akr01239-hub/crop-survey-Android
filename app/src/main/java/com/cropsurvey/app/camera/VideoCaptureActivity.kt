@@ -2,10 +2,13 @@ package com.cropsurvey.app.camera
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
@@ -23,8 +26,17 @@ import androidx.camera.video.VideoRecordEvent
 import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
+import com.arthenica.ffmpegkit.FFmpegKit
+import com.arthenica.ffmpegkit.ReturnCode
 import com.cropsurvey.app.R
+import com.cropsurvey.app.utils.GpsHelper
+import com.cropsurvey.app.utils.SurveySession
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.File
+import java.io.FileOutputStream
 
 /**
  * Records a short (max 30s) video using the same in-app CameraX camera used
@@ -48,6 +60,14 @@ class VideoCaptureActivity : AppCompatActivity() {
     private lateinit var tvTimer: TextView
     private lateinit var tvStatus: TextView
     private lateinit var progressBar: ProgressBar
+    private lateinit var ivStampOverlay: ImageView
+
+    // Latest GPS fix + reverse-geocoded place, refreshed every ~2s while the
+    // camera is open and shown live via GeoTagOverlay (same as photo capture).
+    // The values current when recording finishes are what get burned into the
+    // exported video via FFmpeg.
+    private var latestCoords: com.cropsurvey.app.models.GpsCoords? = null
+    private var latestPlace: String = ""
 
     private var videoCapture: VideoCapture<Recorder>? = null
     private var activeRecording: Recording? = null
@@ -79,6 +99,8 @@ class VideoCaptureActivity : AppCompatActivity() {
         tvTimer     = findViewById(R.id.tv_timer)
         tvStatus    = findViewById(R.id.tv_status)
         progressBar = findViewById(R.id.progress_bar)
+        ivStampOverlay = findViewById(R.id.iv_stamp_overlay)
+        startLiveGeoTagUpdates()
 
         btnClose.setOnClickListener {
             if (isRecording) stopRecording(cancelled = true)
@@ -105,6 +127,32 @@ class VideoCaptureActivity : AppCompatActivity() {
             Toast.makeText(this, "Camera and microphone permission required to record", Toast.LENGTH_LONG).show()
             setResult(RESULT_CANCELED)
             finish()
+        }
+    }
+
+    /**
+     * Polls GPS every ~2s and refreshes the live geo-tag overlay using the
+     * SAME GeoTagOverlay engine as PhotoCaptureActivity - visually identical
+     * stamp, kept live while recording. The most recent fix is reused for the
+     * burned-in stamp after recording finishes.
+     */
+    private fun startLiveGeoTagUpdates() {
+        lifecycleScope.launch {
+            while (true) {
+                val coords = GpsHelper.getCurrentLocation(this@VideoCaptureActivity)
+                if (coords != null) {
+                    latestCoords = coords
+                    withContext(Dispatchers.IO) {
+                        try {
+                            val place = GeoTagOverlay.reverseGeocode(this@VideoCaptureActivity, coords.lat, coords.lon)
+                            latestPlace = place
+                            val stampBmp = GeoTagOverlay.renderStampBitmap(1080, coords, place, SurveySession.currentSurveyId ?: "")
+                            runOnUiThread { ivStampOverlay.setImageBitmap(stampBmp) }
+                        } catch (_: Exception) {}
+                    }
+                }
+                kotlinx.coroutines.delay(2000L)
+            }
         }
     }
 
@@ -157,10 +205,17 @@ class VideoCaptureActivity : AppCompatActivity() {
                         isRecording = false
                         handler.removeCallbacks(tickRunnable)
                         if (!event.hasError()) {
-                            val resultIntent = android.content.Intent()
-                            resultIntent.putExtra(EXTRA_RESULT_PATH, outFile.absolutePath)
-                            setResult(RESULT_OK, resultIntent)
-                            finish()
+                            tvStatus.text = "Adding authenticity stamp…"
+                            progressBar.visibility = View.VISIBLE
+                            ivStampOverlay.visibility = View.GONE
+                            btnRecord.isEnabled = false
+                            lifecycleScope.launch {
+                                val finalPath = stampAndGetPath(outFile)
+                                val resultIntent = android.content.Intent()
+                                resultIntent.putExtra(EXTRA_RESULT_PATH, finalPath)
+                                setResult(RESULT_OK, resultIntent)
+                                finish()
+                            }
                         } else {
                             Toast.makeText(this, "Recording failed: ${event.error}", Toast.LENGTH_SHORT).show()
                             tvStatus.text = "Tap to start recording (30 sec)"
@@ -171,6 +226,85 @@ class VideoCaptureActivity : AppCompatActivity() {
                     else -> {}
                 }
             }
+    }
+
+    /**
+     * Burns a GPS/timestamp/employee-ID stamp into the recorded video using
+     * FFmpeg's overlay filter (PNG generated by the same GeoTagOverlay engine
+     * used for photos). Audio and video are otherwise passed through with
+     * standard re-encoding. On any failure, falls back to the original
+     * unstamped file so the recording is never lost.
+     */
+    private suspend fun stampAndGetPath(originalFile: File): String = withContext(Dispatchers.Default) {
+        try {
+            // Reuse the GPS/place from the live overlay the user saw while
+            // recording, falling back to a fresh fetch / form data if unavailable.
+            val coords = latestCoords ?: GpsHelper.getCurrentLocation(this@VideoCaptureActivity)
+                ?: com.cropsurvey.app.models.GpsCoords(
+                    (SurveySession.formData["capture_lat"] as? Double) ?: 0.0,
+                    (SurveySession.formData["capture_lon"] as? Double) ?: 0.0
+                )
+            val place = latestPlace.ifEmpty { GeoTagOverlay.reverseGeocode(this@VideoCaptureActivity, coords.lat, coords.lon) }
+
+            // Get frame width from the recorded file - the stamp PNG is
+            // rendered at this width so it spans the full video width,
+            // matching the photo watermark proportions exactly.
+            val extractor = android.media.MediaExtractor()
+            extractor.setDataSource(originalFile.absolutePath)
+            var videoW = 1080
+            for (i in 0 until extractor.trackCount) {
+                val fmt = extractor.getTrackFormat(i)
+                if (fmt.getString(android.media.MediaFormat.KEY_MIME)?.startsWith("video/") == true) {
+                    videoW = fmt.getInteger(android.media.MediaFormat.KEY_WIDTH)
+                    break
+                }
+            }
+            extractor.release()
+
+            // Same GeoTagOverlay used for photo watermarks - single source of
+            // truth, so any change to the photo stamp automatically applies here.
+            val survId = SurveySession.currentSurveyId ?: ""
+            val stampBmp = GeoTagOverlay.renderStampBitmap(videoW, coords, place, survId)
+            val stampPng = File(cacheDir, "stamp_${originalFile.name}.png")
+            FileOutputStream(stampPng).use { fos -> stampBmp.compress(Bitmap.CompressFormat.PNG, 100, fos) }
+            stampBmp.recycle()
+
+            val stampedFile = File(cacheDir, "stamped_${originalFile.name}")
+            if (stampedFile.exists()) stampedFile.delete()
+
+            // Overlay the stamp PNG at the bottom-left of every frame (matching
+            // GeoTagOverlay's own bottom-anchored layout), re-encode video,
+            // copy audio through unchanged.
+            val cmd = arrayOf(
+                "-y",
+                "-i", originalFile.absolutePath,
+                "-i", stampPng.absolutePath,
+                "-filter_complex", "[0:v][1:v] overlay=0:main_h-overlay_h",
+                "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
+                "-c:a", "copy",
+                stampedFile.absolutePath
+            )
+            val session = FFmpegKit.executeWithArguments(cmd)
+            stampPng.delete()
+
+            if (ReturnCode.isSuccess(session.returnCode) && stampedFile.exists() && stampedFile.length() > 0) {
+                originalFile.delete()
+                stampedFile.absolutePath
+            } else {
+                android.util.Log.e("VideoStamp", "FFmpeg failed: rc=${session.returnCode} fail=${session.failStackTrace}")
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(this@VideoCaptureActivity, "Stamp failed - uploaded without stamp", Toast.LENGTH_LONG).show()
+                }
+                stampedFile.delete()
+                originalFile.absolutePath
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("VideoStamp", "Stamping failed, using unstamped video", e)
+            withContext(Dispatchers.Main) {
+                Toast.makeText(this@VideoCaptureActivity, "Stamp failed (${e.javaClass.simpleName}: ${e.message}) - uploaded without stamp", Toast.LENGTH_LONG).show()
+            }
+            originalFile.absolutePath
+        }
     }
 
     private fun stopRecording(cancelled: Boolean = false) {

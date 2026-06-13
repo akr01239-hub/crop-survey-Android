@@ -4,7 +4,6 @@ import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.*
-import android.location.Geocoder
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -68,13 +67,8 @@ class PhotoCaptureActivity : BaseActivity() {
 
     private val CAMERA_PERMISSION_CODE = 1001
 
-    // ─── Cell descriptor ──────────────────────────────────────────────────────
-    private data class WCell(
-        val label: String,
-        val value: String,
-        val iconBg: Int,   // pastel circle background colour
-        val iconFg: Int    // icon foreground colour
-    )
+    // Cell descriptor, drawStamp, renderStampBitmap, drawCell, and clip moved
+    // to GeoTagOverlay (shared with VideoCaptureActivity for video stamping).
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -153,7 +147,7 @@ class PhotoCaptureActivity : BaseActivity() {
                     withContext(Dispatchers.IO) {
                         try {
                             val place = reverseGeocode(this@PhotoCaptureActivity, coords.lat, coords.lon)
-                            val stampBmp = renderStampBitmap(coords, place, previewWidth = 1080)
+                            val stampBmp = GeoTagOverlay.renderStampBitmap(1080, coords, place, SurveySession.currentSurveyId ?: "")
                             runOnUiThread { ivStampOverlay.setImageBitmap(stampBmp) }
                         } catch (_: Exception) {}
                     }
@@ -318,20 +312,9 @@ class PhotoCaptureActivity : BaseActivity() {
         try { findViewById<View>(R.id.iv_stamp_overlay).visibility = View.VISIBLE } catch (_: Exception) {}
     }
 
-    private fun reverseGeocode(ctx: Context, lat: Double, lon: Double): String = try {
-        val geocoder = Geocoder(ctx, Locale.getDefault())
-        @Suppress("DEPRECATION")
-        val addrs = geocoder.getFromLocation(lat, lon, 1)
-        if (!addrs.isNullOrEmpty()) {
-            val a = addrs[0]
-            val place = a.subLocality?.takeIf { it.isNotBlank() } ?: a.locality?.takeIf { it.isNotBlank() } ?: a.featureName?.takeIf { it.isNotBlank() }
-            val dist  = a.subAdminArea?.takeIf { it.isNotBlank() }
-            val state = a.adminArea?.takeIf { it.isNotBlank() }
-            listOfNotNull(place, dist, state)
-                .fold(mutableListOf<String>()) { acc, s -> if (acc.none { it.equals(s, true) }) acc.add(s); acc }
-                .take(3).joinToString(", ").ifEmpty { "%.5f°N, %.5f°E".format(lat, lon) }
-        } else "%.5f°N, %.5f°E".format(lat, lon)
-    } catch (e: Exception) { "%.5f°N, %.5f°E".format(lat, lon) }
+    /** Delegates to the shared GeoTagOverlay address service (single source of truth). */
+    private fun reverseGeocode(ctx: Context, lat: Double, lon: Double): String =
+        GeoTagOverlay.reverseGeocode(ctx, lat, lon)
 
     // ─── WATERMARK ────────────────────────────────────────────────────────────
     // Reference design: compact card, bottom-right corner.
@@ -357,10 +340,8 @@ class PhotoCaptureActivity : BaseActivity() {
         val bmp      = Bitmap.createScaledBitmap(original, maxW, (original.height * sc).toInt(), true)
         original.recycle()
 
-        val canvas = Canvas(bmp.copy(Bitmap.Config.ARGB_8888, true).also { drawStamp(Canvas(it), it.width.toFloat(), it.height.toFloat(), coords, placeName, surveyId) })
-        // Re-do properly:
         val out = bmp.copy(Bitmap.Config.ARGB_8888, true)
-        drawStamp(Canvas(out), out.width.toFloat(), out.height.toFloat(), coords, placeName, surveyId)
+        GeoTagOverlay.drawStamp(Canvas(out), out.width.toFloat(), out.height.toFloat(), coords, placeName, surveyId)
 
         // Save to filesDir (NOT cacheDir) — Android never auto-deletes filesDir,
         // so the photo survives logout, cache wipes, and low-storage cleanup.
@@ -370,172 +351,6 @@ class PhotoCaptureActivity : BaseActivity() {
         out.recycle(); bmp.recycle()
         file.delete()  // delete temp raw file — watermarked copy in filesDir is the keeper
         return outFile
-    }
-
-    /** Renders just the stamp bitmap for the live camera overlay (no photo underneath). */
-    private fun renderStampBitmap(coords: GpsCoords, placeName: String, previewWidth: Int): Bitmap {
-        val W = previewWidth.toFloat()
-        val unit    = W * 0.008f
-        val headerH = unit * 11f
-        val rowH    = unit * 9f
-        val cardH   = headerH + 3 * rowH
-        val bmp = Bitmap.createBitmap(previewWidth, cardH.toInt() + (unit * 3).toInt(), Bitmap.Config.ARGB_8888)
-        drawStamp(Canvas(bmp), W, bmp.height.toFloat(), coords, placeName, SurveySession.currentSurveyId ?: "")
-        return bmp
-    }
-
-    /** Core stamp drawing — shared by burnWatermark and renderStampBitmap. */
-    private fun drawStamp(canvas: Canvas, W: Float, H: Float, coords: GpsCoords, placeName: String, survId: String) {
-        val margin  = W * 0.012f
-        val cardW   = W - margin * 2f
-        val unit    = W * 0.008f
-        val headerH = unit * 11f
-        val rowH    = unit * 9f
-        val cardH   = headerH + 3 * rowH
-        val cardX   = margin
-        val cardY   = H - cardH - margin
-        val cornerR = unit * 1.8f
-        val thirdW  = cardW / 3f
-
-        // Shadow
-        canvas.drawRoundRect(RectF(cardX+unit*0.6f, cardY+unit*0.6f, cardX+cardW+unit*0.6f, cardY+cardH+unit*0.6f), cornerR, cornerR,
-            Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.argb(70,0,0,0) })
-
-        val cardRect = RectF(cardX, cardY, cardX+cardW, cardY+cardH)
-
-        // White base (prevents black corners)
-        canvas.drawRoundRect(cardRect, cornerR, cornerR,
-            Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.argb(252,255,255,255) })
-
-        // Clip + header + body
-        val clip = Path().apply { addRoundRect(cardRect, cornerR, cornerR, Path.Direction.CW) }
-        canvas.save(); canvas.clipPath(clip)
-        canvas.drawRect(RectF(cardX, cardY, cardX+cardW, cardY+headerH),
-            Paint(Paint.ANTI_ALIAS_FLAG).apply {
-                shader = android.graphics.LinearGradient(cardX, cardY, cardX+cardW, cardY,
-                    Color.parseColor("#02122F"), Color.parseColor("#071B46"), android.graphics.Shader.TileMode.CLAMP)
-            })
-        canvas.drawRect(RectF(cardX, cardY+headerH, cardX+cardW, cardY+cardH),
-            Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.argb(252,255,255,255) })
-        canvas.restore()
-
-        // Border
-        canvas.drawRoundRect(cardRect, cornerR, cornerR,
-            Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.argb(160,100,130,200); style = Paint.Style.STROKE; strokeWidth = unit*0.5f })
-
-        // Grid dividers
-        val divP = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.argb(50,180,190,210); strokeWidth = unit*0.25f }
-        for (r in 1..3) canvas.drawLine(cardX, cardY+headerH+r*rowH, cardX+cardW, cardY+headerH+r*rowH, divP)
-        canvas.drawLine(cardX+thirdW,   cardY+headerH, cardX+thirdW,   cardY+cardH, divP)
-        canvas.drawLine(cardX+thirdW*2, cardY+headerH, cardX+thirdW*2, cardY+cardH, divP)
-
-        // Header pin + place name
-        val pinR = unit*1.8f; val pinCX = cardX+unit*2.5f+pinR; val pinCY = cardY+headerH*0.5f
-        canvas.drawCircle(pinCX, pinCY, pinR, Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#EF4444") })
-        canvas.drawCircle(pinCX, pinCY, pinR*0.36f, Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.WHITE })
-        val hPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.WHITE; textSize = unit*3.0f; typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD) }
-        val placeX = pinCX+pinR+unit*1.2f
-        canvas.drawText(clip(placeName, hPaint, cardX+cardW-placeX-unit*1.5f), placeX, pinCY+unit*0.9f, hPaint)
-
-        // Data
-        val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-        val tdf = SimpleDateFormat("hh:mm:ss aa", Locale.getDefault())
-        val now = Date()
-        val uId = SurveySession.employeeId.ifEmpty { SurveySession.userId.take(8).uppercase().ifEmpty { "—" } }
-        val sId = if (survId.isNotEmpty()) caseId.ifEmpty { survId.take(8).uppercase() } else "—"
-        val alt = coords.altitude?.let { "${"%.1f".format(it)}m" } ?: "0m"
-        val acc = "±${coords.accuracy?.toInt() ?: 0}m"
-
-        val blue   = Pair(Color.parseColor("#DBEAFE"), Color.parseColor("#1D4ED8"))
-        val green  = Pair(Color.parseColor("#D1FAE5"), Color.parseColor("#047857"))
-        val purple = Pair(Color.parseColor("#EDE9FE"), Color.parseColor("#6D28D9"))
-        val amber  = Pair(Color.parseColor("#FEF3C7"), Color.parseColor("#B45309"))
-        val cyan   = Pair(Color.parseColor("#CFFAFE"), Color.parseColor("#0E7490"))
-        val teal   = Pair(Color.parseColor("#CCFBF1"), Color.parseColor("#0F766E"))
-
-        // 3 rows × 3 cols = all 9 fields including Crop from form
-        val cropName = (SurveySession.formData["crop_name"] as? String)
-            ?: (SurveySession.formData["crop"] as? String)
-            ?: "—"
-        val green2 = Pair(Color.parseColor("#DCFCE7"), Color.parseColor("#15803D"))
-        val grid = listOf(
-            listOf(WCell("Latitude",  "%.6f".format(coords.lat), blue.first,   blue.second),
-                WCell("Longitude", "%.6f".format(coords.lon), green.first,  green.second),
-                WCell("Accuracy",  acc,                        purple.first, purple.second)),
-            listOf(WCell("Altitude",  alt,                        amber.first,  amber.second),
-                WCell("Date",      sdf.format(now),            blue.first,   blue.second),
-                WCell("Time",      tdf.format(now),            purple.first, purple.second)),
-            listOf(WCell("Emp ID",    uId,                        cyan.first,   cyan.second),
-                WCell("Survey ID", sId,                        teal.first,   teal.second),
-                WCell("Crop",      cropName,                   green2.first, green2.second))
-        )
-
-        val labelP = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#1D2B4D"); textSize = unit*2.1f; typeface = Typeface.create(Typeface.DEFAULT, Typeface.NORMAL) }
-        val colonP = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#6B7280"); textSize = unit*2.1f; typeface = Typeface.create(Typeface.DEFAULT, Typeface.NORMAL) }
-        val valueP = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#000000"); textSize = unit*2.4f; typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD) }
-        val iconR2 = unit*1.6f; val cellPad = unit*1.8f; val gap = unit*0.8f
-
-        fun baselineY(midY: Float, p: Paint): Float { val fm = p.fontMetrics; return midY-(fm.ascent+fm.descent)/2f }
-
-        grid.forEachIndexed { rowIdx, cells ->
-            val midY = cardY + headerH + rowIdx * rowH + rowH * 0.5f
-            cells.forEachIndexed { colIdx, cell ->
-                if (cell.label.isEmpty()) return@forEachIndexed
-                val cellLeft = cardX + colIdx * thirdW
-                drawCell(canvas, cell, cellLeft, cellLeft+thirdW, cellPad, midY, iconR2, gap, labelP, colonP, valueP) { p: Paint -> baselineY(midY, p) }
-            }
-        }
-    }
-
-    private fun drawCell(
-        canvas: Canvas,
-        cell: WCell,
-        cellLeft: Float,
-        cellRight: Float,
-        cellPad: Float,
-        midY: Float,
-        iconR: Float,
-        gap: Float,
-        labelP: Paint,
-        colonP: Paint,
-        valueP: Paint,
-        baselineY: (Paint) -> Float
-    ) {
-        // Icon circle
-        val iconCX = cellLeft + cellPad + iconR
-        canvas.drawCircle(iconCX, midY, iconR,
-            Paint(Paint.ANTI_ALIAS_FLAG).apply { color = cell.iconBg })
-        canvas.drawCircle(iconCX, midY, iconR * 0.38f,
-            Paint(Paint.ANTI_ALIAS_FLAG).apply { color = cell.iconFg })
-
-        // Available width for text after icon
-        val textStart  = iconCX + iconR + gap
-        val totalAvail = cellRight - textStart - cellPad * 0.5f
-
-        val colonW = colonP.measureText(" : ")
-
-        // Measure label to keep it fixed-ish; trim if needed
-        val labelMaxW = totalAvail * 0.38f
-        val labelStr  = clip(cell.label, labelP, labelMaxW)
-        val labelW    = labelP.measureText(labelStr)
-
-        val valueMaxW = totalAvail - labelW - colonW - gap * 0.5f
-        val valueStr  = clip(cell.value, valueP, valueMaxW)
-
-        var x = textStart
-        canvas.drawText(labelStr, x, baselineY(labelP), labelP)
-        x += labelW
-        canvas.drawText(" : ", x, baselineY(colonP), colonP)
-        x += colonW
-        canvas.drawText(valueStr, x, baselineY(valueP), valueP)
-    }
-
-    /** Truncate [text] with "…" to fit within [maxW] pixels. */
-    private fun clip(text: String, paint: Paint, maxW: Float): String {
-        if (paint.measureText(text) <= maxW) return text
-        var t = text
-        while (t.isNotEmpty() && paint.measureText("$t…") > maxW) t = t.dropLast(1)
-        return "$t…"
     }
 
     private suspend fun uploadPhoto(surveyId: String, req: PhotoRequirement, file: File, coords: GpsCoords) {
