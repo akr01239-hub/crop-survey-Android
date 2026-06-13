@@ -28,7 +28,7 @@
             android:layout_marginBottom="12dp" android:visibility="gone">
 
             <TextView android:id="@+id/lbl_survey_id" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="Survey ID (Docket-ID)" android:textSize="12sp" android:textColor="#64748B"
+                android:text="@string/field_survey_id_docket" android:textSize="12sp" android:textColor="#64748B"
                 android:layout_marginTop="8dp" android:layout_marginBottom="4dp"/>
             <FrameLayout android:id="@+id/frame_et_survey_id" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
@@ -43,7 +43,7 @@
             <FrameLayout android:id="@+id/frame_et_cce_date" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_cce_date" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="Auto-filled"
+                    android:background="@android:color/transparent" android:hint="@string/hint_auto_filled"
                     android:focusable="false" android:clickable="false"
                     android:textColor="#0F172A" android:padding="12dp"/>
             </FrameLayout>
@@ -211,7 +211,7 @@
             <FrameLayout android:id="@+id/frame_et_farmer_mobile" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_farmer_mobile" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="10-digit mobile number"
+                    android:background="@android:color/transparent" android:hint="@string/hint_enter_rep_mobile"
                     android:inputType="phone" android:padding="12dp"/>
             </FrameLayout>
 
@@ -369,7 +369,7 @@
             </FrameLayout>
 
             <TextView android:id="@+id/lbl_any_disease" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="Any Disease" android:textSize="12sp" android:textColor="#64748B"
+                android:text="@string/field_any_disease" android:textSize="12sp" android:textColor="#64748B"
                 android:layout_marginTop="12dp" android:layout_marginBottom="4dp"/>
             <FrameLayout android:id="@+id/frame_sp_any_disease" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
@@ -380,11 +380,11 @@
             <LinearLayout android:id="@+id/layout_disease_name" android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
                 <TextView android:id="@+id/lbl_disease_name" android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:text="Please specify disease" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+                    android:text="@string/field_disease_name" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
                 <FrameLayout android:id="@+id/frame_et_disease_name" android:layout_width="match_parent" android:layout_height="48dp"
                     android:background="@drawable/input_background">
                     <EditText android:id="@+id/et_disease_name" android:layout_width="match_parent" android:layout_height="match_parent"
-                        android:background="@android:color/transparent" android:hint="Specify disease name" android:padding="12dp"/>
+                        android:background="@android:color/transparent" android:hint="@string/hint_specify_disease" android:padding="12dp"/>
                 </FrameLayout>
             </LinearLayout>
         </LinearLayout>
@@ -432,7 +432,7 @@
             </FrameLayout>
 
             <TextView android:id="@+id/lbl_plot_shape" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="CCE Plot Shape" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+                android:text="@string/field_cce_plot_shape" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
             <FrameLayout android:id="@+id/frame_sp_plot_shape" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <Spinner android:id="@+id/sp_plot_shape" android:layout_width="match_parent" android:layout_height="match_parent"
@@ -506,7 +506,7 @@
             android:layout_marginBottom="12dp" android:visibility="gone">
 
             <TextView android:id="@+id/lbl_fresh_biomass" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="Fresh Biomass Weight (kg)" android:textSize="12sp" android:textColor="#64748B"
+                android:text="@string/field_fresh_biomass_weight" android:textSize="12sp" android:textColor="#64748B"
                 android:layout_marginTop="8dp" android:layout_marginBottom="4dp"/>
             <FrameLayout android:id="@+id/frame_et_fresh_biomass" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
@@ -516,7 +516,7 @@
             </FrameLayout>
 
             <TextView android:id="@+id/lbl_dry_biomass" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="Wet Grain Weight (kg)" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+                android:text="@string/field_wet_grain_weight" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
             <FrameLayout android:id="@+id/frame_et_dry_biomass" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_dry_biomass" android:layout_width="match_parent" android:layout_height="match_parent"
@@ -525,7 +525,7 @@
             </FrameLayout>
 
             <TextView android:id="@+id/lbl_moisture" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="Moisture Content (%)" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+                android:text="@string/field_moisture_content" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
             <FrameLayout android:id="@+id/frame_et_moisture" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_moisture" android:layout_width="match_parent" android:layout_height="match_parent"
@@ -534,11 +534,11 @@
             </FrameLayout>
 
             <TextView android:id="@+id/lbl_dry_grain" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="Dry Grain Weight (kg)" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+                android:text="@string/field_dry_grain_weight" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
             <FrameLayout android:id="@+id/frame_et_dry_grain" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background">
                 <EditText android:id="@+id/et_dry_grain" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="Auto or manual"
+                    android:background="@android:color/transparent" android:hint="@string/hint_auto_or_manual"
                     android:inputType="numberDecimal" android:padding="12dp"/>
             </FrameLayout>
         </LinearLayout>
@@ -607,7 +607,7 @@
                 android:layout_marginBottom="4dp" android:visibility="gone"/>
 
             <TextView android:id="@+id/lbl_farmer_available" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="Farmer Available" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+                android:text="@string/field_farmer_available" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
             <FrameLayout android:id="@+id/frame_sp_farmer_available" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <Spinner android:id="@+id/sp_farmer_available" android:layout_width="match_parent" android:layout_height="match_parent"
@@ -618,27 +618,27 @@
                 android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
 
                 <TextView android:id="@+id/lbl_relation_with_farmer" android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:text="Relation with Farmer" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+                    android:text="@string/field_relation_with_farmer" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
                 <FrameLayout android:id="@+id/frame_et_relation_with_farmer" android:layout_width="match_parent" android:layout_height="48dp"
                     android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                     <EditText android:id="@+id/et_relation_with_farmer" android:layout_width="match_parent" android:layout_height="match_parent"
-                        android:background="@android:color/transparent" android:hint="Enter relation with farmer" android:padding="12dp"/>
+                        android:background="@android:color/transparent" android:hint="@string/hint_enter_relation" android:padding="12dp"/>
                 </FrameLayout>
 
                 <TextView android:id="@+id/lbl_representative_name" android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:text="Representative Name" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+                    android:text="@string/field_representative_name" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
                 <FrameLayout android:id="@+id/frame_et_representative_name" android:layout_width="match_parent" android:layout_height="48dp"
                     android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                     <EditText android:id="@+id/et_representative_name" android:layout_width="match_parent" android:layout_height="match_parent"
-                        android:background="@android:color/transparent" android:hint="Enter representative name" android:padding="12dp"/>
+                        android:background="@android:color/transparent" android:hint="@string/hint_enter_rep_name" android:padding="12dp"/>
                 </FrameLayout>
 
                 <TextView android:id="@+id/lbl_representative_mobile" android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:text="Representative Mobile" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+                    android:text="@string/field_representative_mobile" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
                 <FrameLayout android:id="@+id/frame_et_representative_mobile" android:layout_width="match_parent" android:layout_height="48dp"
                     android:background="@drawable/input_background">
                     <EditText android:id="@+id/et_representative_mobile" android:layout_width="match_parent" android:layout_height="match_parent"
-                        android:background="@android:color/transparent" android:hint="10-digit mobile number"
+                        android:background="@android:color/transparent" android:hint="@string/hint_enter_rep_mobile"
                         android:inputType="phone" android:padding="12dp"/>
                 </FrameLayout>
             </LinearLayout>
@@ -668,7 +668,7 @@
             android:layout_marginBottom="12dp" android:visibility="gone">
 
             <TextView android:id="@+id/lbl_dispute_if_any" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="Dispute If Any" android:textSize="12sp" android:textColor="#64748B"
+                android:text="@string/field_dispute_if_any" android:textSize="12sp" android:textColor="#64748B"
                 android:layout_marginTop="8dp" android:layout_marginBottom="4dp"/>
             <FrameLayout android:id="@+id/frame_sp_dispute_if_any" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
@@ -679,12 +679,12 @@
             <LinearLayout android:id="@+id/layout_dispute_recording" android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
                 <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:text="Dispute Recording" android:textSize="12sp" android:textColor="#2563EB"
+                    android:text="@string/field_dispute_recording" android:textSize="12sp" android:textColor="#2563EB"
                     android:textStyle="bold" android:layout_marginBottom="4dp"/>
                 <Button android:id="@+id/btn_record_dispute" android:layout_width="match_parent" android:layout_height="48dp"
-                    android:text="Record 30s Audio/Video" android:layout_marginBottom="12dp"/>
+                    android:text="@string/btn_record_dispute" android:layout_marginBottom="12dp"/>
                 <TextView android:id="@+id/tv_dispute_recording_status" android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:text="Not recorded" android:textSize="11sp" android:textColor="#94A3B8" android:layout_marginBottom="12dp"/>
+                    android:text="@string/status_not_recorded" android:textSize="11sp" android:textColor="#94A3B8" android:layout_marginBottom="12dp"/>
             </LinearLayout>
 
             <TextView android:id="@+id/lbl_onfield_condition" android:layout_width="match_parent" android:layout_height="wrap_content"

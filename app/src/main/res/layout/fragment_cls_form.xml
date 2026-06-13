@@ -207,7 +207,7 @@
             </LinearLayout>
 
             <TextView android:id="@+id/lbl_any_disease" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="Any Disease" android:textSize="12sp" android:textColor="#64748B"
+                android:text="@string/field_any_disease" android:textSize="12sp" android:textColor="#64748B"
                 android:layout_marginTop="12dp" android:layout_marginBottom="4dp"/>
             <FrameLayout android:id="@+id/frame_sp_any_disease" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
@@ -218,11 +218,11 @@
             <LinearLayout android:id="@+id/layout_disease_name" android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
                 <TextView android:id="@+id/lbl_disease_name" android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:text="Please specify disease" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+                    android:text="@string/field_disease_name" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
                 <FrameLayout android:id="@+id/frame_et_disease_name" android:layout_width="match_parent" android:layout_height="48dp"
                     android:background="@drawable/input_background">
                     <EditText android:id="@+id/et_disease_name" android:layout_width="match_parent" android:layout_height="match_parent"
-                        android:background="@android:color/transparent" android:hint="Specify disease name" android:padding="12dp"/>
+                        android:background="@android:color/transparent" android:hint="@string/hint_specify_disease" android:padding="12dp"/>
                 </FrameLayout>
             </LinearLayout>
         </LinearLayout>
@@ -676,9 +676,9 @@
                     android:text="@string/field_dispute_recording" android:textSize="12sp" android:textColor="#2563EB"
                     android:textStyle="bold" android:layout_marginBottom="4dp"/>
                 <Button android:id="@+id/btn_record_dispute" android:layout_width="match_parent" android:layout_height="48dp"
-                    android:text="Record 30s Audio/Video" android:layout_marginBottom="12dp"/>
+                    android:text="@string/btn_record_dispute" android:layout_marginBottom="12dp"/>
                 <TextView android:id="@+id/tv_dispute_recording_status" android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:text="Not recorded" android:textSize="11sp" android:textColor="#94A3B8" android:layout_marginBottom="12dp"/>
+                    android:text="@string/status_not_recorded" android:textSize="11sp" android:textColor="#94A3B8" android:layout_marginBottom="12dp"/>
             </LinearLayout>
 
             <TextView android:id="@+id/lbl_remarks" android:layout_width="match_parent" android:layout_height="wrap_content"
