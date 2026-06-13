@@ -20,6 +20,16 @@ import com.cropsurvey.app.utils.SurveySession
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import android.content.Intent
+import androidx.activity.result.contract.ActivityResultContracts
+import com.cropsurvey.app.models.CapturedPhoto
+import com.cropsurvey.app.queue.QueueManager
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
+import java.io.File
+import java.text.SimpleDateFormat
 import java.util.*
 import com.cropsurvey.app.guide.AiGuideOverlay
 
@@ -44,6 +54,7 @@ class CCEFormFragment : Fragment() {
     private lateinit var etCceNumber: EditText
     private lateinit var etCceDate: EditText
     private lateinit var etExperimentId: EditText
+    private lateinit var etSurveyDate: EditText
 
     // ── Section 2: Location ───────────────────────────────────────
     private lateinit var spState: Spinner
@@ -65,7 +76,6 @@ class CCEFormFragment : Fragment() {
     private lateinit var etCropVariety: EditText
     private lateinit var spInsuranceUnit: Spinner
     private lateinit var etSowingDate: EditText
-    private lateinit var etExpectedHarvest: EditText
     private lateinit var spCropStage: Spinner
     private lateinit var spIrrigationType: Spinner
     private lateinit var spLandType: Spinner
@@ -73,8 +83,7 @@ class CCEFormFragment : Fragment() {
     // ── Section 5: CCE Plot ───────────────────────────────────────
     private lateinit var etFieldAreaPolygon: EditText
     private lateinit var spPlotSize: Spinner
-    private lateinit var etCustomPlotSize: EditText
-    private lateinit var layoutCustomPlot: View
+    private lateinit var spPlotShape: Spinner
     private lateinit var spSamplingMethod: Spinner
     private lateinit var spCropConditionPlot: Spinner
     private lateinit var etHarvestingDate: EditText
@@ -84,7 +93,6 @@ class CCEFormFragment : Fragment() {
     // ── Section 6: Yield Measurements ────────────────────────────
     private lateinit var etFreshBiomass: EditText
     private lateinit var etDryBiomass: EditText
-    private lateinit var etFreshGrain: EditText
     private lateinit var etDryGrain: EditText
     private lateinit var etMoisture: EditText
     private lateinit var tvYieldEstimate: TextView
@@ -95,8 +103,17 @@ class CCEFormFragment : Fragment() {
     private lateinit var etIcRepMobile: EditText
     private lateinit var etRevenueOfficer: EditText
     private lateinit var cbFarmerPresent: CheckBox
+    private lateinit var spFarmerAvailable: Spinner
+    private lateinit var layoutFarmerUnavailable: View
+    private lateinit var etRelationWithFarmer: EditText
+    private lateinit var etRepresentativeName: EditText
+    private lateinit var etRepresentativeMobile: EditText
 
     // ── Section 8: Remarks & GPS ──────────────────────────────────
+    private lateinit var spDisputeIfAny: Spinner
+    private lateinit var layoutDisputeRecording: View
+    private lateinit var btnRecordDispute: Button
+    private lateinit var tvDisputeRecordingStatus: TextView
     private lateinit var spOnfieldCondition: Spinner
     private lateinit var etRemarks: EditText
     private lateinit var tvGpsCoords: TextView
@@ -109,6 +126,7 @@ class CCEFormFragment : Fragment() {
     private lateinit var lblCceNumber: TextView
     private lateinit var lblCceDate: TextView
     private lateinit var lblExperimentId: TextView
+    private lateinit var lblSurveyDate: TextView
     private lateinit var lblState: TextView
     private lateinit var lblDistrict: TextView
     private lateinit var lblTehsil: TextView
@@ -124,13 +142,12 @@ class CCEFormFragment : Fragment() {
     private lateinit var lblCropVariety: TextView
     private lateinit var lblInsuranceUnit: TextView
     private lateinit var lblSowingDate: TextView
-    private lateinit var lblExpectedHarvest: TextView
     private lateinit var lblCropStage: TextView
     private lateinit var lblIrrigationType: TextView
     private lateinit var lblLandType: TextView
     private lateinit var lblFieldArea: TextView
     private lateinit var lblPlotSize: TextView
-    private lateinit var lblCustomPlot: TextView
+    private lateinit var lblPlotShape: TextView
     private lateinit var lblSamplingMethod: TextView
     private lateinit var lblCropConditionPlot: TextView
     private lateinit var lblHarvestingDate: TextView
@@ -138,13 +155,17 @@ class CCEFormFragment : Fragment() {
     private lateinit var lblThreshingDate: TextView
     private lateinit var lblFreshBiomass: TextView
     private lateinit var lblDryBiomass: TextView
-    private lateinit var lblFreshGrain: TextView
     private lateinit var lblDryGrain: TextView
     private lateinit var lblMoisture: TextView
     private lateinit var lblWitnessType: TextView
     private lateinit var lblIcRepName: TextView
     private lateinit var lblIcRepMobile: TextView
     private lateinit var lblRevenueOfficer: TextView
+    private lateinit var lblFarmerAvailable: TextView
+    private lateinit var lblRelationWithFarmer: TextView
+    private lateinit var lblRepresentativeName: TextView
+    private lateinit var lblRepresentativeMobile: TextView
+    private lateinit var lblDisputeIfAny: TextView
     private lateinit var lblOnfieldCondition: TextView
     private lateinit var lblRemarks: TextView
 
@@ -162,6 +183,69 @@ class CCEFormFragment : Fragment() {
     private var districts = listOf<String>()
     private var subDistricts = listOf<String>()
     private var isRestoring = false
+    private var tdYesNo = listOf<TranslatedDropdown.Option>()
+
+    private val recordDisputeLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == android.app.Activity.RESULT_OK) {
+            val path = result.data?.getStringExtra(com.cropsurvey.app.camera.VideoCaptureActivity.EXTRA_RESULT_PATH)
+            if (path != null) {
+                tvDisputeRecordingStatus.text = "Uploading…"
+                tvDisputeRecordingStatus.setTextColor(android.graphics.Color.parseColor("#2563EB"))
+                uploadDisputeRecording(File(path))
+            }
+        }
+    }
+
+    private fun uploadDisputeRecording(videoFile: File) {
+        val surveyId = SurveySession.currentSurveyId ?: activity?.intent?.getStringExtra("survey_id")
+        if (surveyId == null) {
+            tvDisputeRecordingStatus.text = "Recorded (will upload on save)"
+            SurveySession.formData["dispute_recording_uri"] = videoFile.absolutePath
+            return
+        }
+        lifecycleScope.launch {
+            try {
+                val videoDir = File(requireContext().filesDir, "survey_videos").also { it.mkdirs() }
+                val outFile = File(videoDir, videoFile.name)
+                videoFile.copyTo(outFile, overwrite = true)
+                videoFile.delete()
+                val lat = (SurveySession.formData["capture_lat"] as? Double) ?: 0.0
+                val lon = (SurveySession.formData["capture_lon"] as? Double) ?: 0.0
+                val capturedAt = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault()).format(Date())
+                val videoPart = MultipartBody.Part.createFormData("photo", outFile.name, outFile.asRequestBody("video/mp4".toMediaType()))
+                val res = ApiClient.service.uploadPhoto(
+                    surveyId = surveyId, photo = videoPart,
+                    photoKey = "dispute_recording".toRequestBody("text/plain".toMediaType()),
+                    label = "Dispute Recording".toRequestBody("text/plain".toMediaType()),
+                    lat = lat.toString().toRequestBody("text/plain".toMediaType()),
+                    lon = lon.toString().toRequestBody("text/plain".toMediaType()),
+                    accuracy = "0".toRequestBody("text/plain".toMediaType()),
+                    capturedAt = capturedAt.toRequestBody("text/plain".toMediaType())
+                )
+                if (res.isSuccessful) {
+                    SurveySession.addCapturedPhoto(CapturedPhoto("dispute_recording", outFile.absolutePath, lat, lon, 0f, uploaded = true))
+                    SurveySession.formData["dispute_recording_uri"] = outFile.absolutePath
+                    tvDisputeRecordingStatus.text = "Recorded & uploaded ✓"
+                    tvDisputeRecordingStatus.setTextColor(android.graphics.Color.parseColor("#16A34A"))
+                } else {
+                    tvDisputeRecordingStatus.text = "Upload failed — retrying automatically"
+                    tvDisputeRecordingStatus.setTextColor(android.graphics.Color.parseColor("#F59E0B"))
+                    SurveySession.formData["dispute_recording_uri"] = outFile.absolutePath
+                    QueueManager.enqueuePhoto(requireContext(), surveyId, "dispute_recording", "Dispute Recording", outFile.absolutePath, com.cropsurvey.app.models.GpsCoords(lat, lon))
+                }
+                (activity as? com.cropsurvey.app.survey.SurveyTabsActivity)?.refreshPhotoCount()
+            } catch (e: Exception) {
+                tvDisputeRecordingStatus.text = "Upload error — retrying automatically"
+                tvDisputeRecordingStatus.setTextColor(android.graphics.Color.parseColor("#F59E0B"))
+                SurveySession.formData["dispute_recording_uri"] = videoFile.absolutePath
+                val lat = (SurveySession.formData["capture_lat"] as? Double) ?: 0.0
+                val lon = (SurveySession.formData["capture_lon"] as? Double) ?: 0.0
+                QueueManager.enqueuePhoto(requireContext(), surveyId, "dispute_recording", "Dispute Recording", videoFile.absolutePath, com.cropsurvey.app.models.GpsCoords(lat, lon))
+            }
+        }
+    }
 
     private val colorGreen get() = ContextCompat.getColor(requireContext(), R.color.primary)
     private val colorGrey  = 0xFF64748B.toInt()
@@ -204,6 +288,7 @@ class CCEFormFragment : Fragment() {
         etCceNumber          = v.findViewById(R.id.et_cce_number)
         etCceDate            = v.findViewById(R.id.et_cce_date)
         etExperimentId       = v.findViewById(R.id.et_experiment_id)
+        etSurveyDate         = v.findViewById(R.id.et_survey_date)
         spState              = v.findViewById(R.id.sp_state)
         spDistrict           = v.findViewById(R.id.sp_district)
         spTehsil             = v.findViewById(R.id.sp_tehsil)
@@ -219,14 +304,12 @@ class CCEFormFragment : Fragment() {
         etCropVariety        = v.findViewById(R.id.et_crop_variety)
         spInsuranceUnit      = v.findViewById(R.id.sp_insurance_unit)
         etSowingDate         = v.findViewById(R.id.et_sowing_date)
-        etExpectedHarvest    = v.findViewById(R.id.et_expected_harvest)
         spCropStage          = v.findViewById(R.id.sp_crop_stage)
         spIrrigationType     = v.findViewById(R.id.sp_irrigation_type)
         spLandType           = v.findViewById(R.id.sp_land_type)
         etFieldAreaPolygon   = v.findViewById(R.id.et_field_area_polygon)
         spPlotSize           = v.findViewById(R.id.sp_plot_size)
-        etCustomPlotSize     = v.findViewById(R.id.et_custom_plot_size)
-        layoutCustomPlot     = v.findViewById(R.id.layout_custom_plot)
+        spPlotShape          = v.findViewById(R.id.sp_plot_shape)
         spSamplingMethod     = v.findViewById(R.id.sp_sampling_method)
         spCropConditionPlot  = v.findViewById(R.id.sp_crop_condition_plot)
         etHarvestingDate     = v.findViewById(R.id.et_harvesting_date)
@@ -234,7 +317,6 @@ class CCEFormFragment : Fragment() {
         etThreshingDate      = v.findViewById(R.id.et_threshing_date)
         etFreshBiomass       = v.findViewById(R.id.et_fresh_biomass)
         etDryBiomass         = v.findViewById(R.id.et_dry_biomass)
-        etFreshGrain         = v.findViewById(R.id.et_fresh_grain)
         etDryGrain           = v.findViewById(R.id.et_dry_grain)
         etMoisture           = v.findViewById(R.id.et_moisture)
         tvYieldEstimate      = v.findViewById(R.id.tv_yield_estimate)
@@ -243,6 +325,23 @@ class CCEFormFragment : Fragment() {
         etIcRepMobile        = v.findViewById(R.id.et_ic_rep_mobile)
         etRevenueOfficer     = v.findViewById(R.id.et_revenue_officer)
         cbFarmerPresent      = v.findViewById(R.id.cb_farmer_present)
+        spFarmerAvailable    = v.findViewById(R.id.sp_farmer_available)
+        layoutFarmerUnavailable = v.findViewById(R.id.layout_farmer_unavailable)
+        etRelationWithFarmer = v.findViewById(R.id.et_relation_with_farmer)
+        etRepresentativeName = v.findViewById(R.id.et_representative_name)
+        etRepresentativeMobile = v.findViewById(R.id.et_representative_mobile)
+        spDisputeIfAny       = v.findViewById(R.id.sp_dispute_if_any)
+        layoutDisputeRecording = v.findViewById(R.id.layout_dispute_recording)
+        btnRecordDispute     = v.findViewById(R.id.btn_record_dispute)
+        tvDisputeRecordingStatus = v.findViewById(R.id.tv_dispute_recording_status)
+        btnRecordDispute.setOnClickListener {
+            val intent = Intent(requireContext(), com.cropsurvey.app.camera.VideoCaptureActivity::class.java)
+            recordDisputeLauncher.launch(intent)
+        }
+        SurveySession.formData["dispute_recording_uri"]?.toString()?.takeIf { it.isNotEmpty() }?.let {
+            tvDisputeRecordingStatus.text = "Recorded ✓"
+            tvDisputeRecordingStatus.setTextColor(android.graphics.Color.parseColor("#16A34A"))
+        }
         spOnfieldCondition   = v.findViewById(R.id.sp_onfield_condition)
         etRemarks            = v.findViewById(R.id.et_remarks)
         tvGpsCoords          = v.findViewById(R.id.tv_gps_coords)
@@ -254,6 +353,7 @@ class CCEFormFragment : Fragment() {
         lblCceNumber         = v.findViewById(R.id.lbl_cce_number)
         lblCceDate           = v.findViewById(R.id.lbl_cce_date)
         lblExperimentId      = v.findViewById(R.id.lbl_experiment_id)
+        lblSurveyDate        = v.findViewById(R.id.lbl_survey_date)
         lblState             = v.findViewById(R.id.lbl_state)
         lblDistrict          = v.findViewById(R.id.lbl_district)
         lblTehsil            = v.findViewById(R.id.lbl_tehsil)
@@ -269,13 +369,12 @@ class CCEFormFragment : Fragment() {
         lblCropVariety       = v.findViewById(R.id.lbl_crop_variety)
         lblInsuranceUnit     = v.findViewById(R.id.lbl_insurance_unit)
         lblSowingDate        = v.findViewById(R.id.lbl_sowing_date)
-        lblExpectedHarvest   = v.findViewById(R.id.lbl_expected_harvest)
         lblCropStage         = v.findViewById(R.id.lbl_crop_stage)
         lblIrrigationType    = v.findViewById(R.id.lbl_irrigation_type)
         lblLandType          = v.findViewById(R.id.lbl_land_type)
         lblFieldArea         = v.findViewById(R.id.lbl_field_area)
         lblPlotSize          = v.findViewById(R.id.lbl_plot_size)
-        lblCustomPlot        = v.findViewById(R.id.lbl_custom_plot)
+        lblPlotShape         = v.findViewById(R.id.lbl_plot_shape)
         lblSamplingMethod    = v.findViewById(R.id.lbl_sampling_method)
         lblCropConditionPlot = v.findViewById(R.id.lbl_crop_condition_plot)
         lblHarvestingDate    = v.findViewById(R.id.lbl_harvesting_date)
@@ -283,13 +382,17 @@ class CCEFormFragment : Fragment() {
         lblThreshingDate     = v.findViewById(R.id.lbl_threshing_date)
         lblFreshBiomass      = v.findViewById(R.id.lbl_fresh_biomass)
         lblDryBiomass        = v.findViewById(R.id.lbl_dry_biomass)
-        lblFreshGrain        = v.findViewById(R.id.lbl_fresh_grain)
         lblDryGrain          = v.findViewById(R.id.lbl_dry_grain)
         lblMoisture          = v.findViewById(R.id.lbl_moisture)
         lblWitnessType       = v.findViewById(R.id.lbl_witness_type)
         lblIcRepName         = v.findViewById(R.id.lbl_ic_rep_name)
         lblIcRepMobile       = v.findViewById(R.id.lbl_ic_rep_mobile)
         lblRevenueOfficer    = v.findViewById(R.id.lbl_revenue_officer)
+        lblFarmerAvailable   = v.findViewById(R.id.lbl_farmer_available)
+        lblRelationWithFarmer = v.findViewById(R.id.lbl_relation_with_farmer)
+        lblRepresentativeName = v.findViewById(R.id.lbl_representative_name)
+        lblRepresentativeMobile = v.findViewById(R.id.lbl_representative_mobile)
+        lblDisputeIfAny      = v.findViewById(R.id.lbl_dispute_if_any)
         lblOnfieldCondition  = v.findViewById(R.id.lbl_onfield_condition)
         lblRemarks           = v.findViewById(R.id.lbl_remarks)
     }
@@ -320,6 +423,7 @@ class CCEFormFragment : Fragment() {
         updateFieldUi(etCceNumber,           lblCceNumber,         R.id.frame_et_cce_number)
         updateFieldUi(etCceDate,             lblCceDate,           R.id.frame_et_cce_date)
         updateFieldUi(etExperimentId,        lblExperimentId,      R.id.frame_et_experiment_id)
+        updateFieldUi(etSurveyDate,          lblSurveyDate,        R.id.frame_et_survey_date)
         updateSpinnerUi(spState,             lblState,             R.id.frame_sp_state)
         updateSpinnerUi(spDistrict,          lblDistrict,          R.id.frame_sp_district)
         updateSpinnerUi(spTehsil,            lblTehsil,            R.id.frame_sp_tehsil)
@@ -335,13 +439,12 @@ class CCEFormFragment : Fragment() {
         updateFieldUi(etCropVariety,         lblCropVariety,       R.id.frame_et_crop_variety)
         updateSpinnerUi(spInsuranceUnit,     lblInsuranceUnit,     R.id.frame_sp_insurance_unit)
         updateFieldUi(etSowingDate,          lblSowingDate,        R.id.frame_et_sowing_date)
-        updateFieldUi(etExpectedHarvest,     lblExpectedHarvest,   R.id.frame_et_expected_harvest)
         updateSpinnerUi(spCropStage,         lblCropStage,         R.id.frame_sp_crop_stage)
         updateSpinnerUi(spIrrigationType,    lblIrrigationType,    R.id.frame_sp_irrigation_type)
         updateSpinnerUi(spLandType,          lblLandType,          R.id.frame_sp_land_type)
         updateFieldUi(etFieldAreaPolygon,    lblFieldArea,         R.id.frame_et_field_area_polygon)
         updateSpinnerUi(spPlotSize,          lblPlotSize,          R.id.frame_sp_plot_size)
-        updateFieldUi(etCustomPlotSize,      lblCustomPlot,        R.id.frame_et_custom_plot_size)
+        updateSpinnerUi(spPlotShape,         lblPlotShape,         R.id.frame_sp_plot_shape)
         updateSpinnerUi(spSamplingMethod,    lblSamplingMethod,    R.id.frame_sp_sampling_method)
         updateSpinnerUi(spCropConditionPlot, lblCropConditionPlot, R.id.frame_sp_crop_condition_plot)
         updateFieldUi(etHarvestingDate,      lblHarvestingDate,    R.id.frame_et_harvesting_date)
@@ -349,13 +452,17 @@ class CCEFormFragment : Fragment() {
         updateFieldUi(etThreshingDate,       lblThreshingDate,     R.id.frame_et_threshing_date)
         updateFieldUi(etFreshBiomass,        lblFreshBiomass,      R.id.frame_et_fresh_biomass)
         updateFieldUi(etDryBiomass,          lblDryBiomass,        R.id.frame_et_dry_biomass)
-        updateFieldUi(etFreshGrain,          lblFreshGrain,        R.id.frame_et_fresh_grain)
         updateFieldUi(etDryGrain,            lblDryGrain,          R.id.frame_et_dry_grain)
         updateFieldUi(etMoisture,            lblMoisture,          R.id.frame_et_moisture)
         updateSpinnerUi(spWitnessType,       lblWitnessType,       R.id.frame_sp_witness_type)
         updateFieldUi(etIcRepName,           lblIcRepName,         R.id.frame_et_ic_rep_name)
         updateFieldUi(etIcRepMobile,         lblIcRepMobile,       R.id.frame_et_ic_rep_mobile)
         updateFieldUi(etRevenueOfficer,      lblRevenueOfficer,    R.id.frame_et_revenue_officer)
+        updateSpinnerUi(spFarmerAvailable,   lblFarmerAvailable,   R.id.frame_sp_farmer_available)
+        updateFieldUi(etRelationWithFarmer,  lblRelationWithFarmer, R.id.frame_et_relation_with_farmer)
+        updateFieldUi(etRepresentativeName,  lblRepresentativeName, R.id.frame_et_representative_name)
+        updateFieldUi(etRepresentativeMobile, lblRepresentativeMobile, R.id.frame_et_representative_mobile)
+        updateSpinnerUi(spDisputeIfAny,      lblDisputeIfAny,      R.id.frame_sp_dispute_if_any)
         updateSpinnerUi(spOnfieldCondition,  lblOnfieldCondition,  R.id.frame_sp_onfield_condition)
         updateFieldUi(etRemarks,             lblRemarks,           R.id.frame_et_remarks)
     }
@@ -475,21 +582,23 @@ class CCEFormFragment : Fragment() {
         etKhasraNo.addTextChangedListener(watcher(3))
         etCropVariety.addTextChangedListener(watcher(4))
         etSowingDate.addTextChangedListener(watcher(4))
-        etExpectedHarvest.addTextChangedListener(watcher(4))
+
         // etFieldAreaPolygon is auto-filled from the polygon map — NOT user-typed,
         // so it must NOT be in the watcher or it will set sectionTouched[5]=true
         // the moment the area is injected, causing a false red ✗ on section 5.
         etHarvestingDate.addTextChangedListener(watcher(5))
         etThreshingDate.addTextChangedListener(watcher(5))
-        etCustomPlotSize.addTextChangedListener(watcher(5))
+
         etFreshBiomass.addTextChangedListener(watcher(6))
         etDryBiomass.addTextChangedListener(watcher(6))
-        etFreshGrain.addTextChangedListener(watcher(6))
         etDryGrain.addTextChangedListener(watcher(6))
         etMoisture.addTextChangedListener(watcher(6))
         etIcRepName.addTextChangedListener(watcher(7))
         etIcRepMobile.addTextChangedListener(watcher(7))
         etRevenueOfficer.addTextChangedListener(watcher(7))
+        etRelationWithFarmer.addTextChangedListener(watcher(7))
+        etRepresentativeName.addTextChangedListener(watcher(7))
+        etRepresentativeMobile.addTextChangedListener(watcher(7))
         etRemarks.addTextChangedListener(watcher(8))
 
         fun spinnerListener(sectionHint: Int, extra: AdapterView.OnItemSelectedListener? = null) =
@@ -517,10 +626,7 @@ class CCEFormFragment : Fragment() {
         spIrrigationType.onItemSelectedListener   = spinnerListener(4)
         spLandType.onItemSelectedListener         = spinnerListener(4)
         spPlotSize.onItemSelectedListener         = spinnerListener(5, object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(p: AdapterView<*>?, v: View?, pos: Int, id: Long) {
-                layoutCustomPlot.visibility = if (spPlotSize.selectedItem == "Custom") View.VISIBLE else View.GONE
-                updateYieldEstimate()
-            }
+            override fun onItemSelected(p: AdapterView<*>?, v: View?, pos: Int, id: Long) { updateYieldEstimate() }
             override fun onNothingSelected(p: AdapterView<*>?) {}
         })
         spSamplingMethod.onItemSelectedListener   = spinnerListener(5)
@@ -528,6 +634,21 @@ class CCEFormFragment : Fragment() {
         spThreshingMethod.onItemSelectedListener  = spinnerListener(5)
         spWitnessType.onItemSelectedListener      = spinnerListener(7)
         spOnfieldCondition.onItemSelectedListener = spinnerListener(8)
+        spPlotShape.onItemSelectedListener       = spinnerListener(5)
+        spFarmerAvailable.onItemSelectedListener  = spinnerListener(7, object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p: AdapterView<*>?, v: View?, pos: Int, id: Long) {
+                val code = tdYesNo.getOrNull(pos - 1)?.code
+                layoutFarmerUnavailable.visibility = if (code == "no") View.VISIBLE else View.GONE
+                if (code != null) SurveySession.formData["farmer_available"] = code
+            }
+            override fun onNothingSelected(p: AdapterView<*>?) {}
+        })
+        spDisputeIfAny.onItemSelectedListener    = spinnerListener(8, object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p: AdapterView<*>?, v: View?, pos: Int, id: Long) {
+                layoutDisputeRecording.visibility = if (tdYesNo.getOrNull(pos - 1)?.code == "yes") View.VISIBLE else View.GONE
+            }
+            override fun onNothingSelected(p: AdapterView<*>?) {}
+        })
 
         cbFarmerPresent.setOnCheckedChangeListener { _, _ ->
             sectionTouched[7] = true
@@ -563,19 +684,18 @@ class CCEFormFragment : Fragment() {
                 && etFarmerAppNo.text.isNotBlank()
                 && etFarmerAadhaarLast4.text.isNotBlank()
                 && etKhasraNo.text.isNotBlank()
-        // S4: crop_name, crop_variety, insurance_unit, sowing_date, expected_harvest, crop_stage, irrigation_type, land_type
+        // S4: crop_name, crop_variety, insurance_unit, sowing_date, crop_stage, irrigation_type, land_type
         4 -> spCropName.selectedItemPosition > 0
                 && etCropVariety.text.isNotBlank()
                 && spInsuranceUnit.selectedItemPosition > 0
                 && etSowingDate.text.isNotBlank()
-                && etExpectedHarvest.text.isNotBlank()
                 && spCropStage.selectedItemPosition > 0
                 && spIrrigationType.selectedItemPosition > 0
                 && spLandType.selectedItemPosition > 0
         // S5: field_area, plot_size, sampling_method, crop_condition, harvesting_date, threshing_method, threshing_date
         5 -> etFieldAreaPolygon.text.isNotBlank()
                 && spPlotSize.selectedItemPosition > 0
-                && (spPlotSize.selectedItem?.toString() != "Custom" || etCustomPlotSize.text.isNotBlank())
+                && spPlotShape.selectedItemPosition > 0
                 && spSamplingMethod.selectedItemPosition > 0
                 && spCropConditionPlot.selectedItemPosition > 0
                 && etHarvestingDate.text.isNotBlank()
@@ -584,7 +704,6 @@ class CCEFormFragment : Fragment() {
         // S6: fresh_biomass, dry_biomass, fresh_grain, dry_grain, moisture
         6 -> etFreshBiomass.text.isNotBlank()
                 && etDryBiomass.text.isNotBlank()
-                && etFreshGrain.text.isNotBlank()
                 && etDryGrain.text.isNotBlank()
                 && etMoisture.text.isNotBlank()
         // S7: witness_type, ic_rep_name, ic_rep_mobile, revenue_officer, farmer_present(checkbox always has value)
@@ -592,8 +711,14 @@ class CCEFormFragment : Fragment() {
                 && etIcRepName.text.isNotBlank()
                 && etIcRepMobile.text.length >= 10
                 && etRevenueOfficer.text.isNotBlank()
+                && spFarmerAvailable.selectedItemPosition > 0
+                && (tdYesNo.getOrNull(spFarmerAvailable.selectedItemPosition - 1)?.code != "no"
+                        || (etRelationWithFarmer.text.isNotBlank()
+                            && etRepresentativeName.text.isNotBlank()
+                            && etRepresentativeMobile.text.length >= 10))
         // S8: onfield_condition, remarks
-        8 -> spOnfieldCondition.selectedItemPosition > 0
+        8 -> spDisputeIfAny.selectedItemPosition > 0
+                && spOnfieldCondition.selectedItemPosition > 0
                 && etRemarks.text.isNotBlank()
         else -> false
     }
@@ -708,6 +833,7 @@ class CCEFormFragment : Fragment() {
         tdLandTypes  = TranslatedDropdown.landTypes(ctx)
         tdOnfield    = TranslatedDropdown.onfieldConditions(ctx)
         tdCropCond   = TranslatedDropdown.onfieldConditions(ctx)
+        tdYesNo      = TranslatedDropdown.yesNo(ctx)
 
         setSpinner(spYear,              listOf("Select Year")            + AppConfig.YEARS)
         setSpinner(spSeason,            listOf(getString(R.string.hint_select)) + tdLabels(tdSeasons))
@@ -723,6 +849,9 @@ class CCEFormFragment : Fragment() {
         setSpinner(spCropConditionPlot, listOf(getString(R.string.hint_select)) + tdLabels(tdCropCond))
         setSpinner(spSamplingMethod,    listOf("Select Sampling Method") + AppConfig.CCE_SAMPLING_METHOD)
         setSpinner(spWitnessType,       listOf("Select Witness Type")    + AppConfig.CCE_WITNESS_TYPES)
+        setSpinner(spPlotShape,        listOf(getString(R.string.hint_select)) + AppConfig.CCE_PLOT_SHAPES)
+        setSpinner(spFarmerAvailable,  listOf(getString(R.string.hint_select)) + tdLabels(tdYesNo))
+        setSpinner(spDisputeIfAny,     listOf(getString(R.string.hint_select)) + tdLabels(tdYesNo))
         setSpinner(spState,    listOf("Select State"))
         setSpinner(spDistrict, listOf("Select District"))
         setSpinner(spTehsil,   listOf("Select Tehsil"))
@@ -781,7 +910,7 @@ class CCEFormFragment : Fragment() {
     }
 
     private fun setupDatePickers() {
-        listOf(etSowingDate, etExpectedHarvest, etHarvestingDate, etCceDate, etThreshingDate).forEach { et ->
+        listOf(etSowingDate, etHarvestingDate, etCceDate, etThreshingDate).forEach { et ->
             et.isFocusable = false
             et.setOnClickListener {
                 val cal = Calendar.getInstance()
@@ -791,6 +920,10 @@ class CCEFormFragment : Fragment() {
                 }, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH)).show()
             }
         }
+        // Survey Date = today, auto-filled, read-only
+        val cal2 = Calendar.getInstance()
+        etSurveyDate.setText(java.lang.String.format(java.util.Locale.US, "%04d-%02d-%02d",
+            cal2.get(Calendar.YEAR), cal2.get(Calendar.MONTH) + 1, cal2.get(Calendar.DAY_OF_MONTH)))
     }
 
     private fun setupYieldWatchers() {
@@ -801,7 +934,6 @@ class CCEFormFragment : Fragment() {
         }
         etDryGrain.addTextChangedListener(watcher)
         etMoisture.addTextChangedListener(watcher)
-        etCustomPlotSize.addTextChangedListener(watcher)
     }
 
     private fun updateYieldEstimate() {
@@ -809,11 +941,8 @@ class CCEFormFragment : Fragment() {
         val plotSizeStr = spPlotSize.selectedItem?.toString() ?: ""
         val plotSqm = when {
             plotSizeStr.contains("100") -> 100.0
+            plotSizeStr.contains("50")  -> 50.0
             plotSizeStr.contains("25")  -> 25.0
-            plotSizeStr.contains("20")  -> 20.0
-            plotSizeStr.contains("16")  -> 16.0
-            plotSizeStr.contains("9")   -> 9.0
-            plotSizeStr == "Custom"     -> etCustomPlotSize.text.toString().toDoubleOrNull()
             else -> null
         }
         if (dryGrain == null || plotSqm == null) {
@@ -872,19 +1001,20 @@ class CCEFormFragment : Fragment() {
         etGramPanchayat.setText(fd["gram_panchayat"]?.toString() ?: "")
         etCropVariety.setText(fd["crop_variety"]?.toString() ?: "")
         etSowingDate.setText(fd["sowing_date"]?.toString() ?: "")
-        etExpectedHarvest.setText(fd["expected_harvest_date"]?.toString() ?: "")
-        etCustomPlotSize.setText(fd["cce_plot_custom"]?.toString() ?: "")
+
         etHarvestingDate.setText(fd["harvesting_date"]?.toString() ?: "")
         etThreshingDate.setText(fd["threshing_date"]?.toString() ?: "")
         etFreshBiomass.setText(fd["fresh_biomass_weight"]?.toString() ?: "")
         etDryBiomass.setText(fd["dry_biomass_weight"]?.toString() ?: "")
-        etFreshGrain.setText(fd["fresh_grain_weight"]?.toString() ?: "")
         etDryGrain.setText(fd["dry_grain_weight"]?.toString() ?: "")
         etMoisture.setText(fd["moisture_content"]?.toString() ?: "")
         etIcRepName.setText(fd["ic_representative_name"]?.toString() ?: "")
         etIcRepMobile.setText(fd["ic_representative_mobile"]?.toString() ?: "")
         etRevenueOfficer.setText(fd["revenue_officer_name"]?.toString() ?: "")
         cbFarmerPresent.isChecked = fd["farmer_present"] as? Boolean ?: false
+        etRelationWithFarmer.setText(fd["relation_with_farmer"]?.toString() ?: "")
+        etRepresentativeName.setText(fd["representative_name"]?.toString() ?: "")
+        etRepresentativeMobile.setText(fd["representative_mobile"]?.toString() ?: "")
         etRemarks.setText(fd["remarks"]?.toString() ?: "")
         etOtherScheme.setText(fd["others_scheme"]?.toString() ?: "")
 
@@ -902,8 +1032,15 @@ class CCEFormFragment : Fragment() {
         tdRestore(spCropConditionPlot, tdCropCond, fd["crop_condition_plot"]?.toString())
         restoreSpinner(spSamplingMethod,    fd["sampling_method"]?.toString())
         restoreSpinner(spWitnessType,       fd["witness_type"]?.toString())
+        restoreSpinner(spPlotShape,         fd["cce_plot_shape"]?.toString())
+        tdRestore(spFarmerAvailable, tdYesNo, fd["farmer_available"]?.toString())
+        tdRestore(spDisputeIfAny, tdYesNo, fd["dispute_if_any"]?.toString())
 
         updateYieldEstimate()
+
+        layoutFarmerUnavailable.visibility = if (fd["farmer_available"]?.toString() == "no") View.VISIBLE else View.GONE
+        layoutDisputeRecording.visibility = if (fd["dispute_if_any"]?.toString() == "yes") View.VISIBLE else View.GONE
+        fd["survey_date"]?.toString()?.takeIf { it.isNotEmpty() }?.let { etSurveyDate.setText(it) }
 
         // Only expand on edit/resubmit — new surveys start collapsed
         val isEditRestore = activity?.intent?.getBooleanExtra("is_edit_mode", false) == true ||
@@ -989,11 +1126,8 @@ class CCEFormFragment : Fragment() {
         val plotSizeStr = spPlotSize.selectedItem?.toString() ?: ""
         val plotSqm = when {
             plotSizeStr.contains("100") -> 100.0
+            plotSizeStr.contains("50")  -> 50.0
             plotSizeStr.contains("25")  -> 25.0
-            plotSizeStr.contains("20")  -> 20.0
-            plotSizeStr.contains("16")  -> 16.0
-            plotSizeStr.contains("9")   -> 9.0
-            plotSizeStr == "Custom"     -> etCustomPlotSize.text.toString().toDoubleOrNull()
             else -> null
         }
         val yieldKgHa = if (dryGrain != null && plotSqm != null) {
@@ -1009,6 +1143,7 @@ class CCEFormFragment : Fragment() {
             "cce_number"                to etCceNumber.text.toString().takeIf { it.isNotEmpty() },
             "cce_date"                  to etCceDate.text.toString().takeIf { it.isNotEmpty() },
             "experiment_id"             to etExperimentId.text.toString().takeIf { it.isNotEmpty() },
+            "survey_date"               to etSurveyDate.text.toString().takeIf { it.isNotEmpty() },
             "state"                     to SurveySession.formData["state"],
             "district"                  to SurveySession.formData["district"],
             "tehsil"                    to (spTehsil.selectedItem?.toString()?.takeIf { it != "Select Tehsil" } ?: SurveySession.formData["tehsil"]),
@@ -1026,13 +1161,12 @@ class CCEFormFragment : Fragment() {
             "crop_name"                 to tdCode(tdCrops, spCropName.selectedItemPosition - 1),
             "crop_variety"              to etCropVariety.text.toString().takeIf { it.isNotEmpty() },
             "sowing_date"               to etSowingDate.text.toString().takeIf { it.isNotEmpty() },
-            "expected_harvest_date"     to etExpectedHarvest.text.toString().takeIf { it.isNotEmpty() },
             "crop_stage"                to tdCode(tdCropStages, spCropStage.selectedItemPosition - 1),
             "irrigation_type"           to tdCode(tdIrrigation, spIrrigationType.selectedItemPosition - 1),
             "land_type"                 to tdCode(tdLandTypes, spLandType.selectedItemPosition - 1),
             "field_area_polygon"        to etFieldAreaPolygon.text.toString().toDoubleOrNull(),
             "cce_plot_size"             to spPlotSize.selectedItem?.toString()?.takeIf { it != "Select Plot Size" },
-            "cce_plot_custom"           to etCustomPlotSize.text.toString().toDoubleOrNull(),
+            "cce_plot_shape"            to spPlotShape.selectedItem?.toString()?.takeIf { !it.contains("Select") },
             "sampling_method"           to spSamplingMethod.selectedItem?.toString()?.takeIf { !it.contains("Select") },
             "crop_condition_plot"       to tdCode(tdCropCond, spCropConditionPlot.selectedItemPosition - 1),
             "harvesting_date"           to etHarvestingDate.text.toString().takeIf { it.isNotEmpty() },
@@ -1040,7 +1174,6 @@ class CCEFormFragment : Fragment() {
             "threshing_date"            to etThreshingDate.text.toString().takeIf { it.isNotEmpty() },
             "fresh_biomass_weight"      to etFreshBiomass.text.toString().toDoubleOrNull(),
             "dry_biomass_weight"        to etDryBiomass.text.toString().toDoubleOrNull(),
-            "fresh_grain_weight"        to etFreshGrain.text.toString().toDoubleOrNull(),
             "dry_grain_weight"          to etDryGrain.text.toString().toDoubleOrNull(),
             "moisture_content"          to etMoisture.text.toString().toDoubleOrNull(),
             "yield_kg_per_ha"           to yieldKgHa,
@@ -1049,6 +1182,12 @@ class CCEFormFragment : Fragment() {
             "ic_representative_mobile"  to etIcRepMobile.text.toString().takeIf { it.isNotEmpty() },
             "revenue_officer_name"      to etRevenueOfficer.text.toString().takeIf { it.isNotEmpty() },
             "farmer_present"            to cbFarmerPresent.isChecked,
+            "farmer_available"          to tdCode(tdYesNo, spFarmerAvailable.selectedItemPosition - 1),
+            "relation_with_farmer"      to etRelationWithFarmer.text.toString().takeIf { it.isNotEmpty() },
+            "representative_name"       to etRepresentativeName.text.toString().takeIf { it.isNotEmpty() },
+            "representative_mobile"     to etRepresentativeMobile.text.toString().takeIf { it.isNotEmpty() },
+            "dispute_if_any"            to tdCode(tdYesNo, spDisputeIfAny.selectedItemPosition - 1),
+            "dispute_recording_uri"     to SurveySession.formData["dispute_recording_uri"],
             "onfield_condition"         to tdCode(tdOnfield, spOnfieldCondition.selectedItemPosition - 1),
             "remarks"                   to etRemarks.text.toString().takeIf { it.isNotEmpty() },
             "capture_lat"               to SurveySession.formData["capture_lat"],
@@ -1066,11 +1205,8 @@ class CCEFormFragment : Fragment() {
         val plotSizeStr = spPlotSize.selectedItem?.toString() ?: ""
         val plotSqm = when {
             plotSizeStr.contains("100") -> 100.0
+            plotSizeStr.contains("50")  -> 50.0
             plotSizeStr.contains("25")  -> 25.0
-            plotSizeStr.contains("20")  -> 20.0
-            plotSizeStr.contains("16")  -> 16.0
-            plotSizeStr.contains("9")   -> 9.0
-            plotSizeStr == "Custom"     -> etCustomPlotSize.text.toString().toDoubleOrNull()
             else -> null
         }
         val yieldKgHa = if (dryGrain != null && plotSqm != null) {
@@ -1086,6 +1222,7 @@ class CCEFormFragment : Fragment() {
             "cce_number"                to etCceNumber.text.toString().takeIf { it.isNotEmpty() },
             "cce_date"                  to etCceDate.text.toString().takeIf { it.isNotEmpty() },
             "experiment_id"             to etExperimentId.text.toString().takeIf { it.isNotEmpty() },
+            "survey_date"               to etSurveyDate.text.toString().takeIf { it.isNotEmpty() },
             "state"                     to SurveySession.formData["state"],
             "district"                  to SurveySession.formData["district"],
             "tehsil"                    to (spTehsil.selectedItem?.toString()?.takeIf { it != "Select Tehsil" } ?: SurveySession.formData["tehsil"]),
@@ -1103,13 +1240,12 @@ class CCEFormFragment : Fragment() {
             "crop_name"                 to tdCode(tdCrops, spCropName.selectedItemPosition - 1),
             "crop_variety"              to etCropVariety.text.toString().takeIf { it.isNotEmpty() },
             "sowing_date"               to etSowingDate.text.toString().takeIf { it.isNotEmpty() },
-            "expected_harvest_date"     to etExpectedHarvest.text.toString().takeIf { it.isNotEmpty() },
             "crop_stage"                to tdCode(tdCropStages, spCropStage.selectedItemPosition - 1),
             "irrigation_type"           to tdCode(tdIrrigation, spIrrigationType.selectedItemPosition - 1),
             "land_type"                 to tdCode(tdLandTypes, spLandType.selectedItemPosition - 1),
             "field_area_polygon"        to etFieldAreaPolygon.text.toString().toDoubleOrNull(),
             "cce_plot_size"             to spPlotSize.selectedItem?.toString()?.takeIf { it != "Select Plot Size" },
-            "cce_plot_custom"           to etCustomPlotSize.text.toString().toDoubleOrNull(),
+            "cce_plot_shape"            to spPlotShape.selectedItem?.toString()?.takeIf { !it.contains("Select") },
             "sampling_method"           to spSamplingMethod.selectedItem?.toString()?.takeIf { !it.contains("Select") },
             "crop_condition_plot"       to tdCode(tdCropCond, spCropConditionPlot.selectedItemPosition - 1),
             "harvesting_date"           to etHarvestingDate.text.toString().takeIf { it.isNotEmpty() },
@@ -1117,7 +1253,6 @@ class CCEFormFragment : Fragment() {
             "threshing_date"            to etThreshingDate.text.toString().takeIf { it.isNotEmpty() },
             "fresh_biomass_weight"      to etFreshBiomass.text.toString().toDoubleOrNull(),
             "dry_biomass_weight"        to etDryBiomass.text.toString().toDoubleOrNull(),
-            "fresh_grain_weight"        to etFreshGrain.text.toString().toDoubleOrNull(),
             "dry_grain_weight"          to etDryGrain.text.toString().toDoubleOrNull(),
             "moisture_content"          to etMoisture.text.toString().toDoubleOrNull(),
             "yield_kg_per_ha"           to yieldKgHa,
@@ -1126,6 +1261,12 @@ class CCEFormFragment : Fragment() {
             "ic_representative_mobile"  to etIcRepMobile.text.toString().takeIf { it.isNotEmpty() },
             "revenue_officer_name"      to etRevenueOfficer.text.toString().takeIf { it.isNotEmpty() },
             "farmer_present"            to cbFarmerPresent.isChecked,
+            "farmer_available"          to tdCode(tdYesNo, spFarmerAvailable.selectedItemPosition - 1),
+            "relation_with_farmer"      to etRelationWithFarmer.text.toString().takeIf { it.isNotEmpty() },
+            "representative_name"       to etRepresentativeName.text.toString().takeIf { it.isNotEmpty() },
+            "representative_mobile"     to etRepresentativeMobile.text.toString().takeIf { it.isNotEmpty() },
+            "dispute_if_any"            to tdCode(tdYesNo, spDisputeIfAny.selectedItemPosition - 1),
+            "dispute_recording_uri"     to SurveySession.formData["dispute_recording_uri"],
             "onfield_condition"         to tdCode(tdOnfield, spOnfieldCondition.selectedItemPosition - 1),
             "remarks"                   to etRemarks.text.toString().takeIf { it.isNotEmpty() },
             "capture_lat"               to SurveySession.formData["capture_lat"],

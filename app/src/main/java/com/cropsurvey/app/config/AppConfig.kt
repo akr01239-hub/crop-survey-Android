@@ -277,9 +277,9 @@ object AppConfig {
     val CROP_HEALTH = listOf("Excellent", "Good", "Fair", "Poor")
     val SOWING_METHODS = listOf("Manual", "Mechanised", "Broadcast", "Transplanted", "Drill Sowing")
     val CCE_PLOT_SIZES = listOf(
-        "10m × 10m (100 sqm) — Standard", "5m × 5m (25 sqm)", "5m × 4m (20 sqm)",
-        "4m × 4m (16 sqm)", "3m × 3m (9 sqm)", "Custom"
+        "10 × 10 (100 sqm)", "5 × 5 (25 sqm)", "5 × 10 (50 sqm)"
     )
+    val CCE_PLOT_SHAPES = listOf("Triangle", "Rectangle", "Square", "Circle")
     val CCE_THRESHING_METHODS = listOf("Manual Threshing", "Mechanical Thresher", "Pedal Thresher")
     val CCE_CROP_CONDITION    = listOf("Normal", "Lodging", "Partial Damage", "Heavy Damage", "Complete Failure")
     val CCE_WITNESS_TYPES     = listOf(

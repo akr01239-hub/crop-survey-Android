@@ -88,6 +88,17 @@
                     android:background="@android:color/transparent" android:hint="e.g. EXP-2025-001 or Random No."
                     android:inputType="text" android:padding="12dp"/>
             </FrameLayout>
+
+            <TextView android:id="@+id/lbl_survey_date" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Survey Date" android:textSize="12sp" android:textColor="#64748B"
+                android:layout_marginTop="12dp" android:layout_marginBottom="4dp"/>
+            <FrameLayout android:id="@+id/frame_et_survey_date" android:layout_width="match_parent" android:layout_height="48dp"
+                android:background="@drawable/input_background">
+                <EditText android:id="@+id/et_survey_date" android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@android:color/transparent" android:hint="Auto-filled"
+                    android:focusable="false" android:clickable="false"
+                    android:textColor="#0F172A" android:padding="12dp"/>
+            </FrameLayout>
         </LinearLayout>
 
         <!-- ══ SECTION 2: Location ══ -->
@@ -333,15 +344,6 @@
                     android:padding="12dp" android:focusable="false"/>
             </FrameLayout>
 
-            <TextView android:id="@+id/lbl_expected_harvest" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="@string/field_expected_harvest" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
-            <FrameLayout android:id="@+id/frame_et_expected_harvest" android:layout_width="match_parent" android:layout_height="48dp"
-                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
-                <EditText android:id="@+id/et_expected_harvest" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="Tap to select date"
-                    android:padding="12dp" android:focusable="false"/>
-            </FrameLayout>
-
             <TextView android:id="@+id/lbl_crop_stage" android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:text="@string/field_crop_stage" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
             <FrameLayout android:id="@+id/frame_sp_crop_stage" android:layout_width="match_parent" android:layout_height="48dp"
@@ -409,17 +411,13 @@
                     android:background="@android:color/transparent" android:paddingLeft="12dp" android:paddingRight="12dp"/>
             </FrameLayout>
 
-            <LinearLayout android:id="@+id/layout_custom_plot" android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
-                <TextView android:id="@+id/lbl_custom_plot" android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:text="@string/field_plot_size" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
-                <FrameLayout android:id="@+id/frame_et_custom_plot_size" android:layout_width="match_parent" android:layout_height="48dp"
-                    android:background="@drawable/input_background" android:layout_marginBottom="12dp">
-                    <EditText android:id="@+id/et_custom_plot_size" android:layout_width="match_parent" android:layout_height="match_parent"
-                        android:background="@android:color/transparent" android:hint="Enter size in sqm"
-                        android:inputType="numberDecimal" android:padding="12dp"/>
-                </FrameLayout>
-            </LinearLayout>
+            <TextView android:id="@+id/lbl_plot_shape" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="CCE Plot Shape" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+            <FrameLayout android:id="@+id/frame_sp_plot_shape" android:layout_width="match_parent" android:layout_height="48dp"
+                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
+                <Spinner android:id="@+id/sp_plot_shape" android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@android:color/transparent" android:paddingLeft="12dp" android:paddingRight="12dp"/>
+            </FrameLayout>
 
             <TextView android:id="@+id/lbl_sampling_method" android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:text="@string/field_sampling_method" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
@@ -503,15 +501,6 @@
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_dry_biomass" android:layout_width="match_parent" android:layout_height="match_parent"
                     android:background="@android:color/transparent" android:hint="e.g. 8.0"
-                    android:inputType="numberDecimal" android:padding="12dp"/>
-            </FrameLayout>
-
-            <TextView android:id="@+id/lbl_fresh_grain" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="@string/field_fresh_grain" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
-            <FrameLayout android:id="@+id/frame_et_fresh_grain" android:layout_width="match_parent" android:layout_height="48dp"
-                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
-                <EditText android:id="@+id/et_fresh_grain" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="e.g. 5.0"
                     android:inputType="numberDecimal" android:padding="12dp"/>
             </FrameLayout>
 
@@ -600,7 +589,44 @@
 
             <CheckBox android:id="@+id/cb_farmer_present" android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:text="@string/farmer_verified_label" android:textSize="13sp" android:textColor="#0F172A"
-                android:layout_marginBottom="4dp"/>
+                android:layout_marginBottom="4dp" android:visibility="gone"/>
+
+            <TextView android:id="@+id/lbl_farmer_available" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Farmer Available" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+            <FrameLayout android:id="@+id/frame_sp_farmer_available" android:layout_width="match_parent" android:layout_height="48dp"
+                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
+                <Spinner android:id="@+id/sp_farmer_available" android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@android:color/transparent" android:paddingLeft="12dp" android:paddingRight="12dp"/>
+            </FrameLayout>
+
+            <LinearLayout android:id="@+id/layout_farmer_unavailable" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
+
+                <TextView android:id="@+id/lbl_relation_with_farmer" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="Relation with Farmer" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+                <FrameLayout android:id="@+id/frame_et_relation_with_farmer" android:layout_width="match_parent" android:layout_height="48dp"
+                    android:background="@drawable/input_background" android:layout_marginBottom="12dp">
+                    <EditText android:id="@+id/et_relation_with_farmer" android:layout_width="match_parent" android:layout_height="match_parent"
+                        android:background="@android:color/transparent" android:hint="Enter relation with farmer" android:padding="12dp"/>
+                </FrameLayout>
+
+                <TextView android:id="@+id/lbl_representative_name" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="Representative Name" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+                <FrameLayout android:id="@+id/frame_et_representative_name" android:layout_width="match_parent" android:layout_height="48dp"
+                    android:background="@drawable/input_background" android:layout_marginBottom="12dp">
+                    <EditText android:id="@+id/et_representative_name" android:layout_width="match_parent" android:layout_height="match_parent"
+                        android:background="@android:color/transparent" android:hint="Enter representative name" android:padding="12dp"/>
+                </FrameLayout>
+
+                <TextView android:id="@+id/lbl_representative_mobile" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="Representative Mobile" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+                <FrameLayout android:id="@+id/frame_et_representative_mobile" android:layout_width="match_parent" android:layout_height="48dp"
+                    android:background="@drawable/input_background">
+                    <EditText android:id="@+id/et_representative_mobile" android:layout_width="match_parent" android:layout_height="match_parent"
+                        android:background="@android:color/transparent" android:hint="10-digit mobile number"
+                        android:inputType="phone" android:padding="12dp"/>
+                </FrameLayout>
+            </LinearLayout>
         </LinearLayout>
 
         <!-- ══ SECTION 8: Field Condition &amp; Remarks ══ -->
@@ -625,6 +651,26 @@
             android:paddingLeft="12dp" android:paddingRight="12dp"
             android:paddingTop="8dp" android:paddingBottom="12dp"
             android:layout_marginBottom="12dp" android:visibility="gone">
+
+            <TextView android:id="@+id/lbl_dispute_if_any" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Dispute If Any" android:textSize="12sp" android:textColor="#64748B"
+                android:layout_marginTop="8dp" android:layout_marginBottom="4dp"/>
+            <FrameLayout android:id="@+id/frame_sp_dispute_if_any" android:layout_width="match_parent" android:layout_height="48dp"
+                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
+                <Spinner android:id="@+id/sp_dispute_if_any" android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@android:color/transparent" android:paddingLeft="12dp" android:paddingRight="12dp"/>
+            </FrameLayout>
+
+            <LinearLayout android:id="@+id/layout_dispute_recording" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="Dispute Recording" android:textSize="12sp" android:textColor="#2563EB"
+                    android:textStyle="bold" android:layout_marginBottom="4dp"/>
+                <Button android:id="@+id/btn_record_dispute" android:layout_width="match_parent" android:layout_height="48dp"
+                    android:text="Record 30s Audio/Video" android:layout_marginBottom="12dp"/>
+                <TextView android:id="@+id/tv_dispute_recording_status" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="Not recorded" android:textSize="11sp" android:textColor="#94A3B8" android:layout_marginBottom="12dp"/>
+            </LinearLayout>
 
             <TextView android:id="@+id/lbl_onfield_condition" android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:text="@string/field_onfield_condition" android:textSize="12sp" android:textColor="#64748B"
