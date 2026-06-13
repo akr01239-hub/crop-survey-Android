@@ -629,4 +629,18 @@
     <string name="hint_eg_crop_variety">எ.கா. HD-2967, பூசா பாஸ்மதி</string>
     <string name="hint_ic_rep">காப்பீட்டு நிறுவன பிரதிநிதி</string>
     <string name="hint_revenue_officer">பட்வாரி / வருவாய் அதிகாரி பெயர்</string>
+    <string name="field_survey_id">கணக்கெடுப்பு ஐடி (டாக்கெட்-ஐடி)</string>
+    <string name="field_insured_crop">காப்பீடு செய்யப்பட்ட பயிர்</string>
+    <string name="field_farmer_available">விவசாயி கிடைக்கிறார்</string>
+    <string name="field_representative_name">பிரதிநிதி பெயர்</string>
+    <string name="field_representative_mobile">பிரதிநிதி மொபைல் எண்</string>
+    <string name="field_representative_id_photo">விவசாயி பிரதிநிதி ஐடி</string>
+    <string name="field_post_harvest">அறுவடைக்குப் பின்?</string>
+    <string name="field_harvest_date">அறுவடை தேதி</string>
+    <string name="field_crop_situation_field">வயலில் பயிர் நிலை</string>
+    <string name="field_dispute_if_any">ஏதேனும் தகராறு இருந்தால்</string>
+    <string name="field_other_cause">நிகழ்வின் காரணத்தைக் குறிப்பிடவும்</string>
+    <string name="field_dispute_recording">தகராறு பதிவு (ஆடியோ/வீடியோ, 30 வி)</string>
+    <string name="photo_closeup_affected_area">பாதிக்கப்பட்ட பகுதி நெருக்கப் படம்</string>
+    <string name="unit_gp_np">கி.பஞ்./நீ.பஞ்.</string>
 </resources>

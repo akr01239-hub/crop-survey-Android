@@ -629,4 +629,18 @@
     <string name="hint_eg_crop_variety">ਜਿਵੇਂ HD-2967, ਪੂਸਾ ਬਾਸਮਤੀ</string>
     <string name="hint_ic_rep">ਬੀਮਾ ਕੰਪਨੀ ਪ੍ਰਤੀਨਿਧੀ</string>
     <string name="hint_revenue_officer">ਪਟਵਾਰੀ / ਮਾਲੀਆ ਅਧਿਕਾਰੀ ਦਾ ਨਾਮ</string>
+    <string name="field_survey_id">ਸਰਵੇ ਆਈਡੀ (ਡਾਕੇਟ-ਆਈਡੀ)</string>
+    <string name="field_insured_crop">ਬੀਮਿਤ ਫਸਲ</string>
+    <string name="field_farmer_available">ਕਿਸਾਨ ਉਪਲਬਧ</string>
+    <string name="field_representative_name">ਪ੍ਰਤੀਨਿਧੀ ਦਾ ਨਾਮ</string>
+    <string name="field_representative_mobile">ਪ੍ਰਤੀਨਿਧੀ ਮੋਬਾਈਲ ਨੰ.</string>
+    <string name="field_representative_id_photo">ਕਿਸਾਨ ਪ੍ਰਤੀਨਿਧੀ ਆਈਡੀ</string>
+    <string name="field_post_harvest">ਵਾਢੀ ਤੋਂ ਬਾਅਦ?</string>
+    <string name="field_harvest_date">ਵਾਢੀ ਦੀ ਤਾਰੀਖ</string>
+    <string name="field_crop_situation_field">ਖੇਤ ਵਿੱਚ ਫਸਲ ਦੀ ਸਥਿਤੀ</string>
+    <string name="field_dispute_if_any">ਜੇ ਕੋਈ ਵਿਵਾਦ ਹੋਵੇ</string>
+    <string name="field_other_cause">ਘਟਨਾ ਦਾ ਕਾਰਨ ਦੱਸੋ</string>
+    <string name="field_dispute_recording">ਵਿਵਾਦ ਰਿਕਾਰਡਿੰਗ (ਆਡੀਓ/ਵੀਡੀਓ, 30 ਸੈ)</string>
+    <string name="photo_closeup_affected_area">ਪ੍ਰਭਾਵਿਤ ਖੇਤਰ ਦੀ ਨਜ਼ਦੀਕੀ ਫੋਟੋ</string>
+    <string name="unit_gp_np">ਗ੍ਰਾ.ਪੰ./ਨ੍ਯਾ.ਪੰ.</string>
 </resources>

@@ -629,4 +629,18 @@
     <string name="hint_eg_crop_variety">جیسے HD-2967، پوسا باسمتی</string>
     <string name="hint_ic_rep">انشورنس کمپنی نمائندہ</string>
     <string name="hint_revenue_officer">پٹواری / ریونیو افسر کا نام</string>
+    <string name="field_survey_id">سروے آئی ڈی (ڈاکٹ-آئی ڈی)</string>
+    <string name="field_insured_crop">بیمہ شدہ فصل</string>
+    <string name="field_farmer_available">کسان دستیاب</string>
+    <string name="field_representative_name">نمائندے کا نام</string>
+    <string name="field_representative_mobile">نمائندہ موبائل نمبر</string>
+    <string name="field_representative_id_photo">کسان نمائندہ آئی ڈی</string>
+    <string name="field_post_harvest">فصل کٹائی کے بعد؟</string>
+    <string name="field_harvest_date">کٹائی کی تاریخ</string>
+    <string name="field_crop_situation_field">کھیت میں فصل کی حالت</string>
+    <string name="field_dispute_if_any">اگر کوئی تنازعہ ہو</string>
+    <string name="field_other_cause">واقعے کی وجہ بتائیں</string>
+    <string name="field_dispute_recording">تنازعہ ریکارڈنگ (آڈیو/ویڈیو، 30 سیکنڈ)</string>
+    <string name="photo_closeup_affected_area">متاثرہ علاقے کی قریبی تصویر</string>
+    <string name="unit_gp_np">گرام پنچایت/نیاء پنچایت</string>
 </resources>

@@ -624,4 +624,18 @@
     <string name="hint_eg_crop_variety">ഉദാ. HD-2967, പൂസ ബാസ്മതി</string>
     <string name="hint_ic_rep">ഇൻഷ്വറൻസ് കമ്പനി പ്രതിനിധി</string>
     <string name="hint_revenue_officer">പട്വാരി / റവന്യൂ ഓഫീസർ പേര്</string>
+    <string name="field_survey_id">സർവ്വേ ഐഡി (ഡോക്കറ്റ്-ഐഡി)</string>
+    <string name="field_insured_crop">ഇൻഷ്വർ ചെയ്ത വിള</string>
+    <string name="field_farmer_available">കർഷകൻ ലഭ്യമാണ്</string>
+    <string name="field_representative_name">പ്രതിനിധിയുടെ പേര്</string>
+    <string name="field_representative_mobile">പ്രതിനിധി മൊബൈൽ നം.</string>
+    <string name="field_representative_id_photo">കർഷക പ്രതിനിധി ഐഡി</string>
+    <string name="field_post_harvest">വിളവെടുപ്പിനു ശേഷം?</string>
+    <string name="field_harvest_date">വിളവെടുപ്പ് തീയതി</string>
+    <string name="field_crop_situation_field">വയലിലെ വിള സ്ഥിതി</string>
+    <string name="field_dispute_if_any">എന്തെങ്കിലും തർക്കമുണ്ടെങ്കിൽ</string>
+    <string name="field_other_cause">സംഭവ കാരണം വ്യക്തമാക്കുക</string>
+    <string name="field_dispute_recording">തർക്ക റെക്കോർഡിംഗ് (ഓഡിയോ/വീഡിയോ, 30 സെ)</string>
+    <string name="photo_closeup_affected_area">ബാധിത പ്രദേശത്തിന്റെ ക്ലോസ്-അപ്പ് ഫോട്ടോ</string>
+    <string name="unit_gp_np">ഗ്രാ.പഞ്ച./ന്യാ.പഞ്ച.</string>
 </resources>

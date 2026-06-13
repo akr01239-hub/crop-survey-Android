@@ -629,4 +629,18 @@
     <string name="hint_eg_crop_variety">દા.ત. HD-2967, પૂસા બાસમતી</string>
     <string name="hint_ic_rep">વીમા કંપની પ્રતિનિધિ</string>
     <string name="hint_revenue_officer">પટવારી / મહેસૂલ અધિકારીનું નામ</string>
+    <string name="field_survey_id">સર્વે આઈડી (ડોકેટ-આઈડી)</string>
+    <string name="field_insured_crop">વીમાકૃત પાક</string>
+    <string name="field_farmer_available">ખેડૂત ઉપલબ્ધ</string>
+    <string name="field_representative_name">પ્રતિનિધિનું નામ</string>
+    <string name="field_representative_mobile">પ્રતિનિધિ મોબાઈલ નં.</string>
+    <string name="field_representative_id_photo">ખેડૂત પ્રતિનિધિ આઈડી</string>
+    <string name="field_post_harvest">લણણી પછી?</string>
+    <string name="field_harvest_date">લણણીની તારીખ</string>
+    <string name="field_crop_situation_field">ખેતરમાં પાકની સ્થિતિ</string>
+    <string name="field_dispute_if_any">જો કોઈ વિવાદ</string>
+    <string name="field_other_cause">ઘટનાનું કારણ જણાવો</string>
+    <string name="field_dispute_recording">વિવાદ રેકોર્ડિંગ (ઓડિયો/વિડિયો, 30 સે)</string>
+    <string name="photo_closeup_affected_area">પ્રભાવિત ક્ષેત્રનો ક્લોઝ-અપ ફોટો</string>
+    <string name="unit_gp_np">ગ્રા.પં./ન્યા.પં.</string>
 </resources>

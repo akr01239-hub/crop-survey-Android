@@ -629,4 +629,18 @@
     <string name="hint_eg_crop_variety">যেমন HD-2967, পুসা বাসমতী</string>
     <string name="hint_ic_rep">বীমা কোম্পানি প্রতিনিধি</string>
     <string name="hint_revenue_officer">পাটোয়ারি / রাজস্ব কর্মকর্তার নাম</string>
+    <string name="field_survey_id">সার্ভে আইডি (ডকেট-আইডি)</string>
+    <string name="field_insured_crop">বীমাকৃত ফসল</string>
+    <string name="field_farmer_available">কৃষক উপলব্ধ</string>
+    <string name="field_representative_name">প্রতিনিধির নাম</string>
+    <string name="field_representative_mobile">প্রতিনিধি মোবাইল নং</string>
+    <string name="field_representative_id_photo">কৃষক প্রতিনিধি আইডি</string>
+    <string name="field_post_harvest">ফসল কাটার পরে?</string>
+    <string name="field_harvest_date">ফসল কাটার তারিখ</string>
+    <string name="field_crop_situation_field">মাঠে ফসলের অবস্থা</string>
+    <string name="field_dispute_if_any">কোনো বিরোধ থাকলে</string>
+    <string name="field_other_cause">ঘটনার কারণ জানান</string>
+    <string name="field_dispute_recording">বিরোধ রেকর্ডিং (অডিও/ভিডিও, 30 সে)</string>
+    <string name="photo_closeup_affected_area">ক্ষতিগ্রস্ত এলাকার ক্লোজ-আপ ফটো</string>
+    <string name="unit_gp_np">গ্রা.পং./ন্যা.পং.</string>
 </resources>

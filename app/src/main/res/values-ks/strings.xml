@@ -624,4 +624,18 @@
     <string name="hint_eg_crop_variety">لکھ HD-2967، پوسا باسمتی</string>
     <string name="hint_ic_rep">انشورنس کمپنی نمائندٕ</string>
     <string name="hint_revenue_officer">پٹواری / ریونیو افسرُک ناو</string>
+    <string name="field_survey_id">سروے آئی ڈی (ڈاکٹ-آئی ڈی)</string>
+    <string name="field_insured_crop">بیمٕ والٕ فصل</string>
+    <string name="field_farmer_available">کِسان دستیاب</string>
+    <string name="field_representative_name">نمائندٕ ناو</string>
+    <string name="field_representative_mobile">نمائندٕ موبائل نمبر</string>
+    <string name="field_representative_id_photo">کِسان نمائندٕ آئی ڈی</string>
+    <string name="field_post_harvest">فصل کاٹنٕ بعد?</string>
+    <string name="field_harvest_date">کاٹنُک تاریخ</string>
+    <string name="field_crop_situation_field">کھیتس فصلُک حالت</string>
+    <string name="field_dispute_if_any">اگر کانہہ تنازعہ ہیکھ</string>
+    <string name="field_other_cause">واقعٕ وجہ بتاو</string>
+    <string name="field_dispute_recording">تنازعہ ریکارڈنگ (آڈیو/ویڈیو، 30 سیکنڈ)</string>
+    <string name="photo_closeup_affected_area">متاثرٕ علاقٕ قریبی فوٹو</string>
+    <string name="unit_gp_np">گرام پنچایت/نیاء پنچایت</string>
 </resources>

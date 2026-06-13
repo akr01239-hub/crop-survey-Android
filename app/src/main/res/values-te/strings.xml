@@ -629,4 +629,18 @@
     <string name="hint_eg_crop_variety">ఉదా. HD-2967, పూసా బాస్మతి</string>
     <string name="hint_ic_rep">బీమా సంస్థ ప్రతినిధి</string>
     <string name="hint_revenue_officer">పట్వారి / రెవెన్యూ అధికారి పేరు</string>
+    <string name="field_survey_id">సర్వే ఐడి (డాకెట్-ఐడి)</string>
+    <string name="field_insured_crop">బీమా చేసిన పంట</string>
+    <string name="field_farmer_available">రైతు అందుబాటులో</string>
+    <string name="field_representative_name">ప్రతినిధి పేరు</string>
+    <string name="field_representative_mobile">ప్రతినిధి మొబైల్ నం.</string>
+    <string name="field_representative_id_photo">రైతు ప్రతినిధి ఐడి</string>
+    <string name="field_post_harvest">పంట కోత తర్వాత?</string>
+    <string name="field_harvest_date">పంట కోత తేదీ</string>
+    <string name="field_crop_situation_field">పొలంలో పంట పరిస్థితి</string>
+    <string name="field_dispute_if_any">ఏదైనా వివాదం ఉంటే</string>
+    <string name="field_other_cause">సంఘటన కారణం పేర్కొనండి</string>
+    <string name="field_dispute_recording">వివాద రికార్డింగ్ (ఆడియో/వీడియో, 30 సె)</string>
+    <string name="photo_closeup_affected_area">ప్రభావిత ప్రాంతం క్లోజ్-అప్ ఫోటో</string>
+    <string name="unit_gp_np">గ్రా.పం./న్యా.పం.</string>
 </resources>

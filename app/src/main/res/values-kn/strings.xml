@@ -629,4 +629,18 @@
     <string name="hint_eg_crop_variety">ಉದಾ. HD-2967, ಪೂಸಾ ಬಾಸ್ಮತಿ</string>
     <string name="hint_ic_rep">ವಿಮಾ ಕಂಪನಿ ಪ್ರತಿನಿಧಿ</string>
     <string name="hint_revenue_officer">ಪಟ್ವಾರಿ / ಕಂದಾಯ ಅಧಿಕಾರಿ ಹೆಸರು</string>
+    <string name="field_survey_id">ಸಮೀಕ್ಷೆ ಐಡಿ (ಡಾಕೆಟ್-ಐಡಿ)</string>
+    <string name="field_insured_crop">ವಿಮೆ ಮಾಡಿದ ಬೆಳೆ</string>
+    <string name="field_farmer_available">ರೈತ ಲಭ್ಯ</string>
+    <string name="field_representative_name">ಪ್ರತಿನಿಧಿ ಹೆಸರು</string>
+    <string name="field_representative_mobile">ಪ್ರತಿನಿಧಿ ಮೊಬೈಲ್ ನಂ.</string>
+    <string name="field_representative_id_photo">ರೈತ ಪ್ರತಿನಿಧಿ ಐಡಿ</string>
+    <string name="field_post_harvest">ಕೊಯ್ಲು ನಂತರ?</string>
+    <string name="field_harvest_date">ಕೊಯ್ಲು ದಿನಾಂಕ</string>
+    <string name="field_crop_situation_field">ಹೊಲದಲ್ಲಿ ಬೆಳೆ ಪರಿಸ್ಥಿತಿ</string>
+    <string name="field_dispute_if_any">ಯಾವುದೇ ವಿವಾದವಿದ್ದರೆ</string>
+    <string name="field_other_cause">ಘಟನೆಯ ಕಾರಣ ತಿಳಿಸಿ</string>
+    <string name="field_dispute_recording">ವಿವಾದ ರೆಕಾರ್ಡಿಂಗ್ (ಆಡಿಯೋ/ವೀಡಿಯೊ, 30 ಸೆ)</string>
+    <string name="photo_closeup_affected_area">ಪ್ರಭಾವಿತ ಪ್ರದೇಶದ ಕ್ಲೋಸ್-ಅಪ್ ಫೋಟೋ</string>
+    <string name="unit_gp_np">ಗ್ರಾ.ಪಂ./ನ್ಯಾ.ಪಂ.</string>
 </resources>

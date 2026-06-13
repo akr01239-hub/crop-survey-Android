@@ -629,4 +629,18 @@
     <string name="hint_eg_crop_variety">ଯେମିତି HD-2967, ପୁଷା ବାସମତୀ</string>
     <string name="hint_ic_rep">ବୀମା କମ୍ପାନୀ ପ୍ରତିନିଧି</string>
     <string name="hint_revenue_officer">ପାଟୱାରୀ / ରାଜସ୍ୱ ଅଧିକାରୀଙ୍କ ନାମ</string>
+    <string name="field_survey_id">ସର୍ଭେ ଆଇଡି (ଡକେଟ-ଆଇଡି)</string>
+    <string name="field_insured_crop">ବୀମାକୃତ ଫସଲ</string>
+    <string name="field_farmer_available">ଚାଷୀ ଉପಲବ୍ଧ</string>
+    <string name="field_representative_name">ପ୍ରତିନିଧିଙ୍କ ନାମ</string>
+    <string name="field_representative_mobile">ପ୍ରତିନିଧି ମୋବାଇଲ ନଂ</string>
+    <string name="field_representative_id_photo">ଚାଷୀ ପ୍ରତିନିଧି ଆଇଡି</string>
+    <string name="field_post_harvest">ଅମଳ ପରେ?</string>
+    <string name="field_harvest_date">ଅମଳ ତାରିଖ</string>
+    <string name="field_crop_situation_field">କ୍ଷେତ୍ରରେ ଫସଲ ସ୍ଥିତି</string>
+    <string name="field_dispute_if_any">ଯଦି କୌଣସି ବିବାଦ ଥାଏ</string>
+    <string name="field_other_cause">ଘଟଣାର କାରଣ ଉଲ୍ଲେଖ କରନ୍ତୁ</string>
+    <string name="field_dispute_recording">ବିବାଦ ରେକର୍ଡିଂ (ଅଡିଓ/ଭିଡିଓ, 30 ସେ)</string>
+    <string name="photo_closeup_affected_area">ପ୍ରଭାବିତ କ୍ଷେତ୍ର କ୍ଲୋଜ-ଅପ ଫଟୋ</string>
+    <string name="unit_gp_np">ଗ୍ରା.ପଞ୍ଚା./ନ୍ୟା.ପଞ୍ଚା.</string>
 </resources>

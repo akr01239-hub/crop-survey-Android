@@ -683,4 +683,18 @@
     <string name="hint_eg_crop_variety">ᱡᱮᱞᱮᱠᱟ HD-2967, ᱯᱩᱥᱟ ᱵᱟᱥᱢᱟᱛᱤ</string>
     <string name="hint_ic_rep">ᱵᱤᱢᱟ ᱠᱚᱢᱯᱟᱱᱤ ᱯᱨᱚᱛᱤᱱᱤᱫᱷᱤ</string>
     <string name="hint_revenue_officer">ᱯᱟᱴᱣᱟᱨᱤ / ᱨᱮᱵᱮᱱᱤᱭᱩ ᱚᱯᱷᱤᱥᱟᱨ ᱧᱩᱛᱩᱢ</string>
+    <string name="field_survey_id">ᱥᱟᱨᱵᱮ ᱟᱭᱰᱤ (ᱰᱚᱠᱮᱴ-ᱟᱭᱰᱤ)</string>
+    <string name="field_insured_crop">ᱵᱤᱢᱟ ᱡᱚᱢ</string>
+    <string name="field_farmer_available">ᱠᱷᱮᱛᱤᱭᱟᱹ ᱦᱟᱹᱡᱤᱨ</string>
+    <string name="field_representative_name">ᱯᱨᱚᱛᱤᱱᱤᱫᱷᱤ ᱧᱩᱛᱩᱢ</string>
+    <string name="field_representative_mobile">ᱯᱨᱚᱛᱤᱱᱤᱫᱷᱤ ᱢᱳᱵᱟᱭᱞ ᱱᱚᱢᱵᱚᱨ</string>
+    <string name="field_representative_id_photo">ᱠᱷᱮᱛᱤᱭᱟᱹ ᱯᱨᱚᱛᱤᱱᱤᱫᱷᱤ ᱟᱭᱰᱤ</string>
+    <string name="field_post_harvest">ᱡᱚᱢ ᱠᱟᱴ ᱛᱟᱭᱚᱢ?</string>
+    <string name="field_harvest_date">ᱡᱚᱢ ᱠᱟᱴ ᱛᱟᱨᱤᱠ</string>
+    <string name="field_crop_situation_field">ᱨᱮᱡ ᱨᱮ ᱡᱚᱢ ᱦᱟᱞ</string>
+    <string name="field_dispute_if_any">ᱡᱟᱦᱟᱸ ᱵᱤᱵᱟᱫ ᱛᱟᱦᱮᱱ ᱨᱮ</string>
+    <string name="field_other_cause">ᱜᱷᱚᱴᱚᱱᱟ ᱠᱟᱨᱚᱬ ᱩᱫᱩᱜ ᱢᱮ</string>
+    <string name="field_dispute_recording">ᱵᱤᱵᱟᱫ ᱨᱮᱠᱚᱨᱰᱤᱝ (ᱟᱰᱤᱭᱳ/ᱵᱤᱰᱤᱭᱳ, 30 ᱥᱮ)</string>
+    <string name="photo_closeup_affected_area">ᱯᱨᱚᱵᱷᱟᱵᱤᱛ ᱡᱟᱭᱜᱟ ᱠᱞᱚᱡᱽ-ᱟᱯ ᱯᱷᱚᱴᱚ</string>
+    <string name="unit_gp_np">ᱜᱨᱟ.ᱯᱟᱸ./ᱱᱤ.ᱯᱟᱸ.</string>
 </resources>

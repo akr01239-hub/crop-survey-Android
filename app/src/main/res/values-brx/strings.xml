@@ -624,4 +624,18 @@
     <string name="hint_eg_crop_variety">लकख HD-2967, पूसा बासमती</string>
     <string name="hint_ic_rep">बिमा कमपानीनि दैदेनग्रा</string>
     <string name="hint_revenue_officer">पटवारी / सोंग्रां अफिसारनि मुं</string>
+    <string name="field_survey_id">सार्भे आइडी (डकेट-आइडी)</string>
+    <string name="field_insured_crop">बिमा हाथाइ</string>
+    <string name="field_farmer_available">हालो गोनां</string>
+    <string name="field_representative_name">दैदेनग्रानि मुं</string>
+    <string name="field_representative_mobile">दैदेनग्रा मबाइल नं</string>
+    <string name="field_representative_id_photo">हालो दैदेनग्रा आइडी</string>
+    <string name="field_post_harvest">काथि बादनाय?</string>
+    <string name="field_harvest_date">काथि सान</string>
+    <string name="field_crop_situation_field">हानिखौव हाथाइनि जायगा</string>
+    <string name="field_dispute_if_any">जदि गोबां बिबाद थायो</string>
+    <string name="field_other_cause">जाथायनि सोमोन्दो बिबुं</string>
+    <string name="field_dispute_recording">बिबाद रेकर्डिं (अडिअ/भिडिअ, 30 से)</string>
+    <string name="photo_closeup_affected_area">गोग्लैनाय जायगानि क्लज-आप फटो</string>
+    <string name="unit_gp_np">ग्रा.पञ्चा./न्या.पञ्चा.</string>
 </resources>

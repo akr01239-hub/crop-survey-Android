@@ -656,4 +656,24 @@
     <string name="hint_eg_crop_variety">जैसे HD-2967, पूसा बासमती</string>
     <string name="hint_ic_rep">बीमा कंपनी प्रतिनिधि</string>
     <string name="hint_revenue_officer">पटवारी / राजस्व अधिकारी का नाम</string>
+    <string name="field_survey_id">सर्वे आईडी (डॉकेट-आईडी)</string>
+    <string name="field_insured_crop">बीमित फसल</string>
+    <string name="field_farmer_available">किसान उपलब्ध</string>
+    <string name="field_representative_name">प्रतिनिधि का नाम</string>
+    <string name="field_representative_mobile">प्रतिनिधि मोबाइल नं.</string>
+    <string name="field_representative_id_photo">किसान प्रतिनिधि आईडी</string>
+    <string name="field_post_harvest">कटाई के बाद?</string>
+    <string name="field_harvest_date">कटाई की तारीख</string>
+    <string name="field_crop_situation_field">खेत में फसल की स्थिति</string>
+    <string name="field_dispute_if_any">यदि कोई विवाद</string>
+    <string name="field_other_cause">घटना का कारण बताएं</string>
+    <string name="field_dispute_recording">विवाद रिकॉर्डिंग (ऑडियो/वीडियो, 30 से)</string>
+    <string name="photo_closeup_affected_area">प्रभावित क्षेत्र का क्लोज-अप फोटो</string>
+    <string name="photo_closeup_affected_area_instruction">प्रभावित फसल/खेत क्षेत्र का क्लोज-अप</string>
+    <string name="photo_sw_corner_label">दक्षिण-पश्चिम कोना</string>
+    <string name="photo_nadir_view_label">नादिर दृश्य</string>
+    <string name="photo_plot_marking_label">प्लॉट मार्किंग</string>
+    <string name="photo_threshing_label">थ्रेशिंग</string>
+    <string name="photo_witness_label">साक्षी स्थल पर</string>
+    <string name="unit_gp_np">ग्रा.पं./न्या.पं.</string>
 </resources>
