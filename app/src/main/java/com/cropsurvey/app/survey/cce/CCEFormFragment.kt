@@ -954,8 +954,18 @@ class CCEFormFragment : Fragment() {
         etMoisture.addTextChangedListener(calcWatcher)
     }
 
-    private fun updateDryGrainCalcFromPlot() {
-        // No longer needed — dry grain is calculated from wet grain - moisture
+    private var dryGrainAutoFilling = false
+
+    private fun updateDryGrainCalc() {
+        if (dryGrainAutoFilling) return
+        val wetGrain = etDryBiomass.text.toString().toDoubleOrNull()
+        val moisturePct = etMoisture.text.toString().toDoubleOrNull()
+        if (wetGrain != null && moisturePct != null && moisturePct in 0.0..100.0) {
+            val dryGrain = wetGrain - (wetGrain * moisturePct / 100.0)
+            dryGrainAutoFilling = true
+            etDryGrain.setText(String.format("%.2f", dryGrain))
+            dryGrainAutoFilling = false
+        }
     }
 
     private fun loadStates() {
