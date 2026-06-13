@@ -205,6 +205,26 @@
                         android:background="@android:color/transparent" android:hint="Specify crop name" android:padding="12dp"/>
                 </FrameLayout>
             </LinearLayout>
+
+            <TextView android:id="@+id/lbl_any_disease" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Any Disease" android:textSize="12sp" android:textColor="#64748B"
+                android:layout_marginTop="12dp" android:layout_marginBottom="4dp"/>
+            <FrameLayout android:id="@+id/frame_sp_any_disease" android:layout_width="match_parent" android:layout_height="48dp"
+                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
+                <Spinner android:id="@+id/sp_any_disease" android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@android:color/transparent" android:paddingLeft="12dp" android:paddingRight="12dp"/>
+            </FrameLayout>
+
+            <LinearLayout android:id="@+id/layout_disease_name" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
+                <TextView android:id="@+id/lbl_disease_name" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="Please specify disease" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+                <FrameLayout android:id="@+id/frame_et_disease_name" android:layout_width="match_parent" android:layout_height="48dp"
+                    android:background="@drawable/input_background">
+                    <EditText android:id="@+id/et_disease_name" android:layout_width="match_parent" android:layout_height="match_parent"
+                        android:background="@android:color/transparent" android:hint="Specify disease name" android:padding="12dp"/>
+                </FrameLayout>
+            </LinearLayout>
         </LinearLayout>
 
         <!-- ══ SECTION 4: Farmer Information ══ -->

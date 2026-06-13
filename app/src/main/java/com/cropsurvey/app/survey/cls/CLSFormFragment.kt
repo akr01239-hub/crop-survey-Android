@@ -64,6 +64,9 @@ class CLSFormFragment : Fragment() {
     private lateinit var spInsuranceUnit: Spinner
     private lateinit var etOtherCrop: EditText
     private lateinit var layoutOtherCrop: View
+    private lateinit var spAnyDisease: Spinner
+    private lateinit var etDiseaseName: EditText
+    private lateinit var layoutDiseaseName: View
 
     // ── Section 4: Farmer Information ────────────────────────────
     private lateinit var etFarmerName: EditText
@@ -129,6 +132,8 @@ class CLSFormFragment : Fragment() {
     private lateinit var lblCropName: TextView
     private lateinit var lblInsuranceUnit: TextView
     private lateinit var lblOtherCrop: TextView
+    private lateinit var lblAnyDisease: TextView
+    private lateinit var lblDiseaseName: TextView
     private lateinit var lblFarmerName: TextView
     private lateinit var lblFarmerMobile: TextView
     private lateinit var lblFarmerAppNo: TextView
@@ -319,6 +324,9 @@ class CLSFormFragment : Fragment() {
         spInsuranceUnit      = v.findViewById(R.id.sp_insurance_unit)
         etOtherCrop          = v.findViewById(R.id.et_other_crop)
         layoutOtherCrop      = v.findViewById(R.id.layout_other_crop)
+        spAnyDisease         = v.findViewById(R.id.sp_any_disease)
+        etDiseaseName        = v.findViewById(R.id.et_disease_name)
+        layoutDiseaseName    = v.findViewById(R.id.layout_disease_name)
         etFarmerName         = v.findViewById(R.id.et_farmer_name)
         etFarmerMobile       = v.findViewById(R.id.et_farmer_mobile)
         etFarmerAppNo        = v.findViewById(R.id.et_farmer_app_no)
@@ -378,6 +386,8 @@ class CLSFormFragment : Fragment() {
         lblCropName          = v.findViewById(R.id.lbl_crop_name)
         lblInsuranceUnit     = v.findViewById(R.id.lbl_insurance_unit)
         lblOtherCrop         = v.findViewById(R.id.lbl_other_crop)
+        lblAnyDisease        = v.findViewById(R.id.lbl_any_disease)
+        lblDiseaseName       = v.findViewById(R.id.lbl_disease_name)
         lblFarmerName        = v.findViewById(R.id.lbl_farmer_name)
         lblFarmerMobile      = v.findViewById(R.id.lbl_farmer_mobile)
         lblFarmerAppNo       = v.findViewById(R.id.lbl_farmer_app_no)
@@ -444,6 +454,8 @@ class CLSFormFragment : Fragment() {
         updateSpinnerUi(spCropName,       lblCropName,       R.id.frame_sp_crop_name)
         updateSpinnerUi(spInsuranceUnit,  lblInsuranceUnit,  R.id.frame_sp_insurance_unit)
         updateFieldUi(etOtherCrop,        lblOtherCrop,      R.id.frame_et_other_crop)
+        updateSpinnerUi(spAnyDisease,     lblAnyDisease,     R.id.frame_sp_any_disease)
+        updateFieldUi(etDiseaseName,      lblDiseaseName,    R.id.frame_et_disease_name)
         updateFieldUi(etFarmerName,       lblFarmerName,     R.id.frame_et_farmer_name)
         updateFieldUi(etFarmerMobile,     lblFarmerMobile,   R.id.frame_et_farmer_mobile)
         updateFieldUi(etFarmerAppNo,      lblFarmerAppNo,    R.id.frame_et_farmer_app_no)
@@ -583,6 +595,7 @@ class CLSFormFragment : Fragment() {
         etGramPanchayat.addTextChangedListener(watcher(2))
         etSurveyIntimationNo.addTextChangedListener(watcher(3))
         etOtherCrop.addTextChangedListener(watcher(3))
+        etDiseaseName.addTextChangedListener(watcher(3))
         etOtherCause.addTextChangedListener(watcher(6))
         etFarmerName.addTextChangedListener(watcher(4))
         etFarmerMobile.addTextChangedListener(watcher(4))
@@ -643,6 +656,13 @@ class CLSFormFragment : Fragment() {
             override fun onNothingSelected(p: AdapterView<*>?) {}
         })
         spInsuranceUnit.onItemSelectedListener = spinnerListener(3)
+        spAnyDisease.onItemSelectedListener = spinnerListener(3, object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p: AdapterView<*>?, v: View?, pos: Int, id: Long) {
+                layoutDiseaseName.visibility =
+                    if (tdYesNo.getOrNull(pos - 1)?.code == "yes") View.VISIBLE else View.GONE
+            }
+            override fun onNothingSelected(p: AdapterView<*>?) {}
+        })
         spFarmerAvailable.onItemSelectedListener = spinnerListener(4, object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p: AdapterView<*>?, v: View?, pos: Int, id: Long) {
                 val code = tdYesNo.getOrNull(pos - 1)?.code
@@ -712,11 +732,13 @@ class CLSFormFragment : Fragment() {
                 && etRevenueCircle.text.isNotBlank()
                 && etGramPanchayat.text.isNotBlank()
                 && etVillage.text.isNotBlank()
-        // S3: survey_intimation_no, crop_name, insurance_unit, other_crop(conditional)
+        // S3: survey_intimation_no, crop_name, insurance_unit, other_crop(conditional), any_disease, disease_name(conditional)
         3 -> etSurveyIntimationNo.text.isNotBlank()
                 && spCropName.selectedItemPosition > 0
                 && spInsuranceUnit.selectedItemPosition > 0
                 && (tdCrops.getOrNull(spCropName.selectedItemPosition - 1)?.code !in listOf("Others", "Other") || etOtherCrop.text.isNotBlank())
+                && spAnyDisease.selectedItemPosition > 0
+                && (tdYesNo.getOrNull(spAnyDisease.selectedItemPosition - 1)?.code != "yes" || etDiseaseName.text.isNotBlank())
         // S4: farmer_name, farmer_mobile, farmer_app_no, farmer_available (+ representative block if No)
         4 -> etFarmerName.text.isNotBlank()
                 && etFarmerMobile.text.length >= 10
@@ -872,6 +894,7 @@ class CLSFormFragment : Fragment() {
         setSpinner(spPostHarvest,     listOf(getString(R.string.hint_select)) + tdLabels(tdYesNo))
         setSpinner(spCropSituationField, listOf(getString(R.string.hint_select)) + tdLabels(tdCropSituationField))
         setSpinner(spDisputeIfAny,    listOf(getString(R.string.hint_select)) + tdLabels(tdYesNo))
+        setSpinner(spAnyDisease,      listOf(getString(R.string.hint_select)) + tdLabels(tdYesNo))
         setSpinner(spState,    listOf("Select State"))
         setSpinner(spDistrict, listOf("Select District"))
         setSpinner(spTehsil,   listOf("Select Tehsil"))
@@ -1018,6 +1041,7 @@ class CLSFormFragment : Fragment() {
         etRemarks.setText(fd["remarks"]?.toString() ?: "")
         etOtherScheme.setText(fd["others_scheme"]?.toString() ?: "")
         etOtherCrop.setText(fd["other_crop"]?.toString() ?: "")
+        etDiseaseName.setText(fd["disease_name"]?.toString() ?: "")
         etSowingDate.setText(fd["sowing_date"]?.toString() ?: "")
         etDateOfIntimation.setText(fd["date_of_intimation"]?.toString() ?: "")
         etDateOfLoss.setText(fd["date_of_loss"]?.toString() ?: "")
@@ -1039,10 +1063,12 @@ class CLSFormFragment : Fragment() {
         tdRestore(spPostHarvest, tdYesNo, fd["post_harvest"]?.toString())
         tdRestore(spCropSituationField, tdCropSituationField, fd["crop_situation_field"]?.toString())
         tdRestore(spDisputeIfAny, tdYesNo, fd["dispute_if_any"]?.toString())
+        tdRestore(spAnyDisease, tdYesNo, fd["any_disease"]?.toString())
 
         // Apply conditional visibility based on restored values
         layoutOtherScheme.visibility = if (fd["scheme"]?.toString() == "Others") View.VISIBLE else View.GONE
         layoutOtherCrop.visibility = if (fd["crop_name"]?.toString() in listOf("Others", "Other")) View.VISIBLE else View.GONE
+        layoutDiseaseName.visibility = if (fd["any_disease"]?.toString() == "yes") View.VISIBLE else View.GONE
         layoutOtherCause.visibility = if (fd["cause_of_event"]?.toString() in listOf("Other", "Others")) View.VISIBLE else View.GONE
         layoutFarmerUnavailable.visibility = if (fd["farmer_available"]?.toString() == "no") View.VISIBLE else View.GONE
         layoutPostHarvest.visibility = if (fd["post_harvest"]?.toString() == "yes") View.VISIBLE else View.GONE
@@ -1146,6 +1172,8 @@ class CLSFormFragment : Fragment() {
             "crop_name"                to tdCode(tdCrops, spCropName.selectedItemPosition - 1),
             "insurance_unit"           to tdCode(tdInsurance, spInsuranceUnit.selectedItemPosition - 1),
             "other_crop"               to etOtherCrop.text.toString().takeIf { it.isNotEmpty() },
+            "any_disease"              to tdCode(tdYesNo, spAnyDisease.selectedItemPosition - 1),
+            "disease_name"             to etDiseaseName.text.toString().takeIf { it.isNotEmpty() },
             "farmer_name"              to farmerName.takeIf { it.isNotEmpty() },
             "farmer_mobile"            to farmerMobile.takeIf { it.isNotEmpty() },
             "farmer_insurance_app_no"  to etFarmerAppNo.text.toString().takeIf { it.isNotEmpty() },
@@ -1208,6 +1236,8 @@ class CLSFormFragment : Fragment() {
             "crop_name"                to tdCode(tdCrops, spCropName.selectedItemPosition - 1),
             "insurance_unit"           to tdCode(tdInsurance, spInsuranceUnit.selectedItemPosition - 1),
             "other_crop"               to etOtherCrop.text.toString().takeIf { it.isNotEmpty() },
+            "any_disease"              to tdCode(tdYesNo, spAnyDisease.selectedItemPosition - 1),
+            "disease_name"             to etDiseaseName.text.toString().takeIf { it.isNotEmpty() },
             "farmer_name"              to farmerName,
             "farmer_mobile"            to farmerMobile,
             "farmer_insurance_app_no"  to etFarmerAppNo.text.toString().takeIf { it.isNotEmpty() },
