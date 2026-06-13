@@ -55,6 +55,14 @@ class VideoCaptureActivity : AppCompatActivity() {
     private lateinit var tvTimer: TextView
     private lateinit var tvStatus: TextView
     private lateinit var progressBar: ProgressBar
+    private lateinit var ivStampOverlay: android.widget.ImageView
+
+    // Latest GPS fix + reverse-geocoded place, refreshed every ~2s while the
+    // camera is open and shown live via GeoTagOverlay (same as photo capture).
+    // The values current when recording STARTS are what get burned into the
+    // video frames, for consistency with the live preview the user saw.
+    private var latestCoords: com.cropsurvey.app.models.GpsCoords? = null
+    private var latestPlace: String = ""
 
     private var videoCapture: VideoCapture<Recorder>? = null
     private var activeRecording: Recording? = null
@@ -86,6 +94,8 @@ class VideoCaptureActivity : AppCompatActivity() {
         tvTimer     = findViewById(R.id.tv_timer)
         tvStatus    = findViewById(R.id.tv_status)
         progressBar = findViewById(R.id.progress_bar)
+        ivStampOverlay = findViewById(R.id.iv_stamp_overlay)
+        startLiveGeoTagUpdates()
 
         btnClose.setOnClickListener {
             if (isRecording) stopRecording(cancelled = true)
@@ -112,6 +122,32 @@ class VideoCaptureActivity : AppCompatActivity() {
             Toast.makeText(this, "Camera and microphone permission required to record", Toast.LENGTH_LONG).show()
             setResult(RESULT_CANCELED)
             finish()
+        }
+    }
+
+    /**
+     * Polls GPS every ~2s and refreshes the live geo-tag overlay using the
+     * SAME GeoTagOverlay engine as PhotoCaptureActivity — visually identical
+     * stamp, kept live while recording (requirement: "geo-tag panel should
+     * update live while recording").
+     */
+    private fun startLiveGeoTagUpdates() {
+        lifecycleScope.launch {
+            while (true) {
+                val coords = GpsHelper.getCurrentLocation(this@VideoCaptureActivity)
+                if (coords != null) {
+                    latestCoords = coords
+                    withContext(Dispatchers.IO) {
+                        try {
+                            val place = GeoTagOverlay.reverseGeocode(this@VideoCaptureActivity, coords.lat, coords.lon)
+                            latestPlace = place
+                            val stampBmp = GeoTagOverlay.renderStampBitmap(1080, coords, place, SurveySession.currentSurveyId ?: "")
+                            runOnUiThread { ivStampOverlay.setImageBitmap(stampBmp) }
+                        } catch (_: Exception) {}
+                    }
+                }
+                kotlinx.coroutines.delay(2000L)
+            }
         }
     }
 
@@ -166,6 +202,7 @@ class VideoCaptureActivity : AppCompatActivity() {
                         if (!event.hasError()) {
                             tvStatus.text = "Adding authenticity stamp…"
                             progressBar.visibility = View.VISIBLE
+                            ivStampOverlay.visibility = View.GONE
                             btnRecord.isEnabled = false
                             lifecycleScope.launch {
                                 val finalPath = stampAndGetPath(outFile)
@@ -193,14 +230,14 @@ class VideoCaptureActivity : AppCompatActivity() {
      */
     private suspend fun stampAndGetPath(originalFile: File): String = withContext(Dispatchers.Default) {
         try {
-            val coords = GpsHelper.getCurrentLocation(this@VideoCaptureActivity)
+            // Reuse the GPS/place from the live overlay the user saw while
+            // recording, falling back to a fresh fetch / form data if unavailable.
+            val coords = latestCoords ?: GpsHelper.getCurrentLocation(this@VideoCaptureActivity)
                 ?: com.cropsurvey.app.models.GpsCoords(
                     (SurveySession.formData["capture_lat"] as? Double) ?: 0.0,
                     (SurveySession.formData["capture_lon"] as? Double) ?: 0.0
                 )
-            val place = StampUtils.reverseGeocode(this@VideoCaptureActivity, coords.lat, coords.lon)
-            val empId = SurveySession.employeeId.ifEmpty { "—" }
-            val caseId = SurveySession.currentCaseId.ifEmpty { "—" }
+            val place = latestPlace.ifEmpty { GeoTagOverlay.reverseGeocode(this@VideoCaptureActivity, coords.lat, coords.lon) }
 
             // Get frame dimensions from the recorded file to size the overlay correctly
             val extractor = android.media.MediaExtractor()
@@ -216,7 +253,10 @@ class VideoCaptureActivity : AppCompatActivity() {
             }
             extractor.release()
 
-            val stampBmp = StampUtils.createVideoStampBitmap(w, h, coords, place, empId, caseId)
+            // Same GeoTagOverlay used for photo watermarks — single source of
+            // truth, so any change to the photo stamp automatically applies here.
+            val survId = SurveySession.currentSurveyId ?: ""
+            val stampBmp = GeoTagOverlay.renderStampForFrame(w, h, coords, place, survId)
             val stampedFile = File(cacheDir, "stamped_${originalFile.name}")
             VideoStampTranscoder.stampVideo(originalFile, stampedFile, stampBmp)
             originalFile.delete()
