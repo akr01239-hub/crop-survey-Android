@@ -590,4 +590,44 @@
     <string name="photo_neighbor_field">پڑوسی کھیت کی تصویر</string>
     <string name="photo_rep_id">کسان نمائندہ آئی ڈی</string>
     <string name="photo_other_remains">اگر کچھ باقی ہو</string>
+
+    <!-- ══ Shared hints & texts ══ -->
+    <string name="hint_specify_scheme">اسکیم بتائیں</string>
+    <string name="hint_enter_revenue_circle">ریونیو حلقہ درج کریں</string>
+    <string name="hint_enter_gram_panchayat">گرام پنچایت درج کریں</string>
+    <string name="hint_enter_village">گاؤں کا نام درج کریں</string>
+    <string name="hint_enter_intimation_no">اطلاع نمبر درج کریں</string>
+    <string name="hint_specify_crop">فصل کا نام بتائیں</string>
+    <string name="hint_enter_full_name">پورا نام درج کریں</string>
+    <string name="hint_enter_app_no">درخواست نمبر درج کریں</string>
+    <string name="hint_not_verified">تصدیق نہیں ہوئی</string>
+    <string name="hint_tap_select_date">تاریخ منتخب کرنے کے لیے ٹیپ کریں</string>
+    <string name="hint_specify_cause">واقعے کی وجہ بتائیں</string>
+    <string name="hint_enter_khasra">خسرہ نمبر درج کریں</string>
+    <string name="hint_auto_from_polygon">نقشے سے آٹو</string>
+    <string name="hint_enter_total_land">کل زمین کا رقبہ درج کریں</string>
+    <string name="hint_enter_insured_area">بیمہ شدہ رقبہ درج کریں</string>
+    <string name="hint_enter_officer_name">افسر کا نام درج کریں</string>
+    <string name="hint_enter_designation">جیسے زراعت افسر</string>
+    <string name="hint_enter_remarks">اضافی تبصرے یا نوٹس</string>
+    <string name="text_capture_photos_tab">فوٹو ٹیب میں کیپچر کریں</string>
+    <string name="text_value_0_to_100">0 سے 100 کے درمیان قدر درج کریں</string>
+    <string name="text_acquiring_gps">GPS حاصل ہو رہا ہے…</string>
+    <string name="hint_enter_cce_number">جیسے CCE-2025-001</string>
+    <string name="hint_auto_assigned">خود تفویض</string>
+    <string name="hint_enter_experiment_id">جیسے EXP-2025-001 یا رینڈم نمبر</string>
+    <string name="hint_enter_crop_variety">فصل کی قسم درج کریں</string>
+    <string name="hint_enter_aadhaar_last4">آخری 4 ہندسے</string>
+    <string name="hint_eg_12_5">جیسے 12.5</string>
+    <string name="hint_eg_60">جیسے 60.0</string>
+    <string name="hint_eg_20">جیسے 20</string>
+    <string name="hint_10_digit_mobile">10 ہندسے موبائل</string>
+    <string name="hint_eg_75">جیسے 75</string>
+    <string name="hint_eg_60_pct">جیسے 60</string>
+    <string name="hint_eg_40">جیسے 40</string>
+    <string name="hint_eg_8675">جیسے 8675</string>
+    <string name="hint_eg_khasra">جیسے 123/4 یا سروے نمبر</string>
+    <string name="hint_eg_crop_variety">جیسے HD-2967، پوسا باسمتی</string>
+    <string name="hint_ic_rep">انشورنس کمپنی نمائندہ</string>
+    <string name="hint_revenue_officer">پٹواری / ریونیو افسر کا نام</string>
 </resources>

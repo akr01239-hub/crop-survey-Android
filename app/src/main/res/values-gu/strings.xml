@@ -590,4 +590,44 @@
     <string name="photo_neighbor_field">પડોશી ખેતરનો ફોટો</string>
     <string name="photo_rep_id">ખેડૂત પ્રતિનિધિ આઈડી</string>
     <string name="photo_other_remains">જો કંઈ બાકી હોય</string>
+
+    <!-- ══ Shared hints & texts ══ -->
+    <string name="hint_specify_scheme">યોજના જણાવો</string>
+    <string name="hint_enter_revenue_circle">મહેસૂલ વર્તુળ દાખલ કરો</string>
+    <string name="hint_enter_gram_panchayat">ગ્રામ પંચાયત દાખલ કરો</string>
+    <string name="hint_enter_village">ગામનું નામ દાખલ કરો</string>
+    <string name="hint_enter_intimation_no">સૂચના નંબર દાખલ કરો</string>
+    <string name="hint_specify_crop">પાકનું નામ જણાવો</string>
+    <string name="hint_enter_full_name">પૂરું નામ દાખલ કરો</string>
+    <string name="hint_enter_app_no">અરજી નંબર દાખલ કરો</string>
+    <string name="hint_not_verified">ચકાસાયેલ નથી</string>
+    <string name="hint_tap_select_date">તારીખ પસંદ કરવા ટેપ કરો</string>
+    <string name="hint_specify_cause">ઘટનાનું કારણ જણાવો</string>
+    <string name="hint_enter_khasra">ખસરા નંબર દાખલ કરો</string>
+    <string name="hint_auto_from_polygon">નકશામાંથી ઓટો ભરાયેલ</string>
+    <string name="hint_enter_total_land">કુલ જમીન ક્ષેત્ર દાખલ કરો</string>
+    <string name="hint_enter_insured_area">વીમાકૃત ક્ષેત્ર દાખલ કરો</string>
+    <string name="hint_enter_officer_name">અધિકારીનું નામ દાખલ કરો</string>
+    <string name="hint_enter_designation">જેમ કે કૃષિ અધિકારી</string>
+    <string name="hint_enter_remarks">કોઈ વધારાની ટિપ્પણીઓ</string>
+    <string name="text_capture_photos_tab">ફોટો ટેબમાં કેપ્ચર કરો</string>
+    <string name="text_value_0_to_100">0 થી 100 વચ્ચે મૂલ્ય દાખલ કરો</string>
+    <string name="text_acquiring_gps">GPS મેળવી રહ્યા છીએ…</string>
+    <string name="hint_enter_cce_number">દા.ત. CCE-2025-001</string>
+    <string name="hint_auto_assigned">ઓટો સોંપાયેલ</string>
+    <string name="hint_enter_experiment_id">દા.ત. EXP-2025-001 અથવા રેન્ડમ નં.</string>
+    <string name="hint_enter_crop_variety">પાક જાત દાખલ કરો</string>
+    <string name="hint_enter_aadhaar_last4">છેલ્લા 4 અંક</string>
+    <string name="hint_eg_12_5">દા.ત. 12.5</string>
+    <string name="hint_eg_60">દા.ત. 60.0</string>
+    <string name="hint_eg_20">દા.ત. 20</string>
+    <string name="hint_10_digit_mobile">10 અંકનો મોબાઈલ</string>
+    <string name="hint_eg_75">દા.ત. 75</string>
+    <string name="hint_eg_60_pct">દા.ત. 60</string>
+    <string name="hint_eg_40">દા.ત. 40</string>
+    <string name="hint_eg_8675">દા.ત. 8675</string>
+    <string name="hint_eg_khasra">દા.ત. 123/4 અથવા સર્વે નં.</string>
+    <string name="hint_eg_crop_variety">દા.ત. HD-2967, પૂસા બાસમતી</string>
+    <string name="hint_ic_rep">વીમા કંપની પ્રતિનિધિ</string>
+    <string name="hint_revenue_officer">પટવારી / મહેસૂલ અધિકારીનું નામ</string>
 </resources>

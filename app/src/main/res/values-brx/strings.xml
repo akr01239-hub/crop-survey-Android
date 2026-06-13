@@ -585,4 +585,44 @@
     <string name="photo_neighbor_field">हादाव हानिखौ फटो</string>
     <string name="photo_rep_id">हालो दैदेनग्रा आइडी</string>
     <string name="photo_other_remains">जदि माबा थायो</string>
+
+    <!-- ══ Shared hints & texts ══ -->
+    <string name="hint_specify_scheme">फार्स मुंग्रि बिबुं</string>
+    <string name="hint_enter_revenue_circle">सोंग्रां जिलां लिर</string>
+    <string name="hint_enter_gram_panchayat">गामनि पञ्चायत लिर</string>
+    <string name="hint_enter_village">गामनि मुं लिर</string>
+    <string name="hint_enter_intimation_no">सोदोब नम्बर लिर</string>
+    <string name="hint_specify_crop">हाथाइनि मुं बिबुं</string>
+    <string name="hint_enter_full_name">गासै मुं लिर</string>
+    <string name="hint_enter_app_no">बिनायथि नम्बर लिर</string>
+    <string name="hint_not_verified">नजों खालामाखै</string>
+    <string name="hint_tap_select_date">सान बासिनो थाखाय टेप खालाम</string>
+    <string name="hint_specify_cause">जाथायनि सोमोन्दो बिबुं</string>
+    <string name="hint_enter_khasra">खसरा नम्बर लिर</string>
+    <string name="hint_auto_from_polygon">मेपनिफ्राय गसर</string>
+    <string name="hint_enter_total_land">गासै हा जायगा लिर</string>
+    <string name="hint_enter_insured_area">बिमा जायगा लिर</string>
+    <string name="hint_enter_officer_name">अफिसारनि मुं लिर</string>
+    <string name="hint_enter_designation">लकख हालो अफिसार</string>
+    <string name="hint_enter_remarks">गोबां बादि बुजाथि</string>
+    <string name="text_capture_photos_tab">फटो टेबाव केपचार खालाम</string>
+    <string name="text_value_0_to_100">0 निफ्राय 100 गेजेरावनि मोल लिर</string>
+    <string name="text_acquiring_gps">GPS मोन्नाय जादों…</string>
+    <string name="hint_enter_cce_number">लकख CCE-2025-001</string>
+    <string name="hint_auto_assigned">गसर हांमारायो</string>
+    <string name="hint_enter_experiment_id">लकख EXP-2025-001 नङा रेन्डम नं</string>
+    <string name="hint_enter_crop_variety">हाथाइ बिजों लिर</string>
+    <string name="hint_enter_aadhaar_last4">गिबि 4 अनजिमा</string>
+    <string name="hint_eg_12_5">लकख 12.5</string>
+    <string name="hint_eg_60">लकख 60.0</string>
+    <string name="hint_eg_20">लकख 20</string>
+    <string name="hint_10_digit_mobile">10 अनजिमानि मबाइल</string>
+    <string name="hint_eg_75">लकख 75</string>
+    <string name="hint_eg_60_pct">लकख 60</string>
+    <string name="hint_eg_40">लकख 40</string>
+    <string name="hint_eg_8675">लकख 8675</string>
+    <string name="hint_eg_khasra">लकख 123/4 नङा सार्भे नं</string>
+    <string name="hint_eg_crop_variety">लकख HD-2967, पूसा बासमती</string>
+    <string name="hint_ic_rep">बिमा कमपानीनि दैदेनग्रा</string>
+    <string name="hint_revenue_officer">पटवारी / सोंग्रां अफिसारनि मुं</string>
 </resources>

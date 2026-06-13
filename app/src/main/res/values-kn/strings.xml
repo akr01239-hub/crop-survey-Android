@@ -590,4 +590,44 @@
     <string name="photo_neighbor_field">ನೆರೆ ಹೊಲದ ಫೋಟೋ</string>
     <string name="photo_rep_id">ರೈತ ಪ್ರತಿನಿಧಿ ಐಡಿ</string>
     <string name="photo_other_remains">ಏನಾದರೂ ಉಳಿದಿದ್ದರೆ</string>
+
+    <!-- ══ Shared hints & texts ══ -->
+    <string name="hint_specify_scheme">ಯೋಜನೆ ತಿಳಿಸಿ</string>
+    <string name="hint_enter_revenue_circle">ಕಂದಾಯ ವೃತ್ತ ನಮೂದಿಸಿ</string>
+    <string name="hint_enter_gram_panchayat">ಗ್ರಾಮ ಪಂಚಾಯತಿ ನಮೂದಿಸಿ</string>
+    <string name="hint_enter_village">ಗ್ರಾಮದ ಹೆಸರು ನಮೂದಿಸಿ</string>
+    <string name="hint_enter_intimation_no">ಸೂಚನೆ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ</string>
+    <string name="hint_specify_crop">ಬೆಳೆ ಹೆಸರು ತಿಳಿಸಿ</string>
+    <string name="hint_enter_full_name">ಪೂರ್ಣ ಹೆಸರು ನಮೂದಿಸಿ</string>
+    <string name="hint_enter_app_no">ಅರ್ಜಿ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ</string>
+    <string name="hint_not_verified">ಪರಿಶೀಲಿಸಿಲ್ಲ</string>
+    <string name="hint_tap_select_date">ದಿನಾಂಕ ಆಯ್ಕೆ ಮಾಡಲು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
+    <string name="hint_specify_cause">ಘಟನೆಯ ಕಾರಣ ತಿಳಿಸಿ</string>
+    <string name="hint_enter_khasra">ಖಸ್ರಾ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ</string>
+    <string name="hint_auto_from_polygon">ನಕ್ಷೆಯಿಂದ ಸ್ವಯಂ</string>
+    <string name="hint_enter_total_land">ಒಟ್ಟು ಭೂ ಕ್ಷೇತ್ರ ನಮೂದಿಸಿ</string>
+    <string name="hint_enter_insured_area">ವಿಮೆ ಮಾಡಿದ ಕ್ಷೇತ್ರ ನಮೂದಿಸಿ</string>
+    <string name="hint_enter_officer_name">ಅಧಿಕಾರಿ ಹೆಸರು ನಮೂದಿಸಿ</string>
+    <string name="hint_enter_designation">ಉದಾ. ಕೃಷಿ ಅಧಿಕಾರಿ</string>
+    <string name="hint_enter_remarks">ಹೆಚ್ಚುವರಿ ಟಿಪ್ಪಣಿಗಳು</string>
+    <string name="text_capture_photos_tab">ಫೋಟೋ ಟ್ಯಾಬ್‌ನಲ್ಲಿ ಕ್ಯಾಪ್ಚರ್ ಮಾಡಿ</string>
+    <string name="text_value_0_to_100">0 ರಿಂದ 100 ನಡುವಿನ ಮೌಲ್ಯ ನಮೂದಿಸಿ</string>
+    <string name="text_acquiring_gps">GPS ಪಡೆಯಲಾಗುತ್ತಿದೆ…</string>
+    <string name="hint_enter_cce_number">ಉದಾ. CCE-2025-001</string>
+    <string name="hint_auto_assigned">ಸ್ವಯಂ ನಿಯೋಜಿತ</string>
+    <string name="hint_enter_experiment_id">ಉದಾ. EXP-2025-001 ಅಥವಾ ಯಾದೃಚ್ಛಿಕ ನಂ.</string>
+    <string name="hint_enter_crop_variety">ಬೆಳೆ ತಳಿ ನಮೂದಿಸಿ</string>
+    <string name="hint_enter_aadhaar_last4">ಕೊನೆಯ 4 ಅಂಕೆ</string>
+    <string name="hint_eg_12_5">ಉದಾ. 12.5</string>
+    <string name="hint_eg_60">ಉದಾ. 60.0</string>
+    <string name="hint_eg_20">ಉದಾ. 20</string>
+    <string name="hint_10_digit_mobile">10 ಅಂಕಿ ಮೊಬೈಲ್</string>
+    <string name="hint_eg_75">ಉದಾ. 75</string>
+    <string name="hint_eg_60_pct">ಉದಾ. 60</string>
+    <string name="hint_eg_40">ಉದಾ. 40</string>
+    <string name="hint_eg_8675">ಉದಾ. 8675</string>
+    <string name="hint_eg_khasra">ಉದಾ. 123/4 ಅಥವಾ ಸರ್ವೇ ನಂ.</string>
+    <string name="hint_eg_crop_variety">ಉದಾ. HD-2967, ಪೂಸಾ ಬಾಸ್ಮತಿ</string>
+    <string name="hint_ic_rep">ವಿಮಾ ಕಂಪನಿ ಪ್ರತಿನಿಧಿ</string>
+    <string name="hint_revenue_officer">ಪಟ್ವಾರಿ / ಕಂದಾಯ ಅಧಿಕಾರಿ ಹೆಸರು</string>
 </resources>

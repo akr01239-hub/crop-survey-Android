@@ -585,4 +585,44 @@
     <string name="photo_neighbor_field">ہمسایہ کھیتُک فوٹو</string>
     <string name="photo_rep_id">کِسان نمائندہ آئی ڈی</string>
     <string name="photo_other_remains">اگر کانہہ باقی ہیکھ</string>
+
+    <!-- ══ Shared hints & texts ══ -->
+    <string name="hint_specify_scheme">اسکیم بتاو</string>
+    <string name="hint_enter_revenue_circle">ریونیو حلقٕ لیکھو</string>
+    <string name="hint_enter_gram_panchayat">گرام پنچایت لیکھو</string>
+    <string name="hint_enter_village">گامُک ناو لیکھو</string>
+    <string name="hint_enter_intimation_no">اطلاع نمبر لیکھو</string>
+    <string name="hint_specify_crop">فصلُک ناو بتاو</string>
+    <string name="hint_enter_full_name">پورٕ ناو لیکھو</string>
+    <string name="hint_enter_app_no">درخواست نمبر لیکھو</string>
+    <string name="hint_not_verified">تصدیق نٕ ہیوو</string>
+    <string name="hint_tap_select_date">تاریخ چُننٕ ٹیپ کٔرو</string>
+    <string name="hint_specify_cause">واقعٕ وجہ بتاو</string>
+    <string name="hint_enter_khasra">خسرٕ نمبر لیکھو</string>
+    <string name="hint_auto_from_polygon">نقشٕ پیٹھٕ آٹو</string>
+    <string name="hint_enter_total_land">کُل زمین لیکھو</string>
+    <string name="hint_enter_insured_area">بیمٕ والٕ علاقٕ لیکھو</string>
+    <string name="hint_enter_officer_name">افسرُک ناو لیکھو</string>
+    <string name="hint_enter_designation">لکھ زراعت افسر</string>
+    <string name="hint_enter_remarks">اِضافی تبصرٕ</string>
+    <string name="text_capture_photos_tab">فوٹو ٹیب منز کیپچر کٔرو</string>
+    <string name="text_value_0_to_100">0 پیٹھٕ 100 درمیان قدر لیکھو</string>
+    <string name="text_acquiring_gps">GPS گژھان چھُ…</string>
+    <string name="hint_enter_cce_number">لکھ CCE-2025-001</string>
+    <string name="hint_auto_assigned">پانہٕ تفویض</string>
+    <string name="hint_enter_experiment_id">لکھ EXP-2025-001 یا رینڈم نمبر</string>
+    <string name="hint_enter_crop_variety">فصل قسم لیکھو</string>
+    <string name="hint_enter_aadhaar_last4">آخری 4 ہِندسٕ</string>
+    <string name="hint_eg_12_5">لکھ 12.5</string>
+    <string name="hint_eg_60">لکھ 60.0</string>
+    <string name="hint_eg_20">لکھ 20</string>
+    <string name="hint_10_digit_mobile">10 ہِندسٕ موبائل</string>
+    <string name="hint_eg_75">لکھ 75</string>
+    <string name="hint_eg_60_pct">لکھ 60</string>
+    <string name="hint_eg_40">لکھ 40</string>
+    <string name="hint_eg_8675">لکھ 8675</string>
+    <string name="hint_eg_khasra">لکھ 123/4 یا سروے نمبر</string>
+    <string name="hint_eg_crop_variety">لکھ HD-2967، پوسا باسمتی</string>
+    <string name="hint_ic_rep">انشورنس کمپنی نمائندٕ</string>
+    <string name="hint_revenue_officer">پٹواری / ریونیو افسرُک ناو</string>
 </resources>

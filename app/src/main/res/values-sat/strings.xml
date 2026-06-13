@@ -644,4 +644,44 @@
     <string name="photo_neighbor_field">ᱦᱚᱲ ᱨᱮᱡ ᱯᱷᱚᱴᱚ</string>
     <string name="photo_rep_id">ᱠᱷᱮᱛᱤᱭᱟᱹ ᱯᱨᱚᱛᱤᱱᱤᱫᱷᱤ ᱟᱭᱰᱤ</string>
     <string name="photo_other_remains">ᱡᱟᱦᱟᱸ ᱵᱟᱠᱤ ᱛᱟᱦᱮᱱ ᱨᱮ</string>
+
+    <!-- ══ Shared hints & texts ══ -->
+    <string name="hint_specify_scheme">ᱥᱠᱤᱢ ᱩᱫᱩᱜ ᱢᱮ</string>
+    <string name="hint_enter_revenue_circle">ᱨᱮᱵᱮᱱᱤᱭᱩ ᱥᱟᱨᱠᱤᱞ ᱚᱞ ᱢᱮ</string>
+    <string name="hint_enter_gram_panchayat">ᱜᱨᱟᱢ ᱯᱟᱸᱪᱟᱭᱮᱛ ᱚᱞ ᱢᱮ</string>
+    <string name="hint_enter_village">ᱟᱹᱛᱩ ᱧᱩᱛᱩᱢ ᱚᱞ ᱢᱮ</string>
+    <string name="hint_enter_intimation_no">ᱥᱩᱪᱱᱟ ᱱᱚᱢᱵᱚᱨ ᱚᱞ ᱢᱮ</string>
+    <string name="hint_specify_crop">ᱡᱚᱢ ᱧᱩᱛᱩᱢ ᱩᱫᱩᱜ ᱢᱮ</string>
+    <string name="hint_enter_full_name">ᱯᱩᱨᱟ ᱧᱩᱛᱩᱢ ᱚᱞ ᱢᱮ</string>
+    <string name="hint_enter_app_no">ᱟᱹᱵᱮᱫᱚᱱ ᱱᱚᱢᱵᱚᱨ ᱚᱞ ᱢᱮ</string>
+    <string name="hint_not_verified">ᱡᱟᱸᱪ ᱵᱟᱝ ᱦᱩᱭ</string>
+    <string name="hint_tap_select_date">ᱛᱟᱨᱤᱠ ᱵᱟᱪᱷᱟᱣ ᱞᱟᱹᱜᱤᱫ ᱴᱮᱯ ᱢᱮ</string>
+    <string name="hint_specify_cause">ᱜᱷᱚᱴᱚᱱᱟ ᱠᱟᱨᱚᱬ ᱩᱫᱩᱜ ᱢᱮ</string>
+    <string name="hint_enter_khasra">ᱠᱷᱚᱥᱨᱟ ᱱᱚᱢᱵᱚᱨ ᱚᱞ ᱢᱮ</string>
+    <string name="hint_auto_from_polygon">ᱢᱮᱯ ᱠᱷᱚᱱ ᱟᱴᱳ</string>
+    <string name="hint_enter_total_land">ᱡᱚᱛᱚ ᱦᱟᱥᱟ ᱚᱞ ᱢᱮ</string>
+    <string name="hint_enter_insured_area">ᱵᱤᱢᱟ ᱦᱟᱥᱟ ᱚᱞ ᱢᱮ</string>
+    <string name="hint_enter_officer_name">ᱚᱯᱷᱤᱥᱟᱨ ᱧᱩᱛᱩᱢ ᱚᱞ ᱢᱮ</string>
+    <string name="hint_enter_designation">ᱡᱮᱞᱮᱠᱟ ᱠᱷᱮᱛᱤ ᱚᱯᱷᱤᱥᱟᱨ</string>
+    <string name="hint_enter_remarks">ᱟᱨᱦᱚᱸ ᱴᱤᱯᱯᱚᱬᱤ</string>
+    <string name="text_capture_photos_tab">ᱯᱷᱚᱴᱚ ᱴᱮᱵ ᱨᱮ ᱠᱮᱯᱪᱟᱨ ᱢᱮ</string>
+    <string name="text_value_0_to_100">0 ᱠᱷᱚᱱ 100 ᱛᱟᱞᱟ ᱢᱩᱞ ᱚᱞ ᱢᱮ</string>
+    <string name="text_acquiring_gps">GPS ᱦᱟᱹᱛᱤᱭᱟᱹᱨ ᱠᱟᱱᱟ…</string>
+    <string name="hint_enter_cce_number">ᱡᱮᱞᱮᱠᱟ CCE-2025-001</string>
+    <string name="hint_auto_assigned">ᱟᱴᱳ ᱦᱟᱹᱛᱤᱭᱟᱹᱨ</string>
+    <string name="hint_enter_experiment_id">ᱡᱮᱞᱮᱠᱟ EXP-2025-001 ᱟᱨ ᱨᱮᱱᱰᱚᱢ ᱱᱚᱢᱵᱚᱨ</string>
+    <string name="hint_enter_crop_variety">ᱡᱚᱢ ᱡᱟᱹᱛ ᱚᱞ ᱢᱮ</string>
+    <string name="hint_enter_aadhaar_last4">ᱢᱩᱪᱟᱹᱫ 4 ᱟᱝᱠ</string>
+    <string name="hint_eg_12_5">ᱡᱮᱞᱮᱠᱟ 12.5</string>
+    <string name="hint_eg_60">ᱡᱮᱞᱮᱠᱟ 60.0</string>
+    <string name="hint_eg_20">ᱡᱮᱞᱮᱠᱟ 20</string>
+    <string name="hint_10_digit_mobile">10 ᱟᱝᱠ ᱢᱳᱵᱟᱭᱞ</string>
+    <string name="hint_eg_75">ᱡᱮᱞᱮᱠᱟ 75</string>
+    <string name="hint_eg_60_pct">ᱡᱮᱞᱮᱠᱟ 60</string>
+    <string name="hint_eg_40">ᱡᱮᱞᱮᱠᱟ 40</string>
+    <string name="hint_eg_8675">ᱡᱮᱞᱮᱠᱟ 8675</string>
+    <string name="hint_eg_khasra">ᱡᱮᱞᱮᱠᱟ 123/4 ᱟᱨ ᱥᱟᱨᱵᱮ ᱱᱚᱢᱵᱚᱨ</string>
+    <string name="hint_eg_crop_variety">ᱡᱮᱞᱮᱠᱟ HD-2967, ᱯᱩᱥᱟ ᱵᱟᱥᱢᱟᱛᱤ</string>
+    <string name="hint_ic_rep">ᱵᱤᱢᱟ ᱠᱚᱢᱯᱟᱱᱤ ᱯᱨᱚᱛᱤᱱᱤᱫᱷᱤ</string>
+    <string name="hint_revenue_officer">ᱯᱟᱴᱣᱟᱨᱤ / ᱨᱮᱵᱮᱱᱤᱭᱩ ᱚᱯᱷᱤᱥᱟᱨ ᱧᱩᱛᱩᱢ</string>
 </resources>

@@ -33,7 +33,7 @@
             <FrameLayout android:id="@+id/frame_et_survey_id" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_survey_id" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="Auto-assigned"
+                    android:background="@android:color/transparent" android:hint="@string/hint_auto_assigned"
                     android:focusable="false" android:clickable="false"
                     android:textColor="#0F172A" android:padding="12dp"/>
             </FrameLayout>
@@ -53,7 +53,7 @@
             <FrameLayout android:id="@+id/frame_et_cce_number" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_cce_number" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="e.g. CCE-2025-001" android:inputType="text" android:padding="12dp"/>
+                    android:background="@android:color/transparent" android:hint="@string/hint_enter_cce_number" android:inputType="text" android:padding="12dp"/>
             </FrameLayout>
 
             <TextView android:id="@+id/lbl_year" android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                 <FrameLayout android:id="@+id/frame_et_other_scheme" android:layout_width="match_parent" android:layout_height="48dp"
                     android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                     <EditText android:id="@+id/et_other_scheme" android:layout_width="match_parent" android:layout_height="match_parent"
-                        android:background="@android:color/transparent" android:hint="Specify scheme" android:padding="12dp"/>
+                        android:background="@android:color/transparent" android:hint="@string/hint_specify_scheme" android:padding="12dp"/>
                 </FrameLayout>
             </LinearLayout>
 
@@ -96,7 +96,7 @@
             <FrameLayout android:id="@+id/frame_et_experiment_id" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background">
                 <EditText android:id="@+id/et_experiment_id" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="e.g. EXP-2025-001 or Random No."
+                    android:background="@android:color/transparent" android:hint="@string/hint_enter_experiment_id"
                     android:inputType="text" android:padding="12dp"/>
             </FrameLayout>
         </LinearLayout>
@@ -154,7 +154,7 @@
             <FrameLayout android:id="@+id/frame_et_revenue_circle" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_revenue_circle" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="Enter revenue circle" android:padding="12dp"/>
+                    android:background="@android:color/transparent" android:hint="@string/hint_enter_revenue_circle" android:padding="12dp"/>
             </FrameLayout>
 
             <TextView android:id="@+id/lbl_gram_panchayat" android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -162,7 +162,7 @@
             <FrameLayout android:id="@+id/frame_et_gram_panchayat" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_gram_panchayat" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="Enter gram panchayat" android:padding="12dp"/>
+                    android:background="@android:color/transparent" android:hint="@string/hint_enter_gram_panchayat" android:padding="12dp"/>
             </FrameLayout>
 
             <TextView android:id="@+id/lbl_village" android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -170,7 +170,7 @@
             <FrameLayout android:id="@+id/frame_et_village" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background">
                 <EditText android:id="@+id/et_village" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="Enter village name" android:padding="12dp"/>
+                    android:background="@android:color/transparent" android:hint="@string/hint_enter_village" android:padding="12dp"/>
             </FrameLayout>
         </LinearLayout>
 
@@ -203,7 +203,7 @@
             <FrameLayout android:id="@+id/frame_et_farmer_name" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_farmer_name" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="Enter full name" android:padding="12dp"/>
+                    android:background="@android:color/transparent" android:hint="@string/hint_enter_full_name" android:padding="12dp"/>
             </FrameLayout>
 
             <TextView android:id="@+id/lbl_farmer_mobile" android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -247,7 +247,7 @@
                     android:id="@+id/et_farmer_verification_status"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Not verified"
+                    android:hint="@string/hint_not_verified"
                     android:textSize="14sp"
                     android:focusable="false"
                     android:clickable="false"
@@ -264,7 +264,7 @@
             <FrameLayout android:id="@+id/frame_et_farmer_app_no" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_farmer_app_no" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="Enter application number" android:padding="12dp"/>
+                    android:background="@android:color/transparent" android:hint="@string/hint_enter_app_no" android:padding="12dp"/>
             </FrameLayout>
 
             <TextView android:id="@+id/lbl_farmer_aadhaar" android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -272,7 +272,7 @@
             <FrameLayout android:id="@+id/frame_et_farmer_aadhaar_last4" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_farmer_aadhaar_last4" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="e.g. 8675"
+                    android:background="@android:color/transparent" android:hint="@string/hint_eg_8675"
                     android:inputType="numberPassword" android:maxLength="4" android:padding="12dp"/>
             </FrameLayout>
 
@@ -281,7 +281,7 @@
             <FrameLayout android:id="@+id/frame_et_khasra_no" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background">
                 <EditText android:id="@+id/et_khasra_no" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="e.g. 123/4 or Survey No."
+                    android:background="@android:color/transparent" android:hint="@string/hint_eg_khasra"
                     android:inputType="text" android:padding="12dp"/>
             </FrameLayout>
         </LinearLayout>
@@ -323,7 +323,7 @@
             <FrameLayout android:id="@+id/frame_et_crop_variety" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_crop_variety" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="e.g. HD-2967, Pusa Basmati"
+                    android:background="@android:color/transparent" android:hint="@string/hint_eg_crop_variety"
                     android:inputType="text" android:padding="12dp"/>
             </FrameLayout>
 
@@ -340,7 +340,7 @@
             <FrameLayout android:id="@+id/frame_et_sowing_date" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_sowing_date" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="Tap to select date"
+                    android:background="@android:color/transparent" android:hint="@string/hint_tap_select_date"
                     android:padding="12dp" android:focusable="false"/>
             </FrameLayout>
 
@@ -418,7 +418,7 @@
             <FrameLayout android:id="@+id/frame_et_field_area_polygon" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_field_area_polygon" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="Auto-filled from map polygon"
+                    android:background="@android:color/transparent" android:hint="@string/hint_auto_from_polygon"
                     android:padding="12dp" android:focusable="false" android:clickable="false"
                     android:textColor="#0F172A" android:textColorHint="#94A3B8"/>
             </FrameLayout>
@@ -460,7 +460,7 @@
             <FrameLayout android:id="@+id/frame_et_harvesting_date" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_harvesting_date" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="Tap to select date"
+                    android:background="@android:color/transparent" android:hint="@string/hint_tap_select_date"
                     android:padding="12dp" android:focusable="false"/>
             </FrameLayout>
 
@@ -477,7 +477,7 @@
             <FrameLayout android:id="@+id/frame_et_threshing_date" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background">
                 <EditText android:id="@+id/et_threshing_date" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="Tap to select date"
+                    android:background="@android:color/transparent" android:hint="@string/hint_tap_select_date"
                     android:padding="12dp" android:focusable="false"/>
             </FrameLayout>
         </LinearLayout>
@@ -511,7 +511,7 @@
             <FrameLayout android:id="@+id/frame_et_fresh_biomass" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_fresh_biomass" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="e.g. 12.5"
+                    android:background="@android:color/transparent" android:hint="@string/hint_eg_12_5"
                     android:inputType="numberDecimal" android:padding="12dp"/>
             </FrameLayout>
 
@@ -520,7 +520,7 @@
             <FrameLayout android:id="@+id/frame_et_dry_biomass" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_dry_biomass" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="e.g. 60.0"
+                    android:background="@android:color/transparent" android:hint="@string/hint_eg_60"
                     android:inputType="numberDecimal" android:padding="12dp"/>
             </FrameLayout>
 
@@ -529,7 +529,7 @@
             <FrameLayout android:id="@+id/frame_et_moisture" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_moisture" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="e.g. 20"
+                    android:background="@android:color/transparent" android:hint="@string/hint_eg_20"
                     android:inputType="numberDecimal" android:padding="12dp"/>
             </FrameLayout>
 
@@ -580,7 +580,7 @@
             <FrameLayout android:id="@+id/frame_et_ic_rep_name" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_ic_rep_name" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="Insurance company representative"
+                    android:background="@android:color/transparent" android:hint="@string/hint_ic_rep"
                     android:inputType="textPersonName" android:padding="12dp"/>
             </FrameLayout>
 
@@ -589,7 +589,7 @@
             <FrameLayout android:id="@+id/frame_et_ic_rep_mobile" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_ic_rep_mobile" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="10-digit mobile"
+                    android:background="@android:color/transparent" android:hint="@string/hint_10_digit_mobile"
                     android:inputType="phone" android:padding="12dp"/>
             </FrameLayout>
 
@@ -598,7 +598,7 @@
             <FrameLayout android:id="@+id/frame_et_revenue_officer" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_revenue_officer" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="Name of Patwari / Revenue Officer"
+                    android:background="@android:color/transparent" android:hint="@string/hint_revenue_officer"
                     android:inputType="textPersonName" android:padding="12dp"/>
             </FrameLayout>
 
@@ -701,7 +701,7 @@
             <FrameLayout android:id="@+id/frame_et_remarks" android:layout_width="match_parent" android:layout_height="96dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_remarks" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="Any additional observations or notes"
+                    android:background="@android:color/transparent" android:hint="@string/hint_enter_remarks"
                     android:padding="12dp" android:gravity="top"/>
             </FrameLayout>
 
@@ -710,7 +710,7 @@
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                     android:text="📍 GPS: " android:textColor="#16A34A" android:textStyle="bold"/>
                 <TextView android:id="@+id/tv_gps_coords" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="Acquiring..." android:textColor="#64748B"/>
+                    android:text="@string/text_acquiring_gps" android:textColor="#64748B"/>
             </LinearLayout>
         </LinearLayout>
 

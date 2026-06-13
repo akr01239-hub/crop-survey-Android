@@ -590,4 +590,44 @@
     <string name="photo_neighbor_field">அண்டை நிலப் படம்</string>
     <string name="photo_rep_id">விவசாயி பிரதிநிதி ஐடி</string>
     <string name="photo_other_remains">ஏதேனும் மீதமிருந்தால்</string>
+
+    <!-- ══ Shared hints & texts ══ -->
+    <string name="hint_specify_scheme">திட்டத்தைக் குறிப்பிடவும்</string>
+    <string name="hint_enter_revenue_circle">வருவாய் வட்டம் உள்ளிடவும்</string>
+    <string name="hint_enter_gram_panchayat">கிராம பஞ்சாயத்து உள்ளிடவும்</string>
+    <string name="hint_enter_village">கிராமத்தின் பெயர் உள்ளிடவும்</string>
+    <string name="hint_enter_intimation_no">அறிவிப்பு எண் உள்ளிடவும்</string>
+    <string name="hint_specify_crop">பயிர் பெயரைக் குறிப்பிடவும்</string>
+    <string name="hint_enter_full_name">முழு பெயர் உள்ளிடவும்</string>
+    <string name="hint_enter_app_no">விண்ணப்ப எண் உள்ளிடவும்</string>
+    <string name="hint_not_verified">சரிபார்க்கப்படவில்லை</string>
+    <string name="hint_tap_select_date">தேதியைத் தேர்ந்தெடுக்க தட்டவும்</string>
+    <string name="hint_specify_cause">நிகழ்வின் காரணத்தைக் குறிப்பிடவும்</string>
+    <string name="hint_enter_khasra">கஸ்ரா எண் உள்ளிடவும்</string>
+    <string name="hint_auto_from_polygon">வரைபடத்திலிருந்து தானாக</string>
+    <string name="hint_enter_total_land">மொத்த நில பரப்பு உள்ளிடவும்</string>
+    <string name="hint_enter_insured_area">காப்பீடு செய்யப்பட்ட பரப்பு உள்ளிடவும்</string>
+    <string name="hint_enter_officer_name">அதிகாரி பெயர் உள்ளிடவும்</string>
+    <string name="hint_enter_designation">எ.கா. வேளாண் அதிகாரி</string>
+    <string name="hint_enter_remarks">கூடுதல் கருத்துகள் அல்லது குறிப்புகள்</string>
+    <string name="text_capture_photos_tab">புகைப்படம் தாவலில் எடுக்கவும்</string>
+    <string name="text_value_0_to_100">0 முதல் 100 வரை மதிப்பு உள்ளிடவும்</string>
+    <string name="text_acquiring_gps">GPS பெறப்படுகிறது…</string>
+    <string name="hint_enter_cce_number">எ.கா. CCE-2025-001</string>
+    <string name="hint_auto_assigned">தானாக ஒதுக்கப்பட்டது</string>
+    <string name="hint_enter_experiment_id">எ.கா. EXP-2025-001 அல்லது சீரற்ற எண்</string>
+    <string name="hint_enter_crop_variety">பயிர் ரகம் உள்ளிடவும்</string>
+    <string name="hint_enter_aadhaar_last4">கடைசி 4 இலக்கங்கள்</string>
+    <string name="hint_eg_12_5">எ.கா. 12.5</string>
+    <string name="hint_eg_60">எ.கா. 60.0</string>
+    <string name="hint_eg_20">எ.கா. 20</string>
+    <string name="hint_10_digit_mobile">10 இலக்க மொபைல்</string>
+    <string name="hint_eg_75">எ.கா. 75</string>
+    <string name="hint_eg_60_pct">எ.கா. 60</string>
+    <string name="hint_eg_40">எ.கா. 40</string>
+    <string name="hint_eg_8675">எ.கா. 8675</string>
+    <string name="hint_eg_khasra">எ.கா. 123/4 அல்லது சர்வே எண்</string>
+    <string name="hint_eg_crop_variety">எ.கா. HD-2967, பூசா பாஸ்மதி</string>
+    <string name="hint_ic_rep">காப்பீட்டு நிறுவன பிரதிநிதி</string>
+    <string name="hint_revenue_officer">பட்வாரி / வருவாய் அதிகாரி பெயர்</string>
 </resources>

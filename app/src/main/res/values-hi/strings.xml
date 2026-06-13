@@ -617,4 +617,44 @@
     <string name="photo_neighbor_field">पड़ोसी खेत का फोटो</string>
     <string name="photo_rep_id">किसान प्रतिनिधि आईडी</string>
     <string name="photo_other_remains">यदि कोई शेष हो</string>
+
+    <!-- ══ Shared hints & texts ══ -->
+    <string name="hint_specify_scheme">योजना बताएं</string>
+    <string name="hint_enter_revenue_circle">राजस्व मंडल दर्ज करें</string>
+    <string name="hint_enter_gram_panchayat">ग्राम पंचायत दर्ज करें</string>
+    <string name="hint_enter_village">गांव का नाम दर्ज करें</string>
+    <string name="hint_enter_intimation_no">सूचना संख्या दर्ज करें</string>
+    <string name="hint_specify_crop">फसल का नाम बताएं</string>
+    <string name="hint_enter_full_name">पूरा नाम दर्ज करें</string>
+    <string name="hint_enter_app_no">आवेदन संख्या दर्ज करें</string>
+    <string name="hint_not_verified">सत्यापित नहीं</string>
+    <string name="hint_tap_select_date">तारीख चुनने के लिए टैप करें</string>
+    <string name="hint_specify_cause">घटना का कारण बताएं</string>
+    <string name="hint_enter_khasra">खसरा नंबर दर्ज करें</string>
+    <string name="hint_auto_from_polygon">मैप से स्वतः भरा गया</string>
+    <string name="hint_enter_total_land">कुल भूमि क्षेत्र दर्ज करें</string>
+    <string name="hint_enter_insured_area">बीमित क्षेत्र दर्ज करें</string>
+    <string name="hint_enter_officer_name">अधिकारी का नाम दर्ज करें</string>
+    <string name="hint_enter_designation">जैसे कृषि अधिकारी</string>
+    <string name="hint_enter_remarks">कोई अतिरिक्त टिप्पणी या नोट्स</string>
+    <string name="text_capture_photos_tab">फोटो टैब में कैप्चर करें</string>
+    <string name="text_value_0_to_100">0 से 100 के बीच मान दर्ज करें</string>
+    <string name="text_acquiring_gps">GPS प्राप्त हो रहा है…</string>
+    <string name="hint_enter_cce_number">जैसे CCE-2025-001</string>
+    <string name="hint_auto_assigned">स्वतः निर्धारित</string>
+    <string name="hint_enter_experiment_id">जैसे EXP-2025-001 या रैंडम नं.</string>
+    <string name="hint_enter_crop_variety">फसल किस्म दर्ज करें</string>
+    <string name="hint_enter_aadhaar_last4">अंतिम 4 अंक</string>
+    <string name="hint_eg_12_5">जैसे 12.5</string>
+    <string name="hint_eg_60">जैसे 60.0</string>
+    <string name="hint_eg_20">जैसे 20</string>
+    <string name="hint_10_digit_mobile">10 अंकों का मोबाइल</string>
+    <string name="hint_eg_75">जैसे 75</string>
+    <string name="hint_eg_60_pct">जैसे 60</string>
+    <string name="hint_eg_40">जैसे 40</string>
+    <string name="hint_eg_8675">जैसे 8675</string>
+    <string name="hint_eg_khasra">जैसे 123/4 या सर्वे नं.</string>
+    <string name="hint_eg_crop_variety">जैसे HD-2967, पूसा बासमती</string>
+    <string name="hint_ic_rep">बीमा कंपनी प्रतिनिधि</string>
+    <string name="hint_revenue_officer">पटवारी / राजस्व अधिकारी का नाम</string>
 </resources>

@@ -590,4 +590,44 @@
     <string name="photo_neighbor_field">প্রতিবেশী মাঠের ফটো</string>
     <string name="photo_rep_id">কৃষক প্রতিনিধি আইডি</string>
     <string name="photo_other_remains">যদি কিছু বাকি থাকে</string>
+
+    <!-- ══ Shared hints & texts ══ -->
+    <string name="hint_specify_scheme">প্রকল্প জানান</string>
+    <string name="hint_enter_revenue_circle">রাজস্ব বৃত্ত লিখুন</string>
+    <string name="hint_enter_gram_panchayat">গ্রাম পঞ্চায়েত লিখুন</string>
+    <string name="hint_enter_village">গ্রামের নাম লিখুন</string>
+    <string name="hint_enter_intimation_no">সূচনা নম্বর লিখুন</string>
+    <string name="hint_specify_crop">ফসলের নাম জানান</string>
+    <string name="hint_enter_full_name">পুরো নাম লিখুন</string>
+    <string name="hint_enter_app_no">আবেদন নম্বর লিখুন</string>
+    <string name="hint_not_verified">যাচাই হয়নি</string>
+    <string name="hint_tap_select_date">তারিখ নির্বাচন করতে ট্যাপ করুন</string>
+    <string name="hint_specify_cause">ঘটনার কারণ জানান</string>
+    <string name="hint_enter_khasra">খসরা নম্বর লিখুন</string>
+    <string name="hint_auto_from_polygon">মানচিত্র থেকে স্বয়ংক্রিয়</string>
+    <string name="hint_enter_total_land">মোট জমির ক্ষেত্র লিখুন</string>
+    <string name="hint_enter_insured_area">বীমাকৃত ক্ষেত্র লিখুন</string>
+    <string name="hint_enter_officer_name">কর্মকর্তার নাম লিখুন</string>
+    <string name="hint_enter_designation">যেমন কৃষি কর্মকর্তা</string>
+    <string name="hint_enter_remarks">অতিরিক্ত মন্তব্য বা নোট</string>
+    <string name="text_capture_photos_tab">ফটো ট্যাবে ক্যাপচার করুন</string>
+    <string name="text_value_0_to_100">0 থেকে 100 এর মধ্যে মান লিখুন</string>
+    <string name="text_acquiring_gps">GPS প্রাপ্ত হচ্ছে…</string>
+    <string name="hint_enter_cce_number">যেমন CCE-2025-001</string>
+    <string name="hint_auto_assigned">স্বয়ংক্রিয় নির্ধারিত</string>
+    <string name="hint_enter_experiment_id">যেমন EXP-2025-001 বা র‌্যান্ডম নং</string>
+    <string name="hint_enter_crop_variety">ফসলের জাত লিখুন</string>
+    <string name="hint_enter_aadhaar_last4">শেষ 4 সংখ্যা</string>
+    <string name="hint_eg_12_5">যেমন 12.5</string>
+    <string name="hint_eg_60">যেমন 60.0</string>
+    <string name="hint_eg_20">যেমন 20</string>
+    <string name="hint_10_digit_mobile">10 সংখ্যার মোবাইল</string>
+    <string name="hint_eg_75">যেমন 75</string>
+    <string name="hint_eg_60_pct">যেমন 60</string>
+    <string name="hint_eg_40">যেমন 40</string>
+    <string name="hint_eg_8675">যেমন 8675</string>
+    <string name="hint_eg_khasra">যেমন 123/4 বা সার্ভে নং</string>
+    <string name="hint_eg_crop_variety">যেমন HD-2967, পুসা বাসমতী</string>
+    <string name="hint_ic_rep">বীমা কোম্পানি প্রতিনিধি</string>
+    <string name="hint_revenue_officer">পাটোয়ারি / রাজস্ব কর্মকর্তার নাম</string>
 </resources>

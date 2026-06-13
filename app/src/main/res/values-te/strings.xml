@@ -590,4 +590,44 @@
     <string name="photo_neighbor_field">పొరుగు పొలం ఫోటో</string>
     <string name="photo_rep_id">రైతు ప్రతినిధి ఐడి</string>
     <string name="photo_other_remains">ఏదైనా మిగిలి ఉంటే</string>
+
+    <!-- ══ Shared hints & texts ══ -->
+    <string name="hint_specify_scheme">పథకం పేర్కొనండి</string>
+    <string name="hint_enter_revenue_circle">రెవెన్యూ సర్కిల్ నమోదు చేయండి</string>
+    <string name="hint_enter_gram_panchayat">గ్రామ పంచాయతీ నమోదు చేయండి</string>
+    <string name="hint_enter_village">గ్రామం పేరు నమోదు చేయండి</string>
+    <string name="hint_enter_intimation_no">సూచన సంఖ్య నమోదు చేయండి</string>
+    <string name="hint_specify_crop">పంట పేరు పేర్కొనండి</string>
+    <string name="hint_enter_full_name">పూర్తి పేరు నమోదు చేయండి</string>
+    <string name="hint_enter_app_no">దరఖాస్తు సంఖ్య నమోదు చేయండి</string>
+    <string name="hint_not_verified">ధృవీకరించబడలేదు</string>
+    <string name="hint_tap_select_date">తేదీ ఎంచుకోవడానికి ట్యాప్ చేయండి</string>
+    <string name="hint_specify_cause">సంఘటన కారణం పేర్కొనండి</string>
+    <string name="hint_enter_khasra">ఖస్రా నంబర్ నమోదు చేయండి</string>
+    <string name="hint_auto_from_polygon">మ్యాప్ నుండి ఆటో</string>
+    <string name="hint_enter_total_land">మొత్తం భూమి విస్తీర్ణం నమోదు చేయండి</string>
+    <string name="hint_enter_insured_area">బీమా చేసిన విస్తీర్ణం నమోదు చేయండి</string>
+    <string name="hint_enter_officer_name">అధికారి పేరు నమోదు చేయండి</string>
+    <string name="hint_enter_designation">ఉదా. వ్యవసాయ అధికారి</string>
+    <string name="hint_enter_remarks">అదనపు వ్యాఖ్యలు లేదా నోట్స్</string>
+    <string name="text_capture_photos_tab">ఫోటో ట్యాబ్‌లో క్యాప్చర్ చేయండి</string>
+    <string name="text_value_0_to_100">0 నుండి 100 మధ్య విలువ నమోదు చేయండి</string>
+    <string name="text_acquiring_gps">GPS పొందబడుతోంది…</string>
+    <string name="hint_enter_cce_number">ఉదా. CCE-2025-001</string>
+    <string name="hint_auto_assigned">ఆటో కేటాయించబడింది</string>
+    <string name="hint_enter_experiment_id">ఉదా. EXP-2025-001 లేదా రాండమ్ నం.</string>
+    <string name="hint_enter_crop_variety">పంట రకం నమోదు చేయండి</string>
+    <string name="hint_enter_aadhaar_last4">చివరి 4 అంకెలు</string>
+    <string name="hint_eg_12_5">ఉదా. 12.5</string>
+    <string name="hint_eg_60">ఉదా. 60.0</string>
+    <string name="hint_eg_20">ఉదా. 20</string>
+    <string name="hint_10_digit_mobile">10 అంకెల మొబైల్</string>
+    <string name="hint_eg_75">ఉదా. 75</string>
+    <string name="hint_eg_60_pct">ఉదా. 60</string>
+    <string name="hint_eg_40">ఉదా. 40</string>
+    <string name="hint_eg_8675">ఉదా. 8675</string>
+    <string name="hint_eg_khasra">ఉదా. 123/4 లేదా సర్వే నం.</string>
+    <string name="hint_eg_crop_variety">ఉదా. HD-2967, పూసా బాస్మతి</string>
+    <string name="hint_ic_rep">బీమా సంస్థ ప్రతినిధి</string>
+    <string name="hint_revenue_officer">పట్వారి / రెవెన్యూ అధికారి పేరు</string>
 </resources>

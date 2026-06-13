@@ -585,4 +585,44 @@
     <string name="photo_neighbor_field">അയൽ വയലിന്റെ ഫോട്ടോ</string>
     <string name="photo_rep_id">കർഷക പ്രതിനിധി ഐഡി</string>
     <string name="photo_other_remains">എന്തെങ്കിലും ബാക്കിയുണ്ടെങ്കിൽ</string>
+
+    <!-- ══ Shared hints & texts ══ -->
+    <string name="hint_specify_scheme">പദ്ധതി വ്യക്തമാക്കുക</string>
+    <string name="hint_enter_revenue_circle">റവന്യൂ സർക്കിൾ നൽകുക</string>
+    <string name="hint_enter_gram_panchayat">ഗ്രാമ പഞ്ചായത്ത് നൽകുക</string>
+    <string name="hint_enter_village">ഗ്രാമത്തിന്റെ പേര് നൽകുക</string>
+    <string name="hint_enter_intimation_no">അറിയിപ്പ് നമ്പർ നൽകുക</string>
+    <string name="hint_specify_crop">വിളയുടെ പേര് വ്യക്തമാക്കുക</string>
+    <string name="hint_enter_full_name">മുഴുവൻ പേര് നൽകുക</string>
+    <string name="hint_enter_app_no">അപേക്ഷ നമ്പർ നൽകുക</string>
+    <string name="hint_not_verified">പരിശോധിച്ചിട്ടില്ല</string>
+    <string name="hint_tap_select_date">തീയതി തിരഞ്ഞെടുക്കാൻ ടാപ്പ് ചെയ്യുക</string>
+    <string name="hint_specify_cause">സംഭവ കാരണം വ്യക്തമാക്കുക</string>
+    <string name="hint_enter_khasra">ഖസ്ര നമ്പർ നൽകുക</string>
+    <string name="hint_auto_from_polygon">മാപ്പിൽ നിന്ന് ഓട്ടോ</string>
+    <string name="hint_enter_total_land">മൊത്തം ഭൂവിസ്തൃതി നൽകുക</string>
+    <string name="hint_enter_insured_area">ഇൻഷ്വർ ചെയ്ത വിസ്തൃതി നൽകുക</string>
+    <string name="hint_enter_officer_name">ഉദ്യോഗസ്ഥന്റെ പേര് നൽകുക</string>
+    <string name="hint_enter_designation">ഉദാ. കൃഷി ഓഫീസർ</string>
+    <string name="hint_enter_remarks">അധിക നിരീക്ഷണങ്ങൾ അല്ലെങ്കിൽ കുറിപ്പുകൾ</string>
+    <string name="text_capture_photos_tab">ഫോട്ടോ ടാബിൽ ക്യാപ്ചർ ചെയ്യുക</string>
+    <string name="text_value_0_to_100">0 മുതൽ 100 വരെ മൂല്യം നൽകുക</string>
+    <string name="text_acquiring_gps">GPS ലഭിക്കുന്നു…</string>
+    <string name="hint_enter_cce_number">ഉദാ. CCE-2025-001</string>
+    <string name="hint_auto_assigned">ഓട്ടോ അസൈൻ</string>
+    <string name="hint_enter_experiment_id">ഉദാ. EXP-2025-001 അല്ലെങ്കിൽ റാൻഡം നം.</string>
+    <string name="hint_enter_crop_variety">വിള ഇനം നൽകുക</string>
+    <string name="hint_enter_aadhaar_last4">അവസാന 4 അക്കം</string>
+    <string name="hint_eg_12_5">ഉദാ. 12.5</string>
+    <string name="hint_eg_60">ഉദാ. 60.0</string>
+    <string name="hint_eg_20">ഉദാ. 20</string>
+    <string name="hint_10_digit_mobile">10 അക്ക മൊബൈൽ</string>
+    <string name="hint_eg_75">ഉദാ. 75</string>
+    <string name="hint_eg_60_pct">ഉദാ. 60</string>
+    <string name="hint_eg_40">ഉദാ. 40</string>
+    <string name="hint_eg_8675">ഉദാ. 8675</string>
+    <string name="hint_eg_khasra">ഉദാ. 123/4 അല്ലെങ്കിൽ സർവ്വേ നം.</string>
+    <string name="hint_eg_crop_variety">ഉദാ. HD-2967, പൂസ ബാസ്മതി</string>
+    <string name="hint_ic_rep">ഇൻഷ്വറൻസ് കമ്പനി പ്രതിനിധി</string>
+    <string name="hint_revenue_officer">പട്വാരി / റവന്യൂ ഓഫീസർ പേര്</string>
 </resources>

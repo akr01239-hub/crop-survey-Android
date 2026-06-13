@@ -590,4 +590,44 @@
     <string name="photo_neighbor_field">ପଡ଼ୋଶୀ କ୍ଷେତ୍ର ଫଟୋ</string>
     <string name="photo_rep_id">ଚାଷୀ ପ୍ରତିନିଧି ଆଇଡି</string>
     <string name="photo_other_remains">ଯଦି କିଛି ବାକି ଥାଏ</string>
+
+    <!-- ══ Shared hints & texts ══ -->
+    <string name="hint_specify_scheme">ଯୋଜନା ଉଲ୍ଲେଖ କରନ୍ତୁ</string>
+    <string name="hint_enter_revenue_circle">ରାଜସ୍ୱ ବୃତ୍ତ ଲେଖନ୍ତୁ</string>
+    <string name="hint_enter_gram_panchayat">ଗ୍ରାମ ପଞ୍ଚାୟତ ଲେଖନ୍ତୁ</string>
+    <string name="hint_enter_village">ଗାଁର ନାମ ଲେଖନ୍ତୁ</string>
+    <string name="hint_enter_intimation_no">ସୂଚନା ସଂଖ୍ୟା ଲେଖନ୍ତୁ</string>
+    <string name="hint_specify_crop">ଫସଲର ନାମ ଉଲ୍ଲେଖ କରନ୍ତୁ</string>
+    <string name="hint_enter_full_name">ସମ୍ପୂର୍ଣ୍ଣ ନାମ ଲେଖନ୍ତୁ</string>
+    <string name="hint_enter_app_no">ଆବେଦନ ସଂଖ୍ୟା ଲେଖନ୍ତୁ</string>
+    <string name="hint_not_verified">ଯାଞ୍ଚ ହୋଇନାହିଁ</string>
+    <string name="hint_tap_select_date">ତାରିଖ ବାଛିବା ପାଇଁ ଟ୍ୟାପ କରନ୍ତୁ</string>
+    <string name="hint_specify_cause">ଘଟଣାର କାରଣ ଉଲ୍ଲେଖ କରନ୍ତୁ</string>
+    <string name="hint_enter_khasra">ଖସରା ସଂଖ୍ୟା ଲେଖନ୍ତୁ</string>
+    <string name="hint_auto_from_polygon">ମାନଚିତ୍ରରୁ ସ୍ୱୟଂ</string>
+    <string name="hint_enter_total_land">ମୋଟ ଜମି ଲେଖନ୍ତୁ</string>
+    <string name="hint_enter_insured_area">ବୀମାକୃତ କ୍ଷେତ୍ର ଲେଖନ୍ତୁ</string>
+    <string name="hint_enter_officer_name">ଅଧିକାରୀଙ୍କ ନାମ ଲେଖନ୍ତୁ</string>
+    <string name="hint_enter_designation">ଯେମିତି କୃଷି ଅଧିକାରୀ</string>
+    <string name="hint_enter_remarks">ଅତିରିକ୍ତ ଟିପ୍ପଣୀ</string>
+    <string name="text_capture_photos_tab">ଫଟୋ ଟ୍ୟାବରେ କ୍ୟାପଚର କରନ୍ତୁ</string>
+    <string name="text_value_0_to_100">0 ରୁ 100 ମଧ୍ୟରେ ମୂଲ୍ୟ ଲେଖନ୍ତୁ</string>
+    <string name="text_acquiring_gps">GPS ପ୍ରାପ୍ତ ହେଉଛି…</string>
+    <string name="hint_enter_cce_number">ଯେମିତି CCE-2025-001</string>
+    <string name="hint_auto_assigned">ସ୍ୱୟଂ ନିର୍ଧାରିତ</string>
+    <string name="hint_enter_experiment_id">ଯେମିତି EXP-2025-001 କିମ୍ବା ରାଣ୍ଡମ ନଂ</string>
+    <string name="hint_enter_crop_variety">ଫସଲ ଜାତ ଲେଖନ୍ତୁ</string>
+    <string name="hint_enter_aadhaar_last4">ଶେଷ 4 ସଂଖ୍ୟା</string>
+    <string name="hint_eg_12_5">ଯେମିତି 12.5</string>
+    <string name="hint_eg_60">ଯେମିତି 60.0</string>
+    <string name="hint_eg_20">ଯେମିତି 20</string>
+    <string name="hint_10_digit_mobile">10 ସଂଖ୍ୟା ମୋବାଇଲ</string>
+    <string name="hint_eg_75">ଯେମିତି 75</string>
+    <string name="hint_eg_60_pct">ଯେମିତି 60</string>
+    <string name="hint_eg_40">ଯେମିତି 40</string>
+    <string name="hint_eg_8675">ଯେମିତି 8675</string>
+    <string name="hint_eg_khasra">ଯେମିତି 123/4 କିମ୍ବା ସର୍ଭେ ନଂ</string>
+    <string name="hint_eg_crop_variety">ଯେମିତି HD-2967, ପୁଷା ବାସମତୀ</string>
+    <string name="hint_ic_rep">ବୀମା କମ୍ପାନୀ ପ୍ରତିନିଧି</string>
+    <string name="hint_revenue_officer">ପାଟୱାରୀ / ରାଜସ୍ୱ ଅଧିକାରୀଙ୍କ ନାମ</string>
 </resources>

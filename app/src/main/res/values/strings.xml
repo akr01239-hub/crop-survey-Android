@@ -764,4 +764,45 @@
     <string name="photo_other_remains">If Any Remains</string>
     <string name="photo_other_remains_instruction">Any additional relevant photos</string>
 
+
+    <!-- ══ Shared hints & texts ══ -->
+    <string name="hint_specify_scheme">Specify scheme</string>
+    <string name="hint_enter_revenue_circle">Enter revenue circle</string>
+    <string name="hint_enter_gram_panchayat">Enter gram panchayat</string>
+    <string name="hint_enter_village">Enter village name</string>
+    <string name="hint_enter_intimation_no">Enter intimation number</string>
+    <string name="hint_specify_crop">Specify crop name</string>
+    <string name="hint_enter_full_name">Enter full name</string>
+    <string name="hint_enter_app_no">Enter application number</string>
+    <string name="hint_not_verified">Not verified</string>
+    <string name="hint_tap_select_date">Tap to select date</string>
+    <string name="hint_specify_cause">Specify cause of event</string>
+    <string name="hint_enter_khasra">Enter khasra number</string>
+    <string name="hint_auto_from_polygon">Auto-filled from map polygon</string>
+    <string name="hint_enter_total_land">Enter total land area</string>
+    <string name="hint_enter_insured_area">Enter insured area</string>
+    <string name="hint_enter_officer_name">Enter officer name</string>
+    <string name="hint_enter_designation">e.g. Agriculture Officer</string>
+    <string name="hint_enter_remarks">Any additional observations or notes</string>
+    <string name="text_capture_photos_tab">Capture in the Photos tab</string>
+    <string name="text_value_0_to_100">Enter a value between 0 and 100</string>
+    <string name="text_acquiring_gps">Acquiring…</string>
+    <string name="hint_enter_cce_number">e.g. CCE-2025-001</string>
+    <string name="hint_auto_assigned">Auto-assigned</string>
+    <string name="hint_enter_experiment_id">e.g. EXP-2025-001 or Random No.</string>
+    <string name="hint_enter_crop_variety">Enter crop variety</string>
+    <string name="hint_enter_aadhaar_last4">Last 4 digits</string>
+    <string name="hint_eg_12_5">e.g. 12.5</string>
+    <string name="hint_eg_60">e.g. 60.0</string>
+    <string name="hint_eg_20">e.g. 20</string>
+    <string name="hint_10_digit_mobile">10-digit mobile</string>
+
+    <string name="hint_eg_75">e.g. 75</string>
+    <string name="hint_eg_60_pct">e.g. 60</string>
+    <string name="hint_eg_40">e.g. 40</string>
+    <string name="hint_eg_8675">e.g. 8675</string>
+    <string name="hint_eg_khasra">e.g. 123/4 or Survey No.</string>
+    <string name="hint_eg_crop_variety">e.g. HD-2967, Pusa Basmati</string>
+    <string name="hint_ic_rep">Insurance company representative</string>
+    <string name="hint_revenue_officer">Name of Patwari / Revenue Officer</string>
 </resources>

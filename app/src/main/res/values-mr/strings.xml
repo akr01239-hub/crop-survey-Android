@@ -590,4 +590,44 @@
     <string name="photo_neighbor_field">शेजारच्या शेताचा फोटो</string>
     <string name="photo_rep_id">शेतकरी प्रतिनिधी आयडी</string>
     <string name="photo_other_remains">जर काही उरले असेल</string>
+
+    <!-- ══ Shared hints & texts ══ -->
+    <string name="hint_specify_scheme">योजना सांगा</string>
+    <string name="hint_enter_revenue_circle">महसूल मंडळ प्रविष्ट करा</string>
+    <string name="hint_enter_gram_panchayat">ग्राम पंचायत प्रविष्ट करा</string>
+    <string name="hint_enter_village">गावाचे नाव प्रविष्ट करा</string>
+    <string name="hint_enter_intimation_no">सूचना क्रमांक प्रविष्ट करा</string>
+    <string name="hint_specify_crop">पिकाचे नाव सांगा</string>
+    <string name="hint_enter_full_name">पूर्ण नाव प्रविष्ट करा</string>
+    <string name="hint_enter_app_no">अर्ज क्रमांक प्रविष्ट करा</string>
+    <string name="hint_not_verified">सत्यापित नाही</string>
+    <string name="hint_tap_select_date">तारीख निवडण्यासाठी टॅप करा</string>
+    <string name="hint_specify_cause">घटनेचे कारण सांगा</string>
+    <string name="hint_enter_khasra">खसरा क्रमांक प्रविष्ट करा</string>
+    <string name="hint_auto_from_polygon">नकाशावरून स्वयंभरलेले</string>
+    <string name="hint_enter_total_land">एकूण जमीन क्षेत्र प्रविष्ट करा</string>
+    <string name="hint_enter_insured_area">विमाकृत क्षेत्र प्रविष्ट करा</string>
+    <string name="hint_enter_officer_name">अधिकाऱ्याचे नाव प्रविष्ट करा</string>
+    <string name="hint_enter_designation">जसे कृषी अधिकारी</string>
+    <string name="hint_enter_remarks">कोणत्याही अतिरिक्त टिपण्या</string>
+    <string name="text_capture_photos_tab">फोटो टॅबमध्ये कॅप्चर करा</string>
+    <string name="text_value_0_to_100">0 ते 100 मधील मूल्य प्रविष्ट करा</string>
+    <string name="text_acquiring_gps">GPS प्राप्त होत आहे…</string>
+    <string name="hint_enter_cce_number">जसे CCE-2025-001</string>
+    <string name="hint_auto_assigned">स्वयं नियुक्त</string>
+    <string name="hint_enter_experiment_id">जसे EXP-2025-001 किंवा रँडम नं.</string>
+    <string name="hint_enter_crop_variety">पीक जात प्रविष्ट करा</string>
+    <string name="hint_enter_aadhaar_last4">शेवटचे 4 अंक</string>
+    <string name="hint_eg_12_5">जसे 12.5</string>
+    <string name="hint_eg_60">जसे 60.0</string>
+    <string name="hint_eg_20">जसे 20</string>
+    <string name="hint_10_digit_mobile">10 अंकी मोबाईल</string>
+    <string name="hint_eg_75">जसे 75</string>
+    <string name="hint_eg_60_pct">जसे 60</string>
+    <string name="hint_eg_40">जसे 40</string>
+    <string name="hint_eg_8675">जसे 8675</string>
+    <string name="hint_eg_khasra">जसे 123/4 किंवा सर्वे नं.</string>
+    <string name="hint_eg_crop_variety">जसे HD-2967, पूसा बासमती</string>
+    <string name="hint_ic_rep">विमा कंपनी प्रतिनिधी</string>
+    <string name="hint_revenue_officer">पटवारी / महसूल अधिकाऱ्याचे नाव</string>
 </resources>

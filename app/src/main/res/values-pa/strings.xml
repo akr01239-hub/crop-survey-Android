@@ -590,4 +590,44 @@
     <string name="photo_neighbor_field">ਗੁਆਂਢੀ ਖੇਤ ਦੀ ਫੋਟੋ</string>
     <string name="photo_rep_id">ਕਿਸਾਨ ਪ੍ਰਤੀਨਿਧੀ ਆਈਡੀ</string>
     <string name="photo_other_remains">ਜੇ ਕੁਝ ਬਾਕੀ ਹੋਵੇ</string>
+
+    <!-- ══ Shared hints & texts ══ -->
+    <string name="hint_specify_scheme">ਯੋਜਨਾ ਦੱਸੋ</string>
+    <string name="hint_enter_revenue_circle">ਮਾਲੀਆ ਚੱਕਰ ਦਰਜ ਕਰੋ</string>
+    <string name="hint_enter_gram_panchayat">ਗ੍ਰਾਮ ਪੰਚਾਇਤ ਦਰਜ ਕਰੋ</string>
+    <string name="hint_enter_village">ਪਿੰਡ ਦਾ ਨਾਮ ਦਰਜ ਕਰੋ</string>
+    <string name="hint_enter_intimation_no">ਸੂਚਨਾ ਨੰਬਰ ਦਰਜ ਕਰੋ</string>
+    <string name="hint_specify_crop">ਫਸਲ ਦਾ ਨਾਮ ਦੱਸੋ</string>
+    <string name="hint_enter_full_name">ਪੂਰਾ ਨਾਮ ਦਰਜ ਕਰੋ</string>
+    <string name="hint_enter_app_no">ਅਰਜ਼ੀ ਨੰਬਰ ਦਰਜ ਕਰੋ</string>
+    <string name="hint_not_verified">ਤਸਦੀਕ ਨਹੀਂ ਹੋਇਆ</string>
+    <string name="hint_tap_select_date">ਤਾਰੀਖ ਚੁਣਨ ਲਈ ਟੈਪ ਕਰੋ</string>
+    <string name="hint_specify_cause">ਘਟਨਾ ਦਾ ਕਾਰਨ ਦੱਸੋ</string>
+    <string name="hint_enter_khasra">ਖਸਰਾ ਨੰਬਰ ਦਰਜ ਕਰੋ</string>
+    <string name="hint_auto_from_polygon">ਨਕਸ਼ੇ ਤੋਂ ਆਟੋ ਭਰਿਆ</string>
+    <string name="hint_enter_total_land">ਕੁੱਲ ਜ਼ਮੀਨ ਖੇਤਰ ਦਰਜ ਕਰੋ</string>
+    <string name="hint_enter_insured_area">ਬੀਮਾ ਖੇਤਰ ਦਰਜ ਕਰੋ</string>
+    <string name="hint_enter_officer_name">ਅਧਿਕਾਰੀ ਦਾ ਨਾਮ ਦਰਜ ਕਰੋ</string>
+    <string name="hint_enter_designation">ਜਿਵੇਂ ਖੇਤੀਬਾੜੀ ਅਧਿਕਾਰੀ</string>
+    <string name="hint_enter_remarks">ਕੋਈ ਵਾਧੂ ਟਿੱਪਣੀਆਂ</string>
+    <string name="text_capture_photos_tab">ਫੋਟੋ ਟੈਬ ਵਿੱਚ ਕੈਪਚਰ ਕਰੋ</string>
+    <string name="text_value_0_to_100">0 ਤੋਂ 100 ਵਿਚਕਾਰ ਮੁੱਲ ਦਰਜ ਕਰੋ</string>
+    <string name="text_acquiring_gps">GPS ਪ੍ਰਾਪਤ ਹੋ ਰਿਹਾ ਹੈ…</string>
+    <string name="hint_enter_cce_number">ਜਿਵੇਂ CCE-2025-001</string>
+    <string name="hint_auto_assigned">ਆਟੋ ਸੌਂਪਿਆ</string>
+    <string name="hint_enter_experiment_id">ਜਿਵੇਂ EXP-2025-001 ਜਾਂ ਰੈਂਡਮ ਨੰ.</string>
+    <string name="hint_enter_crop_variety">ਫਸਲ ਕਿਸਮ ਦਰਜ ਕਰੋ</string>
+    <string name="hint_enter_aadhaar_last4">ਆਖਰੀ 4 ਅੰਕ</string>
+    <string name="hint_eg_12_5">ਜਿਵੇਂ 12.5</string>
+    <string name="hint_eg_60">ਜਿਵੇਂ 60.0</string>
+    <string name="hint_eg_20">ਜਿਵੇਂ 20</string>
+    <string name="hint_10_digit_mobile">10 ਅੰਕਾਂ ਦਾ ਮੋਬਾਈਲ</string>
+    <string name="hint_eg_75">ਜਿਵੇਂ 75</string>
+    <string name="hint_eg_60_pct">ਜਿਵੇਂ 60</string>
+    <string name="hint_eg_40">ਜਿਵੇਂ 40</string>
+    <string name="hint_eg_8675">ਜਿਵੇਂ 8675</string>
+    <string name="hint_eg_khasra">ਜਿਵੇਂ 123/4 ਜਾਂ ਸਰਵੇ ਨੰ.</string>
+    <string name="hint_eg_crop_variety">ਜਿਵੇਂ HD-2967, ਪੂਸਾ ਬਾਸਮਤੀ</string>
+    <string name="hint_ic_rep">ਬੀਮਾ ਕੰਪਨੀ ਪ੍ਰਤੀਨਿਧੀ</string>
+    <string name="hint_revenue_officer">ਪਟਵਾਰੀ / ਮਾਲੀਆ ਅਧਿਕਾਰੀ ਦਾ ਨਾਮ</string>
 </resources>

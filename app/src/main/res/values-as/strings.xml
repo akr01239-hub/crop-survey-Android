@@ -644,4 +644,44 @@
     <string name="photo_neighbor_field">ওচৰৰ পথাৰৰ ফটো</string>
     <string name="photo_rep_id">কৃষক প্ৰতিনিধি আইডি</string>
     <string name="photo_other_remains">যদি কিবা বাকী থাকে</string>
+
+    <!-- ══ Shared hints & texts ══ -->
+    <string name="hint_specify_scheme">আঁচনি উল্লেখ কৰক</string>
+    <string name="hint_enter_revenue_circle">ৰাজহ বৃত্ত লিখক</string>
+    <string name="hint_enter_gram_panchayat">গাওঁ পঞ্চায়ত লিখক</string>
+    <string name="hint_enter_village">গাওঁৰ নাম লিখক</string>
+    <string name="hint_enter_intimation_no">জাননী নম্বৰ লিখক</string>
+    <string name="hint_specify_crop">শস্যৰ নাম উল্লেখ কৰক</string>
+    <string name="hint_enter_full_name">সম্পূৰ্ণ নাম লিখক</string>
+    <string name="hint_enter_app_no">আবেদন নম্বৰ লিখক</string>
+    <string name="hint_not_verified">সত্যাপিত নহয়</string>
+    <string name="hint_tap_select_date">তাৰিখ বাছনি কৰিবলৈ টেপ কৰক</string>
+    <string name="hint_specify_cause">ঘটনাৰ কাৰণ উল্লেখ কৰক</string>
+    <string name="hint_enter_khasra">খছৰা নম্বৰ লিখক</string>
+    <string name="hint_auto_from_polygon">মেপৰ পৰা স্বয়ংক্ৰিয়</string>
+    <string name="hint_enter_total_land">মুঠ মাটিৰ ক্ষেত্ৰ লিখক</string>
+    <string name="hint_enter_insured_area">বীমাকৃত ক্ষেত্ৰ লিখক</string>
+    <string name="hint_enter_officer_name">বিষয়াৰ নাম লিখক</string>
+    <string name="hint_enter_designation">যেনে কৃষি বিষয়া</string>
+    <string name="hint_enter_remarks">অতিৰিক্ত মন্তব্য</string>
+    <string name="text_capture_photos_tab">ফটো টেবত কেপচাৰ কৰক</string>
+    <string name="text_value_0_to_100">0 ৰ পৰা 100 ৰ মাজত মান লিখক</string>
+    <string name="text_acquiring_gps">GPS পোৱা গৈ আছে…</string>
+    <string name="hint_enter_cce_number">যেনে CCE-2025-001</string>
+    <string name="hint_auto_assigned">স্বয়ংক্ৰিয় নিৰ্ধাৰিত</string>
+    <string name="hint_enter_experiment_id">যেনে EXP-2025-001 বা ৰেণ্ডম নং</string>
+    <string name="hint_enter_crop_variety">শস্য জাত লিখক</string>
+    <string name="hint_enter_aadhaar_last4">শেষ 4 সংখ্যা</string>
+    <string name="hint_eg_12_5">যেনে 12.5</string>
+    <string name="hint_eg_60">যেনে 60.0</string>
+    <string name="hint_eg_20">যেনে 20</string>
+    <string name="hint_10_digit_mobile">10 সংখ্যাৰ মবাইল</string>
+    <string name="hint_eg_75">যেনে 75</string>
+    <string name="hint_eg_60_pct">যেনে 60</string>
+    <string name="hint_eg_40">যেনে 40</string>
+    <string name="hint_eg_8675">যেনে 8675</string>
+    <string name="hint_eg_khasra">যেনে 123/4 বা সমীক্ষা নং</string>
+    <string name="hint_eg_crop_variety">যেনে HD-2967, পুষা বাছমতী</string>
+    <string name="hint_ic_rep">বীমা কোম্পানী প্ৰতিনিধি</string>
+    <string name="hint_revenue_officer">পাটোৱাৰী / ৰাজহ বিষয়াৰ নাম</string>
 </resources>
