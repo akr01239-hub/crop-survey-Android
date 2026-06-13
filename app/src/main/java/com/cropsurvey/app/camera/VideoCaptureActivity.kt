@@ -263,6 +263,9 @@ class VideoCaptureActivity : AppCompatActivity() {
             stampedFile.absolutePath
         } catch (e: Exception) {
             android.util.Log.e("VideoStamp", "Stamping failed, using unstamped video", e)
+            withContext(Dispatchers.Main) {
+                Toast.makeText(this@VideoCaptureActivity, "Stamp failed (${e.javaClass.simpleName}: ${e.message}) — uploaded without stamp", Toast.LENGTH_LONG).show()
+            }
             originalFile.absolutePath
         }
     }
