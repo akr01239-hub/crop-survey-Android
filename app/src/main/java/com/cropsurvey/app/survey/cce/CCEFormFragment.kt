@@ -932,7 +932,7 @@ class CCEFormFragment : Fragment() {
     }
 
     private fun setupDatePickers() {
-        listOf(etSowingDate, etHarvestingDate, etCceDate, etThreshingDate).forEach { et ->
+        listOf(etSowingDate, etHarvestingDate, etThreshingDate).forEach { et ->
             et.isFocusable = false
             et.setOnClickListener {
                 val cal = Calendar.getInstance()
@@ -941,6 +941,12 @@ class CCEFormFragment : Fragment() {
                     updateYieldEstimate()
                 }, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH)).show()
             }
+        }
+        // CCE Date = today, auto-filled, read-only
+        if (etCceDate.text.isNullOrBlank()) {
+            val cal = Calendar.getInstance()
+            etCceDate.setText(java.lang.String.format(java.util.Locale.US, "%04d-%02d-%02d",
+                cal.get(Calendar.YEAR), cal.get(Calendar.MONTH) + 1, cal.get(Calendar.DAY_OF_MONTH)))
         }
     }
 

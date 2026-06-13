@@ -27,9 +27,37 @@
             android:paddingTop="8dp" android:paddingBottom="12dp"
             android:layout_marginBottom="12dp" android:visibility="gone">
 
-            <TextView android:id="@+id/lbl_year" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="@string/field_year" android:textSize="12sp" android:textColor="#64748B"
+            <TextView android:id="@+id/lbl_survey_id" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Survey ID (Docket-ID)" android:textSize="12sp" android:textColor="#64748B"
                 android:layout_marginTop="8dp" android:layout_marginBottom="4dp"/>
+            <FrameLayout android:id="@+id/frame_et_survey_id" android:layout_width="match_parent" android:layout_height="48dp"
+                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
+                <EditText android:id="@+id/et_survey_id" android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@android:color/transparent" android:hint="Auto-assigned"
+                    android:focusable="false" android:clickable="false"
+                    android:textColor="#0F172A" android:padding="12dp"/>
+            </FrameLayout>
+
+            <TextView android:id="@+id/lbl_cce_date" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="@string/field_cce_date" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+            <FrameLayout android:id="@+id/frame_et_cce_date" android:layout_width="match_parent" android:layout_height="48dp"
+                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
+                <EditText android:id="@+id/et_cce_date" android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@android:color/transparent" android:hint="Auto-filled"
+                    android:focusable="false" android:clickable="false"
+                    android:textColor="#0F172A" android:padding="12dp"/>
+            </FrameLayout>
+
+            <TextView android:id="@+id/lbl_cce_number" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="@string/field_cce_number" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+            <FrameLayout android:id="@+id/frame_et_cce_number" android:layout_width="match_parent" android:layout_height="48dp"
+                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
+                <EditText android:id="@+id/et_cce_number" android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@android:color/transparent" android:hint="e.g. CCE-2025-001" android:inputType="text" android:padding="12dp"/>
+            </FrameLayout>
+
+            <TextView android:id="@+id/lbl_year" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="@string/field_year" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
             <FrameLayout android:id="@+id/frame_sp_year" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <Spinner android:id="@+id/sp_year" android:layout_width="match_parent" android:layout_height="match_parent"
@@ -63,41 +91,13 @@
                 </FrameLayout>
             </LinearLayout>
 
-            <TextView android:id="@+id/lbl_cce_number" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="@string/field_cce_number" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
-            <FrameLayout android:id="@+id/frame_et_cce_number" android:layout_width="match_parent" android:layout_height="48dp"
-                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
-                <EditText android:id="@+id/et_cce_number" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="e.g. CCE-2025-001" android:inputType="text" android:padding="12dp"/>
-            </FrameLayout>
-
-            <TextView android:id="@+id/lbl_cce_date" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="@string/field_cce_date" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
-            <FrameLayout android:id="@+id/frame_et_cce_date" android:layout_width="match_parent" android:layout_height="48dp"
-                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
-                <EditText android:id="@+id/et_cce_date" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="Select date"
-                    android:focusable="false" android:clickable="true" android:padding="12dp"/>
-            </FrameLayout>
-
             <TextView android:id="@+id/lbl_experiment_id" android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:text="@string/field_experiment_id" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
             <FrameLayout android:id="@+id/frame_et_experiment_id" android:layout_width="match_parent" android:layout_height="48dp"
-                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
+                android:background="@drawable/input_background">
                 <EditText android:id="@+id/et_experiment_id" android:layout_width="match_parent" android:layout_height="match_parent"
                     android:background="@android:color/transparent" android:hint="e.g. EXP-2025-001 or Random No."
                     android:inputType="text" android:padding="12dp"/>
-            </FrameLayout>
-
-            <TextView android:id="@+id/lbl_survey_id" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="Survey ID (Docket-ID)" android:textSize="12sp" android:textColor="#64748B"
-                android:layout_marginBottom="4dp"/>
-            <FrameLayout android:id="@+id/frame_et_survey_id" android:layout_width="match_parent" android:layout_height="48dp"
-                android:background="@drawable/input_background">
-                <EditText android:id="@+id/et_survey_id" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="Auto-assigned"
-                    android:focusable="false" android:clickable="false"
-                    android:textColor="#0F172A" android:padding="12dp"/>
             </FrameLayout>
         </LinearLayout>
 
