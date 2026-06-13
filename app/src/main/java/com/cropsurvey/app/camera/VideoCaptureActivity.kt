@@ -275,18 +275,35 @@ class VideoCaptureActivity : AppCompatActivity() {
             // Overlay the stamp PNG at the bottom-left of every frame (matching
             // GeoTagOverlay's own bottom-anchored layout), re-encode video,
             // copy audio through unchanged.
-            val cmd = arrayOf(
-                "-y",
-                "-i", originalFile.absolutePath,
-                "-i", stampPng.absolutePath,
-                "-filter_complex", "[0:v][1:v] overlay=0:main_h-overlay_h:format=auto,format=yuv420p[outv]",
-                "-map", "[outv]",
-                "-map", "0:a?",
-                "-c:v", "mpeg4", "-q:v", "5",
-                "-c:a", "aac", "-b:a", "128k",
-                stampedFile.absolutePath
-            )
-            val session = FFmpegKit.executeWithArguments(cmd)
+            //
+            // Encoder priority:
+            //   1. h264_mediacodec — Android hardware H.264 (always present on
+            //      device, zero-license, produces browser-compatible H.264).
+            //   2. mpeg4 — pure-software fallback if MediaCodec surface mode
+            //      fails (rare); less browser-compatible but never lost.
+            fun buildCmd(encoder: String): Array<String> {
+                val extra = if (encoder == "h264_mediacodec") arrayOf("-level", "3.1") else arrayOf("-q:v", "5")
+                return arrayOf(
+                    "-y",
+                    "-i", originalFile.absolutePath,
+                    "-i", stampPng.absolutePath,
+                    "-filter_complex", "[0:v][1:v] overlay=0:main_h-overlay_h:format=auto,format=yuv420p[outv]",
+                    "-map", "[outv]",
+                    "-map", "0:a?",
+                    "-c:v", encoder, *extra,
+                    "-c:a", "aac", "-b:a", "128k",
+                    "-movflags", "+faststart",
+                    stampedFile.absolutePath
+                )
+            }
+
+            var session = FFmpegKit.executeWithArguments(buildCmd("h264_mediacodec"))
+            if (!ReturnCode.isSuccess(session.returnCode)) {
+                // Hardware encoder failed (surface init error on some devices) — retry with mpeg4
+                android.util.Log.w("VideoStamp", "h264_mediacodec failed (rc=${session.returnCode}), retrying with mpeg4")
+                if (stampedFile.exists()) stampedFile.delete()
+                session = FFmpegKit.executeWithArguments(buildCmd("mpeg4"))
+            }
             stampPng.delete()
 
             if (ReturnCode.isSuccess(session.returnCode) && stampedFile.exists() && stampedFile.length() > 0) {
