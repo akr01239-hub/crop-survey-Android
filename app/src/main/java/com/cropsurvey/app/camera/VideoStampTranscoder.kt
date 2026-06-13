@@ -300,7 +300,7 @@ object VideoStampTranscoder {
             GLES20.glAttachShader(prog, fs)
             GLES20.glLinkProgram(prog)
             val linkStatus = IntArray(1)
-            GLES20.glGetProgramiv(prog, GLES20.GL_LINK_STATUS, linkStatus)
+            GLES20.glGetProgramiv(prog, GLES20.GL_LINK_STATUS, linkStatus, 0)
             if (linkStatus[0] == 0) {
                 val log = GLES20.glGetProgramInfoLog(prog)
                 android.util.Log.e("VideoStamp", "Program link failed: $log")
@@ -314,7 +314,7 @@ object VideoStampTranscoder {
             GLES20.glShaderSource(shader, src)
             GLES20.glCompileShader(shader)
             val compiled = IntArray(1)
-            GLES20.glGetShaderiv(shader, GLES20.GL_COMPILE_STATUS, compiled)
+            GLES20.glGetShaderiv(shader, GLES20.GL_COMPILE_STATUS, compiled, 0)
             if (compiled[0] == 0) {
                 val log = GLES20.glGetShaderInfoLog(shader)
                 android.util.Log.e("VideoStamp", "Shader compile failed (type=$type): $log")
