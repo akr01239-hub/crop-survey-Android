@@ -102,7 +102,10 @@ object VideoStampTranscoder {
                 if (outIdx >= 0) {
                     val render = bufferInfo.size > 0
                     decoder.releaseOutputBuffer(outIdx, render)
-                    if (render) gl.drawFrame()
+                    if (render) {
+                        gl.awaitFrame()
+                        gl.drawFrame()
+                    }
                     if (bufferInfo.flags and MediaCodec.BUFFER_FLAG_END_OF_STREAM != 0) {
                         decoderDone = true
                         encoder.signalEndOfInputStream()
@@ -175,6 +178,8 @@ object VideoStampTranscoder {
         private var program = 0
         private var stampProgram = 0
         private val texMatrix = FloatArray(16)
+        private val frameSyncLock = Object()
+        private var frameAvailable = false
 
         init {
             // Placeholder texture id; real GL texture is created in initGl()
@@ -214,6 +219,9 @@ object VideoStampTranscoder {
             GLES20.glBindTexture(GLES11Ext.GL_TEXTURE_EXTERNAL_OES, cameraTextureId)
             setTexParamsExternal()
             surfaceTexture.attachToGLContext(cameraTextureId)
+            surfaceTexture.setOnFrameAvailableListener {
+                synchronized(frameSyncLock) { frameAvailable = true; frameSyncLock.notifyAll() }
+            }
 
             GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, stampTextureId)
             setTexParams2D()
@@ -235,6 +243,13 @@ object VideoStampTranscoder {
             GLES20.glTexParameteri(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_MAG_FILTER, GLES20.GL_LINEAR)
             GLES20.glTexParameteri(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_S, GLES20.GL_CLAMP_TO_EDGE)
             GLES20.glTexParameteri(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_T, GLES20.GL_CLAMP_TO_EDGE)
+        }
+
+        fun awaitFrame() {
+            synchronized(frameSyncLock) {
+                while (!frameAvailable) frameSyncLock.wait(1000)
+                frameAvailable = false
+            }
         }
 
         fun drawFrame() {
@@ -284,6 +299,13 @@ object VideoStampTranscoder {
             GLES20.glAttachShader(prog, vs)
             GLES20.glAttachShader(prog, fs)
             GLES20.glLinkProgram(prog)
+            val linkStatus = IntArray(1)
+            GLES20.glGetProgramiv(prog, GLES20.GL_LINK_STATUS, linkStatus)
+            if (linkStatus[0] == 0) {
+                val log = GLES20.glGetProgramInfoLog(prog)
+                android.util.Log.e("VideoStamp", "Program link failed: $log")
+                throw RuntimeException("GL program link failed: $log")
+            }
             return prog
         }
 
@@ -291,6 +313,13 @@ object VideoStampTranscoder {
             val shader = GLES20.glCreateShader(type)
             GLES20.glShaderSource(shader, src)
             GLES20.glCompileShader(shader)
+            val compiled = IntArray(1)
+            GLES20.glGetShaderiv(shader, GLES20.GL_COMPILE_STATUS, compiled)
+            if (compiled[0] == 0) {
+                val log = GLES20.glGetShaderInfoLog(shader)
+                android.util.Log.e("VideoStamp", "Shader compile failed (type=$type): $log")
+                throw RuntimeException("GL shader compile failed: $log")
+            }
             return shader
         }
 
