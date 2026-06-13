@@ -98,7 +98,6 @@ class CCEFormFragment : Fragment() {
     private lateinit var etDryBiomass: EditText
     private lateinit var etDryGrain: EditText
     private lateinit var etMoisture: EditText
-    private lateinit var tvYieldEstimate: TextView
 
     // ── Section 7: Witnesses ─────────────────────────────────────
     private lateinit var spWitnessType: Spinner
@@ -327,7 +326,6 @@ class CCEFormFragment : Fragment() {
         etDryBiomass         = v.findViewById(R.id.et_dry_biomass)
         etDryGrain           = v.findViewById(R.id.et_dry_grain)
         etMoisture           = v.findViewById(R.id.et_moisture)
-        tvYieldEstimate      = v.findViewById(R.id.tv_yield_estimate)
         spWitnessType        = v.findViewById(R.id.sp_witness_type)
         etIcRepName          = v.findViewById(R.id.et_ic_rep_name)
         etIcRepMobile        = v.findViewById(R.id.et_ic_rep_mobile)
@@ -644,10 +642,7 @@ class CCEFormFragment : Fragment() {
             }
             override fun onNothingSelected(p: AdapterView<*>?) {}
         })
-        spPlotSize.onItemSelectedListener         = spinnerListener(5, object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(p: AdapterView<*>?, v: View?, pos: Int, id: Long) { updateYieldEstimate() }
-            override fun onNothingSelected(p: AdapterView<*>?) {}
-        })
+        spPlotSize.onItemSelectedListener         = spinnerListener(5)
         spSamplingMethod.onItemSelectedListener   = spinnerListener(5)
         spCropConditionPlot.onItemSelectedListener = spinnerListener(5)
         spThreshingMethod.onItemSelectedListener  = spinnerListener(5)
@@ -938,7 +933,6 @@ class CCEFormFragment : Fragment() {
                 val cal = Calendar.getInstance()
                 DatePickerDialog(requireContext(), { _, y, m, d ->
                     et.setText(java.lang.String.format(java.util.Locale.US, "%04d-%02d-%02d", y, m + 1, d))
-                    updateYieldEstimate()
                 }, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH)).show()
             }
         }
@@ -951,34 +945,17 @@ class CCEFormFragment : Fragment() {
     }
 
     private fun setupYieldWatchers() {
-        val watcher = object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) = updateYieldEstimate()
+        val calcWatcher = object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) = updateDryGrainCalc()
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         }
-        etDryGrain.addTextChangedListener(watcher)
-        etMoisture.addTextChangedListener(watcher)
+        etDryBiomass.addTextChangedListener(calcWatcher)  // Wet Grain Weight
+        etMoisture.addTextChangedListener(calcWatcher)
     }
 
-    private fun updateYieldEstimate() {
-        val dryGrain = etDryGrain.text.toString().toDoubleOrNull()
-        val plotSizeStr = spPlotSize.selectedItem?.toString() ?: ""
-        val plotSqm = when {
-            plotSizeStr.contains("100") -> 100.0
-            plotSizeStr.contains("50")  -> 50.0
-            plotSizeStr.contains("25")  -> 25.0
-            else -> null
-        }
-        if (dryGrain == null || plotSqm == null) {
-            tvYieldEstimate.text = "Estimated Yield: —"
-            return
-        }
-        val moisture = etMoisture.text.toString().toDoubleOrNull() ?: 0.0
-        val rawYield = dryGrain / plotSqm * 10000
-        val adjustedYield = if (moisture > 0 && moisture != 14.0) {
-            rawYield * (100 - moisture) / (100 - 14.0)
-        } else rawYield
-        tvYieldEstimate.text = "Estimated Yield: %.2f kg/ha  (at 14%% moisture)".format(adjustedYield)
+    private fun updateDryGrainCalcFromPlot() {
+        // No longer needed — dry grain is calculated from wet grain - moisture
     }
 
     private fun loadStates() {
@@ -1013,7 +990,7 @@ class CCEFormFragment : Fragment() {
         if (fd.isEmpty()) return
 
         etCceNumber.setText(fd["cce_number"]?.toString() ?: "")
-        etCceDate.setText(fd["cce_date"]?.toString() ?: "")
+        fd["cce_date"]?.toString()?.takeIf { it.isNotEmpty() }?.let { etCceDate.setText(it) }
         etExperimentId.setText(fd["experiment_id"]?.toString() ?: "")
         val surveyId = SurveySession.currentCaseId.takeIf { it.isNotEmpty() }
             ?: fd["survey_id"]?.toString()
@@ -1034,7 +1011,7 @@ class CCEFormFragment : Fragment() {
         etHarvestingDate.setText(fd["harvesting_date"]?.toString() ?: "")
         etThreshingDate.setText(fd["threshing_date"]?.toString() ?: "")
         etFreshBiomass.setText(fd["fresh_biomass_weight"]?.toString() ?: "")
-        etDryBiomass.setText(fd["dry_biomass_weight"]?.toString() ?: "")
+        etDryBiomass.setText(fd["wet_grain_weight"]?.toString() ?: fd["dry_biomass_weight"]?.toString() ?: "")
         etDryGrain.setText(fd["dry_grain_weight"]?.toString() ?: "")
         etMoisture.setText(fd["moisture_content"]?.toString() ?: "")
         etIcRepName.setText(fd["ic_representative_name"]?.toString() ?: "")
@@ -1066,7 +1043,7 @@ class CCEFormFragment : Fragment() {
         tdRestore(spFarmerAvailable, tdYesNo, fd["farmer_available"]?.toString())
         tdRestore(spDisputeIfAny, tdYesNo, fd["dispute_if_any"]?.toString())
 
-        updateYieldEstimate()
+        updateDryGrainCalc()
 
         layoutDiseaseName.visibility = if (fd["any_disease"]?.toString() == "yes") View.VISIBLE else View.GONE
         layoutFarmerUnavailable.visibility = if (fd["farmer_available"]?.toString() == "no") View.VISIBLE else View.GONE
@@ -1158,20 +1135,6 @@ class CCEFormFragment : Fragment() {
         val farmerName   = etFarmerName.text.toString().trim()
         val farmerMobile = etFarmerMobile.text.toString().trim()
 
-        val dryGrain    = etDryGrain.text.toString().toDoubleOrNull()
-        val moisture    = etMoisture.text.toString().toDoubleOrNull() ?: 0.0
-        val plotSizeStr = spPlotSize.selectedItem?.toString() ?: ""
-        val plotSqm = when {
-            plotSizeStr.contains("100") -> 100.0
-            plotSizeStr.contains("50")  -> 50.0
-            plotSizeStr.contains("25")  -> 25.0
-            else -> null
-        }
-        val yieldKgHa = if (dryGrain != null && plotSqm != null) {
-            val raw = dryGrain / plotSqm * 10000
-            if (moisture > 0 && moisture != 14.0) raw * (100 - moisture) / (100 - 14.0) else raw
-        } else null
-
         return mapOf(
             "year"                      to spYear.selectedItem?.toString()?.takeIf { it != "Select Year" },
             "season"                    to tdCode(tdSeasons, spSeason.selectedItemPosition - 1),
@@ -1212,10 +1175,9 @@ class CCEFormFragment : Fragment() {
             "threshing_method"          to spThreshingMethod.selectedItem?.toString()?.takeIf { it != "Select Method" },
             "threshing_date"            to etThreshingDate.text.toString().takeIf { it.isNotEmpty() },
             "fresh_biomass_weight"      to etFreshBiomass.text.toString().toDoubleOrNull(),
-            "dry_biomass_weight"        to etDryBiomass.text.toString().toDoubleOrNull(),
+            "wet_grain_weight"          to etDryBiomass.text.toString().toDoubleOrNull(),
             "dry_grain_weight"          to etDryGrain.text.toString().toDoubleOrNull(),
             "moisture_content"          to etMoisture.text.toString().toDoubleOrNull(),
-            "yield_kg_per_ha"           to yieldKgHa,
             "witness_type"              to spWitnessType.selectedItem?.toString()?.takeIf { !it.contains("Select") },
             "ic_representative_name"    to etIcRepName.text.toString().takeIf { it.isNotEmpty() },
             "ic_representative_mobile"  to etIcRepMobile.text.toString().takeIf { it.isNotEmpty() },
@@ -1238,20 +1200,6 @@ class CCEFormFragment : Fragment() {
         if (!validateRequiredFields()) return emptyMap()
         val farmerName   = etFarmerName.text.toString().trim()
         val farmerMobile = etFarmerMobile.text.toString().trim()
-
-        val dryGrain    = etDryGrain.text.toString().toDoubleOrNull()
-        val moisture    = etMoisture.text.toString().toDoubleOrNull() ?: 0.0
-        val plotSizeStr = spPlotSize.selectedItem?.toString() ?: ""
-        val plotSqm = when {
-            plotSizeStr.contains("100") -> 100.0
-            plotSizeStr.contains("50")  -> 50.0
-            plotSizeStr.contains("25")  -> 25.0
-            else -> null
-        }
-        val yieldKgHa = if (dryGrain != null && plotSqm != null) {
-            val raw = dryGrain / plotSqm * 10000
-            if (moisture > 0 && moisture != 14.0) raw * (100 - moisture) / (100 - 14.0) else raw
-        } else null
 
         return mapOf(
             "year"                      to spYear.selectedItem?.toString()?.takeIf { it != "Select Year" },
@@ -1293,10 +1241,9 @@ class CCEFormFragment : Fragment() {
             "threshing_method"          to spThreshingMethod.selectedItem?.toString()?.takeIf { it != "Select Method" },
             "threshing_date"            to etThreshingDate.text.toString().takeIf { it.isNotEmpty() },
             "fresh_biomass_weight"      to etFreshBiomass.text.toString().toDoubleOrNull(),
-            "dry_biomass_weight"        to etDryBiomass.text.toString().toDoubleOrNull(),
+            "wet_grain_weight"          to etDryBiomass.text.toString().toDoubleOrNull(),
             "dry_grain_weight"          to etDryGrain.text.toString().toDoubleOrNull(),
             "moisture_content"          to etMoisture.text.toString().toDoubleOrNull(),
-            "yield_kg_per_ha"           to yieldKgHa,
             "witness_type"              to spWitnessType.selectedItem?.toString()?.takeIf { !it.contains("Select") },
             "ic_representative_name"    to etIcRepName.text.toString().takeIf { it.isNotEmpty() },
             "ic_representative_mobile"  to etIcRepMobile.text.toString().takeIf { it.isNotEmpty() },

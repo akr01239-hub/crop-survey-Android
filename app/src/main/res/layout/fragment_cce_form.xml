@@ -506,7 +506,7 @@
             android:layout_marginBottom="12dp" android:visibility="gone">
 
             <TextView android:id="@+id/lbl_fresh_biomass" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="@string/field_fresh_biomass" android:textSize="12sp" android:textColor="#64748B"
+                android:text="Fresh Biomass Weight (kg)" android:textSize="12sp" android:textColor="#64748B"
                 android:layout_marginTop="8dp" android:layout_marginBottom="4dp"/>
             <FrameLayout android:id="@+id/frame_et_fresh_biomass" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
@@ -516,36 +516,31 @@
             </FrameLayout>
 
             <TextView android:id="@+id/lbl_dry_biomass" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="@string/section_yield" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+                android:text="Wet Grain Weight (kg)" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
             <FrameLayout android:id="@+id/frame_et_dry_biomass" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_dry_biomass" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="e.g. 8.0"
-                    android:inputType="numberDecimal" android:padding="12dp"/>
-            </FrameLayout>
-
-            <TextView android:id="@+id/lbl_dry_grain" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="@string/field_dry_grain" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
-            <FrameLayout android:id="@+id/frame_et_dry_grain" android:layout_width="match_parent" android:layout_height="48dp"
-                android:background="@drawable/input_background" android:layout_marginBottom="12dp">
-                <EditText android:id="@+id/et_dry_grain" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="e.g. 4.2"
+                    android:background="@android:color/transparent" android:hint="e.g. 60.0"
                     android:inputType="numberDecimal" android:padding="12dp"/>
             </FrameLayout>
 
             <TextView android:id="@+id/lbl_moisture" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="@string/field_moisture_pct" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+                android:text="Moisture Content (%)" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
             <FrameLayout android:id="@+id/frame_et_moisture" android:layout_width="match_parent" android:layout_height="48dp"
                 android:background="@drawable/input_background" android:layout_marginBottom="12dp">
                 <EditText android:id="@+id/et_moisture" android:layout_width="match_parent" android:layout_height="match_parent"
-                    android:background="@android:color/transparent" android:hint="e.g. 14"
+                    android:background="@android:color/transparent" android:hint="e.g. 20"
                     android:inputType="numberDecimal" android:padding="12dp"/>
             </FrameLayout>
 
-            <TextView android:id="@+id/tv_yield_estimate" android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="Estimated Yield: —" android:textColor="#2563EB" android:textStyle="bold"
-                android:textSize="15sp" android:layout_marginBottom="4dp"
-                android:background="#EFF6FF" android:padding="12dp"/>
+            <TextView android:id="@+id/lbl_dry_grain" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Dry Grain Weight (kg)" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+            <FrameLayout android:id="@+id/frame_et_dry_grain" android:layout_width="match_parent" android:layout_height="48dp"
+                android:background="@drawable/input_background">
+                <EditText android:id="@+id/et_dry_grain" android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@android:color/transparent" android:hint="Auto or manual"
+                    android:inputType="numberDecimal" android:padding="12dp"/>
+            </FrameLayout>
         </LinearLayout>
 
         <!-- ══ SECTION 7: Witnesses ══ -->
