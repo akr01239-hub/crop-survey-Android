@@ -79,6 +79,9 @@ class CCEFormFragment : Fragment() {
     private lateinit var spCropStage: Spinner
     private lateinit var spIrrigationType: Spinner
     private lateinit var spLandType: Spinner
+    private lateinit var spAnyDisease: Spinner
+    private lateinit var etDiseaseName: EditText
+    private lateinit var layoutDiseaseName: View
 
     // ── Section 5: CCE Plot ───────────────────────────────────────
     private lateinit var etFieldAreaPolygon: EditText
@@ -145,6 +148,8 @@ class CCEFormFragment : Fragment() {
     private lateinit var lblCropStage: TextView
     private lateinit var lblIrrigationType: TextView
     private lateinit var lblLandType: TextView
+    private lateinit var lblAnyDisease: TextView
+    private lateinit var lblDiseaseName: TextView
     private lateinit var lblFieldArea: TextView
     private lateinit var lblPlotSize: TextView
     private lateinit var lblPlotShape: TextView
@@ -307,6 +312,9 @@ class CCEFormFragment : Fragment() {
         spCropStage          = v.findViewById(R.id.sp_crop_stage)
         spIrrigationType     = v.findViewById(R.id.sp_irrigation_type)
         spLandType           = v.findViewById(R.id.sp_land_type)
+        spAnyDisease         = v.findViewById(R.id.sp_any_disease)
+        etDiseaseName        = v.findViewById(R.id.et_disease_name)
+        layoutDiseaseName    = v.findViewById(R.id.layout_disease_name)
         etFieldAreaPolygon   = v.findViewById(R.id.et_field_area_polygon)
         spPlotSize           = v.findViewById(R.id.sp_plot_size)
         spPlotShape          = v.findViewById(R.id.sp_plot_shape)
@@ -372,6 +380,8 @@ class CCEFormFragment : Fragment() {
         lblCropStage         = v.findViewById(R.id.lbl_crop_stage)
         lblIrrigationType    = v.findViewById(R.id.lbl_irrigation_type)
         lblLandType          = v.findViewById(R.id.lbl_land_type)
+        lblAnyDisease        = v.findViewById(R.id.lbl_any_disease)
+        lblDiseaseName       = v.findViewById(R.id.lbl_disease_name)
         lblFieldArea         = v.findViewById(R.id.lbl_field_area)
         lblPlotSize          = v.findViewById(R.id.lbl_plot_size)
         lblPlotShape         = v.findViewById(R.id.lbl_plot_shape)
@@ -442,6 +452,8 @@ class CCEFormFragment : Fragment() {
         updateSpinnerUi(spCropStage,         lblCropStage,         R.id.frame_sp_crop_stage)
         updateSpinnerUi(spIrrigationType,    lblIrrigationType,    R.id.frame_sp_irrigation_type)
         updateSpinnerUi(spLandType,          lblLandType,          R.id.frame_sp_land_type)
+        updateSpinnerUi(spAnyDisease,        lblAnyDisease,        R.id.frame_sp_any_disease)
+        updateFieldUi(etDiseaseName,         lblDiseaseName,       R.id.frame_et_disease_name)
         updateFieldUi(etFieldAreaPolygon,    lblFieldArea,         R.id.frame_et_field_area_polygon)
         updateSpinnerUi(spPlotSize,          lblPlotSize,          R.id.frame_sp_plot_size)
         updateSpinnerUi(spPlotShape,         lblPlotShape,         R.id.frame_sp_plot_shape)
@@ -581,6 +593,7 @@ class CCEFormFragment : Fragment() {
         etFarmerAppNo.addTextChangedListener(watcher(3))
         etKhasraNo.addTextChangedListener(watcher(3))
         etCropVariety.addTextChangedListener(watcher(4))
+        etDiseaseName.addTextChangedListener(watcher(4))
         etSowingDate.addTextChangedListener(watcher(4))
 
         // etFieldAreaPolygon is auto-filled from the polygon map — NOT user-typed,
@@ -625,6 +638,12 @@ class CCEFormFragment : Fragment() {
         spCropStage.onItemSelectedListener        = spinnerListener(4)
         spIrrigationType.onItemSelectedListener   = spinnerListener(4)
         spLandType.onItemSelectedListener         = spinnerListener(4)
+        spAnyDisease.onItemSelectedListener       = spinnerListener(4, object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p: AdapterView<*>?, v: View?, pos: Int, id: Long) {
+                layoutDiseaseName.visibility = if (tdYesNo.getOrNull(pos - 1)?.code == "yes") View.VISIBLE else View.GONE
+            }
+            override fun onNothingSelected(p: AdapterView<*>?) {}
+        })
         spPlotSize.onItemSelectedListener         = spinnerListener(5, object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p: AdapterView<*>?, v: View?, pos: Int, id: Long) { updateYieldEstimate() }
             override fun onNothingSelected(p: AdapterView<*>?) {}
@@ -638,7 +657,8 @@ class CCEFormFragment : Fragment() {
         spFarmerAvailable.onItemSelectedListener  = spinnerListener(7, object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p: AdapterView<*>?, v: View?, pos: Int, id: Long) {
                 val code = tdYesNo.getOrNull(pos - 1)?.code
-                layoutFarmerUnavailable.visibility = if (code == "no") View.VISIBLE else View.GONE
+                layoutDiseaseName.visibility = if (fd["any_disease"]?.toString() == "yes") View.VISIBLE else View.GONE
+        layoutFarmerUnavailable.visibility = if (code == "no") View.VISIBLE else View.GONE
                 if (code != null) SurveySession.formData["farmer_available"] = code
             }
             override fun onNothingSelected(p: AdapterView<*>?) {}
@@ -692,6 +712,8 @@ class CCEFormFragment : Fragment() {
                 && spCropStage.selectedItemPosition > 0
                 && spIrrigationType.selectedItemPosition > 0
                 && spLandType.selectedItemPosition > 0
+                && spAnyDisease.selectedItemPosition > 0
+                && (tdYesNo.getOrNull(spAnyDisease.selectedItemPosition - 1)?.code != "yes" || etDiseaseName.text.isNotBlank())
         // S5: field_area, plot_size, sampling_method, crop_condition, harvesting_date, threshing_method, threshing_date
         5 -> etFieldAreaPolygon.text.isNotBlank()
                 && spPlotSize.selectedItemPosition > 0
@@ -849,6 +871,7 @@ class CCEFormFragment : Fragment() {
         setSpinner(spCropConditionPlot, listOf(getString(R.string.hint_select)) + tdLabels(tdCropCond))
         setSpinner(spSamplingMethod,    listOf("Select Sampling Method") + AppConfig.CCE_SAMPLING_METHOD)
         setSpinner(spWitnessType,       listOf("Select Witness Type")    + AppConfig.CCE_WITNESS_TYPES)
+        setSpinner(spAnyDisease,       listOf(getString(R.string.hint_select)) + tdLabels(tdYesNo))
         setSpinner(spPlotShape,        listOf(getString(R.string.hint_select)) + AppConfig.CCE_PLOT_SHAPES)
         setSpinner(spFarmerAvailable,  listOf(getString(R.string.hint_select)) + tdLabels(tdYesNo))
         setSpinner(spDisputeIfAny,     listOf(getString(R.string.hint_select)) + tdLabels(tdYesNo))
@@ -1000,6 +1023,7 @@ class CCEFormFragment : Fragment() {
         etRevenueCircle.setText(fd["revenue_circle"]?.toString() ?: "")
         etGramPanchayat.setText(fd["gram_panchayat"]?.toString() ?: "")
         etCropVariety.setText(fd["crop_variety"]?.toString() ?: "")
+        etDiseaseName.setText(fd["disease_name"]?.toString() ?: "")
         etSowingDate.setText(fd["sowing_date"]?.toString() ?: "")
 
         etHarvestingDate.setText(fd["harvesting_date"]?.toString() ?: "")
@@ -1033,11 +1057,13 @@ class CCEFormFragment : Fragment() {
         restoreSpinner(spSamplingMethod,    fd["sampling_method"]?.toString())
         restoreSpinner(spWitnessType,       fd["witness_type"]?.toString())
         restoreSpinner(spPlotShape,         fd["cce_plot_shape"]?.toString())
+        tdRestore(spAnyDisease, tdYesNo, fd["any_disease"]?.toString())
         tdRestore(spFarmerAvailable, tdYesNo, fd["farmer_available"]?.toString())
         tdRestore(spDisputeIfAny, tdYesNo, fd["dispute_if_any"]?.toString())
 
         updateYieldEstimate()
 
+        layoutDiseaseName.visibility = if (fd["any_disease"]?.toString() == "yes") View.VISIBLE else View.GONE
         layoutFarmerUnavailable.visibility = if (fd["farmer_available"]?.toString() == "no") View.VISIBLE else View.GONE
         layoutDisputeRecording.visibility = if (fd["dispute_if_any"]?.toString() == "yes") View.VISIBLE else View.GONE
         fd["survey_date"]?.toString()?.takeIf { it.isNotEmpty() }?.let { etSurveyDate.setText(it) }
@@ -1164,6 +1190,8 @@ class CCEFormFragment : Fragment() {
             "crop_stage"                to tdCode(tdCropStages, spCropStage.selectedItemPosition - 1),
             "irrigation_type"           to tdCode(tdIrrigation, spIrrigationType.selectedItemPosition - 1),
             "land_type"                 to tdCode(tdLandTypes, spLandType.selectedItemPosition - 1),
+            "any_disease"               to tdCode(tdYesNo, spAnyDisease.selectedItemPosition - 1),
+            "disease_name"              to etDiseaseName.text.toString().takeIf { it.isNotEmpty() },
             "field_area_polygon"        to etFieldAreaPolygon.text.toString().toDoubleOrNull(),
             "cce_plot_size"             to spPlotSize.selectedItem?.toString()?.takeIf { it != "Select Plot Size" },
             "cce_plot_shape"            to spPlotShape.selectedItem?.toString()?.takeIf { !it.contains("Select") },
@@ -1243,6 +1271,8 @@ class CCEFormFragment : Fragment() {
             "crop_stage"                to tdCode(tdCropStages, spCropStage.selectedItemPosition - 1),
             "irrigation_type"           to tdCode(tdIrrigation, spIrrigationType.selectedItemPosition - 1),
             "land_type"                 to tdCode(tdLandTypes, spLandType.selectedItemPosition - 1),
+            "any_disease"               to tdCode(tdYesNo, spAnyDisease.selectedItemPosition - 1),
+            "disease_name"              to etDiseaseName.text.toString().takeIf { it.isNotEmpty() },
             "field_area_polygon"        to etFieldAreaPolygon.text.toString().toDoubleOrNull(),
             "cce_plot_size"             to spPlotSize.selectedItem?.toString()?.takeIf { it != "Select Plot Size" },
             "cce_plot_shape"            to spPlotShape.selectedItem?.toString()?.takeIf { !it.contains("Select") },
