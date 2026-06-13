@@ -117,6 +117,12 @@ object VideoStampTranscoder {
             when {
                 encIdx == MediaCodec.INFO_OUTPUT_FORMAT_CHANGED -> {
                     muxVideoTrack = muxer.addTrack(encoder.outputFormat)
+                    // Both tracks must be added BEFORE start() - adding a
+                    // track after start() throws IllegalStateException
+                    // ("muxer is not initialized" / already started).
+                    if (audioTrack >= 0 && audioFormat != null) {
+                        muxAudioTrack = muxer.addTrack(audioFormat)
+                    }
                     muxer.start()
                     muxerStarted = true
                 }
@@ -137,9 +143,8 @@ object VideoStampTranscoder {
         encoder.stop(); encoder.release()
         gl.release()
 
-        // Copy audio track through unchanged
-        if (audioTrack >= 0 && audioFormat != null && muxerStarted) {
-            muxAudioTrack = muxer.addTrack(audioFormat)
+        // Copy audio track through unchanged (track already added before muxer.start())
+        if (audioTrack >= 0 && audioFormat != null && muxerStarted && muxAudioTrack >= 0) {
             val audioExtractor = MediaExtractor()
             audioExtractor.setDataSource(inputFile.absolutePath)
             audioExtractor.selectTrack(audioTrack)
