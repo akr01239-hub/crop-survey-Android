@@ -235,7 +235,7 @@
     <string name="location_not_available">Location Not Available</string>
     <string name="gps_capturing">Capturing GPS…</string>
     <string name="gps_accuracy_poor">GPS accuracy is poor (%s m). Consider moving to open ground.</string>
-    <string name="gps_captured_success">GPS captured: %s, %s (Accuracy: %s m)</string>
+    <string name="gps_captured_success" formatted="false">GPS captured: %s, %s (Accuracy: %s m)</string>
     <string name="open_map">Open Map</string>
     <string name="plot_location">Plot Location</string>
     <string name="farmer_location">Farmer Location</string>

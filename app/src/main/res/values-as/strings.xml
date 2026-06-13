@@ -525,7 +525,7 @@
     <string name="photo_field_west_instruction">পূব সীমাত থিয় হওক, পশ্চিমলৈ চাওক</string>
     <string name="photo_grain_image">শস্যৰ ফটো</string>
     <string name="photo_grain_image_instruction">শস্য/ফলৰ ক্লোজ-আপ</string>
-    <string name="photo_biomass_weight">বায়'মাছ ওজন</string>
+    <string name="photo_biomass_weight">বায়\'মাছ ওজন</string>
     <string name="photo_biomass_weight_instruction">তুলাত বায়োমাছৰ ফটো</string>
     <string name="photo_grain_weight">শস্যৰ ওজনৰ ফটো</string>
     <string name="photo_grain_weight_instruction">তুলাত শস্যৰ ফটো</string>
@@ -623,7 +623,7 @@
     <string name="field_relation_with_farmer">কৃষকৰ সৈতে সম্পৰ্ক</string>
     <string name="field_survey_id_docket">সমীক্ষা আইডি (ডকেট-আইডি)</string>
     <string name="field_wet_grain_weight">তিতা শস্য ওজন (কেজি)</string>
-    <string name="field_fresh_biomass_weight">সতেজ বায়'মাছ ওজন (কেজি)</string>
+    <string name="field_fresh_biomass_weight">সতেজ বায়\'মাছ ওজন (কেজি)</string>
     <string name="field_moisture_content">আৰ্দ্ৰতা (শতাংশ)</string>
     <string name="field_dry_grain_weight">শুকান শস্য ওজন (কেজি)</string>
     <string name="hint_auto_or_manual">স্বয়ংক্ৰিয় বা হাতেৰে</string>
@@ -632,10 +632,10 @@
     <string name="hint_enter_relation">কৃষকৰ সৈতে সম্পৰ্ক লিখক</string>
     <string name="hint_enter_rep_name">প্ৰতিনিধিৰ নাম লিখক</string>
     <string name="hint_enter_rep_mobile">10 সংখ্যাৰ মবাইল নম্বৰ</string>
-    <string name="btn_record_dispute">30 ছেকেণ্ড অডিঅ'/ভিডিঅ' ৰেকৰ্ড কৰক</string>
+    <string name="btn_record_dispute">30 ছেকেণ্ড অডিঅ\'/ভিডিঅ\' ৰেকৰ্ড কৰক</string>
     <string name="status_not_recorded">ৰেকৰ্ড হোৱা নাই</string>
     <string name="status_recorded">ৰেকৰ্ড হৈছে ✓</string>
-    <string name="photo_leaf_closeup">পাতৰ ক্ল'জ-আপ ফটো</string>
+    <string name="photo_leaf_closeup">পাতৰ ক্ল\'জ-আপ ফটো</string>
     <string name="photo_cut_plot">কটা প্লট</string>
     <string name="photo_wet_weight">তিতা ওজন</string>
     <string name="photo_moisture_reading">আৰ্দ্ৰতা % ৰিডিং</string>

@@ -573,7 +573,7 @@
     <string name="hint_enter_relation">हालोखौ लोगो सोमोन्दो लिर</string>
     <string name="hint_enter_rep_name">दैदेनग्रानि मुं लिर</string>
     <string name="hint_enter_rep_mobile">10 अनजिमानि मबाइल नम्बर</string>
-    <string name="btn_record_dispute">30 सेकेन्ड अडिअ'/भिडिअ' रेकर्ड खालाम</string>
+    <string name="btn_record_dispute">30 सेकेन्ड अडिअ\'/भिडिअ\' रेकर्ड खालाम</string>
     <string name="status_not_recorded">रेकर्ड जायाखै</string>
     <string name="status_recorded">रेकर्ड जादों ✓</string>
     <string name="photo_leaf_closeup">बिलाइ क्लज-आप फटो</string>
