@@ -279,7 +279,7 @@ class VideoCaptureActivity : AppCompatActivity() {
                 "-y",
                 "-i", originalFile.absolutePath,
                 "-i", stampPng.absolutePath,
-                "-filter_complex", "[0:v][1:v] overlay=0:main_h-overlay_h",
+                "-filter_complex", "[0:v][1:v] overlay=0:main_h-overlay_h:format=auto,format=yuv420p",
                 "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
                 "-c:a", "copy",
                 stampedFile.absolutePath
@@ -291,9 +291,11 @@ class VideoCaptureActivity : AppCompatActivity() {
                 originalFile.delete()
                 stampedFile.absolutePath
             } else {
-                android.util.Log.e("VideoStamp", "FFmpeg failed: rc=${session.returnCode} fail=${session.failStackTrace}")
+                val rc = session.returnCode
+                val logTail = try { session.output?.takeLast(300) } catch (_: Exception) { null }
+                android.util.Log.e("VideoStamp", "FFmpeg failed: rc=$rc fail=${session.failStackTrace} logs=$logTail")
                 withContext(Dispatchers.Main) {
-                    Toast.makeText(this@VideoCaptureActivity, "Stamp failed - uploaded without stamp", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@VideoCaptureActivity, "Stamp failed rc=$rc: ${logTail ?: session.failStackTrace ?: "no details"}", Toast.LENGTH_LONG).show()
                 }
                 stampedFile.delete()
                 originalFile.absolutePath
