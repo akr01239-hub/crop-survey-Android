@@ -657,8 +657,7 @@ class CCEFormFragment : Fragment() {
         spFarmerAvailable.onItemSelectedListener  = spinnerListener(7, object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p: AdapterView<*>?, v: View?, pos: Int, id: Long) {
                 val code = tdYesNo.getOrNull(pos - 1)?.code
-                layoutDiseaseName.visibility = if (fd["any_disease"]?.toString() == "yes") View.VISIBLE else View.GONE
-        layoutFarmerUnavailable.visibility = if (code == "no") View.VISIBLE else View.GONE
+                layoutFarmerUnavailable.visibility = if (code == "no") View.VISIBLE else View.GONE
                 if (code != null) SurveySession.formData["farmer_available"] = code
             }
             override fun onNothingSelected(p: AdapterView<*>?) {}
