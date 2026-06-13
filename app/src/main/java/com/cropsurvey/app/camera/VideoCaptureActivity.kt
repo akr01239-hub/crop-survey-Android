@@ -246,32 +246,63 @@ class VideoCaptureActivity : AppCompatActivity() {
                 )
             val place = latestPlace.ifEmpty { GeoTagOverlay.reverseGeocode(this@VideoCaptureActivity, coords.lat, coords.lon) }
 
-            // Read actual recorded frame dimensions - CameraX SD/LOWEST may
-            // record portrait 480x640 or landscape 640x480 depending on device.
+            // ---------------------------------------------------------------
+            // Read actual frame dimensions from the container.
+            //
+            // IMPORTANT: CameraX records portrait video but Android's
+            // MediaExtractor returns the CODED (landscape) dimensions from
+            // KEY_WIDTH / KEY_HEIGHT, e.g. 1280×720 for a portrait 720p clip.
+            // The display orientation is stored separately as KEY_ROTATION
+            // (usually 90° for back-camera portrait).
+            //
+            // We need the DISPLAY dimensions (what the viewer sees) so the
+            // stamp PNG is rendered at the correct width and the FFmpeg
+            // overlay filter positions it at the true visual bottom.
+            //
+            // Rule: if rotation is 90 or 270 degrees, swap W and H.
+            // ---------------------------------------------------------------
             val extractor = android.media.MediaExtractor()
             extractor.setDataSource(originalFile.absolutePath)
-            var videoW = 1080
-            var videoH = 1920
+            var codedW   = 1080
+            var codedH   = 1920
+            var rotation = 0
             for (i in 0 until extractor.trackCount) {
                 val fmt = extractor.getTrackFormat(i)
                 if (fmt.getString(android.media.MediaFormat.KEY_MIME)?.startsWith("video/") == true) {
-                    videoW = fmt.getInteger(android.media.MediaFormat.KEY_WIDTH)
-                    videoH = fmt.getInteger(android.media.MediaFormat.KEY_HEIGHT)
+                    codedW   = fmt.getInteger(android.media.MediaFormat.KEY_WIDTH)
+                    codedH   = fmt.getInteger(android.media.MediaFormat.KEY_HEIGHT)
+                    // KEY_ROTATION may be absent on some devices/containers
+                    rotation = try { fmt.getInteger(android.media.MediaFormat.KEY_ROTATION) } catch (_: Exception) { 0 }
                     break
                 }
             }
             extractor.release()
 
-            // h264_mediacodec requires even dimensions - snap down to nearest 2.
-            val encW = if (videoW % 2 == 0) videoW else videoW - 1
-            val encH = if (videoH % 2 == 0) videoH else videoH - 1
+            // Display (visual) width/height after applying rotation
+            val displayW = if (rotation == 90 || rotation == 270) codedH else codedW
+            val displayH = if (rotation == 90 || rotation == 270) codedW else codedH
 
-            // Render stamp at actual video width so it spans edge-to-edge.
+            android.util.Log.d("VideoStamp", "coded=${codedW}x${codedH} rotation=${rotation}° display=${displayW}x${displayH}")
+
+            // h264_mediacodec requires even dimensions - snap down to nearest 2.
+            // Use CODED dimensions for the encoder (FFmpeg works in coded space).
+            val encW = if (codedW % 2 == 0) codedW else codedW - 1
+            val encH = if (codedH % 2 == 0) codedH else codedH - 1
+
+            // ---------------------------------------------------------------
+            // Render stamp at DISPLAY width so it spans the visual frame edge-
+            // to-edge (not the coded width which may be the height of the
+            // portrait frame). We also add bottom padding to ensure the card
+            // border/shadow is never clipped by the overlay filter.
+            // ---------------------------------------------------------------
             val survId = SurveySession.currentSurveyId ?: ""
-            val stampBmp = GeoTagOverlay.renderStampBitmap(encW, coords, place, survId)
-            // Add bottom padding so FFmpeg overlay doesn't clip the last row.
-            val padPx = (encW * 0.006f).toInt().coerceAtLeast(4)
-            val paddedBmp = android.graphics.Bitmap.createBitmap(encW, stampBmp.height + padPx, android.graphics.Bitmap.Config.ARGB_8888)
+            val stampBmp = GeoTagOverlay.renderStampBitmap(displayW, coords, place, survId)
+
+            // Extra bottom padding: at least 1% of display height (≥4px) so
+            // the card drop-shadow and border stroke are never cut off.
+            val padPx = (displayH * 0.010f).toInt().coerceAtLeast(4)
+            val paddedH = stampBmp.height + padPx
+            val paddedBmp = android.graphics.Bitmap.createBitmap(displayW, paddedH, android.graphics.Bitmap.Config.ARGB_8888)
             android.graphics.Canvas(paddedBmp).drawBitmap(stampBmp, 0f, 0f, null)
             stampBmp.recycle()
 
@@ -282,14 +313,20 @@ class VideoCaptureActivity : AppCompatActivity() {
             val stampedFile = File(cacheDir, "stamped_${originalFile.name}")
             if (stampedFile.exists()) stampedFile.delete()
 
-            // Scale video to even dimensions if needed (h264_mediacodec strict
-            // requirement), then overlay stamp at bottom-left of every frame.
+            // ---------------------------------------------------------------
+            // FFmpeg overlay filter.
             //
-            // Encoder priority:
-            //   1. h264_mediacodec - Android hardware H.264 (always present,
-            //      zero-license, browser-compatible H.264 output).
-            //   2. mpeg4 - software fallback for rare surface-init failures.
-            val scaleFilter = if (encW != videoW || encH != videoH)
+            // The stamp PNG is rendered in DISPLAY space (visual width).
+            // FFmpeg's overlay filter also works in display space (it applies
+            // rotation metadata automatically), so:
+            //   overlay X = 0  (left edge)
+            //   overlay Y = main_h - overlay_h  (bottom of visual frame)
+            //
+            // Scale filter (if needed) uses CODED dimensions because the
+            // encoder operates on the raw coded stream.
+            // ---------------------------------------------------------------
+            val needsScale = (encW != codedW || encH != codedH)
+            val scaleFilter = if (needsScale)
                 "[0:v]scale=${encW}:${encH}[scaled];[scaled][1:v]"
             else
                 "[0:v][1:v]"
@@ -325,9 +362,6 @@ class VideoCaptureActivity : AppCompatActivity() {
             } else {
                 val rc = session.returnCode
                 val fullLog = try { session.output ?: "" } catch (_: Exception) { "" }
-                // Find the most relevant line(s) - ffmpeg usually prints the
-                // real failure reason near the end, often containing "Error"
-                // or "Invalid" or "Unknown".
                 val errorLines = fullLog.lines()
                     .filter { it.contains("Error", true) || it.contains("Invalid", true) || it.contains("Unknown", true) || it.contains("Unsupported", true) }
                     .takeLast(3)
