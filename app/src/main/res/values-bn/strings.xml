@@ -583,7 +583,6 @@
     <string name="status_recorded">রেকর্ড হয়েছে ✓</string>
     <string name="photo_leaf_closeup">পাতার ক্লোজ-আপ ফটো</string>
     <string name="photo_cut_plot">কাটা প্লট</string>
-    <string name="photo_biomass_weight">বায়োমাস ওজন</string>
     <string name="photo_wet_weight">ভেজা ওজন</string>
     <string name="photo_moisture_reading">আর্দ্রতা % রিডিং</string>
     <string name="photo_dry_grain_label">শুকনো শস্য ওজন</string>

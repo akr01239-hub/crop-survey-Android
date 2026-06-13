@@ -578,7 +578,6 @@
     <string name="status_recorded">റെക്കോർഡ് ചെയ്തു ✓</string>
     <string name="photo_leaf_closeup">ഇല ക്ലോസ്-അപ്പ് ഫോട്ടോ</string>
     <string name="photo_cut_plot">മുറിച്ച പ്ലോട്ട്</string>
-    <string name="photo_biomass_weight">ബയോമാസ് ഭാരം</string>
     <string name="photo_wet_weight">നനഞ്ഞ ഭാരം</string>
     <string name="photo_moisture_reading">ഈർപ്പം % റീഡിംഗ്</string>
     <string name="photo_dry_grain_label">ഉണങ്ങിയ ധാന്യ ഭാരം</string>
