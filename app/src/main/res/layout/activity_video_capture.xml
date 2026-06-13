@@ -13,13 +13,6 @@
         app:implementationMode="compatible"
         android:background="#000000"/>
 
-    <!-- Live geo-tag stamp preview — same GeoTagOverlay used for photos -->
-    <ImageView android:id="@+id/iv_stamp_overlay"
-        android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:layout_above="@id/bottom_controls"
-        android:scaleType="fitXY"
-        android:alpha="0.95"/>
-
     <!-- Top bar -->
     <LinearLayout
         android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -44,7 +37,6 @@
 
     <!-- Bottom controls -->
     <LinearLayout
-        android:id="@+id/bottom_controls"
         android:layout_width="match_parent" android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" android:orientation="vertical"
         android:background="#CC000000" android:padding="16dp" android:paddingBottom="40dp"
