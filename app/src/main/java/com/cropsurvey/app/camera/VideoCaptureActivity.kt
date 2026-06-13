@@ -279,9 +279,11 @@ class VideoCaptureActivity : AppCompatActivity() {
                 "-y",
                 "-i", originalFile.absolutePath,
                 "-i", stampPng.absolutePath,
-                "-filter_complex", "[0:v][1:v] overlay=0:main_h-overlay_h:format=auto,format=yuv420p",
+                "-filter_complex", "[0:v][1:v] overlay=0:main_h-overlay_h:format=auto,format=yuv420p[outv]",
+                "-map", "[outv]",
+                "-map", "0:a?",
                 "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
-                "-c:a", "copy",
+                "-c:a", "aac", "-b:a", "128k",
                 stampedFile.absolutePath
             )
             val session = FFmpegKit.executeWithArguments(cmd)
@@ -292,10 +294,17 @@ class VideoCaptureActivity : AppCompatActivity() {
                 stampedFile.absolutePath
             } else {
                 val rc = session.returnCode
-                val logTail = try { session.output?.takeLast(300) } catch (_: Exception) { null }
-                android.util.Log.e("VideoStamp", "FFmpeg failed: rc=$rc fail=${session.failStackTrace} logs=$logTail")
+                val fullLog = try { session.output ?: "" } catch (_: Exception) { "" }
+                // Find the most relevant line(s) - ffmpeg usually prints the
+                // real failure reason near the end, often containing "Error"
+                // or "Invalid" or "Unknown".
+                val errorLines = fullLog.lines()
+                    .filter { it.contains("Error", true) || it.contains("Invalid", true) || it.contains("Unknown", true) || it.contains("Unsupported", true) }
+                    .takeLast(3)
+                val summary = if (errorLines.isNotEmpty()) errorLines.joinToString(" | ") else fullLog.lines().filter { it.isNotBlank() }.takeLast(3).joinToString(" | ")
+                android.util.Log.e("VideoStamp", "FFmpeg failed: rc=$rc fail=${session.failStackTrace}\nfullLog=$fullLog")
                 withContext(Dispatchers.Main) {
-                    Toast.makeText(this@VideoCaptureActivity, "Stamp failed rc=$rc: ${logTail ?: session.failStackTrace ?: "no details"}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@VideoCaptureActivity, "Stamp failed rc=$rc: $summary", Toast.LENGTH_LONG).show()
                 }
                 stampedFile.delete()
                 originalFile.absolutePath
