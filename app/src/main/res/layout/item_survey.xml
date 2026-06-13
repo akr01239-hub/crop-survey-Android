@@ -85,7 +85,17 @@
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:textColor="#0F172A"
-                    android:layout_marginBottom="5dp"/>
+                    android:layout_marginBottom="2dp"/>
+
+                <!-- CCE/type-specific subtitle: crop · cce_number · date -->
+                <TextView
+                    android:id="@+id/tv_subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:textColor="#475569"
+                    android:layout_marginBottom="5dp"
+                    android:visibility="gone"/>
 
                 <!-- Location + status row -->
                 <LinearLayout

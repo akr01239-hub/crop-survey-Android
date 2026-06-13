@@ -37,6 +37,7 @@ class RecentSurveysAdapter(
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvCaseId: TextView          = view.findViewById(R.id.tv_case_id)
         val tvFarmer: TextView          = view.findViewById(R.id.tv_farmer)
+        val tvSubtitle: TextView        = view.findViewById(R.id.tv_subtitle)
         val tvType: TextView            = view.findViewById(R.id.tv_type)
         val tvStatus: TextView          = view.findViewById(R.id.tv_status)
         val tvLocation: TextView        = view.findViewById(R.id.tv_location)
@@ -75,6 +76,23 @@ class RecentSurveysAdapter(
         holder.tvCaseId.text = displayCaseId
 
         holder.tvFarmer.text   = fd["farmer_name"]?.toString() ?: "—"
+
+        // ── Subtitle: CCE shows crop · CCE number · date; others hidden
+        if (survey.surveyType == "CCE") {
+            val crop      = fd["crop_name"]?.toString()?.takeIf { it.isNotBlank() }
+            val cceNum    = fd["cce_number"]?.toString()?.takeIf { it.isNotBlank() }
+            val cceDate   = fd["cce_date"]?.toString()?.takeIf { it.isNotBlank() }
+            val parts     = listOfNotNull(crop, cceNum, cceDate)
+            if (parts.isNotEmpty()) {
+                holder.tvSubtitle.text       = parts.joinToString("  ·  ")
+                holder.tvSubtitle.visibility = View.VISIBLE
+            } else {
+                holder.tvSubtitle.visibility = View.GONE
+            }
+        } else {
+            holder.tvSubtitle.visibility = View.GONE
+        }
+
         holder.tvType.text     = survey.surveyType
 
         // ── Location: show state·district if available, else GPS coords, else "—"
