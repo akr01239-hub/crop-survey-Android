@@ -98,27 +98,22 @@ object AppConfig {
 
     fun getCCEPhotos(ctx: Context): List<PhotoRequirement> {
         val base = listOf(
-        PhotoRequirement("sw_corner",              ctx.getString(R.string.photo_sw_corner),           ctx.getString(R.string.photo_sw_corner_instruction),           required = true),
-        PhotoRequirement("plot_marking",           ctx.getString(R.string.photo_plot_marking),        ctx.getString(R.string.photo_plot_marking_instruction),        required = true),
-        PhotoRequirement("field_overview",         ctx.getString(R.string.photo_field_overview),      ctx.getString(R.string.photo_field_overview_instruction),      required = true),
-        PhotoRequirement("field_north",            ctx.getString(R.string.photo_crop_north),          ctx.getString(R.string.photo_crop_north_instruction),          required = true),
-        PhotoRequirement("field_east",             ctx.getString(R.string.photo_crop_east),           ctx.getString(R.string.photo_crop_east_instruction),           required = true),
-        PhotoRequirement("field_south",            ctx.getString(R.string.photo_crop_south),          ctx.getString(R.string.photo_crop_south_instruction),          required = true),
-        PhotoRequirement("field_west",             ctx.getString(R.string.photo_crop_west),           ctx.getString(R.string.photo_crop_west_instruction),           required = true),
-        PhotoRequirement("harvesting_in_progress", ctx.getString(R.string.photo_harvesting),          ctx.getString(R.string.photo_harvesting_instruction),          required = true),
-        PhotoRequirement("harvested_crop_pile",    ctx.getString(R.string.photo_harvested_pile),      ctx.getString(R.string.photo_harvested_pile_instruction),      required = true),
-        PhotoRequirement("threshing_photo",        ctx.getString(R.string.photo_threshing),           ctx.getString(R.string.photo_threshing_instruction),           required = true),
-        PhotoRequirement("fresh_biomass_weight",   ctx.getString(R.string.photo_fresh_biomass),       ctx.getString(R.string.photo_fresh_biomass_instruction),       required = true),
-        PhotoRequirement("fresh_grain_weight",     ctx.getString(R.string.photo_fresh_grain),         ctx.getString(R.string.photo_fresh_grain_instruction),         required = true),
-        PhotoRequirement("grain_drying",           ctx.getString(R.string.photo_grain_drying),        ctx.getString(R.string.photo_grain_drying_instruction),        required = false),
-        PhotoRequirement("dry_grain_weight",       ctx.getString(R.string.photo_dry_grain),           ctx.getString(R.string.photo_dry_grain_instruction),           required = true),
-        PhotoRequirement("moisture_meter",         ctx.getString(R.string.photo_moisture_meter),      ctx.getString(R.string.photo_moisture_meter_instruction),      required = true),
-        PhotoRequirement("witness_photo",          ctx.getString(R.string.photo_witness),             ctx.getString(R.string.photo_witness_instruction),             required = true),
+        PhotoRequirement("sw_corner",              "SW Corner",               "Photo from SW corner showing crop standing in plot",            required = true),
+        PhotoRequirement("nadir_view",             "Nadir View",              "Hold phone directly overhead, camera pointing straight down",   required = true),
+        PhotoRequirement("leaf_closeup",           "Leaf Photo Closeup",      "Close-up photo of crop leaf filling the frame",                 required = true),
+        PhotoRequirement("plot_marking",           "Plot Marking",            "Four corner pegs/stakes marking the CCE plot",                  required = true),
+        PhotoRequirement("cut_plot",               "Cut Plot",                "Photo of harvested/cut plot area",                              required = true),
+        PhotoRequirement("biomass_weight",         "Biomass Weight",          "Total fresh biomass on calibrated weighing scale (kg)",          required = true),
+        PhotoRequirement("threshing_photo",        "Threshing",               "Crop being threshed (manual/mechanical)",                       required = true),
+        PhotoRequirement("wet_weight",             "Wet Weight",              "Wet grain on weighing scale (kg)",                              required = true),
+        PhotoRequirement("moisture_reading",       "Moisture % Reading",      "Moisture meter showing % moisture reading of grain sample",     required = true),
+        PhotoRequirement("dry_grain_weight",       "Dry Grain Weight",        "Dried grain on weighing scale — if moisture meter not available", required = true),
+        PhotoRequirement("witness_photo",          "Witness at Site",         "Photo of IC representative / Patwari / Farmer at CCE site",     required = true),
+        PhotoRequirement("neighbor_field",         "Neighbor Field Photo",    "Photo of the neighboring field for reference",                  required = true),
+        PhotoRequirement("representative_id_photo","Farmer Representative ID","Photo of farmer representative's ID proof",                     required = true),
+        PhotoRequirement("other_remains",          "If Any Remains",          "Any additional relevant photos",                                required = false),
         )
-        val farmerAvailable = com.cropsurvey.app.utils.SurveySession.formData["farmer_available"]?.toString()
-        return if (farmerAvailable == "no")
-            base + PhotoRequirement("representative_id_photo", ctx.getString(R.string.field_representative_id_photo), null, required = true)
-        else base
+        return base
     }
 
     // Keep old static lists for backward compat — callers should migrate to context versions
@@ -128,11 +123,7 @@ object AppConfig {
         else base
     }
     val CHM_PHOTOS get() = getCHMPhotos_static()
-    val CCE_PHOTOS get() = getCCEPhotos_static().let { base ->
-        if (com.cropsurvey.app.utils.SurveySession.formData["farmer_available"]?.toString() == "no")
-            base + PhotoRequirement("representative_id_photo", "Farmer Representative ID", null, required = true)
-        else base
-    }
+    val CCE_PHOTOS get() = getCCEPhotos_static()
 
     private fun getCLSPhotos_static() = listOf(
         PhotoRequirement("sw_corner",             "SW Corner",               "Stand at south-west corner of the field",                    required = true),
@@ -162,22 +153,20 @@ object AppConfig {
         PhotoRequirement("grain_weight_image",   "Grain Weight Photo",   "Photo of grain on weighing scale",              required = true),
     )
     private fun getCCEPhotos_static() = listOf(
-        PhotoRequirement("sw_corner",              "SW Corner of Plot",      "Photo from SW corner showing crop standing in plot",            required = true),
-        PhotoRequirement("plot_marking",           "Plot Marking",           "Four corner pegs/stakes marking the 10m×10m or standard plot", required = true),
-        PhotoRequirement("field_overview",         "Field Overview",         "Wide-angle photo showing the entire CCE plot in field context", required = true),
-        PhotoRequirement("field_north",            "Crop — North View",      "Standing crop facing North",                                   required = true),
-        PhotoRequirement("field_east",             "Crop — East View",       "Standing crop facing East",                                    required = true),
-        PhotoRequirement("field_south",            "Crop — South View",      "Standing crop facing South",                                   required = true),
-        PhotoRequirement("field_west",             "Crop — West View",       "Standing crop facing West",                                    required = true),
-        PhotoRequirement("harvesting_in_progress", "Harvesting in Progress", "Photo during harvest of the CCE plot",                         required = true),
-        PhotoRequirement("harvested_crop_pile",    "Harvested Crop Pile",    "Harvested crop piled on threshing sheet before threshing",     required = true),
-        PhotoRequirement("threshing_photo",        "Threshing Photo",        "Crop being threshed (manual/mechanical)",                      required = true),
-        PhotoRequirement("fresh_biomass_weight",   "Fresh Biomass Weight",   "Total fresh biomass on calibrated weighing scale (kg)",        required = true),
-        PhotoRequirement("fresh_grain_weight",     "Fresh Grain Weight",     "Freshly threshed grain on weighing scale (kg)",                required = true),
-        PhotoRequirement("grain_drying",           "Grain Drying",           "Grain spread out for sun/shade drying",                        required = false),
-        PhotoRequirement("dry_grain_weight",       "Dry Grain Weight",       "Dried grain on weighing scale — final yield weight (kg)",      required = true),
-        PhotoRequirement("moisture_meter",         "Moisture Meter Reading", "Moisture meter showing % moisture reading of grain sample",    required = true),
-        PhotoRequirement("witness_photo",          "Witness at Site",        "Photo of IC representative / Patwari / Farmer at CCE site",    required = true),
+        PhotoRequirement("sw_corner",              "SW Corner",               "Photo from SW corner showing crop standing in plot",            required = true),
+        PhotoRequirement("nadir_view",             "Nadir View",              "Hold phone directly overhead, camera pointing straight down",   required = true),
+        PhotoRequirement("leaf_closeup",           "Leaf Photo Closeup",      "Close-up photo of crop leaf filling the frame",                 required = true),
+        PhotoRequirement("plot_marking",           "Plot Marking",            "Four corner pegs/stakes marking the CCE plot",                  required = true),
+        PhotoRequirement("cut_plot",               "Cut Plot",                "Photo of harvested/cut plot area",                              required = true),
+        PhotoRequirement("biomass_weight",         "Biomass Weight",          "Total fresh biomass on calibrated weighing scale (kg)",          required = true),
+        PhotoRequirement("threshing_photo",        "Threshing",               "Crop being threshed (manual/mechanical)",                       required = true),
+        PhotoRequirement("wet_weight",             "Wet Weight",              "Wet grain on weighing scale (kg)",                              required = true),
+        PhotoRequirement("moisture_reading",       "Moisture % Reading",      "Moisture meter showing % moisture reading of grain sample",     required = true),
+        PhotoRequirement("dry_grain_weight",       "Dry Grain Weight",        "Dried grain on weighing scale — if moisture meter not available", required = true),
+        PhotoRequirement("witness_photo",          "Witness at Site",         "Photo of IC representative / Patwari / Farmer at CCE site",     required = true),
+        PhotoRequirement("neighbor_field",         "Neighbor Field Photo",    "Photo of the neighboring field for reference",                  required = true),
+        PhotoRequirement("representative_id_photo","Farmer Representative ID","Photo of farmer representative's ID proof",                     required = true),
+        PhotoRequirement("other_remains",          "If Any Remains",          "Any additional relevant photos",                                required = false),
     )
 
     fun getPhotosForType(type: String): List<PhotoRequirement> = when (type) {
