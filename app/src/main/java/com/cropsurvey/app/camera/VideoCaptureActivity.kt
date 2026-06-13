@@ -282,7 +282,7 @@ class VideoCaptureActivity : AppCompatActivity() {
                 "-filter_complex", "[0:v][1:v] overlay=0:main_h-overlay_h:format=auto,format=yuv420p[outv]",
                 "-map", "[outv]",
                 "-map", "0:a?",
-                "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
+                "-c:v", "mpeg4", "-q:v", "5",
                 "-c:a", "aac", "-b:a", "128k",
                 stampedFile.absolutePath
             )
