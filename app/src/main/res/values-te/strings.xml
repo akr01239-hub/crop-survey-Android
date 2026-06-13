@@ -461,7 +461,7 @@
     <string name="photo_field_west_instruction">తూర్పు సరిహద్దులో నిలబడండి, పశ్చిమం చూడండి</string>
     <string name="photo_grain_image">ధాన్యం ఫోటో</string>
     <string name="photo_grain_image_instruction">ధాన్యం/పండు క్లోజ్-అప్</string>
-    <string name="photo_biomass_weight">జీవభారం బరువు ఫోటో</string>
+    <string name="photo_biomass_weight">బయోమాస్ బరువు</string>
     <string name="photo_biomass_weight_instruction">తూనికలపై జీవభారం ఫోటో</string>
     <string name="photo_grain_weight">ధాన్యం బరువు ఫోటో</string>
     <string name="photo_grain_weight_instruction">తూనికలపై ధాన్యం ఫోటో</string>
@@ -575,12 +575,12 @@
     <string name="hint_auto_or_manual">ఆటో లేదా మాన్యువల్</string>
     <string name="hint_auto_filled">ఆటో నింపబడింది</string>
     <string name="hint_specify_disease">వ్యాధి పేరు పేర్కొనండి</string>
-    <string name="hint_enter_relation">Enter relation with farmer</string>
-    <string name="hint_enter_rep_name">Enter representative name</string>
-    <string name="hint_enter_rep_mobile">10-digit mobile number</string>
-    <string name="btn_record_dispute">Record 30s Audio/Video</string>
-    <string name="status_not_recorded">Not recorded</string>
-    <string name="status_recorded">Recorded ✓</string>
+    <string name="hint_enter_relation">రైతుతో సంబంధం నమోదు చేయండి</string>
+    <string name="hint_enter_rep_name">ప్రతినిధి పేరు నమోదు చేయండి</string>
+    <string name="hint_enter_rep_mobile">10 అంకెల మొబైల్ నంబర్</string>
+    <string name="btn_record_dispute">30 సెకన్ల ఆడియో/వీడియో రికార్డ్ చేయండి</string>
+    <string name="status_not_recorded">రికార్డ్ కాలేదు</string>
+    <string name="status_recorded">రికార్డ్ అయింది ✓</string>
     <string name="photo_leaf_closeup">ఆకు క్లోజ్-అప్ ఫోటో</string>
     <string name="photo_cut_plot">కోసిన ప్లాట్</string>
     <string name="photo_biomass_weight">బయోమాస్ బరువు</string>

@@ -472,7 +472,7 @@
     <string name="photo_field_west_instruction">കിഴക്ക് അതിർത്തിയിൽ നിൽക്കുക, പടിഞ്ഞാറോട്ട് നോക്കുക</string>
     <string name="photo_grain_image">ധാന്യ ഫോട്ടോ</string>
     <string name="photo_grain_image_instruction">ധാന്യം/പഴം ക്ലോസ്-അപ്പ്</string>
-    <string name="photo_biomass_weight">ബയോമാസ് ഭാര ഫോട്ടോ</string>
+    <string name="photo_biomass_weight">ബയോമാസ് ഭാരം</string>
     <string name="photo_biomass_weight_instruction">ത്രാസിൽ ബയോമാസ് ഫോട്ടോ</string>
     <string name="photo_grain_weight">ധാന്യ ഭാര ഫോട്ടോ</string>
     <string name="photo_grain_weight_instruction">ത്രാസിൽ ധാന്യ ഫോട്ടോ</string>
@@ -570,12 +570,12 @@
     <string name="hint_auto_or_manual">ഓട്ടോ അല്ലെങ്കിൽ മാനുവൽ</string>
     <string name="hint_auto_filled">സ്വയം പൂരിപ്പിച്ചത്</string>
     <string name="hint_specify_disease">രോഗത്തിന്റെ പേര് വ്യക്തമാക്കുക</string>
-    <string name="hint_enter_relation">Enter relation with farmer</string>
-    <string name="hint_enter_rep_name">Enter representative name</string>
-    <string name="hint_enter_rep_mobile">10-digit mobile number</string>
-    <string name="btn_record_dispute">Record 30s Audio/Video</string>
-    <string name="status_not_recorded">Not recorded</string>
-    <string name="status_recorded">Recorded ✓</string>
+    <string name="hint_enter_relation">കർഷകനുമായുള്ള ബന്ധം നൽകുക</string>
+    <string name="hint_enter_rep_name">പ്രതിനിധിയുടെ പേര് നൽകുക</string>
+    <string name="hint_enter_rep_mobile">10 അക്ക മൊബൈൽ നമ്പർ</string>
+    <string name="btn_record_dispute">30 സെക്കൻഡ് ഓഡിയോ/വീഡിയോ റെക്കോർഡ് ചെയ്യുക</string>
+    <string name="status_not_recorded">റെക്കോർഡ് ചെയ്തിട്ടില്ല</string>
+    <string name="status_recorded">റെക്കോർഡ് ചെയ്തു ✓</string>
     <string name="photo_leaf_closeup">ഇല ക്ലോസ്-അപ്പ് ഫോട്ടോ</string>
     <string name="photo_cut_plot">മുറിച്ച പ്ലോട്ട്</string>
     <string name="photo_biomass_weight">ബയോമാസ് ഭാരം</string>

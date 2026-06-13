@@ -461,7 +461,7 @@
     <string name="photo_field_west_instruction">পূর্ব সীমায় দাঁড়ান, পশ্চিম মুখ করুন</string>
     <string name="photo_grain_image">শস্যের ছবি</string>
     <string name="photo_grain_image_instruction">শস্য/ফলের ক্লোজ-আপ</string>
-    <string name="photo_biomass_weight">বায়োমাস ওজন ছবি</string>
+    <string name="photo_biomass_weight">বায়োমাস ওজন</string>
     <string name="photo_biomass_weight_instruction">পরিমাপ দাঁড়িতে বায়োমাসের ছবি</string>
     <string name="photo_grain_weight">শস্য ওজন ছবি</string>
     <string name="photo_grain_weight_instruction">পরিমাপ দাঁড়িতে শস্যের ছবি</string>
@@ -575,12 +575,12 @@
     <string name="hint_auto_or_manual">স্বয়ংক্রিয় বা ম্যানুয়াল</string>
     <string name="hint_auto_filled">স্বয়ংক্রিয়ভাবে পূরণ</string>
     <string name="hint_specify_disease">রোগের নাম উল্লেখ করুন</string>
-    <string name="hint_enter_relation">Enter relation with farmer</string>
-    <string name="hint_enter_rep_name">Enter representative name</string>
-    <string name="hint_enter_rep_mobile">10-digit mobile number</string>
-    <string name="btn_record_dispute">Record 30s Audio/Video</string>
-    <string name="status_not_recorded">Not recorded</string>
-    <string name="status_recorded">Recorded ✓</string>
+    <string name="hint_enter_relation">কৃষকের সাথে সম্পর্ক লিখুন</string>
+    <string name="hint_enter_rep_name">প্রতিনিধির নাম লিখুন</string>
+    <string name="hint_enter_rep_mobile">10 সংখ্যার মোবাইল নম্বর</string>
+    <string name="btn_record_dispute">30 সেকেন্ড অডিও/ভিডিও রেকর্ড করুন</string>
+    <string name="status_not_recorded">রেকর্ড হয়নি</string>
+    <string name="status_recorded">রেকর্ড হয়েছে ✓</string>
     <string name="photo_leaf_closeup">পাতার ক্লোজ-আপ ফটো</string>
     <string name="photo_cut_plot">কাটা প্লট</string>
     <string name="photo_biomass_weight">বায়োমাস ওজন</string>

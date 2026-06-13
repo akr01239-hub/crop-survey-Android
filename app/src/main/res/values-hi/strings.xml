@@ -461,7 +461,7 @@
     <string name="photo_field_west_instruction">पूर्व सीमा पर खड़े रहें, पश्चिम की ओर देखें</string>
     <string name="photo_grain_image">अनाज की फोटो</string>
     <string name="photo_grain_image_instruction">अनाज/फल का क्लोज़-अप</string>
-    <string name="photo_biomass_weight">बायोमास वजन फोटो</string>
+    <string name="photo_biomass_weight">बायोमास वजन</string>
     <string name="photo_biomass_weight_instruction">तराजू पर बायोमास की फोटो</string>
     <string name="photo_grain_weight">अनाज वजन फोटो</string>
     <string name="photo_grain_weight_instruction">तराजू पर अनाज की फोटो</string>

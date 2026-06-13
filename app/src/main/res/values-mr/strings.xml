@@ -461,7 +461,7 @@
     <string name="photo_field_west_instruction">पूर्व सीमेवर उभे राहा, पश्चिमेकडे पहा</string>
     <string name="photo_grain_image">धान्याचा फोटो</string>
     <string name="photo_grain_image_instruction">धान्य/फळाचा क्लोज़-अप</string>
-    <string name="photo_biomass_weight">बायोमास वजन फोटो</string>
+    <string name="photo_biomass_weight">बायोमास वजन</string>
     <string name="photo_biomass_weight_instruction">वजनकाट्यावर बायोमासचा फोटो</string>
     <string name="photo_grain_weight">धान्य वजन फोटो</string>
     <string name="photo_grain_weight_instruction">वजनकाट्यावर धान्याचा फोटो</string>

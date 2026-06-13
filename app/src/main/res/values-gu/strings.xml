@@ -461,7 +461,7 @@
     <string name="photo_field_west_instruction">પૂર્વ સીમાએ ઊભા, પશ્ચિમ જુઓ</string>
     <string name="photo_grain_image">અનાજ ફોટો</string>
     <string name="photo_grain_image_instruction">અનાજ/ફળ ક્લૉઝ-અપ</string>
-    <string name="photo_biomass_weight">જૈવ વજન ફોટો</string>
+    <string name="photo_biomass_weight">બાયોમાસ વજન</string>
     <string name="photo_biomass_weight_instruction">ત્રાજવે જૈવ ફોટો</string>
     <string name="photo_grain_weight">અનાજ વજન ફોટો</string>
     <string name="photo_grain_weight_instruction">ત્રાજવે અનાજ ફોટો</string>
@@ -575,12 +575,12 @@
     <string name="hint_auto_or_manual">ઓટો અથવા મેન્યુઅલ</string>
     <string name="hint_auto_filled">ઓટો ભરાયેલ</string>
     <string name="hint_specify_disease">રોગનું નામ જણાવો</string>
-    <string name="hint_enter_relation">Enter relation with farmer</string>
-    <string name="hint_enter_rep_name">Enter representative name</string>
-    <string name="hint_enter_rep_mobile">10-digit mobile number</string>
-    <string name="btn_record_dispute">Record 30s Audio/Video</string>
-    <string name="status_not_recorded">Not recorded</string>
-    <string name="status_recorded">Recorded ✓</string>
+    <string name="hint_enter_relation">ખેડૂત સાથેનો સંબંધ દાખલ કરો</string>
+    <string name="hint_enter_rep_name">પ્રતિનિધિનું નામ દાખલ કરો</string>
+    <string name="hint_enter_rep_mobile">10 અંકનો મોબાઈલ નંબર</string>
+    <string name="btn_record_dispute">30 સેકન્ડ ઓડિયો/વિડિયો રેકોર્ડ કરો</string>
+    <string name="status_not_recorded">રેકોર્ડ થયું નથી</string>
+    <string name="status_recorded">રેકોર્ડ થયું ✓</string>
     <string name="photo_leaf_closeup">પાંદડાનો ક્લોઝ-અપ ફોટો</string>
     <string name="photo_cut_plot">કાપેલો પ્લોટ</string>
     <string name="photo_biomass_weight">બાયોમાસ વજન</string>

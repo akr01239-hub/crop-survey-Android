@@ -461,7 +461,7 @@
     <string name="photo_field_west_instruction">கிழக்கு எல்லையில் நிற்கவும், மேற்கு பாருங்கள்</string>
     <string name="photo_grain_image">தானிய படம்</string>
     <string name="photo_grain_image_instruction">தானியம்/பழத்தின் க்ளோஸ்-அப்</string>
-    <string name="photo_biomass_weight">உயிர்நிறை எடை படம்</string>
+    <string name="photo_biomass_weight">உயிர்ப்பொருள் எடை</string>
     <string name="photo_biomass_weight_instruction">தராசில் உயிர்நிறையின் படம்</string>
     <string name="photo_grain_weight">தானிய எடை படம்</string>
     <string name="photo_grain_weight_instruction">தராசில் தானியத்தின் படம்</string>
@@ -575,12 +575,12 @@
     <string name="hint_auto_or_manual">தானியங்கி அல்லது கைமுறை</string>
     <string name="hint_auto_filled">தானாக நிரப்பப்பட்டது</string>
     <string name="hint_specify_disease">நோயின் பெயரைக் குறிப்பிடவும்</string>
-    <string name="hint_enter_relation">Enter relation with farmer</string>
-    <string name="hint_enter_rep_name">Enter representative name</string>
-    <string name="hint_enter_rep_mobile">10-digit mobile number</string>
-    <string name="btn_record_dispute">Record 30s Audio/Video</string>
-    <string name="status_not_recorded">Not recorded</string>
-    <string name="status_recorded">Recorded ✓</string>
+    <string name="hint_enter_relation">விவசாயியுடன் உறவை உள்ளிடவும்</string>
+    <string name="hint_enter_rep_name">பிரதிநிதி பெயரை உள்ளிடவும்</string>
+    <string name="hint_enter_rep_mobile">10 இலக்க மொபைல் எண்</string>
+    <string name="btn_record_dispute">30 வினாடி ஆடியோ/வீடியோ பதிவு செய்யவும்</string>
+    <string name="status_not_recorded">பதிவு செய்யப்படவில்லை</string>
+    <string name="status_recorded">பதிவு செய்யப்பட்டது ✓</string>
     <string name="photo_leaf_closeup">இலை நெருக்கப் படம்</string>
     <string name="photo_cut_plot">வெட்டிய நிலம்</string>
     <string name="photo_biomass_weight">உயிர்ப்பொருள் எடை</string>

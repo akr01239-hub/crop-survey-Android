@@ -461,7 +461,7 @@
     <string name="photo_field_west_instruction">ಪೂರ್ವ ಗಡಿಯಲ್ಲಿ ನಿಲ್ಲಿ, ಪಶ್ಚಿಮ ನೋಡಿ</string>
     <string name="photo_grain_image">ಧಾನ್ಯ ಫೋಟೋ</string>
     <string name="photo_grain_image_instruction">ಧಾನ್ಯ/ಹಣ್ಣಿನ ಕ್ಲೋಸ್-ಅಪ್</string>
-    <string name="photo_biomass_weight">ಜೀವರಾಶಿ ತೂಕ ಫೋಟೋ</string>
+    <string name="photo_biomass_weight">ಬಯೋಮಾಸ್ ತೂಕ</string>
     <string name="photo_biomass_weight_instruction">ತಕ್ಕಡಿಯಲ್ಲಿ ಜೀವರಾಶಿ ಫೋಟೋ</string>
     <string name="photo_grain_weight">ಧಾನ್ಯ ತೂಕ ಫೋಟೋ</string>
     <string name="photo_grain_weight_instruction">ತಕ್ಕಡಿಯಲ್ಲಿ ಧಾನ್ಯ ಫೋಟೋ</string>
@@ -575,12 +575,12 @@
     <string name="hint_auto_or_manual">ಸ್ವಯಂ ಅಥವಾ ಹಸ್ತಚಾಲಿತ</string>
     <string name="hint_auto_filled">ಸ್ವಯಂ ತುಂಬಿಸಲಾಗಿದೆ</string>
     <string name="hint_specify_disease">ರೋಗದ ಹೆಸರು ತಿಳಿಸಿ</string>
-    <string name="hint_enter_relation">Enter relation with farmer</string>
-    <string name="hint_enter_rep_name">Enter representative name</string>
-    <string name="hint_enter_rep_mobile">10-digit mobile number</string>
-    <string name="btn_record_dispute">Record 30s Audio/Video</string>
-    <string name="status_not_recorded">Not recorded</string>
-    <string name="status_recorded">Recorded ✓</string>
+    <string name="hint_enter_relation">ರೈತನೊಂದಿಗೆ ಸಂಬಂಧ ನಮೂದಿಸಿ</string>
+    <string name="hint_enter_rep_name">ಪ್ರತಿನಿಧಿ ಹೆಸರು ನಮೂದಿಸಿ</string>
+    <string name="hint_enter_rep_mobile">10 ಅಂಕಿ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ</string>
+    <string name="btn_record_dispute">30 ಸೆಕೆಂಡ್ ಆಡಿಯೋ/ವೀಡಿಯೊ ರೆಕಾರ್ಡ್ ಮಾಡಿ</string>
+    <string name="status_not_recorded">ರೆಕಾರ್ಡ್ ಆಗಿಲ್ಲ</string>
+    <string name="status_recorded">ರೆಕಾರ್ಡ್ ಆಗಿದೆ ✓</string>
     <string name="photo_leaf_closeup">ಎಲೆ ಕ್ಲೋಸ್-ಅಪ್ ಫೋಟೋ</string>
     <string name="photo_cut_plot">ಕತ್ತರಿಸಿದ ಪ್ಲಾಟ್</string>
     <string name="photo_biomass_weight">ಬಯೋಮಾಸ್ ತೂಕ</string>
