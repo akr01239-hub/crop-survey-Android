@@ -132,6 +132,7 @@ class SurveyTabsActivity : BaseActivity() {
                         SurveySession.formData["survey_id"] = caseId
                         tvCaseId.text = "Case: $caseId"
                         (supportFragmentManager.findFragmentByTag("f0") as? CLSFormFragment)?.refreshSurveyId(caseId)
+                        (supportFragmentManager.findFragmentByTag("f0") as? CCEFormFragment)?.refreshSurveyId(caseId)
                     }
                 }
             } catch (_: Exception) { /* keep showing UUID-based case label; non-fatal */ }

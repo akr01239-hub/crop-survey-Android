@@ -96,7 +96,8 @@ object AppConfig {
         PhotoRequirement("grain_weight_image",   ctx.getString(R.string.photo_grain_weight),       ctx.getString(R.string.photo_grain_weight_instruction),       required = true),
     )
 
-    fun getCCEPhotos(ctx: Context): List<PhotoRequirement> = listOf(
+    fun getCCEPhotos(ctx: Context): List<PhotoRequirement> {
+        val base = listOf(
         PhotoRequirement("sw_corner",              ctx.getString(R.string.photo_sw_corner),           ctx.getString(R.string.photo_sw_corner_instruction),           required = true),
         PhotoRequirement("plot_marking",           ctx.getString(R.string.photo_plot_marking),        ctx.getString(R.string.photo_plot_marking_instruction),        required = true),
         PhotoRequirement("field_overview",         ctx.getString(R.string.photo_field_overview),      ctx.getString(R.string.photo_field_overview_instruction),      required = true),
@@ -113,7 +114,12 @@ object AppConfig {
         PhotoRequirement("dry_grain_weight",       ctx.getString(R.string.photo_dry_grain),           ctx.getString(R.string.photo_dry_grain_instruction),           required = true),
         PhotoRequirement("moisture_meter",         ctx.getString(R.string.photo_moisture_meter),      ctx.getString(R.string.photo_moisture_meter_instruction),      required = true),
         PhotoRequirement("witness_photo",          ctx.getString(R.string.photo_witness),             ctx.getString(R.string.photo_witness_instruction),             required = true),
-    )
+        )
+        val farmerAvailable = com.cropsurvey.app.utils.SurveySession.formData["farmer_available"]?.toString()
+        return if (farmerAvailable == "no")
+            base + PhotoRequirement("representative_id_photo", ctx.getString(R.string.field_representative_id_photo), null, required = true)
+        else base
+    }
 
     // Keep old static lists for backward compat — callers should migrate to context versions
     val CLS_PHOTOS get() = getCLSPhotos_static().let { base ->
@@ -122,7 +128,11 @@ object AppConfig {
         else base
     }
     val CHM_PHOTOS get() = getCHMPhotos_static()
-    val CCE_PHOTOS get() = getCCEPhotos_static()
+    val CCE_PHOTOS get() = getCCEPhotos_static().let { base ->
+        if (com.cropsurvey.app.utils.SurveySession.formData["farmer_available"]?.toString() == "no")
+            base + PhotoRequirement("representative_id_photo", "Farmer Representative ID", null, required = true)
+        else base
+    }
 
     private fun getCLSPhotos_static() = listOf(
         PhotoRequirement("sw_corner",             "SW Corner",               "Stand at south-west corner of the field",                    required = true),

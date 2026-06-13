@@ -54,7 +54,7 @@ class CCEFormFragment : Fragment() {
     private lateinit var etCceNumber: EditText
     private lateinit var etCceDate: EditText
     private lateinit var etExperimentId: EditText
-    private lateinit var etSurveyDate: EditText
+    private lateinit var etSurveyId: EditText
 
     // ── Section 2: Location ───────────────────────────────────────
     private lateinit var spState: Spinner
@@ -129,7 +129,7 @@ class CCEFormFragment : Fragment() {
     private lateinit var lblCceNumber: TextView
     private lateinit var lblCceDate: TextView
     private lateinit var lblExperimentId: TextView
-    private lateinit var lblSurveyDate: TextView
+    private lateinit var lblSurveyId: TextView
     private lateinit var lblState: TextView
     private lateinit var lblDistrict: TextView
     private lateinit var lblTehsil: TextView
@@ -293,7 +293,7 @@ class CCEFormFragment : Fragment() {
         etCceNumber          = v.findViewById(R.id.et_cce_number)
         etCceDate            = v.findViewById(R.id.et_cce_date)
         etExperimentId       = v.findViewById(R.id.et_experiment_id)
-        etSurveyDate         = v.findViewById(R.id.et_survey_date)
+        etSurveyId           = v.findViewById(R.id.et_survey_id)
         spState              = v.findViewById(R.id.sp_state)
         spDistrict           = v.findViewById(R.id.sp_district)
         spTehsil             = v.findViewById(R.id.sp_tehsil)
@@ -361,7 +361,7 @@ class CCEFormFragment : Fragment() {
         lblCceNumber         = v.findViewById(R.id.lbl_cce_number)
         lblCceDate           = v.findViewById(R.id.lbl_cce_date)
         lblExperimentId      = v.findViewById(R.id.lbl_experiment_id)
-        lblSurveyDate        = v.findViewById(R.id.lbl_survey_date)
+        lblSurveyId          = v.findViewById(R.id.lbl_survey_id)
         lblState             = v.findViewById(R.id.lbl_state)
         lblDistrict          = v.findViewById(R.id.lbl_district)
         lblTehsil            = v.findViewById(R.id.lbl_tehsil)
@@ -433,7 +433,7 @@ class CCEFormFragment : Fragment() {
         updateFieldUi(etCceNumber,           lblCceNumber,         R.id.frame_et_cce_number)
         updateFieldUi(etCceDate,             lblCceDate,           R.id.frame_et_cce_date)
         updateFieldUi(etExperimentId,        lblExperimentId,      R.id.frame_et_experiment_id)
-        updateFieldUi(etSurveyDate,          lblSurveyDate,        R.id.frame_et_survey_date)
+        updateFieldUi(etSurveyId,            lblSurveyId,          R.id.frame_et_survey_id)
         updateSpinnerUi(spState,             lblState,             R.id.frame_sp_state)
         updateSpinnerUi(spDistrict,          lblDistrict,          R.id.frame_sp_district)
         updateSpinnerUi(spTehsil,            lblTehsil,            R.id.frame_sp_tehsil)
@@ -942,10 +942,6 @@ class CCEFormFragment : Fragment() {
                 }, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH)).show()
             }
         }
-        // Survey Date = today, auto-filled, read-only
-        val cal2 = Calendar.getInstance()
-        etSurveyDate.setText(java.lang.String.format(java.util.Locale.US, "%04d-%02d-%02d",
-            cal2.get(Calendar.YEAR), cal2.get(Calendar.MONTH) + 1, cal2.get(Calendar.DAY_OF_MONTH)))
     }
 
     private fun setupYieldWatchers() {
@@ -1013,6 +1009,10 @@ class CCEFormFragment : Fragment() {
         etCceNumber.setText(fd["cce_number"]?.toString() ?: "")
         etCceDate.setText(fd["cce_date"]?.toString() ?: "")
         etExperimentId.setText(fd["experiment_id"]?.toString() ?: "")
+        val surveyId = SurveySession.currentCaseId.takeIf { it.isNotEmpty() }
+            ?: fd["survey_id"]?.toString()
+            ?: activity?.intent?.getStringExtra("survey_id")
+        etSurveyId.setText(surveyId ?: "")
         etFarmerName.setText(fd["farmer_name"]?.toString() ?: "")
         etFarmerMobile.setText(fd["farmer_mobile"]?.toString() ?: "")
         etFarmerAadhaarLast4.setText(fd["farmer_aadhaar_last4"]?.toString() ?: "")
@@ -1065,7 +1065,6 @@ class CCEFormFragment : Fragment() {
         layoutDiseaseName.visibility = if (fd["any_disease"]?.toString() == "yes") View.VISIBLE else View.GONE
         layoutFarmerUnavailable.visibility = if (fd["farmer_available"]?.toString() == "no") View.VISIBLE else View.GONE
         layoutDisputeRecording.visibility = if (fd["dispute_if_any"]?.toString() == "yes") View.VISIBLE else View.GONE
-        fd["survey_date"]?.toString()?.takeIf { it.isNotEmpty() }?.let { etSurveyDate.setText(it) }
 
         // Only expand on edit/resubmit — new surveys start collapsed
         val isEditRestore = activity?.intent?.getBooleanExtra("is_edit_mode", false) == true ||
@@ -1112,6 +1111,13 @@ class CCEFormFragment : Fragment() {
                 refreshFieldUi()
                 refreshSectionStatus()
             }
+        }
+    }
+
+    /** Called by SurveyTabsActivity when case_id is fetched from server */
+    fun refreshSurveyId(caseId: String) {
+        if (::etSurveyId.isInitialized) {
+            etSurveyId.setText(caseId)
         }
     }
 
@@ -1168,7 +1174,7 @@ class CCEFormFragment : Fragment() {
             "cce_number"                to etCceNumber.text.toString().takeIf { it.isNotEmpty() },
             "cce_date"                  to etCceDate.text.toString().takeIf { it.isNotEmpty() },
             "experiment_id"             to etExperimentId.text.toString().takeIf { it.isNotEmpty() },
-            "survey_date"               to etSurveyDate.text.toString().takeIf { it.isNotEmpty() },
+            "survey_id"                 to (SurveySession.currentCaseId.takeIf { it.isNotEmpty() } ?: etSurveyId.text.toString().takeIf { it.isNotEmpty() }),
             "state"                     to SurveySession.formData["state"],
             "district"                  to SurveySession.formData["district"],
             "tehsil"                    to (spTehsil.selectedItem?.toString()?.takeIf { it != "Select Tehsil" } ?: SurveySession.formData["tehsil"]),
@@ -1249,7 +1255,7 @@ class CCEFormFragment : Fragment() {
             "cce_number"                to etCceNumber.text.toString().takeIf { it.isNotEmpty() },
             "cce_date"                  to etCceDate.text.toString().takeIf { it.isNotEmpty() },
             "experiment_id"             to etExperimentId.text.toString().takeIf { it.isNotEmpty() },
-            "survey_date"               to etSurveyDate.text.toString().takeIf { it.isNotEmpty() },
+            "survey_id"                 to (SurveySession.currentCaseId.takeIf { it.isNotEmpty() } ?: etSurveyId.text.toString().takeIf { it.isNotEmpty() }),
             "state"                     to SurveySession.formData["state"],
             "district"                  to SurveySession.formData["district"],
             "tehsil"                    to (spTehsil.selectedItem?.toString()?.takeIf { it != "Select Tehsil" } ?: SurveySession.formData["tehsil"]),
