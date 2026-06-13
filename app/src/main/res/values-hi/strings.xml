@@ -676,4 +676,7 @@
     <string name="photo_threshing_label">थ्रेशिंग</string>
     <string name="photo_witness_label">साक्षी स्थल पर</string>
     <string name="unit_gp_np">ग्रा.पं./न्या.पं.</string>
+    <string name="crop_sit_cut_spread">काटकर फैलाना</string>
+    <string name="crop_sit_bundle">बंडल</string>
+    <string name="crop_sit_field_removed">खेत से हटाया</string>
 </resources>

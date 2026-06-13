@@ -643,4 +643,7 @@
     <string name="field_dispute_recording">বিরোধ রেকর্ডিং (অডিও/ভিডিও, 30 সে)</string>
     <string name="photo_closeup_affected_area">ক্ষতিগ্রস্ত এলাকার ক্লোজ-আপ ফটো</string>
     <string name="unit_gp_np">গ্রা.পং./ন্যা.পং.</string>
+    <string name="crop_sit_cut_spread">কেটে ছড়ানো</string>
+    <string name="crop_sit_bundle">বান্ডিল</string>
+    <string name="crop_sit_field_removed">মাঠ থেকে সরানো</string>
 </resources>

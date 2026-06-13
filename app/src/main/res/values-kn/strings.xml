@@ -643,4 +643,7 @@
     <string name="field_dispute_recording">ವಿವಾದ ರೆಕಾರ್ಡಿಂಗ್ (ಆಡಿಯೋ/ವೀಡಿಯೊ, 30 ಸೆ)</string>
     <string name="photo_closeup_affected_area">ಪ್ರಭಾವಿತ ಪ್ರದೇಶದ ಕ್ಲೋಸ್-ಅಪ್ ಫೋಟೋ</string>
     <string name="unit_gp_np">ಗ್ರಾ.ಪಂ./ನ್ಯಾ.ಪಂ.</string>
+    <string name="crop_sit_cut_spread">ಕತ್ತರಿಸಿ ಹರಡಿ</string>
+    <string name="crop_sit_bundle">ಬಂಡಲ್</string>
+    <string name="crop_sit_field_removed">ಹೊಲದಿಂದ ತೆಗೆಯಲಾಗಿದೆ</string>
 </resources>

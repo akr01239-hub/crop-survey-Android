@@ -638,4 +638,7 @@
     <string name="field_dispute_recording">تنازعہ ریکارڈنگ (آڈیو/ویڈیو، 30 سیکنڈ)</string>
     <string name="photo_closeup_affected_area">متاثرٕ علاقٕ قریبی فوٹو</string>
     <string name="unit_gp_np">گرام پنچایت/نیاء پنچایت</string>
+    <string name="crop_sit_cut_spread">کاٹتھ پھیلاونٕ</string>
+    <string name="crop_sit_bundle">بنڈل</string>
+    <string name="crop_sit_field_removed">کھیتٕ پیٹھٕ ہٹاونٕ</string>
 </resources>

@@ -697,4 +697,7 @@
     <string name="field_dispute_recording">বিবাদ ৰেকৰ্ডিং (অডিঅ\'/ভিডিঅ\', 30 ছে)</string>
     <string name="photo_closeup_affected_area">ক্ষতিগ্ৰস্ত এলেকাৰ ক্ল\'জ-আপ ফটো</string>
     <string name="unit_gp_np">গ্ৰা.পঞ্চা./ন্যা.পঞ্চা.</string>
+    <string name="crop_sit_cut_spread">কাটি বিয়পোৱা</string>
+    <string name="crop_sit_bundle">বাণ্ডিল</string>
+    <string name="crop_sit_field_removed">পথাৰৰ পৰা আঁতৰোৱা</string>
 </resources>

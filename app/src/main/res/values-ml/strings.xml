@@ -638,4 +638,7 @@
     <string name="field_dispute_recording">തർക്ക റെക്കോർഡിംഗ് (ഓഡിയോ/വീഡിയോ, 30 സെ)</string>
     <string name="photo_closeup_affected_area">ബാധിത പ്രദേശത്തിന്റെ ക്ലോസ്-അപ്പ് ഫോട്ടോ</string>
     <string name="unit_gp_np">ഗ്രാ.പഞ്ച./ന്യാ.പഞ്ച.</string>
+    <string name="crop_sit_cut_spread">മുറിച്ച് വിരിക്കുക</string>
+    <string name="crop_sit_bundle">കെട്ട്</string>
+    <string name="crop_sit_field_removed">വയലിൽ നിന്ന് നീക്കം ചെയ്തു</string>
 </resources>

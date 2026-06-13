@@ -802,4 +802,7 @@
     <string name="hint_eg_crop_variety">e.g. HD-2967, Pusa Basmati</string>
     <string name="hint_ic_rep">Insurance company representative</string>
     <string name="hint_revenue_officer">Name of Patwari / Revenue Officer</string>
+    <string name="crop_sit_cut_spread">Cut &amp; Spread</string>
+    <string name="crop_sit_bundle">Bundle</string>
+    <string name="crop_sit_field_removed">Field Removed</string>
 </resources>

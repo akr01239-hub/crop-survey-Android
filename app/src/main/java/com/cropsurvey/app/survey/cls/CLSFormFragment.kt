@@ -146,6 +146,7 @@ class CLSFormFragment : Fragment() {
     private lateinit var lblCropStage: TextView
     private lateinit var lblCroppingPattern: TextView
     private lateinit var lblKhasraNo: TextView
+    private lateinit var lblFieldAreaPolygon: TextView
     private lateinit var lblTotalLandArea: TextView
     private lateinit var lblInsuredArea: TextView
     private lateinit var lblAreaAffectedPct: TextView
@@ -400,6 +401,7 @@ class CLSFormFragment : Fragment() {
         lblCropStage         = v.findViewById(R.id.lbl_crop_stage)
         lblCroppingPattern   = v.findViewById(R.id.lbl_cropping_pattern)
         lblKhasraNo          = v.findViewById(R.id.lbl_khasra_no)
+        lblFieldAreaPolygon  = v.findViewById(R.id.lbl_field_area_polygon)
         lblTotalLandArea     = v.findViewById(R.id.lbl_total_land_area)
         lblInsuredArea       = v.findViewById(R.id.lbl_insured_area)
         lblAreaAffectedPct   = v.findViewById(R.id.lbl_area_affected_pct)
@@ -475,6 +477,7 @@ class CLSFormFragment : Fragment() {
         updateFieldUi(etHarvestDate,      lblHarvestDate,    R.id.frame_et_harvest_date)
         updateSpinnerUi(spCropSituationField, lblCropSituationField, R.id.frame_sp_crop_situation_field)
         updateFieldUi(etKhasraNo,         lblKhasraNo,       R.id.frame_et_khasra_no)
+        updateFieldUi(etFieldAreaPolygon, lblFieldAreaPolygon, R.id.frame_et_field_area_polygon)
         updateFieldUi(etTotalLandArea,    lblTotalLandArea,  R.id.frame_et_total_land_area)
         updateFieldUi(etInsuredArea,      lblInsuredArea,    R.id.frame_et_insured_area)
         updateFieldUi(etAreaAffectedPct,  lblAreaAffectedPct, R.id.frame_et_area_affected_pct)

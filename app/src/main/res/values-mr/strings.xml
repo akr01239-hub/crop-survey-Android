@@ -644,4 +644,7 @@
     <string name="photo_closeup_affected_area">प्रभावित क्षेत्राचा क्लोज-अप फोटो</string>
     <string name="photo_closeup_affected_area_instruction">प्रभावित पीक/शेत क्षेत्राचा क्लोज-अप</string>
     <string name="unit_gp_np">ग्रा.पं./न्या.पं.</string>
+    <string name="crop_sit_cut_spread">कापून पसरवणे</string>
+    <string name="crop_sit_bundle">बंडल</string>
+    <string name="crop_sit_field_removed">शेतातून काढले</string>
 </resources>

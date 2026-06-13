@@ -643,4 +643,7 @@
     <string name="field_dispute_recording">தகராறு பதிவு (ஆடியோ/வீடியோ, 30 வி)</string>
     <string name="photo_closeup_affected_area">பாதிக்கப்பட்ட பகுதி நெருக்கப் படம்</string>
     <string name="unit_gp_np">கி.பஞ்./நீ.பஞ்.</string>
+    <string name="crop_sit_cut_spread">வெட்டி பரப்பு</string>
+    <string name="crop_sit_bundle">கட்டு</string>
+    <string name="crop_sit_field_removed">வயலிலிருந்து அகற்றியது</string>
 </resources>

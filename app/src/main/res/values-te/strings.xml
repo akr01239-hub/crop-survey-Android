@@ -643,4 +643,7 @@
     <string name="field_dispute_recording">వివాద రికార్డింగ్ (ఆడియో/వీడియో, 30 సె)</string>
     <string name="photo_closeup_affected_area">ప్రభావిత ప్రాంతం క్లోజ్-అప్ ఫోటో</string>
     <string name="unit_gp_np">గ్రా.పం./న్యా.పం.</string>
+    <string name="crop_sit_cut_spread">కోసి పరచడం</string>
+    <string name="crop_sit_bundle">బండిల్</string>
+    <string name="crop_sit_field_removed">పొలం నుండి తొలగించారు</string>
 </resources>

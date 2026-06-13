@@ -643,4 +643,7 @@
     <string name="field_dispute_recording">ବିବାଦ ରେକର୍ଡିଂ (ଅଡିଓ/ଭିଡିଓ, 30 ସେ)</string>
     <string name="photo_closeup_affected_area">ପ୍ରଭାବିତ କ୍ଷେତ୍ର କ୍ଲୋଜ-ଅପ ଫଟୋ</string>
     <string name="unit_gp_np">ଗ୍ରା.ପଞ୍ଚା./ନ୍ୟା.ପଞ୍ଚା.</string>
+    <string name="crop_sit_cut_spread">କାଟି ବିସ୍ତାର</string>
+    <string name="crop_sit_bundle">ବଣ୍ଡଲ</string>
+    <string name="crop_sit_field_removed">କ୍ଷେତ୍ରରୁ ହଟାଇଦିଆଯାଇଛି</string>
 </resources>

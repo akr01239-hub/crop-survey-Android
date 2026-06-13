@@ -138,9 +138,9 @@ object TranslatedDropdown {
     )
 
     fun cropSituationField(ctx: Context): List<Option> = listOf(
-        Option("cut_spread",    "Cut & Spread"),
-        Option("bundle",        "Bundle"),
-        Option("field_removed", "Field Removed")
+        Option("cut_spread",    ctx.getString(R.string.crop_sit_cut_spread)),
+        Option("bundle",        ctx.getString(R.string.crop_sit_bundle)),
+        Option("field_removed", ctx.getString(R.string.crop_sit_field_removed))
     )
 }
 

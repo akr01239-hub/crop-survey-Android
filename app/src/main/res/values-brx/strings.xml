@@ -638,4 +638,7 @@
     <string name="field_dispute_recording">बिबाद रेकर्डिं (अडिअ/भिडिअ, 30 से)</string>
     <string name="photo_closeup_affected_area">गोग्लैनाय जायगानि क्लज-आप फटो</string>
     <string name="unit_gp_np">ग्रा.पञ्चा./न्या.पञ्चा.</string>
+    <string name="crop_sit_cut_spread">काटना आरो बिजिरना</string>
+    <string name="crop_sit_bundle">बान्डेल</string>
+    <string name="crop_sit_field_removed">हानिखौनिफ्राय होखोनाय</string>
 </resources>

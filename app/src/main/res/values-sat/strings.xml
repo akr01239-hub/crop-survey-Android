@@ -697,4 +697,7 @@
     <string name="field_dispute_recording">ᱵᱤᱵᱟᱫ ᱨᱮᱠᱚᱨᱰᱤᱝ (ᱟᱰᱤᱭᱳ/ᱵᱤᱰᱤᱭᱳ, 30 ᱥᱮ)</string>
     <string name="photo_closeup_affected_area">ᱯᱨᱚᱵᱷᱟᱵᱤᱛ ᱡᱟᱭᱜᱟ ᱠᱞᱚᱡᱽ-ᱟᱯ ᱯᱷᱚᱴᱚ</string>
     <string name="unit_gp_np">ᱜᱨᱟ.ᱯᱟᱸ./ᱱᱤ.ᱯᱟᱸ.</string>
+    <string name="crop_sit_cut_spread">ᱠᱟᱴ ᱟᱨ ᱯᱷᱮᱞᱟᱣ</string>
+    <string name="crop_sit_bundle">ᱵᱟᱱᱰᱤᱞ</string>
+    <string name="crop_sit_field_removed">ᱨᱮᱡ ᱠᱷᱚᱱ ᱚᱪᱚᱜ</string>
 </resources>

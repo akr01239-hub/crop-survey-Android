@@ -643,4 +643,7 @@
     <string name="field_dispute_recording">ਵਿਵਾਦ ਰਿਕਾਰਡਿੰਗ (ਆਡੀਓ/ਵੀਡੀਓ, 30 ਸੈ)</string>
     <string name="photo_closeup_affected_area">ਪ੍ਰਭਾਵਿਤ ਖੇਤਰ ਦੀ ਨਜ਼ਦੀਕੀ ਫੋਟੋ</string>
     <string name="unit_gp_np">ਗ੍ਰਾ.ਪੰ./ਨ੍ਯਾ.ਪੰ.</string>
+    <string name="crop_sit_cut_spread">ਕੱਟ ਕੇ ਫੈਲਾਉਣਾ</string>
+    <string name="crop_sit_bundle">ਬੰਡਲ</string>
+    <string name="crop_sit_field_removed">ਖੇਤ ਤੋਂ ਹਟਾਇਆ</string>
 </resources>
