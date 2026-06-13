@@ -556,4 +556,33 @@
     <string name="guide_turn_off_confirm">ഓഫ് ചെയ്യുക</string>
     <string name="guide_keep_on">ഓൺ ആക്കിവയ്ക്കുക</string>
     <string name="guide_skip">ഗൈഡ് ഒഴിവാക്കുക</string>
+
+    <!-- ══ New CLS/CCE fields ══ -->
+    <string name="field_any_disease">എന്തെങ്കിലും രോഗം</string>
+    <string name="field_disease_name">ദയവായി രോഗം വ്യക്തമാക്കുക</string>
+    <string name="field_cce_plot_shape">CCE പ്ലോട്ട് ആകൃതി</string>
+    <string name="field_relation_with_farmer">കർഷകനുമായുള്ള ബന്ധം</string>
+    <string name="field_survey_id_docket">സർവ്വേ ഐഡി (ഡോക്കറ്റ്-ഐഡി)</string>
+    <string name="field_wet_grain_weight">നനഞ്ഞ ധാന്യ ഭാരം (കിഗ്രാ)</string>
+    <string name="field_fresh_biomass_weight">പുതിയ ബയോമാസ് ഭാരം (കിഗ്രാ)</string>
+    <string name="field_moisture_content">ഈർപ്പം (ശതമാനം)</string>
+    <string name="field_dry_grain_weight">ഉണങ്ങിയ ധാന്യ ഭാരം (കിഗ്രാ)</string>
+    <string name="hint_auto_or_manual">ഓട്ടോ അല്ലെങ്കിൽ മാനുവൽ</string>
+    <string name="hint_auto_filled">സ്വയം പൂരിപ്പിച്ചത്</string>
+    <string name="hint_specify_disease">രോഗത്തിന്റെ പേര് വ്യക്തമാക്കുക</string>
+    <string name="hint_enter_relation">Enter relation with farmer</string>
+    <string name="hint_enter_rep_name">Enter representative name</string>
+    <string name="hint_enter_rep_mobile">10-digit mobile number</string>
+    <string name="btn_record_dispute">Record 30s Audio/Video</string>
+    <string name="status_not_recorded">Not recorded</string>
+    <string name="status_recorded">Recorded ✓</string>
+    <string name="photo_leaf_closeup">ഇല ക്ലോസ്-അപ്പ് ഫോട്ടോ</string>
+    <string name="photo_cut_plot">മുറിച്ച പ്ലോട്ട്</string>
+    <string name="photo_biomass_weight">ബയോമാസ് ഭാരം</string>
+    <string name="photo_wet_weight">നനഞ്ഞ ഭാരം</string>
+    <string name="photo_moisture_reading">ഈർപ്പം % റീഡിംഗ്</string>
+    <string name="photo_dry_grain_label">ഉണങ്ങിയ ധാന്യ ഭാരം</string>
+    <string name="photo_neighbor_field">അയൽ വയലിന്റെ ഫോട്ടോ</string>
+    <string name="photo_rep_id">കർഷക പ്രതിനിധി ഐഡി</string>
+    <string name="photo_other_remains">എന്തെങ്കിലും ബാക്കിയുണ്ടെങ്കിൽ</string>
 </resources>

@@ -615,4 +615,33 @@
     <string name="guide_turn_off_confirm">বন্ধ কৰক</string>
     <string name="guide_keep_on">চালু ৰাখক</string>
     <string name="guide_skip">গাইড এৰক</string>
+
+    <!-- ══ New CLS/CCE fields ══ -->
+    <string name="field_any_disease">কোনো ৰোগ</string>
+    <string name="field_disease_name">অনুগ্ৰহ কৰি ৰোগ উল্লেখ কৰক</string>
+    <string name="field_cce_plot_shape">CCE Plot Shape</string>
+    <string name="field_relation_with_farmer">Relation with Farmer</string>
+    <string name="field_survey_id_docket">Survey ID (Docket-ID)</string>
+    <string name="field_wet_grain_weight">তিতা শস্য ওজন (কেজি)</string>
+    <string name="field_fresh_biomass_weight">সতেজ বায়'মাছ ওজন (কেজি)</string>
+    <string name="field_moisture_content">আৰ্দ্ৰতা (শতাংশ)</string>
+    <string name="field_dry_grain_weight">শুকান শস্য ওজন (কেজি)</string>
+    <string name="hint_auto_or_manual">Auto or manual</string>
+    <string name="hint_auto_filled">Auto-filled</string>
+    <string name="hint_specify_disease">Specify disease name</string>
+    <string name="hint_enter_relation">Enter relation with farmer</string>
+    <string name="hint_enter_rep_name">Enter representative name</string>
+    <string name="hint_enter_rep_mobile">10-digit mobile number</string>
+    <string name="btn_record_dispute">Record 30s Audio/Video</string>
+    <string name="status_not_recorded">Not recorded</string>
+    <string name="status_recorded">Recorded ✓</string>
+    <string name="photo_leaf_closeup">পাতৰ ক্ল'জ-আপ ফটো</string>
+    <string name="photo_cut_plot">কটা প্লট</string>
+    <string name="photo_biomass_weight">বায়'মাছ ওজন</string>
+    <string name="photo_wet_weight">তিতা ওজন</string>
+    <string name="photo_moisture_reading">Moisture % Reading</string>
+    <string name="photo_dry_grain_label">Dry Grain Weight</string>
+    <string name="photo_neighbor_field">ওচৰৰ পথাৰৰ ফটো</string>
+    <string name="photo_rep_id">Farmer Representative ID</string>
+    <string name="photo_other_remains">যদি কিবা বাকী থাকে</string>
 </resources>

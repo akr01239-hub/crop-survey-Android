@@ -615,4 +615,33 @@
     <string name="guide_turn_off_confirm">ᱵᱚᱸᱫ ᱢᱮ</string>
     <string name="guide_keep_on">ᱪᱟᱞᱩ ᱨᱟᱠᱷᱩ</string>
     <string name="guide_skip">ᱜᱟᱭᱰ ᱪᱷᱟᱰ ᱢᱮ</string>
+
+    <!-- ══ New CLS/CCE fields ══ -->
+    <string name="field_any_disease">ᱡᱟᱦᱟᱸ ᱨᱚᱜ</string>
+    <string name="field_disease_name">ᱫᱟᱭᱟ ᱠᱟᱛᱮ ᱨᱚᱜ ᱩᱫᱩᱜ ᱢᱮ</string>
+    <string name="field_cce_plot_shape">CCE Plot Shape</string>
+    <string name="field_relation_with_farmer">Relation with Farmer</string>
+    <string name="field_survey_id_docket">Survey ID (Docket-ID)</string>
+    <string name="field_wet_grain_weight">ᱫᱟᱜ ᱜᱷᱟᱥ ᱡᱚᱡᱚᱢ (ᱠᱮᱡᱤ)</string>
+    <string name="field_fresh_biomass_weight">Fresh Biomass Weight (kg)</string>
+    <string name="field_moisture_content">Moisture Content (%)</string>
+    <string name="field_dry_grain_weight">ᱥᱩᱠᱩ ᱜᱷᱟᱥ ᱡᱚᱡᱚᱢ (ᱠᱮᱡᱤ)</string>
+    <string name="hint_auto_or_manual">Auto or manual</string>
+    <string name="hint_auto_filled">Auto-filled</string>
+    <string name="hint_specify_disease">Specify disease name</string>
+    <string name="hint_enter_relation">Enter relation with farmer</string>
+    <string name="hint_enter_rep_name">Enter representative name</string>
+    <string name="hint_enter_rep_mobile">10-digit mobile number</string>
+    <string name="btn_record_dispute">Record 30s Audio/Video</string>
+    <string name="status_not_recorded">Not recorded</string>
+    <string name="status_recorded">Recorded ✓</string>
+    <string name="photo_leaf_closeup">ᱥᱟᱠᱟᱢ ᱠᱞᱚᱡᱽ-ᱟᱯ ᱯᱷᱚᱴᱚ</string>
+    <string name="photo_cut_plot">ᱠᱟᱴ ᱯᱞᱚᱴ</string>
+    <string name="photo_biomass_weight">Biomass Weight</string>
+    <string name="photo_wet_weight">Wet Weight</string>
+    <string name="photo_moisture_reading">Moisture % Reading</string>
+    <string name="photo_dry_grain_label">Dry Grain Weight</string>
+    <string name="photo_neighbor_field">ᱦᱚᱲ ᱨᱮᱡ ᱯᱷᱚᱴᱚ</string>
+    <string name="photo_rep_id">Farmer Representative ID</string>
+    <string name="photo_other_remains">If Any Remains</string>
 </resources>

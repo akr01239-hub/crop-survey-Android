@@ -561,4 +561,33 @@
     <string name="guide_turn_off_confirm">বন্ধ করুন</string>
     <string name="guide_keep_on">চালু রাখুন</string>
     <string name="guide_skip">গাইড এড়িয়ে যান</string>
+
+    <!-- ══ New CLS/CCE fields ══ -->
+    <string name="field_any_disease">কোনো রোগ</string>
+    <string name="field_disease_name">দয়া করে রোগ উল্লেখ করুন</string>
+    <string name="field_cce_plot_shape">CCE প্লট আকৃতি</string>
+    <string name="field_relation_with_farmer">কৃষকের সাথে সম্পর্ক</string>
+    <string name="field_survey_id_docket">সার্ভে আইডি (ডকেট-আইডি)</string>
+    <string name="field_wet_grain_weight">ভেজা শস্য ওজন (কেজি)</string>
+    <string name="field_fresh_biomass_weight">তাজা বায়োমাস ওজন (কেজি)</string>
+    <string name="field_moisture_content">আর্দ্রতা (শতাংশ)</string>
+    <string name="field_dry_grain_weight">শুকনো শস্য ওজন (কেজি)</string>
+    <string name="hint_auto_or_manual">স্বয়ংক্রিয় বা ম্যানুয়াল</string>
+    <string name="hint_auto_filled">স্বয়ংক্রিয়ভাবে পূরণ</string>
+    <string name="hint_specify_disease">রোগের নাম উল্লেখ করুন</string>
+    <string name="hint_enter_relation">Enter relation with farmer</string>
+    <string name="hint_enter_rep_name">Enter representative name</string>
+    <string name="hint_enter_rep_mobile">10-digit mobile number</string>
+    <string name="btn_record_dispute">Record 30s Audio/Video</string>
+    <string name="status_not_recorded">Not recorded</string>
+    <string name="status_recorded">Recorded ✓</string>
+    <string name="photo_leaf_closeup">পাতার ক্লোজ-আপ ফটো</string>
+    <string name="photo_cut_plot">কাটা প্লট</string>
+    <string name="photo_biomass_weight">বায়োমাস ওজন</string>
+    <string name="photo_wet_weight">ভেজা ওজন</string>
+    <string name="photo_moisture_reading">আর্দ্রতা % রিডিং</string>
+    <string name="photo_dry_grain_label">শুকনো শস্য ওজন</string>
+    <string name="photo_neighbor_field">প্রতিবেশী মাঠের ফটো</string>
+    <string name="photo_rep_id">কৃষক প্রতিনিধি আইডি</string>
+    <string name="photo_other_remains">যদি কিছু বাকি থাকে</string>
 </resources>

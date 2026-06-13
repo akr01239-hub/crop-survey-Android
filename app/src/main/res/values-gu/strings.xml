@@ -561,4 +561,33 @@
     <string name="guide_turn_off_confirm">બંધ કરો</string>
     <string name="guide_keep_on">ચાલુ રાખો</string>
     <string name="guide_skip">માર્ગદર્શક છોડો</string>
+
+    <!-- ══ New CLS/CCE fields ══ -->
+    <string name="field_any_disease">કોઈ રોગ</string>
+    <string name="field_disease_name">કૃપા કરી રોગ જણાવો</string>
+    <string name="field_cce_plot_shape">CCE પ્લોટ આકાર</string>
+    <string name="field_relation_with_farmer">ખેડૂત સાથે સંબંધ</string>
+    <string name="field_survey_id_docket">સર્વે આઈડી (ડોકેટ-આઈડી)</string>
+    <string name="field_wet_grain_weight">ભીનું અનાજ વજન (કિ.ગ્રા.)</string>
+    <string name="field_fresh_biomass_weight">તાજું બાયોમાસ વજન (કિ.ગ્રા.)</string>
+    <string name="field_moisture_content">ભેજ (ટકા)</string>
+    <string name="field_dry_grain_weight">સૂકું અનાજ વજન (કિ.ગ્રા.)</string>
+    <string name="hint_auto_or_manual">ઓટો અથવા મેન્યુઅલ</string>
+    <string name="hint_auto_filled">ઓટો ભરાયેલ</string>
+    <string name="hint_specify_disease">રોગનું નામ જણાવો</string>
+    <string name="hint_enter_relation">Enter relation with farmer</string>
+    <string name="hint_enter_rep_name">Enter representative name</string>
+    <string name="hint_enter_rep_mobile">10-digit mobile number</string>
+    <string name="btn_record_dispute">Record 30s Audio/Video</string>
+    <string name="status_not_recorded">Not recorded</string>
+    <string name="status_recorded">Recorded ✓</string>
+    <string name="photo_leaf_closeup">પાંદડાનો ક્લોઝ-અપ ફોટો</string>
+    <string name="photo_cut_plot">કાપેલો પ્લોટ</string>
+    <string name="photo_biomass_weight">બાયોમાસ વજન</string>
+    <string name="photo_wet_weight">ભીનું વજન</string>
+    <string name="photo_moisture_reading">ભેજ % વાંચન</string>
+    <string name="photo_dry_grain_label">સૂકું અનાજ વજન</string>
+    <string name="photo_neighbor_field">પડોશી ખેતરનો ફોટો</string>
+    <string name="photo_rep_id">ખેડૂત પ્રતિનિધિ આઈડી</string>
+    <string name="photo_other_remains">જો કંઈ બાકી હોય</string>
 </resources>

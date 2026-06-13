@@ -561,4 +561,33 @@
     <string name="guide_turn_off_confirm">ఆపు</string>
     <string name="guide_keep_on">కొనసాగించు</string>
     <string name="guide_skip">గైడ్ దాటవేయి</string>
+
+    <!-- ══ New CLS/CCE fields ══ -->
+    <string name="field_any_disease">ఏదైనా వ్యాధి</string>
+    <string name="field_disease_name">దయచేసి వ్యాధిని పేర్కొనండి</string>
+    <string name="field_cce_plot_shape">CCE ప్లాట్ ఆకారం</string>
+    <string name="field_relation_with_farmer">రైతుతో సంబంధం</string>
+    <string name="field_survey_id_docket">సర్వే ఐడి (డాకెట్-ఐడి)</string>
+    <string name="field_wet_grain_weight">తడి ధాన్యం బరువు (కిలో)</string>
+    <string name="field_fresh_biomass_weight">తాజా బయోమాస్ బరువు (కిలో)</string>
+    <string name="field_moisture_content">తేమ (శాతం)</string>
+    <string name="field_dry_grain_weight">ఎండు ధాన్యం బరువు (కిలో)</string>
+    <string name="hint_auto_or_manual">ఆటో లేదా మాన్యువల్</string>
+    <string name="hint_auto_filled">ఆటో నింపబడింది</string>
+    <string name="hint_specify_disease">వ్యాధి పేరు పేర్కొనండి</string>
+    <string name="hint_enter_relation">Enter relation with farmer</string>
+    <string name="hint_enter_rep_name">Enter representative name</string>
+    <string name="hint_enter_rep_mobile">10-digit mobile number</string>
+    <string name="btn_record_dispute">Record 30s Audio/Video</string>
+    <string name="status_not_recorded">Not recorded</string>
+    <string name="status_recorded">Recorded ✓</string>
+    <string name="photo_leaf_closeup">ఆకు క్లోజ్-అప్ ఫోటో</string>
+    <string name="photo_cut_plot">కోసిన ప్లాట్</string>
+    <string name="photo_biomass_weight">బయోమాస్ బరువు</string>
+    <string name="photo_wet_weight">తడి బరువు</string>
+    <string name="photo_moisture_reading">తేమ % రీడింగ్</string>
+    <string name="photo_dry_grain_label">ఎండు ధాన్యం బరువు</string>
+    <string name="photo_neighbor_field">పొరుగు పొలం ఫోటో</string>
+    <string name="photo_rep_id">రైతు ప్రతినిధి ఐడి</string>
+    <string name="photo_other_remains">ఏదైనా మిగిలి ఉంటే</string>
 </resources>

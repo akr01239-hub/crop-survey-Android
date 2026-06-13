@@ -561,4 +561,33 @@
     <string name="guide_turn_off_confirm">بند کریں</string>
     <string name="guide_keep_on">جاری رکھیں</string>
     <string name="guide_skip">گائیڈ چھوڑیں</string>
+
+    <!-- ══ New CLS/CCE fields ══ -->
+    <string name="field_any_disease">کوئی بیماری</string>
+    <string name="field_disease_name">براہ کرم بیماری بتائیں</string>
+    <string name="field_cce_plot_shape">CCE Plot Shape</string>
+    <string name="field_relation_with_farmer">Relation with Farmer</string>
+    <string name="field_survey_id_docket">Survey ID (Docket-ID)</string>
+    <string name="field_wet_grain_weight">گیلے اناج کا وزن (کلو)</string>
+    <string name="field_fresh_biomass_weight">تازہ بائیو ماس وزن (کلو)</string>
+    <string name="field_moisture_content">نمی (فیصد)</string>
+    <string name="field_dry_grain_weight">خشک اناج کا وزن (کلو)</string>
+    <string name="hint_auto_or_manual">Auto or manual</string>
+    <string name="hint_auto_filled">Auto-filled</string>
+    <string name="hint_specify_disease">Specify disease name</string>
+    <string name="hint_enter_relation">Enter relation with farmer</string>
+    <string name="hint_enter_rep_name">Enter representative name</string>
+    <string name="hint_enter_rep_mobile">10-digit mobile number</string>
+    <string name="btn_record_dispute">Record 30s Audio/Video</string>
+    <string name="status_not_recorded">Not recorded</string>
+    <string name="status_recorded">Recorded ✓</string>
+    <string name="photo_leaf_closeup">پتے کی قریبی تصویر</string>
+    <string name="photo_cut_plot">کٹا ہوا پلاٹ</string>
+    <string name="photo_biomass_weight">بائیو ماس وزن</string>
+    <string name="photo_wet_weight">گیلا وزن</string>
+    <string name="photo_moisture_reading">Moisture % Reading</string>
+    <string name="photo_dry_grain_label">Dry Grain Weight</string>
+    <string name="photo_neighbor_field">پڑوسی کھیت کی تصویر</string>
+    <string name="photo_rep_id">Farmer Representative ID</string>
+    <string name="photo_other_remains">اگر کچھ باقی ہو</string>
 </resources>

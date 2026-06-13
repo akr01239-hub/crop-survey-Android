@@ -561,4 +561,33 @@
     <string name="guide_turn_off_confirm">ಆಫ್ ಮಾಡಿ</string>
     <string name="guide_keep_on">ಮುಂದುವರಿಸಿ</string>
     <string name="guide_skip">ಮಾರ್ಗದರ್ಶಿ ಬಿಡಿ</string>
+
+    <!-- ══ New CLS/CCE fields ══ -->
+    <string name="field_any_disease">ಯಾವುದೇ ರೋಗ</string>
+    <string name="field_disease_name">ದಯವಿಟ್ಟು ರೋಗವನ್ನು ತಿಳಿಸಿ</string>
+    <string name="field_cce_plot_shape">CCE ಪ್ಲಾಟ್ ಆಕಾರ</string>
+    <string name="field_relation_with_farmer">ರೈತನೊಂದಿಗೆ ಸಂಬಂಧ</string>
+    <string name="field_survey_id_docket">ಸಮೀಕ್ಷೆ ಐಡಿ (ಡಾಕೆಟ್-ಐಡಿ)</string>
+    <string name="field_wet_grain_weight">ಹಸಿ ಧಾನ್ಯ ತೂಕ (ಕೆಜಿ)</string>
+    <string name="field_fresh_biomass_weight">ತಾಜಾ ಬಯೋಮಾಸ್ ತೂಕ (ಕೆಜಿ)</string>
+    <string name="field_moisture_content">ತೇವಾಂಶ (ಶೇಕಡಾ)</string>
+    <string name="field_dry_grain_weight">ಒಣ ಧಾನ್ಯ ತೂಕ (ಕೆಜಿ)</string>
+    <string name="hint_auto_or_manual">ಸ್ವಯಂ ಅಥವಾ ಹಸ್ತಚಾಲಿತ</string>
+    <string name="hint_auto_filled">ಸ್ವಯಂ ತುಂಬಿಸಲಾಗಿದೆ</string>
+    <string name="hint_specify_disease">ರೋಗದ ಹೆಸರು ತಿಳಿಸಿ</string>
+    <string name="hint_enter_relation">Enter relation with farmer</string>
+    <string name="hint_enter_rep_name">Enter representative name</string>
+    <string name="hint_enter_rep_mobile">10-digit mobile number</string>
+    <string name="btn_record_dispute">Record 30s Audio/Video</string>
+    <string name="status_not_recorded">Not recorded</string>
+    <string name="status_recorded">Recorded ✓</string>
+    <string name="photo_leaf_closeup">ಎಲೆ ಕ್ಲೋಸ್-ಅಪ್ ಫೋಟೋ</string>
+    <string name="photo_cut_plot">ಕತ್ತರಿಸಿದ ಪ್ಲಾಟ್</string>
+    <string name="photo_biomass_weight">ಬಯೋಮಾಸ್ ತೂಕ</string>
+    <string name="photo_wet_weight">ಹಸಿ ತೂಕ</string>
+    <string name="photo_moisture_reading">ತೇವಾಂಶ % ಓದುವಿಕೆ</string>
+    <string name="photo_dry_grain_label">ಒಣ ಧಾನ್ಯ ತೂಕ</string>
+    <string name="photo_neighbor_field">ನೆರೆ ಹೊಲದ ಫೋಟೋ</string>
+    <string name="photo_rep_id">ರೈತ ಪ್ರತಿನಿಧಿ ಐಡಿ</string>
+    <string name="photo_other_remains">ಏನಾದರೂ ಉಳಿದಿದ್ದರೆ</string>
 </resources>

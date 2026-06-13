@@ -561,4 +561,33 @@
     <string name="guide_turn_off_confirm">ਬੰਦ ਕਰੋ</string>
     <string name="guide_keep_on">ਚਾਲੂ ਰੱਖੋ</string>
     <string name="guide_skip">ਗਾਈਡ ਛੱਡੋ</string>
+
+    <!-- ══ New CLS/CCE fields ══ -->
+    <string name="field_any_disease">ਕੋਈ ਬੀਮਾਰੀ</string>
+    <string name="field_disease_name">ਕਿਰਪਾ ਕਰਕੇ ਬੀਮਾਰੀ ਦੱਸੋ</string>
+    <string name="field_cce_plot_shape">CCE ਪਲਾਟ ਆਕਾਰ</string>
+    <string name="field_relation_with_farmer">ਕਿਸਾਨ ਨਾਲ ਰਿਸ਼ਤਾ</string>
+    <string name="field_survey_id_docket">Survey ID (Docket-ID)</string>
+    <string name="field_wet_grain_weight">ਗਿੱਲੇ ਅਨਾਜ ਦਾ ਭਾਰ (ਕਿਲੋ)</string>
+    <string name="field_fresh_biomass_weight">ਤਾਜ਼ਾ ਬਾਇਓਮਾਸ ਭਾਰ (ਕਿਲੋ)</string>
+    <string name="field_moisture_content">ਨਮੀ (ਪ੍ਰਤੀਸ਼ਤ)</string>
+    <string name="field_dry_grain_weight">ਸੁੱਕੇ ਅਨਾਜ ਦਾ ਭਾਰ (ਕਿਲੋ)</string>
+    <string name="hint_auto_or_manual">Auto or manual</string>
+    <string name="hint_auto_filled">Auto-filled</string>
+    <string name="hint_specify_disease">ਬੀਮਾਰੀ ਦਾ ਨਾਮ ਦੱਸੋ</string>
+    <string name="hint_enter_relation">Enter relation with farmer</string>
+    <string name="hint_enter_rep_name">Enter representative name</string>
+    <string name="hint_enter_rep_mobile">10-digit mobile number</string>
+    <string name="btn_record_dispute">Record 30s Audio/Video</string>
+    <string name="status_not_recorded">Not recorded</string>
+    <string name="status_recorded">Recorded ✓</string>
+    <string name="photo_leaf_closeup">ਪੱਤੇ ਦੀ ਨਜ਼ਦੀਕੀ ਫੋਟੋ</string>
+    <string name="photo_cut_plot">ਕੱਟਿਆ ਪਲਾਟ</string>
+    <string name="photo_biomass_weight">ਬਾਇਓਮਾਸ ਭਾਰ</string>
+    <string name="photo_wet_weight">ਗਿੱਲਾ ਭਾਰ</string>
+    <string name="photo_moisture_reading">ਨਮੀ % ਰੀਡਿੰਗ</string>
+    <string name="photo_dry_grain_label">ਸੁੱਕੇ ਅਨਾਜ ਦਾ ਭਾਰ</string>
+    <string name="photo_neighbor_field">ਗੁਆਂਢੀ ਖੇਤ ਦੀ ਫੋਟੋ</string>
+    <string name="photo_rep_id">ਕਿਸਾਨ ਪ੍ਰਤੀਨਿਧੀ ਆਈਡੀ</string>
+    <string name="photo_other_remains">ਜੇ ਕੁਝ ਬਾਕੀ ਹੋਵੇ</string>
 </resources>

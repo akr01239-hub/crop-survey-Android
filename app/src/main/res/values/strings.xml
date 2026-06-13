@@ -720,4 +720,48 @@
     <string name="terms_section5_title">5. Confidentiality</string>
     <string name="terms_section5_body">All survey data, farmer information, and field records are confidential. You must not share, copy, or distribute any data collected through this app. Unauthorized sharing is a serious violation and may lead to legal action.</string>
 
+    <!-- ══ New CLS/CCE fields ══ -->
+    <string name="field_any_disease">Any Disease</string>
+    <string name="field_disease_name">Please specify disease</string>
+    <string name="field_cce_plot_shape">CCE Plot Shape</string>
+    <string name="field_relation_with_farmer">Relation with Farmer</string>
+    <string name="field_survey_id_docket">Survey ID (Docket-ID)</string>
+    <string name="field_wet_grain_weight">Wet Grain Weight (kg)</string>
+    <string name="field_fresh_biomass_weight">Fresh Biomass Weight (kg)</string>
+    <string name="field_moisture_content">Moisture Content (%)</string>
+    <string name="field_dry_grain_weight">Dry Grain Weight (kg)</string>
+    <string name="hint_auto_or_manual">Auto or manual</string>
+    <string name="hint_auto_filled">Auto-filled</string>
+    <string name="hint_specify_disease">Specify disease name</string>
+    <string name="hint_enter_relation">Enter relation with farmer</string>
+    <string name="hint_enter_rep_name">Enter representative name</string>
+    <string name="hint_enter_rep_mobile">10-digit mobile number</string>
+    <string name="btn_record_dispute">Record 30s Audio/Video</string>
+    <string name="status_not_recorded">Not recorded</string>
+    <string name="status_recorded">Recorded ✓</string>
+
+    <!-- ══ New CCE photo labels ══ -->
+    <string name="photo_sw_corner_label">SW Corner</string>
+    <string name="photo_nadir_view_label">Nadir View</string>
+    <string name="photo_leaf_closeup">Leaf Photo Closeup</string>
+    <string name="photo_leaf_closeup_instruction">Close-up photo of crop leaf filling the frame</string>
+    <string name="photo_plot_marking_label">Plot Marking</string>
+    <string name="photo_cut_plot">Cut Plot</string>
+    <string name="photo_cut_plot_instruction">Photo of harvested/cut plot area</string>
+    <string name="photo_biomass_weight">Biomass Weight</string>
+    <string name="photo_biomass_weight_instruction">Total fresh biomass on calibrated weighing scale (kg)</string>
+    <string name="photo_threshing_label">Threshing</string>
+    <string name="photo_wet_weight">Wet Weight</string>
+    <string name="photo_wet_weight_instruction">Wet grain on weighing scale (kg)</string>
+    <string name="photo_moisture_reading">Moisture % Reading</string>
+    <string name="photo_moisture_reading_instruction">Moisture meter showing % moisture reading</string>
+    <string name="photo_dry_grain_label">Dry Grain Weight</string>
+    <string name="photo_dry_grain_label_instruction">Dried grain on weighing scale — if moisture meter not available</string>
+    <string name="photo_witness_label">Witness at Site</string>
+    <string name="photo_neighbor_field">Neighbor Field Photo</string>
+    <string name="photo_neighbor_field_instruction">Photo of the neighboring field for reference</string>
+    <string name="photo_rep_id">Farmer Representative ID</string>
+    <string name="photo_other_remains">If Any Remains</string>
+    <string name="photo_other_remains_instruction">Any additional relevant photos</string>
+
 </resources>

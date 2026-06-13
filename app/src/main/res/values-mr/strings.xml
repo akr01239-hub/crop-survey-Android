@@ -561,4 +561,33 @@
     <string name="guide_turn_off_confirm">बंद करा</string>
     <string name="guide_keep_on">चालू ठेवा</string>
     <string name="guide_skip">मार्गदर्शन वगळा</string>
+
+    <!-- ══ New CLS/CCE fields ══ -->
+    <string name="field_any_disease">कोणताही रोग</string>
+    <string name="field_disease_name">कृपया रोग सांगा</string>
+    <string name="field_cce_plot_shape">CCE प्लॉट आकार</string>
+    <string name="field_relation_with_farmer">शेतकऱ्याशी नाते</string>
+    <string name="field_survey_id_docket">सर्वे आयडी (डॉकेट-आयडी)</string>
+    <string name="field_wet_grain_weight">ओले धान्य वजन (किग्रॅ)</string>
+    <string name="field_fresh_biomass_weight">ताजे बायोमास वजन (किग्रॅ)</string>
+    <string name="field_moisture_content">ओलावा (टक्के)</string>
+    <string name="field_dry_grain_weight">सुके धान्य वजन (किग्रॅ)</string>
+    <string name="hint_auto_or_manual">स्वयंचलित किंवा मॅन्युअल</string>
+    <string name="hint_auto_filled">स्वयंभरलेले</string>
+    <string name="hint_specify_disease">रोगाचे नाव सांगा</string>
+    <string name="hint_enter_relation">शेतकऱ्याशी नाते प्रविष्ट करा</string>
+    <string name="hint_enter_rep_name">प्रतिनिधीचे नाव प्रविष्ट करा</string>
+    <string name="hint_enter_rep_mobile">10 अंकी मोबाईल क्रमांक</string>
+    <string name="btn_record_dispute">30 से ऑडिओ/व्हिडिओ रेकॉर्ड करा</string>
+    <string name="status_not_recorded">रेकॉर्ड नाही</string>
+    <string name="status_recorded">रेकॉर्ड झाले ✓</string>
+    <string name="photo_leaf_closeup">पानाचा क्लोज-अप फोटो</string>
+    <string name="photo_cut_plot">कापलेला प्लॉट</string>
+    <string name="photo_biomass_weight">बायोमास वजन</string>
+    <string name="photo_wet_weight">ओले वजन</string>
+    <string name="photo_moisture_reading">ओलावा % वाचन</string>
+    <string name="photo_dry_grain_label">सुके धान्य वजन</string>
+    <string name="photo_neighbor_field">शेजारच्या शेताचा फोटो</string>
+    <string name="photo_rep_id">शेतकरी प्रतिनिधी आयडी</string>
+    <string name="photo_other_remains">जर काही उरले असेल</string>
 </resources>

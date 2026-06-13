@@ -561,4 +561,33 @@
     <string name="guide_turn_off_confirm">அணை</string>
     <string name="guide_keep_on">இயக்கில் வை</string>
     <string name="guide_skip">வழிகாட்டியை தவிர்</string>
+
+    <!-- ══ New CLS/CCE fields ══ -->
+    <string name="field_any_disease">ஏதேனும் நோய்</string>
+    <string name="field_disease_name">நோயைக் குறிப்பிடவும்</string>
+    <string name="field_cce_plot_shape">CCE நிலத்தின் வடிவம்</string>
+    <string name="field_relation_with_farmer">விவசாயியுடன் உறவு</string>
+    <string name="field_survey_id_docket">கணக்கெடுப்பு ஐடி (டாக்கெட்-ஐடி)</string>
+    <string name="field_wet_grain_weight">ஈர தானிய எடை (கிகி)</string>
+    <string name="field_fresh_biomass_weight">புதிய உயிர்ப்பொருள் எடை (கிகி)</string>
+    <string name="field_moisture_content">ஈரப்பதம் (சதவீதம்)</string>
+    <string name="field_dry_grain_weight">உலர் தானிய எடை (கிகி)</string>
+    <string name="hint_auto_or_manual">தானியங்கி அல்லது கைமுறை</string>
+    <string name="hint_auto_filled">தானாக நிரப்பப்பட்டது</string>
+    <string name="hint_specify_disease">நோயின் பெயரைக் குறிப்பிடவும்</string>
+    <string name="hint_enter_relation">Enter relation with farmer</string>
+    <string name="hint_enter_rep_name">Enter representative name</string>
+    <string name="hint_enter_rep_mobile">10-digit mobile number</string>
+    <string name="btn_record_dispute">Record 30s Audio/Video</string>
+    <string name="status_not_recorded">Not recorded</string>
+    <string name="status_recorded">Recorded ✓</string>
+    <string name="photo_leaf_closeup">இலை நெருக்கப் படம்</string>
+    <string name="photo_cut_plot">வெட்டிய நிலம்</string>
+    <string name="photo_biomass_weight">உயிர்ப்பொருள் எடை</string>
+    <string name="photo_wet_weight">ஈர எடை</string>
+    <string name="photo_moisture_reading">ஈரப்பதம் % அளவீடு</string>
+    <string name="photo_dry_grain_label">உலர் தானிய எடை</string>
+    <string name="photo_neighbor_field">அண்டை நிலப் படம்</string>
+    <string name="photo_rep_id">விவசாயி பிரதிநிதி ஐடி</string>
+    <string name="photo_other_remains">ஏதேனும் மீதமிருந்தால்</string>
 </resources>

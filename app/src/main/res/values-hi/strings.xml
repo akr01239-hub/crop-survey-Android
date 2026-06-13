@@ -588,4 +588,33 @@
     <string name="guide_keep_on">चालू रखें</string>
     <string name="guide_skip">गाइड छोड़ें</string>
 
+
+    <!-- ══ New CLS/CCE fields ══ -->
+    <string name="field_any_disease">कोई रोग</string>
+    <string name="field_disease_name">कृपया रोग बताएं</string>
+    <string name="field_cce_plot_shape">CCE प्लॉट आकार</string>
+    <string name="field_relation_with_farmer">किसान से संबंध</string>
+    <string name="field_survey_id_docket">सर्वे आईडी (डॉकेट-आईडी)</string>
+    <string name="field_wet_grain_weight">गीला अनाज वजन (किग्रा)</string>
+    <string name="field_fresh_biomass_weight">ताजा बायोमास वजन (किग्रा)</string>
+    <string name="field_moisture_content">नमी (प्रतिशत)</string>
+    <string name="field_dry_grain_weight">सूखा अनाज वजन (किग्रा)</string>
+    <string name="hint_auto_or_manual">स्वचालित या मैन्युअल</string>
+    <string name="hint_auto_filled">स्वतः भरा गया</string>
+    <string name="hint_specify_disease">रोग का नाम बताएं</string>
+    <string name="hint_enter_relation">किसान से संबंध दर्ज करें</string>
+    <string name="hint_enter_rep_name">प्रतिनिधि का नाम दर्ज करें</string>
+    <string name="hint_enter_rep_mobile">10 अंकों का मोबाइल नंबर</string>
+    <string name="btn_record_dispute">30 सेकंड ऑडियो/वीडियो रिकॉर्ड करें</string>
+    <string name="status_not_recorded">रिकॉर्ड नहीं हुआ</string>
+    <string name="status_recorded">रिकॉर्ड हो गया ✓</string>
+    <string name="photo_leaf_closeup">पत्ती का क्लोज-अप फोटो</string>
+    <string name="photo_cut_plot">कटा हुआ प्लॉट</string>
+    <string name="photo_biomass_weight">बायोमास वजन</string>
+    <string name="photo_wet_weight">गीला वजन</string>
+    <string name="photo_moisture_reading">नमी % रीडिंग</string>
+    <string name="photo_dry_grain_label">सूखा अनाज वजन</string>
+    <string name="photo_neighbor_field">पड़ोसी खेत का फोटो</string>
+    <string name="photo_rep_id">किसान प्रतिनिधि आईडी</string>
+    <string name="photo_other_remains">यदि कोई शेष हो</string>
 </resources>
