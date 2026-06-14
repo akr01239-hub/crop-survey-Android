@@ -1009,6 +1009,12 @@ class CCEFormFragment : Fragment() {
         }
     }
 
+    private fun restoreFromEnglish(spinner: Spinner, englishList: List<String>, value: String?) {
+        if (value == null) return
+        val idx = englishList.indexOf(value)
+        if (idx >= 0) spinner.setSelection(idx + 1, false) // +1 for placeholder
+    }
+
     private fun restoreFormData() {
         val fd = SurveySession.formData
         if (fd.isEmpty()) return
@@ -1058,12 +1064,12 @@ class CCEFormFragment : Fragment() {
         tdRestore(spIrrigationType, tdIrrigation,    fd["irrigation_type"]?.toString())
         tdRestore(spLandType, tdLandTypes,          fd["land_type"]?.toString())
         tdRestore(spOnfieldCondition, tdOnfield,  fd["onfield_condition"]?.toString())
-        restoreSpinner(spPlotSize,          fd["cce_plot_size"]?.toString())
-        restoreSpinner(spThreshingMethod,   fd["threshing_method"]?.toString())
+        restoreFromEnglish(spPlotSize,        AppConfig.CCE_PLOT_SIZES, fd["cce_plot_size"]?.toString())
+        restoreFromEnglish(spThreshingMethod, AppConfig.CCE_THRESHING_METHODS, fd["threshing_method"]?.toString())
         tdRestore(spCropConditionPlot, tdCropCond, fd["crop_condition_plot"]?.toString())
-        restoreSpinner(spSamplingMethod,    fd["sampling_method"]?.toString())
-        restoreSpinner(spWitnessType,       fd["witness_type"]?.toString())
-        restoreSpinner(spPlotShape,         fd["cce_plot_shape"]?.toString())
+        restoreFromEnglish(spSamplingMethod,  AppConfig.CCE_SAMPLING_METHOD, fd["sampling_method"]?.toString())
+        restoreFromEnglish(spWitnessType,     AppConfig.CCE_WITNESS_TYPES, fd["witness_type"]?.toString())
+        restoreFromEnglish(spPlotShape,       AppConfig.CCE_PLOT_SHAPES, fd["cce_plot_shape"]?.toString())
         tdRestore(spAnyDisease, tdYesNo, fd["any_disease"]?.toString())
         tdRestore(spFarmerAvailable, tdYesNo, fd["farmer_available"]?.toString())
         tdRestore(spDisputeIfAny, tdYesNo, fd["dispute_if_any"]?.toString())
@@ -1193,18 +1199,18 @@ class CCEFormFragment : Fragment() {
             "any_disease"               to tdCode(tdYesNo, spAnyDisease.selectedItemPosition - 1),
             "disease_name"              to etDiseaseName.text.toString().takeIf { it.isNotEmpty() },
             "field_area_polygon"        to etFieldAreaPolygon.text.toString().toDoubleOrNull(),
-            "cce_plot_size"             to spPlotSize.selectedItem?.toString()?.takeIf { it != "Select Plot Size" },
-            "cce_plot_shape"            to spPlotShape.selectedItem?.toString()?.takeIf { !it.contains("Select") },
-            "sampling_method"           to spSamplingMethod.selectedItem?.toString()?.takeIf { !it.contains("Select") },
+            "cce_plot_size"             to AppConfig.CCE_PLOT_SIZES.getOrNull(spPlotSize.selectedItemPosition - 1),
+            "cce_plot_shape"            to AppConfig.CCE_PLOT_SHAPES.getOrNull(spPlotShape.selectedItemPosition - 1),
+            "sampling_method"           to AppConfig.CCE_SAMPLING_METHOD.getOrNull(spSamplingMethod.selectedItemPosition - 1),
             "crop_condition_plot"       to tdCode(tdCropCond, spCropConditionPlot.selectedItemPosition - 1),
             "harvesting_date"           to etHarvestingDate.text.toString().takeIf { it.isNotEmpty() },
-            "threshing_method"          to spThreshingMethod.selectedItem?.toString()?.takeIf { it != "Select Method" },
+            "threshing_method"          to AppConfig.CCE_THRESHING_METHODS.getOrNull(spThreshingMethod.selectedItemPosition - 1),
             "threshing_date"            to etThreshingDate.text.toString().takeIf { it.isNotEmpty() },
             "fresh_biomass_weight"      to etFreshBiomass.text.toString().toDoubleOrNull(),
             "wet_grain_weight"          to etDryBiomass.text.toString().toDoubleOrNull(),
             "dry_grain_weight"          to etDryGrain.text.toString().toDoubleOrNull(),
             "moisture_content"          to etMoisture.text.toString().toDoubleOrNull(),
-            "witness_type"              to spWitnessType.selectedItem?.toString()?.takeIf { !it.contains("Select") },
+            "witness_type"              to AppConfig.CCE_WITNESS_TYPES.getOrNull(spWitnessType.selectedItemPosition - 1),
             "ic_representative_name"    to etIcRepName.text.toString().takeIf { it.isNotEmpty() },
             "ic_representative_mobile"  to etIcRepMobile.text.toString().takeIf { it.isNotEmpty() },
             "revenue_officer_name"      to etRevenueOfficer.text.toString().takeIf { it.isNotEmpty() },
@@ -1259,18 +1265,18 @@ class CCEFormFragment : Fragment() {
             "any_disease"               to tdCode(tdYesNo, spAnyDisease.selectedItemPosition - 1),
             "disease_name"              to etDiseaseName.text.toString().takeIf { it.isNotEmpty() },
             "field_area_polygon"        to etFieldAreaPolygon.text.toString().toDoubleOrNull(),
-            "cce_plot_size"             to spPlotSize.selectedItem?.toString()?.takeIf { it != "Select Plot Size" },
-            "cce_plot_shape"            to spPlotShape.selectedItem?.toString()?.takeIf { !it.contains("Select") },
-            "sampling_method"           to spSamplingMethod.selectedItem?.toString()?.takeIf { !it.contains("Select") },
+            "cce_plot_size"             to AppConfig.CCE_PLOT_SIZES.getOrNull(spPlotSize.selectedItemPosition - 1),
+            "cce_plot_shape"            to AppConfig.CCE_PLOT_SHAPES.getOrNull(spPlotShape.selectedItemPosition - 1),
+            "sampling_method"           to AppConfig.CCE_SAMPLING_METHOD.getOrNull(spSamplingMethod.selectedItemPosition - 1),
             "crop_condition_plot"       to tdCode(tdCropCond, spCropConditionPlot.selectedItemPosition - 1),
             "harvesting_date"           to etHarvestingDate.text.toString().takeIf { it.isNotEmpty() },
-            "threshing_method"          to spThreshingMethod.selectedItem?.toString()?.takeIf { it != "Select Method" },
+            "threshing_method"          to AppConfig.CCE_THRESHING_METHODS.getOrNull(spThreshingMethod.selectedItemPosition - 1),
             "threshing_date"            to etThreshingDate.text.toString().takeIf { it.isNotEmpty() },
             "fresh_biomass_weight"      to etFreshBiomass.text.toString().toDoubleOrNull(),
             "wet_grain_weight"          to etDryBiomass.text.toString().toDoubleOrNull(),
             "dry_grain_weight"          to etDryGrain.text.toString().toDoubleOrNull(),
             "moisture_content"          to etMoisture.text.toString().toDoubleOrNull(),
-            "witness_type"              to spWitnessType.selectedItem?.toString()?.takeIf { !it.contains("Select") },
+            "witness_type"              to AppConfig.CCE_WITNESS_TYPES.getOrNull(spWitnessType.selectedItemPosition - 1),
             "ic_representative_name"    to etIcRepName.text.toString().takeIf { it.isNotEmpty() },
             "ic_representative_mobile"  to etIcRepMobile.text.toString().takeIf { it.isNotEmpty() },
             "revenue_officer_name"      to etRevenueOfficer.text.toString().takeIf { it.isNotEmpty() },
