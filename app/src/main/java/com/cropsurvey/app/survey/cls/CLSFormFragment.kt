@@ -932,6 +932,8 @@ class CLSFormFragment : Fragment() {
                 if (isRestoring) return
                 val tehsil = subDistricts.getOrNull(pos - 1) ?: return
                 SurveySession.formData["tehsil"] = tehsil
+                sectionTouched[2] = true
+                refreshFieldUi(); refreshSectionStatus()
             }
             override fun onNothingSelected(p: AdapterView<*>?) {}
         }
