@@ -646,4 +646,14 @@
     <string name="crop_sit_cut_spread">ਕੱਟ ਕੇ ਫੈਲਾਉਣਾ</string>
     <string name="crop_sit_bundle">ਬੰਡਲ</string>
     <string name="crop_sit_field_removed">ਖੇਤ ਤੋਂ ਹਟਾਇਆ</string>
+    <string name="sowing_manual">ਹੱਥ ਨਾਲ</string>
+    <string name="sowing_mechanised">ਮਸ਼ੀਨ ਨਾਲ</string>
+    <string name="sowing_broadcast">ਛਿੜਕਾਅ</string>
+    <string name="sowing_transplanted">ਲੁਆਈ</string>
+    <string name="sowing_drill">ਡ੍ਰਿਲ ਬਿਜਾਈ</string>
+    <string name="yes">ਹਾਂ</string>
+    <string name="text_upload">ਅਪਲੋਡ</string>
+    <string name="text_download">ਡਾਊਨਲੋਡ</string>
+    <string name="text_next">ਅਗਲਾ</string>
+    <string name="text_prev">ਪਿਛਲਾ</string>
 </resources>

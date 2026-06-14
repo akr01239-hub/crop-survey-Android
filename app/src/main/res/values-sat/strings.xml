@@ -700,4 +700,14 @@
     <string name="crop_sit_cut_spread">ᱠᱟᱴ ᱟᱨ ᱯᱷᱮᱞᱟᱣ</string>
     <string name="crop_sit_bundle">ᱵᱟᱱᱰᱤᱞ</string>
     <string name="crop_sit_field_removed">ᱨᱮᱡ ᱠᱷᱚᱱ ᱚᱪᱚᱜ</string>
+    <string name="sowing_manual">ᱛᱤᱭᱟᱜ</string>
+    <string name="sowing_mechanised">ᱢᱮᱥᱤᱱ</string>
+    <string name="sowing_broadcast">ᱪᱷᱤᱲᱠᱟᱣ</string>
+    <string name="sowing_transplanted">ᱨᱚᱯᱚᱬ</string>
+    <string name="sowing_drill">ᱰᱨᱤᱞ ᱵᱩᱱᱟᱣ</string>
+    <string name="yes">ᱦᱮᱸ</string>
+    <string name="text_upload">ᱟᱯᱞᱚᱰ</string>
+    <string name="text_download">ᱰᱟᱣᱱᱞᱚᱰ</string>
+    <string name="text_next">ᱤᱱᱟᱹ ᱛᱟᱭᱚᱢ</string>
+    <string name="text_prev">ᱥᱤᱜᱟᱹᱧ</string>
 </resources>

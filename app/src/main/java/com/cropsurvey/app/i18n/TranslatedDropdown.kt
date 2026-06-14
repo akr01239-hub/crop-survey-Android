@@ -125,11 +125,11 @@ object TranslatedDropdown {
     )
 
     fun sowingMethods(ctx: Context): List<Option> = listOf(
-        Option("Manual",       "Manual"),
-        Option("Mechanised",   "Mechanised"),
-        Option("Broadcast",    "Broadcast"),
-        Option("Transplanted", "Transplanted"),
-        Option("Drill Sowing", "Drill Sowing")
+        Option("Manual",       ctx.getString(R.string.sowing_manual)),
+        Option("Mechanised",   ctx.getString(R.string.sowing_mechanised)),
+        Option("Broadcast",    ctx.getString(R.string.sowing_broadcast)),
+        Option("Transplanted", ctx.getString(R.string.sowing_transplanted)),
+        Option("Drill Sowing", ctx.getString(R.string.sowing_drill))
     )
 
     fun yesNo(ctx: Context): List<Option> = listOf(

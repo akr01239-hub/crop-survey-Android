@@ -646,4 +646,16 @@
     <string name="crop_sit_cut_spread">ಕತ್ತರಿಸಿ ಹರಡಿ</string>
     <string name="crop_sit_bundle">ಬಂಡಲ್</string>
     <string name="crop_sit_field_removed">ಹೊಲದಿಂದ ತೆಗೆಯಲಾಗಿದೆ</string>
+    <string name="sowing_manual">ಕೈಯಿಂದ</string>
+    <string name="sowing_mechanised">ಯಂತ್ರ</string>
+    <string name="sowing_broadcast">ಬಿತ್ತನೆ</string>
+    <string name="sowing_transplanted">ನಾಟಿ</string>
+    <string name="sowing_drill">ಡ್ರಿಲ್ ಬಿತ್ತನೆ</string>
+    <string name="photo_cut_plot_instruction">ಕತ್ತರಿಸಿದ ಪ್ಲಾಟ್ ಪ್ರದೇಶದ ಫೋಟೋ</string>
+    <string name="photo_leaf_closeup_instruction">ಬೆಳೆ ಎಲೆಯ ಕ್ಲೋಸ್-ಅಪ್ ಫೋಟೋ</string>
+    <string name="yes">ಹೌದು</string>
+    <string name="text_upload">ಅಪ್‌ಲೋಡ್</string>
+    <string name="text_download">ಡೌನ್‌ಲೋಡ್</string>
+    <string name="text_next">ಮುಂದೆ</string>
+    <string name="text_prev">ಹಿಂದೆ</string>
 </resources>

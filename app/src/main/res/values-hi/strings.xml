@@ -679,4 +679,26 @@
     <string name="crop_sit_cut_spread">काटकर फैलाना</string>
     <string name="crop_sit_bundle">बंडल</string>
     <string name="crop_sit_field_removed">खेत से हटाया</string>
+    <string name="sowing_manual">हस्तचालित</string>
+    <string name="sowing_mechanised">मशीनीकृत</string>
+    <string name="sowing_broadcast">छिड़काव</string>
+    <string name="sowing_transplanted">रोपाई</string>
+    <string name="sowing_drill">ड्रिल बुवाई</string>
+    <string name="photo_cut_plot_instruction">कटे हुए प्लॉट क्षेत्र का फोटो</string>
+    <string name="photo_dry_grain_label_instruction">तराजू पर सूखा अनाज — यदि मॉइस्चर मीटर उपलब्ध नहीं</string>
+    <string name="photo_leaf_closeup_instruction">फसल की पत्ती का क्लोज-अप फोटो</string>
+    <string name="photo_moisture_reading_instruction">मॉइस्चर मीटर रीडिंग दिखाता फोटो</string>
+    <string name="photo_neighbor_field_instruction">संदर्भ के लिए पड़ोसी खेत का फोटो</string>
+    <string name="photo_other_remains_instruction">कोई अतिरिक्त प्रासंगिक फोटो</string>
+    <string name="photo_wet_weight_instruction">तराजू पर गीला अनाज (किग्रा)</string>
+    <string name="yes">हां</string>
+    <string name="text_upload">अपलोड</string>
+    <string name="text_download">डाउनलोड</string>
+    <string name="text_attachment">अटैचमेंट</string>
+    <string name="text_document">दस्तावेज़</string>
+    <string name="text_view_file">फ़ाइल देखें</string>
+    <string name="text_search_results">खोज परिणाम</string>
+    <string name="text_next">अगला</string>
+    <string name="text_prev">पिछला</string>
+    <string name="text_queue">कतार</string>
 </resources>

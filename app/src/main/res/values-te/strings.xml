@@ -646,4 +646,16 @@
     <string name="crop_sit_cut_spread">కోసి పరచడం</string>
     <string name="crop_sit_bundle">బండిల్</string>
     <string name="crop_sit_field_removed">పొలం నుండి తొలగించారు</string>
+    <string name="sowing_manual">చేతితో</string>
+    <string name="sowing_mechanised">యంత్రం</string>
+    <string name="sowing_broadcast">చల్లడం</string>
+    <string name="sowing_transplanted">నాటడం</string>
+    <string name="sowing_drill">డ్రిల్ విత్తనం</string>
+    <string name="photo_cut_plot_instruction">కోసిన ప్లాట్ ప్రాంతం ఫోటో</string>
+    <string name="photo_leaf_closeup_instruction">పంట ఆకు క్లోజ్-అప్ ఫోటో</string>
+    <string name="yes">అవును</string>
+    <string name="text_upload">అప్‌లోడ్</string>
+    <string name="text_download">డౌన్‌లోడ్</string>
+    <string name="text_next">తదుపరి</string>
+    <string name="text_prev">మునుపటి</string>
 </resources>

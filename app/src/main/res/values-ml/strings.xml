@@ -641,4 +641,16 @@
     <string name="crop_sit_cut_spread">മുറിച്ച് വിരിക്കുക</string>
     <string name="crop_sit_bundle">കെട്ട്</string>
     <string name="crop_sit_field_removed">വയലിൽ നിന്ന് നീക്കം ചെയ്തു</string>
+    <string name="sowing_manual">കൈകൊണ്ട്</string>
+    <string name="sowing_mechanised">യന്ത്രം</string>
+    <string name="sowing_broadcast">വിതറൽ</string>
+    <string name="sowing_transplanted">നടീൽ</string>
+    <string name="sowing_drill">ഡ്രിൽ വിതയ്ക്കൽ</string>
+    <string name="photo_cut_plot_instruction">മുറിച്ച പ്ലോട്ട് പ്രദേശത്തിന്റെ ഫോട്ടോ</string>
+    <string name="photo_leaf_closeup_instruction">വിള ഇലയുടെ ക്ലോസ്-അപ്പ് ഫോട്ടോ</string>
+    <string name="yes">അതെ</string>
+    <string name="text_upload">അപ്‌ലോഡ്</string>
+    <string name="text_download">ഡൗൺലോഡ്</string>
+    <string name="text_next">അടുത്തത്</string>
+    <string name="text_prev">മുമ്പത്തെ</string>
 </resources>

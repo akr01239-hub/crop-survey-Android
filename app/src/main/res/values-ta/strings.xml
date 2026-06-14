@@ -646,4 +646,16 @@
     <string name="crop_sit_cut_spread">வெட்டி பரப்பு</string>
     <string name="crop_sit_bundle">கட்டு</string>
     <string name="crop_sit_field_removed">வயலிலிருந்து அகற்றியது</string>
+    <string name="sowing_manual">கைமுறை</string>
+    <string name="sowing_mechanised">இயந்திர</string>
+    <string name="sowing_broadcast">தூவி விதைப்பு</string>
+    <string name="sowing_transplanted">நடவு</string>
+    <string name="sowing_drill">துளை விதைப்பு</string>
+    <string name="photo_cut_plot_instruction">வெட்டிய நிலப்பகுதியின் படம்</string>
+    <string name="photo_leaf_closeup_instruction">பயிர் இலையின் நெருக்கப் படம்</string>
+    <string name="yes">ஆம்</string>
+    <string name="text_upload">பதிவேற்றம்</string>
+    <string name="text_download">பதிவிறக்கம்</string>
+    <string name="text_next">அடுத்து</string>
+    <string name="text_prev">முந்தைய</string>
 </resources>

@@ -646,4 +646,14 @@
     <string name="crop_sit_cut_spread">କାଟି ବିସ୍ତାର</string>
     <string name="crop_sit_bundle">ବଣ୍ଡଲ</string>
     <string name="crop_sit_field_removed">କ୍ଷେତ୍ରରୁ ହଟାଇଦିଆଯାଇଛି</string>
+    <string name="sowing_manual">ହାତରେ</string>
+    <string name="sowing_mechanised">ଯାନ୍ତ୍ରିକ</string>
+    <string name="sowing_broadcast">ଛିଟା ବୁଣା</string>
+    <string name="sowing_transplanted">ରୋପଣ</string>
+    <string name="sowing_drill">ଡ୍ରିଲ ବୁଣା</string>
+    <string name="yes">ହଁ</string>
+    <string name="text_upload">ଅପଲୋଡ</string>
+    <string name="text_download">ଡାଉନଲୋଡ</string>
+    <string name="text_next">ପରବର୍ତ୍ତୀ</string>
+    <string name="text_prev">ପୂର୍ବ</string>
 </resources>

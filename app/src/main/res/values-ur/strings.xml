@@ -646,4 +646,14 @@
     <string name="crop_sit_cut_spread">کاٹ کر پھیلانا</string>
     <string name="crop_sit_bundle">بنڈل</string>
     <string name="crop_sit_field_removed">کھیت سے ہٹایا</string>
+    <string name="sowing_manual">ہاتھ سے</string>
+    <string name="sowing_mechanised">مشینی</string>
+    <string name="sowing_broadcast">چھڑکاؤ</string>
+    <string name="sowing_transplanted">منتقلی</string>
+    <string name="sowing_drill">ڈرل بوائی</string>
+    <string name="yes">ہاں</string>
+    <string name="text_upload">اپ لوڈ</string>
+    <string name="text_download">ڈاؤن لوڈ</string>
+    <string name="text_next">اگلا</string>
+    <string name="text_prev">پچھلا</string>
 </resources>

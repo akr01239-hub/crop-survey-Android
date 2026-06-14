@@ -641,4 +641,14 @@
     <string name="crop_sit_cut_spread">काटना आरो बिजिरना</string>
     <string name="crop_sit_bundle">बान्डेल</string>
     <string name="crop_sit_field_removed">हानिखौनिफ्राय होखोनाय</string>
+    <string name="sowing_manual">हानजा</string>
+    <string name="sowing_mechanised">मेसिन</string>
+    <string name="sowing_broadcast">बिजिरना</string>
+    <string name="sowing_transplanted">सोलायना</string>
+    <string name="sowing_drill">ड्रिल गोथ</string>
+    <string name="yes">जों</string>
+    <string name="text_upload">आपलड</string>
+    <string name="text_download">डाउनलड</string>
+    <string name="text_next">उनाव</string>
+    <string name="text_prev">सिगां</string>
 </resources>

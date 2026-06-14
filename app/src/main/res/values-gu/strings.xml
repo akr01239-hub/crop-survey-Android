@@ -646,4 +646,17 @@
     <string name="crop_sit_cut_spread">કાપીને ફેલાવવું</string>
     <string name="crop_sit_bundle">બંડલ</string>
     <string name="crop_sit_field_removed">ખેતરમાંથી દૂર</string>
+    <string name="sowing_manual">હાથથી</string>
+    <string name="sowing_mechanised">યાંત્રિક</string>
+    <string name="sowing_broadcast">છંટકાવ</string>
+    <string name="sowing_transplanted">રોપણી</string>
+    <string name="sowing_drill">ડ્રિલ વાવણી</string>
+    <string name="photo_cut_plot_instruction">કાપેલા પ્લોટ વિસ્તારનો ફોટો</string>
+    <string name="photo_leaf_closeup_instruction">પાકના પાંદડાનો ક્લોઝ-અપ ફોટો</string>
+    <string name="photo_neighbor_field_instruction">પડોશી ખેતરનો ફોટો</string>
+    <string name="yes">હા</string>
+    <string name="text_upload">અપલોડ</string>
+    <string name="text_download">ડાઉનલોડ</string>
+    <string name="text_next">આગળ</string>
+    <string name="text_prev">પાછળ</string>
 </resources>

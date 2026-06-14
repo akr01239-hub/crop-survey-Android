@@ -647,4 +647,18 @@
     <string name="crop_sit_cut_spread">कापून पसरवणे</string>
     <string name="crop_sit_bundle">बंडल</string>
     <string name="crop_sit_field_removed">शेतातून काढले</string>
+    <string name="sowing_manual">हातमशागत</string>
+    <string name="sowing_mechanised">यांत्रिक</string>
+    <string name="sowing_broadcast">पसरवणे</string>
+    <string name="sowing_transplanted">पुनर्रोपण</string>
+    <string name="sowing_drill">ड्रिल पेरणी</string>
+    <string name="photo_cut_plot_instruction">कापलेल्या प्लॉट क्षेत्राचा फोटो</string>
+    <string name="photo_leaf_closeup_instruction">पिकाच्या पानाचा क्लोज-अप फोटो</string>
+    <string name="photo_neighbor_field_instruction">शेजारच्या शेताचा फोटो</string>
+    <string name="photo_other_remains_instruction">कोणताही अतिरिक्त फोटो</string>
+    <string name="yes">होय</string>
+    <string name="text_upload">अपलोड</string>
+    <string name="text_download">डाउनलोड</string>
+    <string name="text_next">पुढे</string>
+    <string name="text_prev">मागे</string>
 </resources>

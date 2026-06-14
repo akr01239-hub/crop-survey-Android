@@ -641,4 +641,14 @@
     <string name="crop_sit_cut_spread">کاٹتھ پھیلاونٕ</string>
     <string name="crop_sit_bundle">بنڈل</string>
     <string name="crop_sit_field_removed">کھیتٕ پیٹھٕ ہٹاونٕ</string>
+    <string name="sowing_manual">ہتھ سان</string>
+    <string name="sowing_mechanised">مشینی</string>
+    <string name="sowing_broadcast">چھِڑکاو</string>
+    <string name="sowing_transplanted">مُنتقلی</string>
+    <string name="sowing_drill">ڈرل بوائی</string>
+    <string name="yes">آ</string>
+    <string name="text_upload">اپ لوڈ</string>
+    <string name="text_download">ڈاؤن لوڈ</string>
+    <string name="text_next">اگلٕ</string>
+    <string name="text_prev">پتٕ</string>
 </resources>

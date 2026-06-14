@@ -700,4 +700,14 @@
     <string name="crop_sit_cut_spread">কাটি বিয়পোৱা</string>
     <string name="crop_sit_bundle">বাণ্ডিল</string>
     <string name="crop_sit_field_removed">পথাৰৰ পৰা আঁতৰোৱা</string>
+    <string name="sowing_manual">হাতেৰে</string>
+    <string name="sowing_mechanised">যান্ত্ৰিক</string>
+    <string name="sowing_broadcast">সিঁচৰণ</string>
+    <string name="sowing_transplanted">ৰোপণ</string>
+    <string name="sowing_drill">ড্ৰিল বীজ সিঁচা</string>
+    <string name="yes">হয়</string>
+    <string name="text_upload">আপল\'ড</string>
+    <string name="text_download">ডাউনল\'ড</string>
+    <string name="text_next">পৰৱৰ্তী</string>
+    <string name="text_prev">আগৰ</string>
 </resources>

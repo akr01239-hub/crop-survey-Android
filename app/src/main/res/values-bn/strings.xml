@@ -646,4 +646,17 @@
     <string name="crop_sit_cut_spread">কেটে ছড়ানো</string>
     <string name="crop_sit_bundle">বান্ডিল</string>
     <string name="crop_sit_field_removed">মাঠ থেকে সরানো</string>
+    <string name="sowing_manual">হাতে</string>
+    <string name="sowing_mechanised">যন্ত্রচালিত</string>
+    <string name="sowing_broadcast">ছড়িয়ে</string>
+    <string name="sowing_transplanted">রোপণ</string>
+    <string name="sowing_drill">ড্রিল বপন</string>
+    <string name="photo_cut_plot_instruction">কাটা প্লট এলাকার ফটো</string>
+    <string name="photo_leaf_closeup_instruction">ফসলের পাতার ক্লোজ-আপ ফটো</string>
+    <string name="photo_neighbor_field_instruction">প্রতিবেশী মাঠের ফটো</string>
+    <string name="yes">হ্যাঁ</string>
+    <string name="text_upload">আপলোড</string>
+    <string name="text_download">ডাউনলোড</string>
+    <string name="text_next">পরবর্তী</string>
+    <string name="text_prev">আগের</string>
 </resources>

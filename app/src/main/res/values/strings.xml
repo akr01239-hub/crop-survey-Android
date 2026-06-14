@@ -805,4 +805,18 @@
     <string name="crop_sit_cut_spread">Cut &amp; Spread</string>
     <string name="crop_sit_bundle">Bundle</string>
     <string name="crop_sit_field_removed">Field Removed</string>
+    <string name="sowing_manual">Manual</string>
+    <string name="sowing_mechanised">Mechanised</string>
+    <string name="sowing_broadcast">Broadcast</string>
+    <string name="sowing_transplanted">Transplanted</string>
+    <string name="sowing_drill">Drill Sowing</string>
+    <string name="text_upload">Upload</string>
+    <string name="text_download">Download</string>
+    <string name="text_attachment">Attachment</string>
+    <string name="text_document">Document</string>
+    <string name="text_view_file">View File</string>
+    <string name="text_search_results">Search Results</string>
+    <string name="text_next">Next</string>
+    <string name="text_prev">Previous</string>
+    <string name="text_queue">Queue</string>
 </resources>
