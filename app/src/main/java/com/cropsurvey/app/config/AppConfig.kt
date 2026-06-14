@@ -98,20 +98,20 @@ object AppConfig {
 
     fun getCCEPhotos(ctx: Context): List<PhotoRequirement> {
         val base = listOf(
-        PhotoRequirement("sw_corner",              "SW Corner",               "Photo from SW corner showing crop standing in plot",            required = true),
-        PhotoRequirement("nadir_view",             "Nadir View",              "Hold phone directly overhead, camera pointing straight down",   required = true),
-        PhotoRequirement("leaf_closeup",           "Leaf Photo Closeup",      "Close-up photo of crop leaf filling the frame",                 required = true),
-        PhotoRequirement("plot_marking",           "Plot Marking",            "Four corner pegs/stakes marking the CCE plot",                  required = true),
-        PhotoRequirement("cut_plot",               "Cut Plot",                "Photo of harvested/cut plot area",                              required = true),
-        PhotoRequirement("biomass_weight",         "Biomass Weight",          "Total fresh biomass on calibrated weighing scale (kg)",          required = true),
-        PhotoRequirement("threshing_photo",        "Threshing",               "Crop being threshed (manual/mechanical)",                       required = true),
-        PhotoRequirement("wet_weight",             "Wet Weight",              "Wet grain on weighing scale (kg)",                              required = true),
-        PhotoRequirement("moisture_reading",       "Moisture % Reading",      "Moisture meter showing % moisture reading of grain sample",     required = true),
-        PhotoRequirement("dry_grain_weight",       "Dry Grain Weight",        "Dried grain on weighing scale — if moisture meter not available", required = true),
-        PhotoRequirement("witness_photo",          "Witness at Site",         "Photo of IC representative / Patwari / Farmer at CCE site",     required = true),
-        PhotoRequirement("neighbor_field",         "Neighbor Field Photo",    "Photo of the neighboring field for reference",                  required = true),
-        PhotoRequirement("representative_id_photo","Farmer Representative ID","Photo of farmer representative's ID proof",                     required = true),
-        PhotoRequirement("other_remains",          "If Any Remains",          "Any additional relevant photos",                                required = false),
+        PhotoRequirement("sw_corner",              ctx.getString(R.string.photo_sw_corner_label),     "Photo from SW corner showing crop standing in plot",            required = true),
+        PhotoRequirement("nadir_view",             ctx.getString(R.string.photo_nadir_view_label),    ctx.getString(R.string.photo_leaf_closeup_instruction),           required = true),
+        PhotoRequirement("leaf_closeup",           ctx.getString(R.string.photo_leaf_closeup),        ctx.getString(R.string.photo_leaf_closeup_instruction),           required = true),
+        PhotoRequirement("plot_marking",           ctx.getString(R.string.photo_plot_marking_label),  "Four corner pegs/stakes marking the CCE plot",                  required = true),
+        PhotoRequirement("cut_plot",               ctx.getString(R.string.photo_cut_plot),            ctx.getString(R.string.photo_cut_plot_instruction),               required = true),
+        PhotoRequirement("biomass_weight",         ctx.getString(R.string.photo_biomass_weight),      ctx.getString(R.string.photo_biomass_weight_instruction),         required = true),
+        PhotoRequirement("threshing_photo",        ctx.getString(R.string.photo_threshing_label),     "Crop being threshed (manual/mechanical)",                       required = true),
+        PhotoRequirement("wet_weight",             ctx.getString(R.string.photo_wet_weight),          ctx.getString(R.string.photo_wet_weight_instruction),             required = true),
+        PhotoRequirement("moisture_reading",       ctx.getString(R.string.photo_moisture_reading),    ctx.getString(R.string.photo_moisture_reading_instruction),       required = true),
+        PhotoRequirement("dry_grain_weight",       ctx.getString(R.string.photo_dry_grain_label),     ctx.getString(R.string.photo_dry_grain_label_instruction),        required = true),
+        PhotoRequirement("witness_photo",          ctx.getString(R.string.photo_witness_label),       "Photo of IC representative / Patwari / Farmer at CCE site",     required = true),
+        PhotoRequirement("neighbor_field",         ctx.getString(R.string.photo_neighbor_field),      ctx.getString(R.string.photo_neighbor_field_instruction),         required = true),
+        PhotoRequirement("representative_id_photo",ctx.getString(R.string.photo_rep_id),              "Photo of farmer representative ID proof",                       required = true),
+        PhotoRequirement("other_remains",          ctx.getString(R.string.photo_other_remains),       ctx.getString(R.string.photo_other_remains_instruction),          required = false),
         )
         return base
     }
@@ -286,6 +286,24 @@ object AppConfig {
         "Farmer", "Farmer + IC Representative", "Other"
     )
     val CCE_SAMPLING_METHOD   = listOf("Random Sampling", "Systematic Sampling", "Smart Sampling (SST)")
+
+    // Translated versions
+    fun ccePlotSizes(ctx: android.content.Context) = listOf(
+        ctx.getString(R.string.plot_10x10), ctx.getString(R.string.plot_5x5), ctx.getString(R.string.plot_5x10))
+    fun ccePlotShapes(ctx: android.content.Context) = listOf(
+        ctx.getString(R.string.shape_triangle), ctx.getString(R.string.shape_rectangle),
+        ctx.getString(R.string.shape_square), ctx.getString(R.string.shape_circle))
+    fun cceThreshingMethods(ctx: android.content.Context) = listOf(
+        ctx.getString(R.string.threshing_manual), ctx.getString(R.string.threshing_mechanical), ctx.getString(R.string.threshing_pedal))
+    fun cceCropCondition(ctx: android.content.Context) = listOf(
+        ctx.getString(R.string.cce_normal), ctx.getString(R.string.cce_lodging),
+        ctx.getString(R.string.cce_partial), ctx.getString(R.string.cce_heavy), ctx.getString(R.string.cce_failure))
+    fun cceWitnessTypes(ctx: android.content.Context) = listOf(
+        ctx.getString(R.string.witness_ic_rep), ctx.getString(R.string.witness_revenue),
+        ctx.getString(R.string.witness_agri), ctx.getString(R.string.witness_farmer),
+        ctx.getString(R.string.witness_farmer_ic), ctx.getString(R.string.witness_other))
+    fun cceSamplingMethods(ctx: android.content.Context) = listOf(
+        ctx.getString(R.string.sampling_random), ctx.getString(R.string.sampling_systematic), ctx.getString(R.string.sampling_smart))
 }
 
 data class PhotoRequirement(

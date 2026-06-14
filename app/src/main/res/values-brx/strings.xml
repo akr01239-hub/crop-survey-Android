@@ -651,4 +651,19 @@
     <string name="text_download">डाउनलड</string>
     <string name="text_next">उनाव</string>
     <string name="text_prev">सिगां</string>
+    <string name="shape_triangle">सामखोन्दो</string>
+    <string name="shape_rectangle">जलं</string>
+    <string name="shape_square">बर्गो</string>
+    <string name="shape_circle">गुसुं</string>
+    <string name="witness_ic_rep">बिमा कमपानीनि दैदेनग्रा</string>
+    <string name="witness_revenue">सोंग्रां अफिसार (पटवारी)</string>
+    <string name="witness_agri">हालो अफिसार</string>
+    <string name="witness_farmer">हालो</string>
+    <string name="witness_other">गोबां</string>
+    <string name="cce_normal">गासैबो</string>
+    <string name="cce_partial">बादि गोग्लैनाय</string>
+    <string name="cce_heavy">जोबोद गोग्लैनाय</string>
+    <string name="cce_failure">गासै बिगोमा</string>
+    <string name="hint_select_method">फारा बासि</string>
+    <string name="hint_select_witness">साखि बासि</string>
 </resources>

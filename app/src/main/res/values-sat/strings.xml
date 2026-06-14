@@ -710,4 +710,19 @@
     <string name="text_download">ᱰᱟᱣᱱᱞᱚᱰ</string>
     <string name="text_next">ᱤᱱᱟᱹ ᱛᱟᱭᱚᱢ</string>
     <string name="text_prev">ᱥᱤᱜᱟᱹᱧ</string>
+    <string name="shape_triangle">ᱥᱟᱢᱠᱷᱚᱱᱫᱚ</string>
+    <string name="shape_rectangle">ᱡᱚᱞᱚᱝ</string>
+    <string name="shape_square">ᱵᱚᱨᱜᱚ</string>
+    <string name="shape_circle">ᱜᱩᱥᱩᱝ</string>
+    <string name="witness_ic_rep">ᱵᱤᱢᱟ ᱠᱚᱢᱯᱟᱱᱤ ᱯᱨᱚᱛᱤᱱᱤᱫᱷᱤ</string>
+    <string name="witness_revenue">ᱨᱮᱵᱮᱱᱤᱭᱩ ᱚᱯᱷᱤᱥᱟᱨ (ᱯᱟᱴᱣᱟᱨᱤ)</string>
+    <string name="witness_agri">ᱠᱷᱮᱛᱤ ᱚᱯᱷᱤᱥᱟᱨ</string>
+    <string name="witness_farmer">ᱠᱷᱮᱛᱤᱭᱟᱹ</string>
+    <string name="witness_other">ᱟᱨᱦᱚᱸ</string>
+    <string name="cce_normal">ᱥᱟᱫᱷᱟᱨᱚᱬ</string>
+    <string name="cce_partial">ᱟᱸᱥᱤᱠ ᱦᱟᱱᱤ</string>
+    <string name="cce_heavy">ᱡᱚᱵᱚᱫ ᱦᱟᱱᱤ</string>
+    <string name="cce_failure">ᱯᱩᱨᱟ ᱵᱤᱜᱚᱢᱟ</string>
+    <string name="hint_select_method">ᱯᱟᱲᱟ ᱵᱟᱪᱷᱟᱣ ᱢᱮ</string>
+    <string name="hint_select_witness">ᱥᱟᱠᱷᱤ ᱵᱟᱪᱷᱟᱣ ᱢᱮ</string>
 </resources>

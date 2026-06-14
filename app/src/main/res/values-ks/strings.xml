@@ -651,4 +651,19 @@
     <string name="text_download">ڈاؤن لوڈ</string>
     <string name="text_next">اگلٕ</string>
     <string name="text_prev">پتٕ</string>
+    <string name="shape_triangle">مثلث</string>
+    <string name="shape_rectangle">مستطیل</string>
+    <string name="shape_square">مربع</string>
+    <string name="shape_circle">دائرٕ</string>
+    <string name="witness_ic_rep">انشورنس کمپنی نمائندٕ</string>
+    <string name="witness_revenue">ریونیو افسر (پٹواری)</string>
+    <string name="witness_agri">زراعت افسر</string>
+    <string name="witness_farmer">کِسان</string>
+    <string name="witness_other">بیاکھ</string>
+    <string name="cce_normal">نارمل</string>
+    <string name="cce_partial">جزوی نقصان</string>
+    <string name="cce_heavy">شدید نقصان</string>
+    <string name="cce_failure">مکمل ناکامی</string>
+    <string name="hint_select_method">طریقٕ چُنو</string>
+    <string name="hint_select_witness">گواہ قسم چُنو</string>
 </resources>
