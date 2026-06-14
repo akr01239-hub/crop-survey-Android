@@ -124,7 +124,7 @@
     <string name="field_cause_of_event">हाथाव कारण</string>
     <string name="field_crop_stage">जायगानि थाखो</string>
     <string name="field_cropping_pattern">जायगा पद्धति</string>
-    <string name="field_khasra_no">खसरा नाम्बर</string>
+    <string name="field_khasra_no">खसरा नं / सार्भे नं</string>
     <string name="field_field_area_polygon">माट जायगा (पलिगन)</string>
     <string name="field_total_land_area">मुलनि माट (हे.)</string>
     <string name="field_insured_area">बिमा माट (हे.)</string>
@@ -666,4 +666,6 @@
     <string name="cce_failure">गासै बिगोमा</string>
     <string name="hint_select_method">फारा बासि</string>
     <string name="hint_select_witness">साखि बासि</string>
+    <string name="no">नङा</string>
+    <string name="btn_submit_arrow">थिसन खालाम →</string>
 </resources>

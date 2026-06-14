@@ -124,7 +124,7 @@
     <string name="field_cause_of_event">സംഭവത്തിന്റെ കാരണം</string>
     <string name="field_crop_stage">വിള ഘട്ടം</string>
     <string name="field_cropping_pattern">കൃഷി രീതി</string>
-    <string name="field_khasra_no">ഖസ്‌ര നമ്പർ</string>
+    <string name="field_khasra_no">ഖസ്ര നം. / സർവ്വേ നം.</string>
     <string name="field_field_area_polygon">പാടത്തിന്റെ വിസ്തൃതി (പോളിഗൺ)</string>
     <string name="field_total_land_area">ആകെ ഭൂമി (ഹെ.)</string>
     <string name="field_insured_area">ഇൻഷ്വർ ചെയ്ത ഭൂമി (ഹെ.)</string>
@@ -680,4 +680,6 @@
     <string name="hint_select_method">രീതി തിരഞ്ഞെടുക്കുക</string>
     <string name="hint_select_sampling">സാമ്പിൾ രീതി തിരഞ്ഞെടുക്കുക</string>
     <string name="hint_select_witness">സാക്ഷി തരം തിരഞ്ഞെടുക്കുക</string>
+    <string name="no">ഇല്ല</string>
+    <string name="btn_submit_arrow">സമർപ്പിക്കുക →</string>
 </resources>

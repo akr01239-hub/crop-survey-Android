@@ -122,7 +122,7 @@
     <string name="field_cause_of_event">ਘਟਨਾ ਦਾ ਕਾਰਨ</string>
     <string name="field_crop_stage">ਫਸਲ ਅਵਸਥਾ</string>
     <string name="field_cropping_pattern">ਫਸਲ ਪੈਟਰਨ</string>
-    <string name="field_khasra_no">ਖਸਰਾ ਨੰਬਰ</string>
+    <string name="field_khasra_no">ਖਸਰਾ ਨੰ. / ਸਰਵੇ ਨੰ.</string>
     <string name="field_field_area_polygon">ਖੇਤ ਖੇਤਰ (ਪੌਲੀਗਨ)</string>
     <string name="field_total_land_area">ਕੁੱਲ ਜ਼ਮੀਨ ਖੇਤਰ (ਹੈ.)</string>
     <string name="field_insured_area">ਬੀਮਾਕ੍ਰਿਤ ਖੇਤਰ (ਹੈ.)</string>
@@ -683,4 +683,6 @@
     <string name="hint_select_method">ਢੰਗ ਚੁਣੋ</string>
     <string name="hint_select_sampling">ਨਮੂਨਾ ਢੰਗ ਚੁਣੋ</string>
     <string name="hint_select_witness">ਗਵਾਹ ਕਿਸਮ ਚੁਣੋ</string>
+    <string name="no">ਨਹੀਂ</string>
+    <string name="btn_submit_arrow">ਜਮ੍ਹਾ ਕਰੋ →</string>
 </resources>

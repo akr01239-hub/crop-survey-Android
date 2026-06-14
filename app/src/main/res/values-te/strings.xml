@@ -122,7 +122,7 @@
     <string name="field_cause_of_event">సంఘటన కారణం</string>
     <string name="field_crop_stage">పంట దశ</string>
     <string name="field_cropping_pattern">పంట విధానం</string>
-    <string name="field_khasra_no">ఖాస్రా నంబర్</string>
+    <string name="field_khasra_no">ఖస్రా నం. / సర్వే నం.</string>
     <string name="field_field_area_polygon">పొలం విస్తీర్ణం (పాలిగాన్)</string>
     <string name="field_total_land_area">మొత్తం భూమి విస్తీర్ణం (హె.)</string>
     <string name="field_insured_area">బీమా విస్తీర్ణం (హె.)</string>
@@ -685,4 +685,6 @@
     <string name="hint_select_method">పద్ధతి ఎంచుకోండి</string>
     <string name="hint_select_sampling">నమూనా పద్ధతి ఎంచుకోండి</string>
     <string name="hint_select_witness">సాక్షి రకం ఎంచుకోండి</string>
+    <string name="no">కాదు</string>
+    <string name="btn_submit_arrow">సమర్పించండి →</string>
 </resources>

@@ -124,7 +124,7 @@
     <string name="field_cause_of_event">واقعے کا سبب</string>
     <string name="field_crop_stage">فصل مرحلہ</string>
     <string name="field_cropping_pattern">فصل طریقہ</string>
-    <string name="field_khasra_no">خسرہ نمبر</string>
+    <string name="field_khasra_no">خسرٕ نمبر / سروے نمبر</string>
     <string name="field_field_area_polygon">کھیت رقبہ (پولیگون)</string>
     <string name="field_total_land_area">کل زمین (ہیکٹر)</string>
     <string name="field_insured_area">بیمہ شدہ زمین (ہیکٹر)</string>
@@ -666,4 +666,6 @@
     <string name="cce_failure">مکمل ناکامی</string>
     <string name="hint_select_method">طریقٕ چُنو</string>
     <string name="hint_select_witness">گواہ قسم چُنو</string>
+    <string name="no">نہٕ</string>
+    <string name="btn_submit_arrow">جمع کٔرو →</string>
 </resources>

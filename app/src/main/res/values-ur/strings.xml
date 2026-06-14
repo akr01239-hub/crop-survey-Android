@@ -122,7 +122,7 @@
     <string name="field_cause_of_event">واقعے کا سبب</string>
     <string name="field_crop_stage">فصل کا مرحلہ</string>
     <string name="field_cropping_pattern">فصل کا نمونہ</string>
-    <string name="field_khasra_no">خسرہ نمبر</string>
+    <string name="field_khasra_no">خسرہ نمبر / سروے نمبر</string>
     <string name="field_field_area_polygon">کھیت رقبہ (پولیگون)</string>
     <string name="field_total_land_area">کل رقبہ (ہیکٹر)</string>
     <string name="field_insured_area">بیمہ شدہ رقبہ (ہیکٹر)</string>
@@ -683,4 +683,6 @@
     <string name="hint_select_method">طریقہ منتخب کریں</string>
     <string name="hint_select_sampling">نمونہ طریقہ منتخب کریں</string>
     <string name="hint_select_witness">گواہ قسم منتخب کریں</string>
+    <string name="no">نہیں</string>
+    <string name="btn_submit_arrow">جمع کریں →</string>
 </resources>

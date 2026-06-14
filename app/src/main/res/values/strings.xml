@@ -142,7 +142,7 @@
     <string name="field_cause_of_event">Cause of Event</string>
     <string name="field_crop_stage">Crop Stage</string>
     <string name="field_cropping_pattern">Cropping Pattern</string>
-    <string name="field_khasra_no">Khasra No/Survey No.</string>
+    <string name="field_khasra_no">Khasra No / Survey No.</string>
     <string name="field_field_area_polygon">Field Area (Polygon)</string>
     <string name="field_total_land_area">Total Land Area (Ha)</string>
     <string name="field_insured_area">Insured Area (Ha)</string>
@@ -846,4 +846,5 @@
     <string name="hint_select_method">Select Method</string>
     <string name="hint_select_sampling">Select Sampling Method</string>
     <string name="hint_select_witness">Select Witness Type</string>
+    <string name="btn_submit_arrow">SUBMIT →</string>
 </resources>

@@ -122,7 +122,7 @@
     <string name="field_cause_of_event">घटनेचे कारण</string>
     <string name="field_crop_stage">पीक अवस्था</string>
     <string name="field_cropping_pattern">पीक पद्धती</string>
-    <string name="field_khasra_no">खसरा नंबर</string>
+    <string name="field_khasra_no">खसरा क्र. / सर्वे क्र.</string>
     <string name="field_field_area_polygon">शेत क्षेत्र (बहुभुज)</string>
     <string name="field_total_land_area">एकूण जमीन क्षेत्र (हे.)</string>
     <string name="field_insured_area">विमाकृत क्षेत्र (हे.)</string>
@@ -688,4 +688,6 @@
     <string name="hint_select_method">पद्धत निवडा</string>
     <string name="hint_select_sampling">नमुना पद्धत निवडा</string>
     <string name="hint_select_witness">साक्षीदार प्रकार निवडा</string>
+    <string name="no">नाही</string>
+    <string name="btn_submit_arrow">सबमिट करा →</string>
 </resources>

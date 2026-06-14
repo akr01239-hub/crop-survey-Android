@@ -122,7 +122,7 @@
     <string name="field_cause_of_event">घटना का कारण</string>
     <string name="field_crop_stage">फसल अवस्था</string>
     <string name="field_cropping_pattern">फसल पद्धति</string>
-    <string name="field_khasra_no">खसरा नंबर</string>
+    <string name="field_khasra_no">खसरा नं. / सर्वे नं.</string>
     <string name="field_field_area_polygon">खेत क्षेत्र (पॉलीगॉन)</string>
     <string name="field_total_land_area">कुल भूमि क्षेत्र (हे.)</string>
     <string name="field_insured_area">बीमाकृत क्षेत्र (हे.)</string>
@@ -728,4 +728,6 @@
     <string name="hint_select_method">विधि चुनें</string>
     <string name="hint_select_sampling">नमूना विधि चुनें</string>
     <string name="hint_select_witness">गवाह प्रकार चुनें</string>
+    <string name="no">नहीं</string>
+    <string name="btn_submit_arrow">जमा करें →</string>
 </resources>

@@ -122,7 +122,7 @@
     <string name="field_cause_of_event">ଘ˙ ˙ ˙ ˙ ˙ ˙ ˙ ˙ ˙ ˙</string>
     <string name="field_crop_stage">ଫ˙ ˙ ˙ ˙ ˙ ˙ ˙ ˙</string>
     <string name="field_cropping_pattern">ଫ˙ ˙ ˙ ˙ ˙ ˙ ˙ ˙ ˙</string>
-    <string name="field_khasra_no">ଖ˙ ˙ ˙ ˙ ˙ ˙ ˙</string>
+    <string name="field_khasra_no">ଖସରା ନଂ / ସର୍ଭେ ନଂ</string>
     <string name="field_field_area_polygon">ଜ˙ ˙ ˙ ˙ ˙ ˙ ˙ ˙ ˙</string>
     <string name="field_total_land_area">ମ˙ ˙ ˙ ˙ ˙ ˙ ˙ ˙ ˙ ˙ ˙ ˙ ˙</string>
     <string name="field_insured_area">ବ˙ ˙ ˙ ˙ ˙ ˙ ˙ ˙ ˙ ˙ ˙</string>
@@ -683,4 +683,6 @@
     <string name="hint_select_method">ପଦ୍ଧତି ବାଛନ୍ତୁ</string>
     <string name="hint_select_sampling">ନମୁନା ପଦ୍ଧତି ବାଛନ୍ତୁ</string>
     <string name="hint_select_witness">ସାକ୍ଷୀ ପ୍ରକାର ବାଛନ୍ତୁ</string>
+    <string name="no">ନାହିଁ</string>
+    <string name="btn_submit_arrow">ଦାଖଲ କରନ୍ତୁ →</string>
 </resources>

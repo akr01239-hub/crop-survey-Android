@@ -137,7 +137,7 @@
     <string name="field_cause_of_event">ᱜᱷᱴᱚᱱᱟ ᱠᱟᱨᱚᱱ</string>
     <string name="field_crop_stage">ᱜᱚᱛ ᱟᱵᱚᱥᱛᱷᱟ</string>
     <string name="field_cropping_pattern">ᱜᱚᱛ ᱯᱚᱫᱽᱫᱷᱚᱛᱤ</string>
-    <string name="field_khasra_no">ᱠᱷᱟᱥᱨᱟ ᱱᱚᱸᱵᱚᱨ</string>
+    <string name="field_khasra_no">ᱠᱷᱚᱥᱨᱟ ᱱᱚᱢᱵᱚᱨ / ᱥᱟᱨᱵᱮ ᱱᱚᱢᱵᱚᱨ</string>
     <string name="field_field_area_polygon">ᱠᱷᱮᱛ ᱡᱟᱭᱜᱟ (ᱯᱚᱞᱤᱜᱚᱱ)</string>
     <string name="field_total_land_area">ᱢᱩᱱᱟ ᱡᱚᱢᱤᱱ (ᱦᱮ.)</string>
     <string name="field_insured_area">ᱵᱤᱢᱟ ᱡᱚᱢᱤᱱ (ᱦᱮ.)</string>
@@ -725,4 +725,6 @@
     <string name="cce_failure">ᱯᱩᱨᱟ ᱵᱤᱜᱚᱢᱟ</string>
     <string name="hint_select_method">ᱯᱟᱲᱟ ᱵᱟᱪᱷᱟᱣ ᱢᱮ</string>
     <string name="hint_select_witness">ᱥᱟᱠᱷᱤ ᱵᱟᱪᱷᱟᱣ ᱢᱮ</string>
+    <string name="no">ᱵᱟᱝ</string>
+    <string name="btn_submit_arrow">ᱡᱚᱢᱟ ᱢᱮ →</string>
 </resources>

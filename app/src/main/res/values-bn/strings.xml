@@ -122,7 +122,7 @@
     <string name="field_cause_of_event">ঘটনার কারণ</string>
     <string name="field_crop_stage">ফসলের পর্যায়</string>
     <string name="field_cropping_pattern">ফসল পদ্ধতি</string>
-    <string name="field_khasra_no">খসরা নম্বর</string>
+    <string name="field_khasra_no">খসরা নং / সার্ভে নং</string>
     <string name="field_field_area_polygon">মাঠের আয়তন (পলিগন)</string>
     <string name="field_total_land_area">মোট জমির পরিমাণ (হে.)</string>
     <string name="field_insured_area">বিমাকৃত জমি (হে.)</string>
@@ -686,4 +686,6 @@
     <string name="hint_select_method">পদ্ধতি নির্বাচন</string>
     <string name="hint_select_sampling">নমুনা পদ্ধতি নির্বাচন</string>
     <string name="hint_select_witness">সাক্ষী ধরন নির্বাচন</string>
+    <string name="no">না</string>
+    <string name="btn_submit_arrow">জমা দিন →</string>
 </resources>

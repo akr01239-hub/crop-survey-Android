@@ -137,7 +137,7 @@
     <string name="field_cause_of_event">ঘটনাৰ কাৰণ</string>
     <string name="field_crop_stage">শস্যৰ অৱস্থা</string>
     <string name="field_cropping_pattern">শস্য পদ্ধতি</string>
-    <string name="field_khasra_no">খচৰা নম্বৰ</string>
+    <string name="field_khasra_no">খছৰা নং / সমীক্ষা নং</string>
     <string name="field_field_area_polygon">পথাৰৰ মাটি (পলিগন)</string>
     <string name="field_total_land_area">মুঠ মাটি (হে.)</string>
     <string name="field_insured_area">বীমা কৰা মাটি (হে.)</string>
@@ -737,4 +737,6 @@
     <string name="hint_select_method">পদ্ধতি বাছক</string>
     <string name="hint_select_sampling">নমুনা পদ্ধতি বাছক</string>
     <string name="hint_select_witness">সাক্ষী ধৰণ বাছক</string>
+    <string name="no">নহয়</string>
+    <string name="btn_submit_arrow">জমা দিয়ক →</string>
 </resources>

@@ -230,7 +230,7 @@
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_weight="1.5"
-            android:text="Submit →"
+            android:text="@string/btn_submit_arrow"
             android:backgroundTint="#16A34A"
             android:textColor="#FFFFFF"
             android:textSize="14sp"
