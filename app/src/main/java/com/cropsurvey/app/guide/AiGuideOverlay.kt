@@ -160,8 +160,6 @@ object AiGuideOverlay {
     // ── Public API ────────────────────────────────────────────────────────────
 
     fun isEnabled(ctx: Context): Boolean {
-        // Auto-enable for first N surveys regardless of manual toggle
-        if (getSubmittedSurveysCount(ctx) < AUTO_GUIDE_SURVEYS) return true
         return prefs(ctx).getBoolean(KEY_ENABLED, true)
     }
 
