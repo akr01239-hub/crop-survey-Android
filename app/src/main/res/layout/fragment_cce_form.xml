@@ -318,6 +318,17 @@
                     android:background="@android:color/transparent" android:paddingLeft="12dp" android:paddingRight="12dp"/>
             </FrameLayout>
 
+            <LinearLayout android:id="@+id/layout_other_crop" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
+                <TextView android:id="@+id/lbl_other_crop" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="@string/field_crop_name" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
+                <FrameLayout android:id="@+id/frame_et_other_crop" android:layout_width="match_parent" android:layout_height="48dp"
+                    android:background="@drawable/input_background" android:layout_marginBottom="12dp">
+                    <EditText android:id="@+id/et_other_crop" android:layout_width="match_parent" android:layout_height="match_parent"
+                        android:background="@android:color/transparent" android:hint="@string/hint_specify_crop" android:padding="12dp"/>
+                </FrameLayout>
+            </LinearLayout>
+
             <TextView android:id="@+id/lbl_crop_variety" android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:text="@string/field_crop_variety" android:textSize="12sp" android:textColor="#64748B" android:layout_marginBottom="4dp"/>
             <FrameLayout android:id="@+id/frame_et_crop_variety" android:layout_width="match_parent" android:layout_height="48dp"

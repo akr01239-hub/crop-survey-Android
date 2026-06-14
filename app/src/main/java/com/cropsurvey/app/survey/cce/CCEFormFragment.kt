@@ -74,6 +74,8 @@ class CCEFormFragment : Fragment() {
     // ── Section 4: Crop Details ───────────────────────────────────
     private lateinit var spCropName: Spinner
     private lateinit var etCropVariety: EditText
+    private lateinit var etOtherCrop: EditText
+    private lateinit var layoutOtherCrop: View
     private lateinit var spInsuranceUnit: Spinner
     private lateinit var etSowingDate: EditText
     private lateinit var spCropStage: Spinner
@@ -142,6 +144,7 @@ class CCEFormFragment : Fragment() {
     private lateinit var lblKhasra: TextView
     private lateinit var lblCropName: TextView
     private lateinit var lblCropVariety: TextView
+    private lateinit var lblOtherCrop: TextView
     private lateinit var lblInsuranceUnit: TextView
     private lateinit var lblSowingDate: TextView
     private lateinit var lblCropStage: TextView
@@ -306,6 +309,8 @@ class CCEFormFragment : Fragment() {
         etKhasraNo           = v.findViewById(R.id.et_khasra_no)
         spCropName           = v.findViewById(R.id.sp_crop_name)
         etCropVariety        = v.findViewById(R.id.et_crop_variety)
+        etOtherCrop          = v.findViewById(R.id.et_other_crop)
+        layoutOtherCrop      = v.findViewById(R.id.layout_other_crop)
         spInsuranceUnit      = v.findViewById(R.id.sp_insurance_unit)
         etSowingDate         = v.findViewById(R.id.et_sowing_date)
         spCropStage          = v.findViewById(R.id.sp_crop_stage)
@@ -373,6 +378,7 @@ class CCEFormFragment : Fragment() {
         lblKhasra            = v.findViewById(R.id.lbl_khasra)
         lblCropName          = v.findViewById(R.id.lbl_crop_name)
         lblCropVariety       = v.findViewById(R.id.lbl_crop_variety)
+        lblOtherCrop         = v.findViewById(R.id.lbl_other_crop)
         lblInsuranceUnit     = v.findViewById(R.id.lbl_insurance_unit)
         lblSowingDate        = v.findViewById(R.id.lbl_sowing_date)
         lblCropStage         = v.findViewById(R.id.lbl_crop_stage)
@@ -445,6 +451,7 @@ class CCEFormFragment : Fragment() {
         updateFieldUi(etKhasraNo,            lblKhasra,            R.id.frame_et_khasra_no)
         updateSpinnerUi(spCropName,          lblCropName,          R.id.frame_sp_crop_name)
         updateFieldUi(etCropVariety,         lblCropVariety,       R.id.frame_et_crop_variety)
+        updateFieldUi(etOtherCrop,           lblOtherCrop,         R.id.frame_et_other_crop)
         updateSpinnerUi(spInsuranceUnit,     lblInsuranceUnit,     R.id.frame_sp_insurance_unit)
         updateFieldUi(etSowingDate,          lblSowingDate,        R.id.frame_et_sowing_date)
         updateSpinnerUi(spCropStage,         lblCropStage,         R.id.frame_sp_crop_stage)
@@ -591,6 +598,7 @@ class CCEFormFragment : Fragment() {
         etFarmerAppNo.addTextChangedListener(watcher(3))
         etKhasraNo.addTextChangedListener(watcher(3))
         etCropVariety.addTextChangedListener(watcher(4))
+        etOtherCrop.addTextChangedListener(watcher(4))
         etDiseaseName.addTextChangedListener(watcher(4))
         etSowingDate.addTextChangedListener(watcher(4))
 
@@ -1015,6 +1023,7 @@ class CCEFormFragment : Fragment() {
         etRevenueCircle.setText(fd["revenue_circle"]?.toString() ?: "")
         etGramPanchayat.setText(fd["gram_panchayat"]?.toString() ?: "")
         etCropVariety.setText(fd["crop_variety"]?.toString() ?: "")
+        etOtherCrop.setText(fd["other_crop"]?.toString() ?: "")
         etDiseaseName.setText(fd["disease_name"]?.toString() ?: "")
         etSowingDate.setText(fd["sowing_date"]?.toString() ?: "")
 
@@ -1055,6 +1064,7 @@ class CCEFormFragment : Fragment() {
 
         updateDryGrainCalc()
 
+        layoutOtherCrop.visibility = if (fd["crop_name"]?.toString() in listOf("Other", "Others")) View.VISIBLE else View.GONE
         layoutDiseaseName.visibility = if (fd["any_disease"]?.toString() == "yes") View.VISIBLE else View.GONE
         layoutFarmerUnavailable.visibility = if (fd["farmer_available"]?.toString() == "no") View.VISIBLE else View.GONE
         layoutDisputeRecording.visibility = if (fd["dispute_if_any"]?.toString() == "yes") View.VISIBLE else View.GONE
