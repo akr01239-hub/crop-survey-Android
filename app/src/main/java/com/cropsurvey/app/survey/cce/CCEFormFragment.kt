@@ -640,7 +640,13 @@ class CCEFormFragment : Fragment() {
             override fun onNothingSelected(p: AdapterView<*>?) {}
         })
         spInsuranceUnit.onItemSelectedListener    = spinnerListener(4)
-        spCropName.onItemSelectedListener         = spinnerListener(4)
+        spCropName.onItemSelectedListener            = spinnerListener(4, object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p: AdapterView<*>?, v: View?, pos: Int, id: Long) {
+                val code = tdCrops.getOrNull(pos - 1)?.code
+                layoutOtherCrop.visibility = if (code in listOf("Other", "Others")) View.VISIBLE else View.GONE
+            }
+            override fun onNothingSelected(p: AdapterView<*>?) {}
+        })
         spCropStage.onItemSelectedListener        = spinnerListener(4)
         spIrrigationType.onItemSelectedListener   = spinnerListener(4)
         spLandType.onItemSelectedListener         = spinnerListener(4)
